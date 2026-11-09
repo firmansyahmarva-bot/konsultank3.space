@@ -10,8 +10,6 @@
     "check": "node scripts/check.mjs"
   },
   "dependencies": {
-    "@astrojs/compiler-binding-wasm32-wasi": "^0.5.3",
-    "@rollup/wasm-node": "^4.68.2",
     "astro": "^5.0.0",
     "cheerio": "^1.0.0"
   }

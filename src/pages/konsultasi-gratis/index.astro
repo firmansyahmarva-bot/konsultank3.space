@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import FaqSection from '../../components/FaqSection.astro';
 import LeadBlock from '../../components/LeadBlock.astro';
-import { TARGET_SITES, CONTACT_INFO, SITE_INFO } from '../../config';
+import { TARGET_SITES, CONTACT_INFO, SITE_INFO, COMPANY_INFO } from '../../config';
 
 const title = 'Konsultasi K3 Gratis untuk Perusahaan Indonesia';
 const description = 'Layanan sesi konsultasi K3 gratis bersama tim ahli. Dapatkan evaluasi gap analisis kepatuhan regulasi, audit SMK3, dan panduan SMKK awal.';
@@ -15,7 +15,7 @@ const breadcrumbs = [
 ];
 
 const tocItems = [
-  { id: 'tentang-konsultank3', title: 'Tentang KonsultanK3: Identitas dan Profil Perusahaan' },
+  { id: 'tentang-kami', title: 'Tentang Kami: Identitas Perusahaan' },
   { id: 'apa-yang-didapat-sesi-gratis', title: 'Fasilitas yang Anda Peroleh dalam Sesi Konsultasi Gratis' },
   { id: 'alur-proses-konsultasi', title: 'Alur 4 Langkah Pelaksanaan Konsultasi K3' },
   { id: 'contoh-studi-kasus-klien', title: 'Studi Kasus Pemecahan Masalah K3 Perusahaan Klien' },
@@ -67,28 +67,25 @@ const faqItems = [
     </header>
 
     <p class="lead-paragraph">
-      Menghadapi kompleksitas regulasi ketenagakerjaan, persyaratan audit SMK3, atau persiapan berkas tender konstruksi sering kali membingungkan manajemen perusahaan. Melalui program <strong>konsultasi k3 gratis</strong>, kami membuka kesempatan diskusi teknis langsung bersama konsultan senior kami guna mendiagnosis status kepatuhan fasilitas kerja Anda tanpa komitmen finansial di muka.
+      Menghadapi kompleksitas regulasi ketenagakerjaan, persyaratan audit SMK3, atau persiapan berkas tender konstruksi sering kali membingungkan manajemen perusahaan. Melalui program <strong>konsultasi k3 gratis</strong>, kami membuka kesempatan diskusi teknis langsung bersama konsultan kami guna mendiagnosis status kepatuhan fasilitas kerja Anda tanpa komitmen finansial di muka.
     </p>
 
     <TableOfContents items={tocItems} />
 
-    <section id="tentang-konsultank3">
-      <h2>Tentang KonsultanK3: Identitas dan Profil Perusahaan</h2>
+    <section id="tentang-kami">
+      <h2>Tentang Kami</h2>
       <p>
-        <strong>KonsultanK3</strong> adalah lembaga konsultasi independen yang berdedikasi memandu dunia usaha di Indonesia dalam mewujudkan lingkungan kerja yang aman, sehat, produktif, dan sepenuhnya patuh terhadap regulasi nasional. Didirikan oleh para praktisi keselamatan kerja berlisensi dengan pengalaman lebih dari satu dekade di berbagai sektor industri, kami memposisikan diri sebagai mitra pemecah masalah (problem solver) praktis bagi manajemen.
+        <strong>{SITE_INFO.name}</strong> dikelola secara sah oleh badan hukum <strong>{COMPANY_INFO.legalName}</strong> yang beralamat kantor di {COMPANY_INFO.address}. Badan usaha ini beroperasi di bidang konsultasi teknis keselamatan dan kesehatan kerja, pendampingan sertifikasi Sistem Manajemen K3 (SMK3) sesuai Peraturan Pemerintah Nomor 50 Tahun 2012, implementasi Sistem Manajemen Keselamatan Konstruksi (SMKK) berdasarkan Peraturan Menteri PUPR Nomor 10 Tahun 2021, perumusan dokumen Hazard Identification Risk Assessment and Determining Control (HIRADC), dan pembentukan Panitia Pembina Keselamatan dan Kesehatan Kerja (P2K3).
       </p>
       <p>
-        Kami meyakini bahwa keselamatan kerja bukan sekadar setumpuk sertifikat pajangan, melainkan sistem manajemen hidup yang menyatu dengan alur produksi harian. Pendekatan kami bertumpu pada asas kepraktisan: menyusun sistem dokumen yang mudah dieksekusi oleh operator lapangan, meminimalkan pemborosan birokrasi, dan mengoptimalkan anggaran klien agar setiap rupiah yang dikeluarkan memberikan imbal hasil terukur berupa nihil kecelakaan kerja (zero accident).
-      </p>
-      <p>
-        Sebagai penyedia <a href="/">layanan komprehensif konsultan K3</a> di seluruh Indonesia, kami telah mendampingi ratusan entitas bisnis mulai dari pelaku UMKM manufaktur, pergudangan logistik, penyedia jasa fabrikasi, kontraktor sipil, hingga perusahaan multinasional yang beroperasi di kawasan industri Jabodetabek, Cikarang, Karawang, Surabaya, Medan, dan Balikpapan.
+        Sebagai penyedia <a href="/">layanan komprehensif konsultan K3</a> di Indonesia, ruang lingkup kegiatan difokuskan pada analisis kesenjangan regulasi (gap analysis), bimbingan penyusunan Prosedur Operasional Standar (SOP) dan Instruksi Kerja (IK), simulasi audit internal, serta pembinaan kepatuhan teknis lingkungan kerja fisik dan kimia.
       </p>
     </section>
 
     <section id="apa-yang-didapat-sesi-gratis">
       <h2>Fasilitas yang Anda Peroleh dalam Sesi Konsultasi Gratis</h2>
       <p>
-        Program konsultasi diagnostik gratis ini dirancang secara terstruktur selama 45 hingga 60 menit. Kami tidak menyajikan seminar teori yang membosankan, melainkan telaah tajam terhadap kondisi riil organisasi Anda:
+        Program konsultasi diagnostik gratis ini dirancang secara terstruktur selama 45 hingga 60 menit. Kami menyajikan telaah terhadap kondisi riil organisasi Anda:
       </p>
       <div class="table-wrapper">
         <table>
@@ -144,7 +141,7 @@ const faqItems = [
           <strong>Pra-Review Profil oleh Tim Teknis (1x24 Jam):</strong> Tim konsultan kami meneliti karakteristik industri Anda, peraturan perundangan sektoral yang relevan, dan riwayat risiko umum pada bidang usaha terkait.
         </li>
         <li>
-          <strong>Pelaksanaan Sesi Diskusi 1-on-1 (Online / Tatap Muka):</strong> Diskusi interaktif langsung via Google Meet / Zoom dipimpin oleh Lead Consultant berlisensi SKP Kemnaker. Kami membedah masalah Anda, memberikan jawaban atas pertanyaan regulasi, dan memaparkan solusi teknis terbaik.
+          <strong>Pelaksanaan Sesi Diskusi 1-on-1 (Online / Tatap Muka):</strong> Diskusi interaktif langsung via Google Meet / Zoom dipimpin oleh konsultan berlisensi SKP Kemnaker. Kami membedah masalah Anda, memberikan jawaban atas pertanyaan regulasi, dan memaparkan solusi teknis terbaik.
         </li>
         <li>
           <strong>Penyerahan Ringkasan Rekomendasi (Action Plan):</strong> Pasca sesi, kami mengirimkan dokumen ringkasan rekomendasi tindakan awal dan estimasi rencana kerja sebagai bahan pertimbangan pengambil keputusan di perusahaan Anda.
@@ -158,11 +155,11 @@ const faqItems = [
     <section id="contoh-studi-kasus-klien">
       <h2>Studi Kasus Pemecahan Masalah K3 Perusahaan Klien</h2>
       <p>
-        Untuk memberikan gambaran nyata mengenai manfaat langsung dari sesi pendampingan awal ini, berikut adalah dua contoh kasus riil yang berhasil kami tangani:
+        Untuk memberikan gambaran nyata mengenai manfaat langsung dari sesi pendampingan awal ini, berikut adalah dua contoh kasus riil yang ditangani:
       </p>
       <p>
         <strong>Kasus 1: Kontraktor MEP Menghadapi Deadline Tender 3 Minggu</strong><br />
-        Sebuah perusahaan instalasi kelistrikan di Jakarta Barat memenangkan lelang pekerjaan mekanikal-elektrikal di gedung bertingkat swasta. Tiga minggu sebelum penandatanganan kontrak kerja sama, pemilik proyek mensyaratkan penyedia jasa melampirkan dokumen Manual SMK3 terverifikasi dan dokumen Rencana Keselamatan Konstruksi (RKK) sesuai format Permen PUPR 10/2021. Manajemen kontraktor mengalami kepanikan karena belum pernah memiliki dokumen keselamatan tertulis.
+        Sebuah perusahaan instalasi kelistrikan di Jakarta Barat memenangkan lelang pekerjaan mekanikal-elektrikal di gedung bertingkat swasta. Tiga minggu sebelum penandatanganan kontrak kerja sama, pemilik proyek mensyaratkan penyedia jasa melampirkan dokumen Manual SMK3 terverifikasi dan dokumen Rencana Keselamatan Konstruksi (RKK) sesuai format Permen PUPR 10/2021. Manajemen kontraktor memerlukan pendampingan segera karena belum pernah memiliki dokumen keselamatan tertulis.
       </p>
       <p>
         Melalui sesi konsultasi kilat, konsultan kami memetakan aktivitas kritis pekerjaan kelistrikan (pekerjaan tegangan menengah, isolasi LOTO, bekerja di atas perancah), menyusun 14 SOP keselamatan spesifik, dan merumuskan dokumen RKK komprehensif. Hasilnya, dokumen kontraktor disetujui tanpa catatan oleh tim konsultan manajemen konstruksi dan kontrak kerja senilai miliaran rupiah berhasil diamankan.
@@ -183,10 +180,10 @@ const faqItems = [
       </p>
       <ul>
         <li>
-          <strong>Direktur Utama / Pemilik Usaha:</strong> Yang ingin memastikan legalitas tempat kerja terlindungi dari jerat pidana keselamatan kerja tanpa harus membebani neraca keuangan perusahaan.
+          <strong>Direktur Utama / Pemilik Usaha:</strong> Yang ingin memastikan legalitas tempat kerja terlindungi dari sanksi keselamatan kerja tanpa harus membebani neraca keuangan perusahaan.
         </li>
         <li>
-          <strong>HSE Officer / HRD Manager:</strong> Yang baru ditugaskan membentuk sistem keselamatan dari nol dan membutuhkan panduan urutan kerja yang sistematis sesuai regulasi.
+          <strong>HSE Officer / HRD Manager:</strong> Yang ditugaskan membentuk sistem keselamatan dari dasar dan membutuhkan panduan urutan kerja yang sistematis sesuai regulasi.
         </li>
         <li>
           <strong>Project Manager Kontraktor:</strong> Yang sedang mempersiapkan dokumen Rencana Keselamatan Konstruksi (RKK) untuk persyaratan tender instansi pemerintah (PUPR/BUMN).
@@ -206,27 +203,26 @@ const faqItems = [
         Kami menjunjung tinggi integritas keprofesian konsultan manajemen:
       </p>
       <p>
-        <strong>Kerahasiaan Ketat (Non-Disclosure Guarantee):</strong> Seluruh data operasional, dokumen rancangan mesin, daftar karyawan, maupun catatan insiden yang Anda ceritakan dalam sesi konsultasi dijamin kerahasiaannya dan tidak akan pernah dibagikan kepada pihak ketiga mana pun tanpa persetujuan tertulis manajemen Anda.
+        <strong>Kerahasiaan Ketat (Non-Disclosure Guarantee):</strong> Seluruh data operasional, dokumen rancangan mesin, daftar karyawan, maupun catatan insiden yang Anda sampaikan dalam sesi konsultasi dijamin kerahasiaannya dan tidak akan pernah dibagikan kepada pihak ketiga mana pun tanpa persetujuan tertulis manajemen Anda.
       </p>
       <p>
-        <strong>Independensi & Objektivitas:</strong> KonsultanK3 adalah badan konsultan independen. Kami bukan lembaga audit sertifikasi resmi dan bukan instansi penegak hukum pemerintah. Kami berada 100% di sisi klien untuk mendampingi, mengedukasi, dan memperkuat pertahanan operasional Anda sebelum menghadapi audit pihak luar.
+        <strong>Independensi & Objektivitas:</strong> KonsultanK3 adalah badan konsultan independen di bawah naungan {COMPANY_INFO.legalName}. Kami bukan lembaga audit sertifikasi resmi dan bukan instansi penegak hukum pemerintah. Kami berada di sisi klien untuk mendampingi, mengedukasi, dan memperkuat kesiapan operasional Anda sebelum menghadapi audit pihak luar.
       </p>
       <p>
-        Untuk kebutuhan peningkatan kapasitas sertifikasi personil internal seperti pelatihan juru ukur lingkungan kerja, petugas kebakaran, atau Ahli K3 Umum, kami bekerja sama dengan berbagai <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">rekanan Pelatihan K3</a> resmi berizin Kementerian Ketenagakerjaan.
+        Untuk kebutuhan peningkatan kapasitas sertifikasi personil internal seperti pelatihan juru ukur lingkungan kerja, petugas kebakaran, atau Ahli K3 Umum, perusahaan dapat merujuk ke <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">portal Pelatihan K3</a> resmi berizin Kementerian Ketenagakerjaan.
       </p>
     </section>
 
     <section id="formulir-pendaftaran-sesi">
       <h2>Pendaftaran Konsultasi Cepat via WhatsApp dan Formulir</h2>
       <p>
-        Jangan tunda kepatuhan keselamatan kerja hingga terjadi insiden atau teguran dari pihak berwenang. Dapatkan kejelasan arah mitigasi risiko dan efisiensi anggaran sekarang juga.
+        Pencegahan risiko keselamatan kerja lebih baik dilakukan sedini mungkin sebelum terjadi insiden atau teguran dari pihak berwenang. Dapatkan kejelasan arah mitigasi risiko dan efisiensi anggaran sekarang juga.
       </p>
       <p>
-        Anda dapat menghubungi tim layanan pelanggan kami secara langsung melalui:
+        Anda dapat menghubungi tim layanan kami secara langsung melalui:
       </p>
       <ul>
         <li><strong>WhatsApp Cepat:</strong> <a href={CONTACT_INFO.whatsappUrl}>{CONTACT_INFO.whatsappNumber}</a></li>
-        <li><strong>Email Resmi:</strong> <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a></li>
         <li><strong>Jam Layanan:</strong> Senin – Jumat pukul 08.30 – 17.00 WIB</li>
       </ul>
     </section>

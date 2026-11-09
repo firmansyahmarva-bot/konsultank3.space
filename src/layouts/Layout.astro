@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyWhatsApp from '../components/StickyWhatsApp.astro';
-import { SITE_INFO, CONTACT_INFO } from '../config';
+import { SITE_INFO, CONTACT_INFO, COMPANY_INFO } from '../config';
 
 export interface BreadcrumbItem {
   name: string;
@@ -64,8 +64,17 @@ const organizationSchema = isHomePage ? {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: SITE_INFO.name,
+  legalName: COMPANY_INFO.legalName,
   url: `${SITE_INFO.baseUrl}/`,
   description: SITE_INFO.description,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: COMPANY_INFO.streetAddress,
+    addressLocality: COMPANY_INFO.addressLocality,
+    addressRegion: COMPANY_INFO.addressRegion,
+    addressCountry: COMPANY_INFO.addressCountry
+  },
+  telephone: CONTACT_INFO.whatsappNumber,
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: CONTACT_INFO.whatsappNumber,

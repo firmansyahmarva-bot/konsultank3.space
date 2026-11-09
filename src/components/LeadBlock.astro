@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title = 'Konsultasikan Kebutuhan K3 Perusahaan Anda',
-  subtitle = 'Dapatkan evaluasi awal kesiapan audit SMK3 PP 50/2012, SMKK konstruksi, atau pembentukan P2K3 dari konsultan K3 berpengalaman.',
+  subtitle = 'Dapatkan evaluasi awal kesiapan audit SMK3 PP 50/2012, SMKK konstruksi, atau pembentukan P2K3 dari konsultan K3.',
   defaultNeed = 'Pendampingan Audit SMK3'
 } = Astro.props;
 ---
@@ -17,11 +17,15 @@ const {
 <div class="lead-block">
   <div class="lead-header">
     <h3 class="lead-title">{title}</h3>
-    <p class="lead-subtitle">{subtitle}</p>
+    <div class="lead-subtitle">{subtitle}</div>
   </div>
 
   <div class="lead-content">
-    <form class="lead-form" action={CONTACT_INFO.leadEndpoint} method="POST">
+    <form class="lead-form" action={CONTACT_INFO.leadFormAction} data-endpoint={CONTACT_INFO.leadEndpoint} method="POST">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_subject" value="Lead baru konsultank3.space" />
+      <input type="hidden" name="_template" value="table" />
+
       <div class="form-group">
         <label for="lead-name">Nama Lengkap</label>
         <input 
@@ -67,6 +71,8 @@ const {
         />
       </div>
 
+      <div class="form-feedback" style="display:none;"></div>
+
       <button type="submit" class="submit-btn">Kirim Permintaan Konsultasi</button>
     </form>
 
@@ -75,7 +81,7 @@ const {
     </div>
 
     <div class="lead-wa-box">
-      <p class="wa-intro">Butuh jawaban mendesak untuk dokumen tender atau jadwal audit mendadak?</p>
+      <div class="wa-intro">Butuh jawaban mendesak untuk dokumen tender atau jadwal audit mendadak?</div>
       <a 
         href={CONTACT_INFO.whatsappUrl} 
         class="wa-btn" 
@@ -83,13 +89,67 @@ const {
         rel="noopener noreferrer"
       >
         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.44C8.94 7.44 8.68 7.5 8.46 7.74C8.24 7.97 7.62 8.56 7.62 9.75C7.62 10.95 8.49 12.1 8.62 12.27C8.74 12.44 10.34 14.92 12.8 15.97C14.84 16.85 15.26 16.68 15.71 16.64C16.16 16.59 17.15 16.05 17.36 15.46C17.56 14.88 17.56 14.37 17.5 14.27C17.44 14.17 17.29 14.11 17.06 14C16.84 13.88 15.74 13.34 15.53 13.27C15.33 13.19 15.18 13.15 15.03 13.38C14.88 13.6 14.46 14.11 14.33 14.27C14.2 14.42 14.07 14.44 13.85 14.33C13.62 14.21 12.89 13.97 12.03 13.2C11.36 12.6 10.9 11.86 10.78 11.64C10.65 11.43 10.76 11.31 10.88 11.2C10.98 11.1 11.1 10.94 11.22 10.8C11.34 10.66 11.38 10.55 11.46 10.39C11.54 10.23 11.5 10.09 11.44 9.97C11.38 9.85 10.95 8.79 10.77 8.35C10.59 7.92 10.42 7.98 10.28 7.97C10.15 7.97 10 7.97 9.85 7.97C9.7 7.97 9.46 8.03 9.26 8.24C9.06 8.46 8.49 8.99 8.49 10.19C8.49 11.38 9.36 12.53 9.49 12.7C9.61 12.87 11.22 15.35 13.68 16.4C15.72 17.28 16.14 17.11 16.59 17.07C17.04 17.02 18.03 16.48 18.24 15.89C18.44 15.31 18.44 14.8 18.38 14.7C18.32 14.6 18.17 14.54 17.94 14.43"/>
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 7.44C8.94 7.44 8.68 7.5 8.46 7.74C8.24 7.97 7.62 8.56 7.62 9.75C7.62 10.95 8.49 12.1 8.62 12.27C8.74 12.44 10.34 14.92 12.8 15.97C14.84 16.85 15.26 16.68 15.71 16.64C16.16 16.59 17.15 16.05 17.36 15.46C17.56 14.88 17.56 14.37 17.5 14.27C17.44 14.17 17.29 14.11 17.06 14C16.84 13.88 15.74 13.34 15.53 13.27C15.33 13.19 15.18 13.15 15.03 13.38C14.88 13.6 14.46 14.11 14.33 14.27C14.2 14.42 14.07 14.44 13.85 14.33C13.62 14.21 12.89 13.97 12.03 13.2C11.36 12.6 10.9 11.86 10.78 11.64C10.65 11.43 10.76 11.31 10.88 11.2C10.98 11.1 11.1 10.94 11.22 10.8C11.34 10.66 11.38 10.55 11.46 10.39C11.54 10.23 11.5 10.09 11.44 9.97C11.38 9.85 10.77 8.79 10.77 8.35C10.59 7.92 10.42 7.98 10.28 7.97C10.15 7.97 10 7.97 9.85 7.97C9.7 7.97 9.46 8.03 9.26 8.24C9.06 8.46 8.49 8.99 8.49 10.19C8.49 11.38 9.36 12.53 9.49 12.7C9.61 12.87 11.22 15.35 13.68 16.4C15.72 17.28 16.14 17.11 16.59 17.07C17.04 17.02 18.03 16.48 18.24 15.89C18.44 15.31 18.44 14.8 18.38 14.7C18.32 14.6 18.17 14.54 17.94 14.43"/>
         </svg>
         <span>Hubungi via WhatsApp Langsung</span>
       </a>
     </div>
   </div>
 </div>
+
+<script is:inline>
+  document.querySelectorAll('.lead-form').forEach(form => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const feedback = form.querySelector('.form-feedback');
+      const submitBtn = form.querySelector('.submit-btn');
+      const endpoint = form.dataset.endpoint || form.action;
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Mengirim...';
+      }
+      
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+          form.reset();
+          if (feedback) {
+            feedback.style.display = 'block';
+            feedback.className = 'form-feedback success';
+            feedback.textContent = 'Terima kasih! Permintaan konsultasi Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.';
+          }
+          if (submitBtn) {
+            submitBtn.style.display = 'none';
+          }
+        } else {
+          throw new Error('Pengiriman formulir gagal');
+        }
+      } catch (err) {
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.className = 'form-feedback error';
+          feedback.textContent = 'Terjadi kendala saat mengirim formulir. Silakan coba lagi atau hubungi kami langsung via WhatsApp.';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Kirim Permintaan Konsultasi';
+        }
+      }
+    });
+  });
+</script>
 
 <style>
   .lead-block {
@@ -144,6 +204,24 @@ const {
     outline: none;
     border-color: #0B2545;
     background-color: #ffffff;
+  }
+  .form-feedback {
+    grid-column: span 2;
+    padding: 0.85rem 1rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  .form-feedback.success {
+    background-color: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #065f46;
+  }
+  .form-feedback.error {
+    background-color: #fef2f2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
   }
   .submit-btn {
     grid-column: span 2;
@@ -212,7 +290,7 @@ const {
     .lead-form {
       grid-template-columns: 1fr;
     }
-    .submit-btn {
+    .submit-btn, .form-feedback {
       grid-column: span 1;
     }
   }
