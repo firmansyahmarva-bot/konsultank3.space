@@ -1,0 +1,256 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import LeadBlock from '../../components/LeadBlock.astro';
+import { TARGET_SITES } from '../../config';
+
+const title = 'SMKK Konstruksi Kontraktor Permen PUPR 10/2021';
+const description = 'Panduan penerapan SMKK konstruksi kontraktor sesuai Permen PUPR 10/2021. Komponen RKK, manajemen risiko keselamatan kerja, dan bedanya dengan SMK3.';
+const canonicalPath = '/smkk-konstruksi/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'SMKK Konstruksi', url: '/smkk-konstruksi/' }
+];
+
+const tocItems = [
+  { id: 'dasar-hukum-permen-pupr', title: 'Regulasi Permen PUPR No. 10 Tahun 2021' },
+  { id: 'perbedaan-smkk-vs-smk3', title: 'Perbedaan Mendasar SMKK Konstruksi dan SMK3 Kemnaker' },
+  { id: 'tahapan-penerapan-smkk', title: '5 Tahapan Siklus Penyelenggaraan SMKK Proyek' },
+  { id: 'struktur-dokumen-rkk', title: 'Komponen Wajib Rencana Keselamatan Konstruksi (RKK)' },
+  { id: 'alokasi-biaya-smkk-tender', title: 'Rincian 9 Item Biaya Penerapan SMKK dalam RAB' },
+  { id: 'kualifikasi-ahli-konstruksi', title: 'Persyaratan Personel Keselamatan Konstruksi' },
+  { id: 'faq-section', title: 'Pertanyaan Umum SMKK Konstruksi' }
+];
+
+const faqItems = [
+  {
+    question: 'Apakah Rencana Keselamatan Konstruksi (RKK) wajib dilampirkan saat tender proyek fisik?',
+    answer: 'Ya, mutlak wajib. Berdasarkan Permen PUPR No. 10 Tahun 2021, penawaran harga kontraktor yang tidak melampirkan dokumen RKK penawaran beserta rincian tabel analisis risiko keselamatan konstruksi dapat langsung digugurkan pada tahap evaluasi teknis.'
+  },
+  {
+    question: 'Apakah biaya SMKK boleh dinegosiasi atau dihilangkan dalam penawaran tender?',
+    answer: 'Biaya SMKK bersifat mandatori dan tidak boleh dipotong (non-negotiable). Sesuai aturan PUPR, biaya keselamatan konstruksi harus dicantumkan sebagai pos pembayaran tersendiri di luar biaya umum pekerjaan fisik.'
+  },
+  {
+    question: 'Siapa yang bertanggung jawab mengesahkan dokumen RKK di lapangan?',
+    answer: 'Dokumen RKK Pelaksanaan disahkan bersama oleh Kepala Satuan Kerja (Kasatker / Pejabat Pembuat Komitmen - PPK), Konsultan Pengawas / Konsultan Manajemen Konstruksi, dan Pimpinan Tertinggi Pelaksana Pekerjaan Konstruksi (General Superintendent / Project Manager).'
+  },
+  {
+    question: 'Kapan kontraktor wajib memiliki Ahli Utama Keselamatan Konstruksi?',
+    answer: 'Untuk proyek dengan kriteria risiko keselamatan konstruksi BESAR (nilai paket di atas Rp 100 miliar, mempekerjakan lebih dari 100 pekerja, atau menggunakan teknologi tinggi), penyedia jasa wajib menyediakan minimal 1 orang Ahli Utama Keselamatan Konstruksi.'
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>Penerapan SMKK Konstruksi Kontraktor & Aturan PUPR</h1>
+      <div class="article-meta">
+        <span>Kategori: Keselamatan Konstruksi</span>
+        <span>Pembaruan: November 2026</span>
+        <span>Waktu Baca: 12 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Sektor jasa konstruksi merupakan industri dengan dinamika kerja paling berisiko di Indonesia. Bagi setiap penyedia jasa dan rekanan infrastruktur, implementasi <strong>smkk konstruksi kontraktor</strong> bukan sekadar instrumen pelindung jiwa pekerja di lapangan, melainkan syarat wajib evaluasi teknis tender dan audit pembayaran termin proyek pemerintah maupun swasta skala besar.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="dasar-hukum-permen-pupr">
+      <h2>Regulasi Permen PUPR No. 10 Tahun 2021</h2>
+      <p>
+        Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR) menerbitkan Peraturan Menteri PUPR Nomor 10 Tahun 2021 tentang Pedoman Sistem Manajemen Keselamatan Konstruksi (SMKK) sebagai penyempurnaan menyeluruh atas Permen PUPR No. 21/PRT/M/2019. Regulasi ini merupakan turunan dari Undang-Undang Nomor 2 Tahun 2017 tentang Jasa Konstruksi.
+      </p>
+      <p>
+        SMKK menetapkan standar keselamatan terpadu yang mencakup keselamatan keteknikan konstruksi, keselamatan dan kesehatan kerja (K3), keselamatan publik (lingkungan sekitar proyek), serta keselamatan lingkungan hidup. Kontraktor yang mengabaikan pedoman ini menghadapi risiko pembekuan sertifikat badan usaha (SBU) hingga <a href="/sanksi-tidak-menerapkan-k3/">pengenaan sanksi perusahaan tidak menerapkan K3</a> yang berujung pada daftar hitam (blacklist) pengadaan barang dan jasa pemerintah.
+      </p>
+      <p>
+        Seluruh penyedia jasa konstruksi—baik kontraktor spesialis tanah, struktur, mekanikal, arsitektur, maupun konsultan perencana dan pengawas—wajib menerapkan SMKK pada setiap tahapan proyek.
+      </p>
+    </section>
+
+    <section id="perbedaan-smkk-vs-smk3">
+      <h2>Perbedaan Mendasar SMKK Konstruksi dan SMK3 Kemnaker</h2>
+      <p>
+        Banyak kontraktor pemula yang menganggap bahwa sertifikat SMK3 Kemnaker otomatis menggantikan kewajiban SMKK PUPR, atau sebaliknya. Padahal, keduanya memiliki yurisdiksi, filosofi, dan fokus penerapan yang berbeda:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter Pembanding</th>
+              <th>SMK3 (PP No. 50 Tahun 2012)</th>
+              <th>SMKK (Permen PUPR No. 10 Tahun 2021)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kementerian Pengampu</td>
+              <td>Kementerian Ketenagakerjaan RI (Kemnaker)</td>
+              <td>Kementerian Pekerjaan Umum dan Perumahan Rakyat (KemenPUPR)</td>
+            </tr>
+            <tr>
+              <td>Fokus Perlindungan</td>
+              <td>Tenaga kerja manusia dan aset tempat kerja korporasi</td>
+              <td>Keteknikan konstruksi, manusia, publik sekitar, dan lingkungan fisik proyek</td>
+            </tr>
+            <tr>
+              <td>Unit Evaluasi</td>
+              <td>Level Perusahaan / Badan Usaha secara institusional</td>
+              <td>Level Paket Proyek / Site Konstruksi spesifik</td>
+            </tr>
+            <tr>
+              <td>Dokumen Utama</td>
+              <td>Pedoman Manual SMK3 & Prosedur Sistem</td>
+              <td>RKK (Rencana Keselamatan Konstruksi), RMPK, RKPPL, RMLLP</td>
+            </tr>
+            <tr>
+              <td>Format Verifikasi</td>
+              <td>Audit Sertifikasi berkala (3 tahun sekali)</td>
+              <td>Evaluasi tender, Pre-Construction Meeting (PCM), dan audit berkala konsultan MK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Artinya, perusahaan kontraktor tetap membutuhkan <a href="/syarat-sertifikasi-smk3/">standar syarat sertifikat SMK3 PP 50 Tahun 2012</a> untuk legalitas korporasi, sementara di setiap site proyek yang dimenangkan, tim proyek wajib menyusun dan menerapkan dokumen SMKK khusus proyek tersebut.
+      </p>
+    </section>
+
+    <section id="tahapan-penerapan-smkk">
+      <h2>5 Tahapan Siklus Penyelenggaraan SMKK Proyek</h2>
+      <p>
+        Penerapan SMKK tidak dimulai saat semen pertama diaduk di lapangan, melainkan sudah berjalan sejak tahap awal perancangan konsep:
+      </p>
+      <ol>
+        <li>
+          <strong>Tahap Pengkajian dan Perencanaan:</strong> Konsultan studi kelayakan dan perencana menyusun dokumen Rancangan Konseptual SMKK (RK-SMKK) yang memuat identifikasi bahaya geoteknis, potensi gempa, dan kriteria keselamatan desain.
+        </li>
+        <li>
+          <strong>Tahap Perancangan Konstruksi:</strong> Perencana teknis menghasilkan Gambar Kerja, Spesifikasi Teknis, dan Analisis Risiko Keselamatan Konstruksi untuk dimasukkan ke dalam dokumen lelang.
+        </li>
+        <li>
+          <strong>Tahap Pemilihan Penyedia Jasa (Tender):</strong> Kontraktor peserta lelang wajib menyusun dan mengunggah dokumen <em>RKK Penawaran</em> beserta tabel rincian biaya SMKK yang tidak boleh dinolkan.
+        </li>
+        <li>
+          <strong>Tahap Pelaksanaan Pekerjaan:</strong> Pemenang tender memutakhirkan dokumen menjadi <em>RKK Pelaksanaan</em>, menyusun Analisis Keselamatan Pekerjaan (Job Safety Analysis / JSA), prosedur izin kerja khusus, serta menggelar inspeksi harian.
+        </li>
+        <li>
+          <strong>Tahap Serah Terima Akhir & Operasi (PHO/FHO):</strong> Kontraktor menyerahkan laporan akhir pelaksanaan keselamatan konstruksi dan berkas manual pengoperasian bangunan yang aman.
+        </li>
+      </ol>
+      <p>
+        Untuk menyusun tabel identifikasi bahaya dan tingkat keparahan risiko konstruksi pada RKK, Anda dapat meninjau referensi pada <a href="/contoh-hiradc/">tabel matriks bahaya contoh HIRADC</a> kami.
+      </p>
+    </section>
+
+    <section id="struktur-dokumen-rkk">
+      <h2>Komponen Wajib Rencana Keselamatan Konstruksi (RKK)</h2>
+      <p>
+        Rencana Keselamatan Konstruksi (RKK) adalah dokumen dinamis yang mengikat secara kontraktual. Lampiran Permen PUPR 10/2021 menetapkan bahwa RKK Pelaksanaan wajib memuat 5 elemen utama:
+      </p>
+      <p>
+        <strong>Elemen 1 - Kepemimpinan dan Partisipasi Pekerja dalam Keselamatan Konstruksi:</strong><br />
+        Memuat lembar Kepedulian Pimpinan Puncak, Kebijakan Keselamatan Konstruksi bertanda tangan direksi, serta bagan struktur organisasi Unit Keselamatan Konstruksi (UKK) yang dipimpin oleh Ahli K3 Konstruksi.
+      </p>
+      <p>
+        <strong>Elemen 2 - Perencanaan Keselamatan Konstruksi:</strong><br />
+        Memuat Identifikasi Bahaya, Penilaian Risiko, Pengendalian dan Peluang (IBPRP), register peraturan perundangan keteknikan dan standar teknis SNI yang menjadi acuan, serta Sasaran dan Program Kerja Keselamatan Konstruksi.
+      </p>
+      <p>
+        <strong>Elemen 3 - Dukungan Keselamatan Konstruksi:</strong><br />
+        Merinci alokasi sumber daya peralatan kerja, sertifikat laik operasi alat berat (crane, genset, excavator), rencana pelatihan/induksi pekerja, dan prosedur komunikasi darurat.
+      </p>
+      <p>
+        <strong>Elemen 4 - Operasi Keselamatan Konstruksi:</strong><br />
+        Mencakup perencanaan operasional pekerjaan risiko tinggi, metode kerja konstruksi terverifikasi, prosedur tanggap darurat bencana di proyek, dan Analisis Keselamatan Pekerjaan (AKP / JSA).
+      </p>
+      <p>
+        <strong>Elemen 5 - Evaluasi Kinerja Keselamatan Konstruksi:</strong><br />
+        Tata cara pemantauan harian, audit internal keselamatan proyek, investigasi insiden, dan tinjauan manajemen bersama konsultan supervisi.
+      </p>
+    </section>
+
+    <section id="alokasi-biaya-smkk-tender">
+      <h2>Rincian 9 Item Biaya Penerapan SMKK dalam RAB</h2>
+      <p>
+        Salah satu terobosan paling progresif dalam regulasi Permen PUPR No. 10 Tahun 2021 adalah kewajiban mencantumkan 9 item biaya penerapan SMKK dalam Rencana Anggaran Biaya (RAB) kontrak. Panitia lelang dilarang menggabungkan biaya ini ke dalam komponen biaya umum (overhead).
+      </p>
+      <p>
+        Berikut adalah 9 komponen biaya SMKK yang wajib dihitung:
+      </p>
+      <ol>
+        <li>Penyiapan RKK, RKPPL, dan RMLLP (biaya penyusunan dokumen, pembuatan manual kerja);</li>
+        <li>Sosialisasi, promosi, dan pelatihan K3 (safety induction, toolbox meeting harian, spanduk K3, poster keselamatan);</li>
+        <li>Alat Pelindung Kerja (APK) dan Alat Pelindung Diri (APD) (jaring pengaman/safety net, railing pengaman, helm, sepatu safety, full body harness double lanyard);</li>
+        <li>Asuransi dan perizinan (BPJS Ketenagakerjaan sektor jasa konstruksi, perizinan angkut limbah B3);</li>
+        <li>Personel Keselamatan Konstruksi (gaji/honor Ahli K3 Konstruksi, Petugas Keselamatan Konstruksi, dan paramedis proyek);</li>
+        <li>Fasilitas sarana, prasarana, dan alat kesehatan (ruang P3K, tandu, tabung oksigen, obat-obatan darurat);</li>
+        <li>Rambu-rambu dan perlengkapan lalu lintas proyek (barikade, traffic cone, rotary lamp, rambu peringatan kedalaman galian);</li>
+        <li>Konsultasi dengan ahli terkait keselamatan konstruksi (uji laboratorium tanah, inspeksi struktur sementara oleh geoteknis);</li>
+        <li>Kegiatan dan peralatan terkait pengendalian risiko Covid-19 dan penyakit menular di barak pekerja.</li>
+      </ol>
+      <p>
+        Mengkalkulasi biaya-biaya ini secara presisi akan membantu Anda memperkirakan <a href="/biaya-konsultan-k3/">komponen biaya jasa konsultan K3</a> jika membutuhkan asistensi dalam penyusunan dokumen lelang proyek.
+      </p>
+    </section>
+
+    <section id="kualifikasi-ahli-konstruksi">
+      <h2>Persyaratan Personel Keselamatan Konstruksi</h2>
+      <p>
+        Pengawasan SMKK di lokasi proyek dipimpin oleh Unit Keselamatan Konstruksi (UKK). Kualifikasi pimpinan UKK diatur berdasarkan skala risiko keselamatan konstruksi paket pekerjaan:
+      </p>
+      <ul>
+        <li>
+          <strong>Risiko Kecil:</strong> Mempekerjakan minimal 1 orang Petugas Keselamatan Konstruksi bersertifikat atau Ahli Muda Keselamatan Konstruksi.
+        </li>
+        <li>
+          <strong>Risiko Sedang:</strong> Mempekerjakan minimal 1 orang Ahli Madya Keselamatan Konstruksi atau Ahli Muda dengan pengalaman relevan minimal 3 tahun.
+        </li>
+        <li>
+          <strong>Risiko Besar:</strong> Mempekerjakan minimal 1 orang Ahli Utama Keselamatan Konstruksi didampingi tim Petugas Keselamatan sesuai rasio jumlah pekerja.
+        </li>
+      </ul>
+      <p>
+        Untuk memenuhi kualifikasi tenaga pengawas lapangan, staf teknik kontraktor dapat mengikuti pembinaan kompetensi melalui <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">kursus pelatihan petugas keselamatan</a> bersertifikat resmi LPJK dan Kemnaker.
+      </p>
+      <p>
+        Personel keselamatan konstruksi yang tergabung dalam Unit Keselamatan Konstruksi (UKK) berwenang penuh menghentikan sementara pekerjaan fisik (Stop Work Authority) jika ditemukan kondisi darurat yang berpotensi memicu keruntuhan perancah, kegagalan lereng galian tanah, atau pengoperasian alat angkut berat di luar kapasitas beban aman (overload). Koordinasi harian UKK bersama mandor dan subkontraktor melalui forum toolbox meeting 15 menit sebelum pekerjaan dimulai adalah kunci mempertahankan catatan nihil kecelakaan fatal sepanjang siklus proyek berlangsung.
+      </p>
+    </section>
+
+    <LeadBlock 
+      title="Susun Dokumen SMKK Tender dan Proyek Anda"
+      subtitle="Konsultan kami siap mendampingi pembuatan RKK penawaran, identifikasi risiko konstruksi, hingga asistensi audit SMKK di lokasi proyek."
+      defaultNeed="Penyusunan Dokumen SMKK Konstruksi"
+    />
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

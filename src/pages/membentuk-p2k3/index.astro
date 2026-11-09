@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import LeadBlock from '../../components/LeadBlock.astro';
+import { TARGET_SITES } from '../../config';
+
+const title = 'Cara Membentuk P2K3 di Tempat Kerja Sesuai Regulasi';
+const description = 'Panduan cara membentuk P2K3 perusahaan, kriteria wajib, susunan pengurus, peran Ahli K3 Umum, pengesahan Disnaker, dan laporan triwulan.';
+const canonicalPath = '/membentuk-p2k3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Cara Membentuk P2K3', url: '/membentuk-p2k3/' }
+];
+
+const tocItems = [
+  { id: 'kewajiban-hukum-p2k3', title: 'Landasan Hukum dan Perusahaan yang Wajib Membentuk P2K3' },
+  { id: 'struktur-organisasi-p2k3', title: 'Struktur Organisasi P2K3: Pimpinan, Sekretaris, dan Anggota' },
+  { id: 'tahapan-pembentukan-dan-sk', title: 'Langkah Pembentukan Internal dan Penerbitan SK Direksi' },
+  { id: 'alur-pengesahan-disnaker', title: 'Prosedur Pengajuan Pengesahan ke Dinas Tenaga Kerja' },
+  { id: 'tugas-dan-program-kerja', title: 'Tugas Pokok, Fungsi Kerja, dan Rapat Bulanan P2K3' },
+  { id: 'kewajiban-laporan-triwulanan', title: 'Format dan Mekanisme Pelaporan Triwulan ke Pemerintah' },
+  { id: 'faq-section', title: 'Tanya Jawab Seputar Pembentukan P2K3' }
+];
+
+const faqItems = [
+  {
+    question: 'Apakah ketua P2K3 boleh dijabat oleh staf HSE atau HRD?',
+    answer: 'Tidak dianjurkan. Berdasarkan Permenaker No. 04/MEN/1987, posisi Ketua P2K3 sebaiknya dijabat langsung oleh pimpinan puncak manajemen (Direktur Utama, General Manager, atau Pimpinan Cabang) agar rekomendasi keselamatan memiliki kewenangan eksekutif tertinggi.'
+  },
+  {
+    question: 'Siapa yang wajib menjadi Sekretaris P2K3 di perusahaan?',
+    answer: 'Sesuai Pasal 3 ayat (2) Permenaker No. 04/MEN/1987, Sekretaris P2K3 wajib dijabat oleh Ahli K3 (biasanya Ahli K3 Umum) yang telah memiliki Surat Keputusan Penunjukan (SKP) resmi dari Menteri Ketenagakerjaan.'
+  },
+  {
+    question: 'Berapa lama waktu yang dibutuhkan untuk pengesahan SK P2K3 di Disnaker?',
+    answer: 'Proses verifikasi berkas dan penerbitan Surat Keputusan Pengesahan P2K3 di Dinas Tenaga Kerja Provinsi umumnya memakan waktu 7 hingga 14 hari kerja setelah berkas fisik atau berkas daring dinyatakan lengkap.'
+  },
+  {
+    question: 'Apa sanksi jika perusahaan tidak menyampaikan laporan triwulanan P2K3?',
+    answer: 'Perusahaan yang melalaikan pelaporan triwulan dapat dikenai sanksi administratif berupa Nota Pemeriksaan oleh Pengawas Ketenagakerjaan Disnaker, serta menjadi temuan Mayor pada saat pelaksanaan audit SMK3 eksternal.'
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>Tata Cara Membentuk P2K3 Perusahaan dan Pengesahannya</h1>
+      <div class="article-meta">
+        <span>Kategori: Kelembagaan K3 & Hubungan Kerja</span>
+        <span>Pembaruan: November 2026</span>
+        <span>Waktu Baca: 11 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Panitia Pembina Keselamatan dan Kesehatan Kerja (P2K3) merupakan wadah kerja sama bipartit resmi antara pengusaha dan pekerja di tempat kerja. Memahami tahapan dan <strong>cara membentuk p2k3</strong> yang sesuai dengan regulasi Kementerian Ketenagakerjaan adalah kunci menciptakan lingkungan kerja yang aman sekaligus memenuhi prasyarat legal operasional dan audit kepatuhan.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="kewajiban-hukum-p2k3">
+      <h2>Landasan Hukum dan Perusahaan yang Wajib Membentuk P2K3</h2>
+      <p>
+        Kewajiban pembentukan komite keselamatan kerja di tempat kerja diatur secara eksplisit dalam Pasal 10 Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja. Ketentuan operasionalnya kemudian dijabarkan secara rinci dalam Peraturan Menteri Tenaga Kerja Republik Indonesia Nomor PER.04/MEN/1987 tentang Panitia Pembina Keselamatan dan Kesehatan Kerja Serta Tata Cara Penunjukan Ahli Keselamatan Kerja.
+      </p>
+      <p>
+        Berdasarkan Pasal 2 ayat (1) Permenaker No. 04/MEN/1987, setiap tempat kerja wajib membentuk P2K3 apabila memenuhi salah satu dari kriteria berikut:
+      </p>
+      <ul>
+        <li>Tempat kerja yang mempekerjakan 100 (seratus) orang tenaga kerja atau lebih;</li>
+        <li>Tempat kerja yang mempekerjakan kurang dari 100 (seratus) orang tenaga kerja, akan tetapi menggunakan bahan, proses, dan instalasi yang mempunyai risiko besar terjadinya kebakaran, peledakan, keracunan, dan pencemaran radioaktif.</li>
+      </ul>
+      <p>
+        Bagi perusahaan yang mangkir dari kewajiban pembentukan lembaga ini, pengawas ketenagakerjaan berwenang menerbitkan nota peringatan resmi. Hal ini juga memperbesar risiko <a href="/sanksi-tidak-menerapkan-k3/">ancaman sanksi perusahaan tidak menerapkan K3</a> yang dapat menghambat penerbitan izin operasional lainnya.
+      </p>
+    </section>
+
+    <section id="struktur-organisasi-p2k3">
+      <h2>Struktur Organisasi P2K3: Pimpinan, Sekretaris, dan Anggota</h2>
+      <p>
+        Karakteristik unik dari P2K3 adalah sifatnya yang merupakan lembaga bipartit dengan asas kesetaraan perwakilan. Keanggotaan P2K3 terdiri atas unsur pengusaha (manajemen) dan unsur pekerja dalam jumlah yang berimbang.
+      </p>
+      <p>
+        Komposisi struktur organisasi P2K3 terdiri dari tiga unsur pokok:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Jabatan Komite</th>
+              <th>Kualifikasi Pejabat</th>
+              <th>Peran Pokok dalam P2K3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ketua P2K3</strong></td>
+              <td>Pimpinan Puncak (Direktur / GM / Plant Manager)</td>
+              <td>Memimpin rapat bulanan, mengesahkan alokasi sumber daya K3, dan bertanggung jawab penuh atas kebijakan K3 perusahaan.</td>
+            </tr>
+            <tr>
+              <td><strong>Sekretaris P2K3</strong></td>
+              <td>Ahli K3 Umum yang ditunjuk resmi Menaker</td>
+              <td>Mengelola administrasi, menyiapkan agenda rapat, memantau program mitigasi risiko, dan menyusun laporan triwulanan.</td>
+            </tr>
+            <tr>
+              <td><strong>Wakil Ketua / Bendahara</strong></td>
+              <td>Manajer Operasional / Manajer Keuangan</td>
+              <td>Membantu ketua dalam koordinasi teknis operasional dan alokasi anggaran keselamatan.</td>
+            </tr>
+            <tr>
+              <td><strong>Anggota Perwakilan</strong></td>
+              <td>Perwakilan Supervisor & Serikat Pekerja / Buruh</td>
+              <td>Menyuarakan kondisi bahaya di lini kerja, melakukan inspeksi berkala, dan mengedukasi rekan sejawat.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Penetapan Ahli K3 Umum sebagai Sekretaris bersifat mengikat secara hukum. Jika perusahaan Anda belum memiliki karyawan dengan sertifikat dan SKP Ahli K3 Umum dari Kementerian Ketenagakerjaan RI, staf terkait wajib diikutsertakan dalam <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">program pembinaan dari Pelatihan K3</a> yang memfasilitasi sertifikasi resmi Kemnaker secara berkala.
+      </p>
+    </section>
+
+    <section id="tahapan-pembentukan-dan-sk">
+      <h2>Langkah Pembentukan Internal dan Penerbitan SK Direksi</h2>
+      <p>
+        Sebelum mengajukan permohonan ke instansi pemerintah, langkah-langkah musyawarah internal di lingkungan perusahaan harus diselesaikan secara sah:
+      </p>
+      <ol>
+        <li>
+          <strong>Rapat Koordinasi Bipartit Manajemen dan Karyawan:</strong> Manajemen mengundang perwakilan serikat pekerja atau perwakilan karyawan dari setiap departemen (produksi, gudang, pemeliharaan, keuangan, dan personalia) untuk membahas pentingnya pembentukan komite K3.
+        </li>
+        <li>
+          <strong>Pemilihan dan Penunjukan Anggota:</strong> Tentukan daftar nama penanggung jawab dari masing-masing area kerja. Jumlah anggota P2K3 disesuaikan dengan skala tenaga kerja: untuk perusahaan dengan 100 orang pekerja atau lebih, jumlah anggota minimal adalah 12 orang (6 dari manajemen, 6 dari perwakilan pekerja).
+        </li>
+        <li>
+          <strong>Penyusunan Bagan Struktur Organisasi:</strong> Gambarkan bagan visual susunan kepengurusan lengkap dengan nomor induk karyawan, nama jabatan kedinasan, dan posisi dalam komite P2K3.
+        </li>
+        <li>
+          <strong>Penerbitan Surat Keputusan (SK) Direksi:</strong> Direktur Utama menerbitkan Surat Keputusan Internal Pengangkatan Pengurus Panitia Pembina Keselamatan dan Kesehatan Kerja (P2K3) yang dibubuhi tanda tangan basah, stempel resmi, dan materai.
+        </li>
+      </ol>
+      <p>
+        SK Direksi ini merupakan syarat absolut untuk <a href="/audit-smk3/">pemenuhan kriteria persiapan audit SMK3 perusahaan kecil</a> pada elemen pertama mengenai keterlibatan manajemen puncak.
+      </p>
+    </section>
+
+    <section id="alur-pengesahan-disnaker">
+      <h2>Prosedur Pengajuan Pengesahan ke Dinas Tenaga Kerja</h2>
+      <p>
+        SK Internal Direksi harus disahkan oleh pejabat pengawas ketenagakerjaan pemerintah. Sesuai Undang-Undang Otonomi Daerah, wewenang pengawasan ketenagakerjaan berada di tingkat <em>Dinas Tenaga Kerja dan Transmigrasi (Disnakertrans) Provinsi</em> (melalui Unit Pelaksana Teknis Daerah / Pengawas Ketenagakerjaan Wilayah setempat).
+      </p>
+      <p>
+        Berkas administrasi yang wajib dilampirkan dalam surat permohonan pengesahan meliputi:
+      </p>
+      <ul>
+        <li>Surat permohonan resmi perihal pengesahan P2K3 berkop surat perusahaan;</li>
+        <li>Salinan Surat Keputusan Direksi tentang pembentukan struktur P2K3;</li>
+        <li>Bagan struktur organisasi P2K3;</li>
+        <li>Salinan SKP (Surat Keputusan Penunjukan) Ahli K3 Umum atas nama Sekretaris P2K3;</li>
+        <li>Salinan Lisensi Kewenangan Kartu Ahli K3 yang masih berlaku;</li>
+        <li>Salinan bukti Wajib Lapor Ketenagakerjaan (WLKP Online);</li>
+        <li>Daftar absensi musyawarah pembentukan P2K3.</li>
+      </ul>
+      <p>
+        Petugas pengawas ketenagakerjaan akan memeriksa berkas. Jika seluruh persyaratan terbukti sah, Kepala Dinas Tenaga Kerja Provinsi akan menerbitkan <em>Surat Keputusan Pengesahan P2K3</em> yang berlaku selama susunan pengurus tidak mengalami perubahan.
+      </p>
+    </section>
+
+    <section id="tugas-dan-program-kerja">
+      <h2>Tugas Pokok, Fungsi Kerja, dan Rapat Bulanan P2K3</h2>
+      <p>
+        Setelah disahkan, P2K3 tidak boleh pasif. Fungsi utama panitia ini adalah memberikan saran dan pertimbangan, baik diminta maupun tidak, kepada pengusaha mengenai masalah keselamatan dan kesehatan kerja.
+      </p>
+      <p>
+        Program kerja rutin P2K3 meliputi:
+      </p>
+      <p>
+        <strong>1. Rapat Pleno Bulanan (Monthly Safety Meeting):</strong> Komite wajib menyelenggarakan rapat formal minimal satu kali setiap bulan untuk mengevaluasi laporan bahaya (hazard report), meninjau temuan inspeksi lapangan, dan memantau status penyelesaian tindakan perbaikan. Notulen rapat wajib dicatat secara rapi.
+      </p>
+      <p>
+        <strong>2. Pelaksanaan Inspeksi Bersama (Joint Safety Walk):</strong> Anggota P2K3 bersama manajer area melakukan observasi langsung ke stasiun kerja untuk mengecek kondisi tidak aman (unsafe conditions) dan tindakan tidak aman (unsafe acts).
+      </p>
+      <p>
+        <strong>3. Investigasi Insiden:</strong> Setiap kecelakaan kerja, nyaris celaka (near miss), atau kasus penyakit akibat kerja harus diinvestigasi oleh tim P2K3 untuk menemukan akar penyebab (root cause) tanpa mencari siapa yang bersalah (no-blame culture).
+      </p>
+    </section>
+
+    <section id="kewajiban-laporan-triwulanan">
+      <h2>Format dan Mekanisme Pelaporan Triwulan ke Pemerintah</h2>
+      <p>
+        Salah satu kewajiban paling krusial yang sering dilupakan perusahaan adalah penyampaian <em>Laporan Kegiatan P2K3 Triwulanan</em> kepada instansi ketenagakerjaan.
+      </p>
+      <p>
+        Berdasarkan Pasal 12 Permenaker 04/MEN/1987, sekurang-kurangnya 3 bulan sekali pengurus P2K3 wajib menyampaikan laporan kegiatan kepada Menteri Tenaga Kerja melalui Kepala Kantor Departemen Tenaga Kerja setempat (kini Disnaker Provinsi). Laporan ini mencakup:
+      </p>
+      <ul>
+        <li>Data umum perusahaan dan rekapitulasi jumlah tenaga kerja;</li>
+        <li>Catatan jam kerja orang selamat (Safe Man-Hours) selama periode 3 bulan;</li>
+        <li>Data kecelakaan kerja, tingkat keparahan (Severity Rate - SR), dan tingkat frekuensi (Frequency Rate - FR);</li>
+        <li>Kegiatan rapat rutin, inspeksi, dan pelatihan internal yang telah diselenggarakan;</li>
+        <li>Hambatan teknis yang dihadapi dan rekomendasi solusi yang diajukan ke direksi.</li>
+      </ul>
+      <p>
+        Tanda terima laporan triwulanan dari dinas tenaga kerja ini merupakan bukti fisik primer yang wajib dimasukkan ke dalam arsip <a href="/dokumen-smk3/">laporan triwulan dalam dokumen SMK3 wajib</a> saat menjalani audit sertifikasi. Menggunakan jasa pendampingan konsultan dapat memberikan <a href="/biaya-konsultan-k3/">efisiensi biaya jasa konsultan K3</a> dalam merancang sistem pelaporan rutin ini secara otomatis.
+      </p>
+      <p>
+        Di era digital saat ini, beberapa Dinas Tenaga Kerja Provinsi (seperti DKI Jakarta, Jawa Barat, dan Jawa Timur) telah menyediakan portal daring khusus untuk pengunggahan laporan triwulanan P2K3, berdampingan dengan platform nasional Teman K3 Kemnaker. Pastikan sekretaris P2K3 selalu mengunduh dan mencetak tanda bukti unggah digital resmi (QR code approval) sebagai tanda terima sah pelaporan untuk melengkapi buku portofolio keselamatan kerja kantor Anda.
+      </p>
+    </section>
+
+    <LeadBlock 
+      title="Bantu Pengurusan SK Pengesahan P2K3 Perusahaan Anda"
+      subtitle="Konsultan kami mendampingi perumusan struktur bipartit, kelengkapan berkas Ahli K3, hingga pengesahan resmi di Disnaker Provinsi."
+      defaultNeed="Pendampingan Pembentukan dan Pengesahan P2K3"
+    />
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

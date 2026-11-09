@@ -1,0 +1,278 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import LeadBlock from '../../components/LeadBlock.astro';
+import { TARGET_SITES } from '../../config';
+
+const title = 'Daftar Dokumen SMK3 Wajib Sesuai PP 50/2012 & Format';
+const description = 'Checklist dokumen SMK3 wajib untuk audit dan sertifikasi. Kebijakan K3, manual, SOP kerja, formulir inspeksi, dan laporan P2K3 berkala.';
+const canonicalPath = '/dokumen-smk3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Dokumen SMK3', url: '/dokumen-smk3/' }
+];
+
+const tocItems = [
+  { id: 'hierarki-dokumentasi-smk3', title: 'Struktur Hierarki 4 Level Dokumentasi SMK3' },
+  { id: 'level-1-kebijakan-manual', title: 'Level 1: Kebijakan dan Pedoman Manual K3' },
+  { id: 'level-2-prosedur-wajib', title: 'Level 2: Daftar Prosedur Operasional Standar (SOP) Wajib' },
+  { id: 'level-3-instruksi-kerja', title: 'Level 3: Instruksi Kerja Spesifik dan JSA' },
+  { id: 'level-4-formulir-rekaman', title: 'Level 4: Formulir, Logsheet, dan Bukti Rekaman Kerja' },
+  { id: 'sistem-pengendalian-dokumen', title: 'Tata Cara Pengendalian Dokumen dan Kode Revisi' },
+  { id: 'faq-section', title: 'Pertanyaan Umum tentang Dokumen Wajib SMK3' }
+];
+
+const faqItems = [
+  {
+    question: 'Berapa banyak prosedur operasional standar (SOP) yang wajib ada untuk audit 64 kriteria?',
+    answer: 'Untuk audit tingkat awal 64 kriteria, minimal terdapat 12 hingga 18 SOP wajib yang mencakup pengendalian dokumen, komunikasi K3, identifikasi bahaya, kesiapsiagaan darurat, inspeksi K3, pengadaan barang aman, dan investigasi kecelakaan kerja.'
+  },
+  {
+    question: 'Apakah dokumen SMK3 harus dicetak dalam bentuk fisik (hardcopy) atau boleh digital?',
+    answer: 'Auditor memperbolehkan sistem dokumen berbasis digital (paperless / softcopy), asalkan terdapat prosedur pengendalian dokumen elektronik yang menjamin keamanan data, nomor revisi resmi, dan kemudahan akses bagi personel di lapangan saat dibutuhkan.'
+  },
+  {
+    question: 'Siapa yang berwenang menandatangani Kebijakan K3 perusahaan?',
+    answer: 'Kebijakan K3 wajib ditandatangani oleh pucuk pimpinan tertinggi organisasi (Direktur Utama / Presiden Direktur) sebagai wujud komitmen manajemen puncak terhadap keselamatan kerja.'
+  },
+  {
+    question: 'Berapa lama bukti rekaman formulir K3 harus diarsipkan?',
+    answer: 'Sesuai praktik tata kelola audit, rekaman K3 seperti logbook kecelakaan, formulir inspeksi, dan hasil pengujian lingkungan kerja wajib disimpan minimal selama 3 (tiga) tahun untuk keperluan verifikasi audit berkala.'
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>Daftar Lengkap Dokumen SMK3 Wajib untuk Audit Regulasi</h1>
+      <div class="article-meta">
+        <span>Kategori: Tata Kelola Dokumen K3</span>
+        <span>Pembaruan: November 2026</span>
+        <span>Waktu Baca: 11 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Dokumentasi yang tertata rapi merupakan tulang punggung dari implementasi Sistem Manajemen K3 yang kredibel. Dalam penilaian sertifikasi PP No. 50 Tahun 2012, ketiadaan satu berkas vital dapat menggugurkan elemen penilaian audit. Menyiapkan daftar <strong>dokumen smk3 wajib</strong> dengan format standar industri akan mempermudah tim internal Anda menunjukkan bukti kepatuhan di hadapan tim auditor eksternal.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="hierarki-dokumentasi-smk3">
+      <h2>Struktur Hierarki 4 Level Dokumentasi SMK3</h2>
+      <p>
+        Dalam menyusun sistem dokumentasi K3, perusahaan tidak boleh membuat dokumen secara acak tanpa hierarki yang jelas. Pendekatan standar internasional dan regulasi nasional membagi dokumentasi ke dalam piramida 4 level:
+      </p>
+      <ul>
+        <li>
+          <strong>Level 1 - Kebijakan & Manual K3:</strong> Berisi komitmen filosofis manajemen puncak, ruang lingkup penerapan, serta garis besar struktur tata kelola keselamatan perusahaan.
+        </li>
+        <li>
+          <strong>Level 2 - Prosedur Operasional Standar (SOP):</strong> Menjelaskan siapa melakukan apa, kapan dilakukan, dan bagaimana alur koordinasi lintas departemen (alur proses 5W+1H).
+        </li>
+        <li>
+          <strong>Level 3 - Instruksi Kerja (IK) & Standar Teknis:</strong> Panduan langkah-demi-langkah pengoperasian mesin atau pekerjaan berisiko tertentu secara mendalam.
+        </li>
+        <li>
+          <strong>Level 4 - Formulir, Checklist, & Rekaman Bukti:</strong> Lembar kerja kosong yang diisi saat pelaksanaan operasional sehari-hari dan disimpan sebagai bukti fisik kepatuhan.
+        </li>
+      </ul>
+      <p>
+        Piramida dokumentasi ini memastikan bahwa setiap tindakan teknis di lapangan memiliki payung kebijakan yang sah dari direksi. Memenuhi hierarki ini merupakan bagian integral dari <a href="/syarat-sertifikasi-smk3/">kelengkapan syarat sertifikat SMK3 PP 50 Tahun 2012</a>.
+      </p>
+    </section>
+
+    <section id="level-1-kebijakan-manual">
+      <h2>Level 1: Kebijakan dan Pedoman Manual K3</h2>
+      <p>
+        Dokumen Level 1 merupakan representasi komitmen tertinggi perusahaan. Auditor eksternal akan mengawali audit mereka dengan membaca dua dokumen utama ini:
+      </p>
+      <p>
+        <strong>1. Lembar Kebijakan K3 (K3 Policy):</strong><br />
+        Kebijakan K3 harus memuat komitmen tertulis perusahaan untuk mematuhi peraturan perundang-undangan, mencegah kecelakaan kerja dan penyakit akibat kerja (PAK), serta menjalankan perbaikan berkelanjutan. Dokumen ini wajib ditandatangani oleh Direktur Utama di atas kertas bermaterai, mencantumkan tanggal pengesahan, dan disosialisasikan kepada seluruh pemangku kepentingan.
+      </p>
+      <p>
+        <strong>2. Manual Sistem Manajemen K3:</strong><br />
+        Buku manual ini merangkum bagaimana organisasi menerapkan 5 prinsip dasar dan elemen-elemen PP 50/2012:
+      </p>
+      <ol>
+        <li>Penetapan kebijakan K3;</li>
+        <li>Perencanaan K3 (identifikasi bahaya, sasaran, dan program kerja);</li>
+        <li>Pelaksanaan rencana K3 (alokasi SDM, sarana, prosedur kerja);</li>
+        <li>Pemantauan dan evaluasi kinerja K3 (inspeksi, audit internal, pengujian lingkungan);</li>
+        <li>Peninjauan dan peningkatan kinerja K3 (rapat tinjauan manajemen).</li>
+      </ol>
+    </section>
+
+    <section id="level-2-prosedur-wajib">
+      <h2>Level 2: Daftar Prosedur Operasional Standar (SOP) Wajib</h2>
+      <p>
+        Prosedur Level 2 mengatur mekanisme kerja formal antar bagian. Berikut adalah tabel kompilasi 16 SOP wajib yang harus tersedia dalam map kerja K3 perusahaan:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode SOP</th>
+              <th>Nama Prosedur Wajib</th>
+              <th>Tujuan & Muatan Prosedur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SOP-K3-01</td>
+              <td>Pengendalian Dokumen & Rekaman</td>
+              <td>Mengatur pembuatan, persetujuan, penomoran revisi, distribusi, dan pemusnahan arsip usang.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-02</td>
+              <td>Identifikasi Bahaya & Penilaian Risiko (HIRADC)</td>
+              <td>Metode sistematis inventarisasi bahaya di setiap divisi. Lihat rujukan <a href="/contoh-hiradc/">lembar kerja contoh HIRADC</a> kami.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-03</td>
+              <td>Identifikasi Peraturan Perundangan K3</td>
+              <td>Mekanisme pemantauan regulasi baru dari kementerian dan evaluasi kepatuhan hukum berkala.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-04</td>
+              <td>Komunikasi, Partisipasi & Konsultasi K3</td>
+              <td>Alur penyampaian saran keselamatan dari pekerja dan mekanisme safety meeting bulanan P2K3.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-05</td>
+              <td>Pengadaan Barang & Jasa Aman (Procurement)</td>
+              <td>Seleksi vendor, lembar MSDS bahan kimia baru, dan uji kelayakan teknis sebelum mesin dibeli.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-06</td>
+              <td>Izin Kerja Risiko Tinggi (Permit to Work / PTW)</td>
+              <td>Tata cara penerbitan izin kerja panas (hot work), ruang terbatas (confined space), dan ketinggian.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-07</td>
+              <td>Kesiapsiagaan & Tanggap Darurat (ERP)</td>
+              <td>Prosedur penanganan kebakaran, gempa bumi, tumpahan bahan kimia, dan evakuasi korban.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-08</td>
+              <td>Inspeksi K3 & Pemantauan Fasilitas</td>
+              <td>Jadwal dan tata cara pemeriksaan fisik rutin APAR, hidran, panel listrik, dan jalur evakuasi.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-09</td>
+              <td>Pelaporan & Investigasi Insiden</td>
+              <td>Alur penanganan pertolongan pertama, pelaporan ke Disnaker/BPJS dalam 2x24 jam, dan analisis akar masalah.</td>
+            </tr>
+            <tr>
+              <td>SOP-K3-10</td>
+              <td>Audit Internal SMK3</td>
+              <td>Pedoman penugasan auditor internal, jadwal audit silang tahunan, dan penutupan lembar CAR.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Bagi staf HSE yang membutuhkan referensi teknis mengenai silabus penyusunan prosedur keselamatan kerja, Anda dapat mempelajari modul <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">panduan di pelatihan-k3.co.id</a> yang memuat kerangka standar dokumen industri.
+      </p>
+    </section>
+
+    <section id="level-3-instruksi-kerja">
+      <h2>Level 3: Instruksi Kerja Spesifik dan JSA</h2>
+      <p>
+        Instruksi Kerja (IK) dirancang sangat spesifik untuk operator teknis di stasiun kerja masing-masing. Berbeda dengan SOP yang bersifat administratif, Instruksi Kerja diletakkan langsung di dekat mesin atau area operasional bersangkutan.
+      </p>
+      <p>
+        Contoh Instruksi Kerja yang wajib disiapkan meliputi:
+      </p>
+      <ul>
+        <li>Instruksi Kerja Pengoperasian Forklift Diesel dan Pengisian Bahan Bakar / Baterai;</li>
+        <li>Instruksi Kerja Pemotongan dan Pengelasan Logam dengan Gas Asetilin (Oxy-Acetylene);</li>
+        <li>Instruksi Kerja Isolasi Energi Berbahaya (Lockout / Tagout - LOTO) pada Panel Kelistrikan;</li>
+        <li>Instruksi Kerja Penanganan Tumpahan Bahan Berbahaya dan Beracun (B3 Spill Kit Protocol);</li>
+        <li>Job Safety Analysis (JSA) untuk Pekerjaan Pembongkaran Rangka Baja di Ketinggian.</li>
+      </ul>
+      <p>
+        Keberadaan dokumen Level 3 ini merupakan indikator utama kesiapan operasional dalam <a href="/audit-smk3/">kesiapan persiapan audit SMK3 perusahaan kecil</a>.
+      </p>
+    </section>
+
+    <section id="level-4-formulir-rekaman">
+      <h2>Level 4: Formulir, Logsheet, dan Bukti Rekaman Kerja</h2>
+      <p>
+        Level 4 adalah bukti pembuktian bahwa sistem berjalan secara nyata (evidence based). Tanpa formulir yang terisi dan ditandatangani, auditor akan menganggap kegiatan tersebut tidak pernah terjadi.
+      </p>
+      <p>
+        Formulir dan rekaman wajib yang harus ditunjukkan saat hari audit meliputi:
+      </p>
+      <ol>
+        <li>
+          <strong>Notulen dan Absensi Rapat P2K3 Bulanan:</strong> Membuktikan bahwa panitia keselamatan kerja menggelar pertemuan rutin. Struktur komite harus sesuai dengan <a href="/membentuk-p2k3/">struktur organisasi cara membentuk P2K3</a> yang disahkan pemerintah.
+        </li>
+        <li>
+          <strong>Checklist Inspeksi Harian / Bulanan:</strong> Kartu gantung inspeksi APAR, formulir pre-use inspection forklift, dan lembar periksa kotak P3K.
+        </li>
+        <li>
+          <strong>Daftar Distribusi dan Tanda Terima APD:</strong> Bukti tanda tangan penyerahan helm, sepatu safety, kacamata pelindung, dan earplug kepada karyawan baru.
+        </li>
+        <li>
+          <strong>Logbook Jam Kerja Orang Selamat (Safe Man-Hours Log):</strong> Catatan akumulasi jam kerja karyawan tanpa insiden kehilangan jam kerja (Lost Time Injury / LTI).
+        </li>
+        <li>
+          <strong>Laporan Hasil Pemeriksaan Kesehatan Tenaga Kerja (MCU):</strong> Surat keterangan dokter pemeriksa kesehatan tenaga kerja terdaftar Kemnaker yang merangkum hasil tes kesehatan tahunan.
+        </li>
+      </ol>
+    </section>
+
+    <section id="sistem-pengendalian-dokumen">
+      <h2>Tata Cara Pengendalian Dokumen dan Kode Revisi</h2>
+      <p>
+        Kelemahan paling umum yang memicu temuan minor pada kriteria 1.1 dan 1.2 adalah kegagalan pengendalian dokumen (document control). Setiap dokumen SMK3 harus memiliki:
+      </p>
+      <p>
+        <strong>Kop Surat Standar (Header Box):</strong> Mencantumkan logo perusahaan, judul dokumen, nomor kode dokumen (contoh: <code>PRO-K3-OPS-004</code>), tanggal berlaku, nomor revisi (Revisi 00, 01, dst.), dan jumlah total halaman (contoh: Halaman 1 dari 5).
+      </p>
+      <p>
+        <strong>Kolom Pengesahan:</strong> Berisi tanda tangan pembuat (Disusun oleh HSE Officer), pemeriksa (Ditinjau oleh HSE Manager), dan penyetujui (Disahkan oleh Direktur Operasional).
+      </p>
+      <p>
+        <strong>Daftar Induk Dokumen (Master List of Documents):</strong> Tabel inventaris yang mencantumkan status seluruh dokumen yang berlaku. Salinan kedaluwarsa harus segera ditarik dari peredaran dan dicap <em>"OBSOLETE / KEDALUWARSA"</em> untuk mencegah penggunaan prosedur yang sudah tidak relevan.
+      </p>
+      <p>
+        Bagi perusahaan yang menerapkan sistem dokumentasi elektronik (Electronic Document Management System - EDMS), pastikan terdapat cadangan data berkala (data backup) mingguan yang tersimpan di server aman atau cloud storage berizin. Dokumen harus diproteksi dengan hak akses berjenjang (read-only bagi operator dan hak edit terbatas bagi Document Controller K3) agar integritas rekaman audit tetap terjaga dari manipulasi data yang tidak sah.
+      </p>
+    </section>
+
+    <LeadBlock 
+      title="Dapatkan Paket Dokumen SMK3 Siap Pakai"
+      subtitle="Konsultasikan penyusunan template SOP, Manual K3, dan formulir inspeksi yang telah disesuaikan dengan kriteria audit industri Anda."
+      defaultNeed="Penyusunan Paket Dokumen SMK3 Wajib"
+    />
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

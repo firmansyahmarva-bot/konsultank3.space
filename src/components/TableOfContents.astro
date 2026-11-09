@@ -1,0 +1,84 @@
+---
+export interface TocItem {
+  id: string;
+  title: string;
+  level?: number;
+}
+
+interface Props {
+  items: TocItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="toc-container" aria-label="Daftar Isi Artikel">
+  <div class="toc-header">
+    <span class="toc-icon">&#9776;</span>
+    <h2 class="toc-title">Daftar Isi Panduan</h2>
+  </div>
+  <ol class="toc-list">
+    {items.map((item) => (
+      <li class={`toc-item level-${item.level || 2}`}>
+        <a href={`#${item.id}`} class="toc-link">
+          {item.title}
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .toc-container {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #0B2545;
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.75rem 0 2.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  .toc-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  }
+  .toc-icon {
+    color: #0B2545;
+    font-size: 1.1rem;
+  }
+  .toc-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0B2545;
+    margin: 0;
+  }
+  .toc-list {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .toc-item {
+    font-size: 0.925rem;
+    color: #475569;
+  }
+  .toc-item.level-3 {
+    margin-left: 1.25rem;
+    list-style-type: circle;
+    font-size: 0.875rem;
+  }
+  .toc-link {
+    color: #0B2545;
+    text-decoration: none;
+    transition: color 0.15s, text-decoration 0.15s;
+  }
+  .toc-link:hover {
+    color: #F47C20;
+    text-decoration: underline;
+  }
+</style>

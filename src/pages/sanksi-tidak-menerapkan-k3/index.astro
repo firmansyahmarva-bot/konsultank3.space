@@ -1,0 +1,246 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import LeadBlock from '../../components/LeadBlock.astro';
+import { TARGET_SITES } from '../../config';
+
+const title = 'Sanksi Perusahaan Tidak Menerapkan K3 & Risiko Hukum';
+const description = 'Regulasi dan sanksi perusahaan tidak menerapkan K3 berdasarkan UU 1/1970, UU 13/2003, dan PP 50/2012. Denda, pidana kurungan, hingga izin dicabut.';
+const canonicalPath = '/sanksi-tidak-menerapkan-k3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Sanksi Tidak Menerapkan K3', url: '/sanksi-tidak-menerapkan-k3/' }
+];
+
+const tocItems = [
+  { id: 'hierarki-hukum-k3', title: 'Kerangka Hukum Kepatuhan K3 di Indonesia' },
+  { id: 'sanksi-administratif-bertingkat', title: 'Sanksi Administratif: Teguran hingga Pencabutan Izin' },
+  { id: 'sanksi-pidana-kurungan-denda', title: 'Sanksi Pidana Kurungan dan Denda Finansial' },
+  { id: 'dampak-finansial-dan-reputasi', title: 'Dampak Kerugian Komersial, Blacklist, dan Gugatan Sipil' },
+  { id: 'studi-kasus-penegakan-hukum', title: 'Studi Kasus Penegakan Hukum Kecelakaan Fatal' },
+  { id: 'langkah-pemulihan-kepatuhan', title: 'Cara Memulihkan Status Kepatuhan Regulasi Perusahaan' },
+  { id: 'faq-section', title: 'Pertanyaan Hukum Seputar Pelanggaran K3' }
+];
+
+const faqItems = [
+  {
+    question: 'Apakah direktur utama bisa dipidanakan jika terjadi kecelakaan kerja fatal?',
+    answer: 'Bisa. Berdasarkan KUHP Pasal 359 (kelalaian yang menyebabkan hilangnya nyawa seseorang) juncto UU No. 1 Tahun 1970, direksi dan penanggung jawab tempat kerja dapat ditetapkan sebagai tersangka pidana jika terbukti lalai tidak menyediakan sarana keselamatan kerja memadai.'
+  },
+  {
+    question: 'Apa langkah pertama yang diambil Pengawas Ketenagakerjaan saat inspeksi?',
+    answer: 'Pengawas Ketenagakerjaan akan menerbitkan Nota Pemeriksaan I yang berisi daftar pelanggaran dan tenggat waktu perbaikan (biasanya 14-30 hari). Jika diabaikan, diterbitkan Nota Pemeriksaan II disusul tindakan penyidikan oleh Penyidik Pegawai Negeri Sipil (PPNS).'
+  },
+  {
+    question: 'Apakah BPJS Ketenagakerjaan bisa menolak klaim kecelakaan jika K3 diabaikan?',
+    answer: 'Ya. Dalam beberapa kasus pelanggaran berat di mana pengusaha tidak mendaftarkan karyawan, menunggak iuran, atau mempekerjakan operator tanpa lisensi sah, BPJS Ketenagakerjaan dapat menuntut pengusaha untuk menanggung sendiri seluruh biaya perawatan medis dan santunan korban.'
+  },
+  {
+    question: 'Bagaimana cara membuktikan bahwa perusahaan telah berupaya mematuhi K3?',
+    answer: 'Bukti hukum terkuat adalah kepemilikan sertifikat SMK3 PP 50/2012, dokumen identifikasi bahaya (HIRADC), register induksi keselamatan, notulen rapat P2K3, serta kepatuhan riksa uji alat berbahaya secara berkala.'
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>Dasar Hukum dan Sanksi Perusahaan Tidak Menerapkan K3</h1>
+      <div class="article-meta">
+        <span>Kategori: Hukum & Kepatuhan Regulasi</span>
+        <span>Pembaruan: November 2026</span>
+        <span>Waktu Baca: 12 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Mengabaikan regulasi keselamatan kerja bukan hanya membahayakan raga dan nyawa tenaga kerja, melainkan juga menempatkan manajemen dan pemegang saham pada jurang tuntutan pidana dan kehancuran finansial. Memahami ragam konsekuensi dan <strong>sanksi perusahaan tidak menerapkan k3</strong> secara menyeluruh akan menyadarkan jajaran direksi bahwa kepatuhan K3 adalah benteng pertahanan hukum paling krusial bagi kelangsungan operasional bisnis.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="hierarki-hukum-k3">
+      <h2>Kerangka Hukum Kepatuhan K3 di Indonesia</h2>
+      <p>
+        Kewajiban penyelenggaraan keselamatan kerja di Indonesia diatur secara berjenjang melalui sistem perundang-undangan nasional yang kuat:
+      </p>
+      <ul>
+        <li>
+          <strong>Undang-Undang Dasar 1945 Pasal 27 ayat (2):</strong> Menjamin hak setiap warga negara atas pekerjaan dan penghidupan yang layak bagi kemanusiaan, termasuk hak atas lingkungan kerja yang aman dan bermartabat.
+        </li>
+        <li>
+          <strong>Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja:</strong> Induk peraturan keselamatan yang memuat kewajiban syarat-syarat keselamatan fisik, mesin, bejana uap, kelistrikan, serta wewenang pengawasan oleh Pengawas Ketenagakerjaan dan Ahli K3.
+        </li>
+        <li>
+          <strong>Undang-Undang Nomor 13 Tahun 2003 tentang Ketenagakerjaan:</strong> Pasal 86 dan 87 mewajibkan setiap pekerja memperoleh perlindungan keselamatan kerja dan mengamanatkan kewajiban penerapan Sistem Manajemen K3 bagi perusahaan.
+        </li>
+        <li>
+          <strong>Peraturan Pemerintah Nomor 50 Tahun 2012:</strong> Mengatur sanksi administratif dan teknis penerapan SMK3 bagi perusahaan yang mempekerjakan 100 orang atau memiliki risiko bahaya tinggi.
+        </li>
+        <li>
+          <strong>Kitab Undang-Undang Hukum Pidana (KUHP):</strong> Khususnya Pasal 359 dan 360 terkait delik kelalaian (culpa) yang menyebabkan orang lain luka berat atau meninggal dunia di lingkungan operasional.
+        </li>
+      </ul>
+      <p>
+        Bagi tempat kerja yang telah memenuhi syarat 100 pekerja atau risiko tinggi, langkah awal mencegah sanksi adalah menjalankan <a href="/membentuk-p2k3/">kewajiban tata cara membentuk P2K3</a> dan mendaftarkan komite tersebut ke dinas tenaga kerja.
+      </p>
+    </section>
+
+    <section id="sanksi-administratif-bertingkat">
+      <h2>Sanksi Administratif: Teguran hingga Pencabutan Izin</h2>
+      <p>
+        Kementerian Ketenagakerjaan melalui Pengawas Ketenagakerjaan menerapkan mekanisme sanksi administratif bertingkat kepada pengusaha yang kedapatan mengabaikan standar K3:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tingkatan Sanksi</th>
+              <th>Mekanisme Penerapan</th>
+              <th>Dampak Operasional bagi Perusahaan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nota Pemeriksaan I & II</strong></td>
+              <td>Surat peringatan resmi berisi daftar ketidaksesuaian K3 dan batas waktu perbaikan (14-30 hari).</td>
+              <td>Wajib melaporkan bukti perbaikan fisik dan dokumen; diawasi ketat oleh dinas tenaga kerja.</td>
+            </tr>
+            <tr>
+              <td><strong>Peringatan Tertulis</strong></td>
+              <td>Diterbitkan jika Nota Pemeriksaan tidak diindahkan oleh pihak direksi.</td>
+              <td>Status perusahaan tercatat berisiko tinggi dalam pangkalan data ketenagakerjaan daerah.</td>
+            </tr>
+            <tr>
+              <td><strong>Pembatasan Kegiatan Usaha</strong></td>
+              <td>Penyegelan sementara mesin produksi berbahaya atau pembatasan kapasitas operasional pabrik.</td>
+              <td>Produksi terganggu sebagian, pengiriman pesanan terlambat, kerugian finansial harian.</td>
+            </tr>
+            <tr>
+              <td><strong>Penghentian Sementara Alat / Fasilitas</strong></td>
+              <td>Pemasangan garis pengawas (Safety Line) pada alat angkat/bejana tekan yang tidak berizin.</td>
+              <td>Operasional lini produksi terhenti total sampai izin riksa uji terbit.</td>
+            </tr>
+            <tr>
+              <td><strong>Pencabutan Izin Usaha / Izin Operasional</strong></td>
+              <td>Rekomendasi pencabutan NIB/Izin Operasional kepada instansi penanaman modal (BKPM / OSS).</td>
+              <td>Perusahaan ditutup permanen dan kehilangan hak beroperasi secara sah di Indonesia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Bagi organisasi berskala menengah ke bawah, memulai persiapan sejak dini melalui <a href="/audit-smk3/">langkah awal persiapan audit SMK3 perusahaan kecil</a> merupakan langkah paling bijak untuk terhindar dari sanksi administratif tersebut.
+      </p>
+    </section>
+
+    <section id="sanksi-pidana-kurungan-denda">
+      <h2>Sanksi Pidana Kurungan dan Denda Finansial</h2>
+      <p>
+        Pelanggaran terhadap norma keselamatan kerja tidak hanya berujung pada sanksi administratif, tetapi juga delik pidana yang dapat menjerat pengusaha maupun pengurus tempat kerja secara pribadi:
+      </p>
+      <p>
+        <strong>1. Ancaman Pidana UU No. 1 Tahun 1970 (Pasal 15):</strong><br />
+        Pelanggaran terhadap ketentuan keselamatan kerja diancam dengan hukuman kurungan selama-lamanya 3 (tiga) bulan atau denda setinggi-tingginya sesuai ketentuan perundang-undangan. Perlu dicatat bahwa tindak pidana dalam UU Keselamatan Kerja dikategorikan sebagai tindak pidana pelanggaran.
+      </p>
+      <p>
+        <strong>2. Ancaman Pidana UU Ketenagakerjaan No. 13 Tahun 2003 (Pasal 190):</strong><br />
+        Pengusaha yang tidak menerapkan Sistem Manajemen K3 sebagaimana diwajibkan dalam Pasal 87 dapat dikenakan sanksi administratif berat hingga pembatalan kegiatan operasional.
+      </p>
+      <p>
+        <strong>3. Ancaman Pidana KUHP (Pasal 359 dan 360):</strong><br />
+        Jika di tempat kerja terjadi insiden yang mengakibatkan pekerja terluka parah atau kehilangan nyawa akibat tidak disediakannya sarana proteksi yang memadai, pimpinan perusahaan dapat dituntut pidana penjara:
+      </p>
+      <blockquote>
+        "Barang siapa karena kesalahannya (kealpaannya) menyebabkan orang lain mati, diancam dengan pidana penjara paling lama lima tahun atau pidana kurungan paling lama satu tahun." (Pasal 359 KUHP)
+      </blockquote>
+      <p>
+        Penyidik Pegawai Negeri Sipil (PPNS) Ketenagakerjaan bekerja sama dengan Kepolisian RI memiliki wewenang untuk memeriksa berkas, menyita barang bukti, dan melimpahkan perkara pidana keselamatan kerja ke kejaksaan untuk disidangkan di pengadilan negeri.
+      </p>
+    </section>
+
+    <section id="dampak-finansial-dan-reputasi">
+      <h2>Dampak Kerugian Komersial, Blacklist, dan Gugatan Sipil</h2>
+      <p>
+        Sering kali, kerugian terbesar akibat mengabaikan K3 bukan berasal dari denda pengadilan, melainkan dari dampak domino terhadap kelangsungan usaha:
+      </p>
+      <ol>
+        <li>
+          <strong>Penghentian Proyek & Pembayaran Denda Keterlambatan:</strong> Ketika terjadi insiden fatality di lokasi proyek atau pabrik, polisi akan memasang police line selama berminggu-minggu untuk olah TKP. Proyek terhenti, jadwal molor, dan perusahaan terkena penalti keterlambatan kontrak (liquidated damages) bernilai miliaran rupiah.
+        </li>
+        <li>
+          <strong>Masuk Daftar Hitam (Blacklist) Tender Pengadaan:</strong> Lembaga Kebijakan Pengadaan Barang/Jasa Pemerintah (LKPP) dan portal e-procurement BUMN langsung memutus kontrak dan memasukkan nama perusahaan ke daftar hitam jika terbukti melakukan pelanggaran keselamatan fatal.
+        </li>
+        <li>
+          <strong>Kenaikan Premi Asuransi Secara Masif:</strong> Perusahaan dengan catatan klaim kecelakaan kerja buruk akan dikenai rasio premi asuransi aset dan kecelakaan kerja berkali-kali lipat lebih mahal oleh perusahaan asuransi.
+        </li>
+        <li>
+          <strong>Gugatan Perdata Ganti Rugi Korban (Tort Law):</strong> Keluarga korban berhak melayangkan gugatan perdata perbuatan melawan hukum (Pasal 1365 KUHPerdata) untuk menuntut kompensasi santunan di luar pertanggungan BPJS Ketenagakerjaan.
+        </li>
+      </ol>
+      <p>
+        Membandingkan risiko kerugian tersebut dengan besaran <a href="/biaya-konsultan-k3/">investasi biaya jasa konsultan K3</a> yang terjangkau memperlihatkan bahwa mengabaikan K3 adalah spekulasi finansial yang sangat berbahaya.
+      </p>
+    </section>
+
+    <section id="studi-kasus-penegakan-hukum">
+      <h2>Studi Kasus Penegakan Hukum Kecelakaan Fatal</h2>
+      <p>
+        Sebagai gambaran nyata, berikut adalah pola penegakan hukum yang kerap terjadi pada insiden kecelakaan industri:
+      </p>
+      <p>
+        Sebuah pabrik pengolahan pakan ternak di Jawa Timur mengalami ledakan debu (dust explosion) yang menewaskan dua orang pekerja pemeliharaan. Dalam investigasi gabungan antara Pengawas Disnaker dan Puslabfor Polri, ditemukan fakta bahwa perusahaan tidak memiliki dokumen identifikasi bahaya bahan mudah terbakar, instalasi listrik tidak bersertifikat laik, dan operator las bekerja tanpa izin kerja panas (Hot Work Permit).
+      </p>
+      <p>
+        Hasil penegakan hukum: Manajer Pabrik dan Direktur Operasional divonis 1,5 tahun penjara atas kelalaian keselamatan kerja. Selain itu, fasilitas produksi disegel selama 4 bulan dan perusahaan kehilangan kontrak pasokan utama senilai puluhan miliar rupiah. Kasus ini menegaskan bahwa dokumen K3 bukan sekadar formalitas, melainkan alat bukti hukum yang membuktikan ada tidaknya unsur kealpaan manajemen.
+      </p>
+      <p>
+        Untuk memastikan pemahaman menyeluruh terhadap regulasi keselamatan kerja di kalangan staf hukum dan operasional, manajemen dapat mengikutsertakan tim dalam <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">pelatihan pemenuhan regulasi K3</a> yang diselenggarakan secara bersertifikat.
+      </p>
+    </section>
+
+    <section id="langkah-pemulihan-kepatuhan">
+      <h2>Cara Memulihkan Status Kepatuhan Regulasi Perusahaan</h2>
+      <p>
+        Jika perusahaan Anda saat ini telah menerima Nota Pemeriksaan dari Dinas Tenaga Kerja atau sedang menghadapi teguran audit, segera ambil tindakan pemulihan (remedial action) terstruktur:
+      </p>
+      <ul>
+        <li>Bentuk tim tanggap darurat kepatuhan internal untuk menginventarisasi seluruh butir teguran pengawas;</li>
+        <li>Lakukan sertifikasi uji riksa ulang terhadap seluruh mesin produksi, bejana tekan, pesawat uap, dan forklift melalui PJK3 riksa uji resmi;</li>
+        <li>Pastikan seluruh staf operasional memiliki lisensi kompetensi yang valid;</li>
+        <li>Tuntaskan seluruh prosedur dan formulir keselamatan sesuai <a href="/syarat-sertifikasi-smk3/">pemenuhan syarat sertifikat SMK3 PP 50 Tahun 2012</a>.</li>
+      </ul>
+    </section>
+
+    <LeadBlock 
+      title="Amankan Legalitas Perusahaan dari Sanksi K3"
+      subtitle="Konsultasikan langkah pencegahan dan pemulihan status kepatuhan K3 perusahaan Anda bersama tim konsultan hukum dan teknis kami."
+      defaultNeed="Konsultasi Kepatuhan dan Penanganan Sanksi K3"
+    />
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

@@ -1,0 +1,103 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyWhatsApp from '../components/StickyWhatsApp.astro';
+import { SITE_INFO } from '../config';
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Tidak Ditemukan - KonsultanK3</title>
+    <meta name="description" content="Halaman yang Anda cari tidak dapat ditemukan di situs KonsultanK3." />
+    <meta name="robots" content="noindex, follow" />
+  </head>
+  <body>
+    <Header />
+    <div class="site-container">
+      <main class="error-container">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title">Halaman Tidak Ditemukan</h2>
+        <p class="error-message">
+          Halaman yang Anda tuju mungkin telah dipindahkan, diubah tautannya, atau tidak tersedia lagi. Silakan kembali ke beranda atau akses panduan regulasi K3 di bawah ini.
+        </p>
+        <div class="error-links">
+          <a href="/" class="home-btn">Kembali ke Beranda</a>
+          <a href="/biaya-konsultan-k3/" class="guide-link">Biaya Konsultan K3</a>
+          <a href="/audit-smk3/" class="guide-link">Persiapan Audit SMK3</a>
+          <a href="/smkk-konstruksi/" class="guide-link">SMKK Konstruksi</a>
+        </div>
+      </main>
+    </div>
+    <Footer />
+    <StickyWhatsApp />
+
+    <style>
+      body {
+        margin: 0;
+        background-color: #F7F7F5;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #1e293b;
+      }
+      .site-container {
+        max-width: 900px;
+        margin: 4rem auto;
+        padding: 0 1.25rem;
+      }
+      .error-container {
+        background: #ffffff;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+      .error-code {
+        font-size: 4rem;
+        color: #0B2545;
+        margin: 0;
+        line-height: 1;
+      }
+      .error-title {
+        font-size: 1.75rem;
+        color: #0B2545;
+        margin: 1rem 0;
+      }
+      .error-message {
+        color: #475569;
+        max-width: 500px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+      }
+      .error-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .home-btn {
+        background-color: #F47C20;
+        color: #ffffff;
+        padding: 0.65rem 1.25rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .home-btn:hover {
+        background-color: #e06912;
+      }
+      .guide-link {
+        background-color: #0B2545;
+        color: #ffffff;
+        padding: 0.65rem 1.25rem;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .guide-link:hover {
+        background-color: #163e72;
+      }
+    </style>
+  </body>
+</html>

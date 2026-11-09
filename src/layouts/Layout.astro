@@ -1,0 +1,318 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyWhatsApp from '../components/StickyWhatsApp.astro';
+import { SITE_INFO, CONTACT_INFO } from '../config';
+
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  breadcrumbs: BreadcrumbItem[];
+  faqItems: FaqItem[];
+  isHomePage?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  breadcrumbs,
+  faqItems,
+  isHomePage = false
+} = Astro.props;
+
+// Ensure trailing slash normalization
+const normalizedPath = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
+const canonicalUrl = `${SITE_INFO.baseUrl}${normalizedPath === '//' ? '/' : normalizedPath}`;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((b, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: b.name,
+    item: b.url.startsWith('http') ? b.url : `${SITE_INFO.baseUrl}${b.url}`
+  }))
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  }))
+};
+
+const organizationSchema = isHomePage ? {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE_INFO.name,
+  url: `${SITE_INFO.baseUrl}/`,
+  description: SITE_INFO.description,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: CONTACT_INFO.whatsappNumber,
+    contactType: 'customer service',
+    areaServed: 'ID',
+    availableLanguage: 'Indonesian'
+  }
+} : null;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={SITE_INFO.name} />
+    <meta property="og:type" content={isHomePage ? 'website' : 'article'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="id_ID" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    {organizationSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    )}
+  </head>
+  <body>
+    <Header />
+
+    <div class="site-container">
+      <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          {breadcrumbs.map((b, index) => (
+            <li class="breadcrumb-item">
+              {index < breadcrumbs.length - 1 ? (
+                <>
+                  <a href={b.url} class="breadcrumb-link">{b.name}</a>
+                  <span class="breadcrumb-separator" aria-hidden="true">&rsaquo;</span>
+                </>
+              ) : (
+                <span class="breadcrumb-current" aria-current="page">{b.name}</span>
+              )}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <main id="main-content" class="main-content">
+        <slot />
+      </main>
+    </div>
+
+    <Footer />
+    <StickyWhatsApp />
+
+    <style is:global>
+      :root {
+        --color-navy: #0B2545;
+        --color-orange: #F47C20;
+        --color-bg: #F7F7F5;
+        --color-text: #1e293b;
+        --color-heading: #0B2545;
+        --color-border: #e2e8f0;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.65;
+        font-size: 1rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .site-container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.5rem 1.25rem 3rem;
+      }
+
+      .breadcrumb-bar {
+        margin-bottom: 1.5rem;
+        font-size: 0.875rem;
+      }
+      .breadcrumb-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .breadcrumb-link {
+        color: #0B2545;
+        text-decoration: none;
+      }
+      .breadcrumb-link:hover {
+        text-decoration: underline;
+        color: #F47C20;
+      }
+      .breadcrumb-separator {
+        color: #94a3b8;
+      }
+      .breadcrumb-current {
+        color: #64748b;
+        font-weight: 500;
+      }
+
+      .main-content {
+        background-color: #ffffff;
+        border-radius: 8px;
+        border: 1px solid #e2e8f0;
+        padding: 2.5rem 3rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Typography & article styling */
+      h1 {
+        color: #0B2545;
+        font-size: 2.15rem;
+        line-height: 1.25;
+        font-weight: 800;
+        margin-top: 0;
+        margin-bottom: 1.25rem;
+      }
+
+      h2 {
+        color: #0B2545;
+        font-size: 1.55rem;
+        line-height: 1.35;
+        font-weight: 700;
+        margin-top: 2.5rem;
+        margin-bottom: 0.85rem;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 0.4rem;
+      }
+
+      h3 {
+        color: #0B2545;
+        font-size: 1.25rem;
+        line-height: 1.4;
+        font-weight: 600;
+        margin-top: 1.85rem;
+        margin-bottom: 0.65rem;
+      }
+
+      p {
+        margin: 0 0 1.2rem;
+        color: #334155;
+      }
+
+      ul, ol {
+        margin: 0 0 1.25rem;
+        padding-left: 1.5rem;
+        color: #334155;
+      }
+
+      li {
+        margin-bottom: 0.45rem;
+      }
+
+      blockquote {
+        margin: 1.5rem 0;
+        padding: 1rem 1.25rem;
+        background-color: #f8fafc;
+        border-left: 4px solid #0B2545;
+        border-radius: 0 6px 6px 0;
+        color: #1e293b;
+        font-style: italic;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0 2rem;
+        font-size: 0.95rem;
+      }
+
+      th, td {
+        border: 1px solid #cbd5e1;
+        padding: 0.75rem 1rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: #0B2545;
+        color: #ffffff;
+        font-weight: 600;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f8fafc;
+      }
+
+      a {
+        color: #0B2545;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        color: #F47C20;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.875rem;
+        color: #64748b;
+        margin-bottom: 1.75rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      @media (max-width: 768px) {
+        .main-content {
+          padding: 1.5rem 1.25rem;
+        }
+        h1 {
+          font-size: 1.65rem;
+        }
+        h2 {
+          font-size: 1.35rem;
+        }
+        h3 {
+          font-size: 1.15rem;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+---
+import { SITE_INFO } from '../config';
+
+const navLinks = [
+  { href: '/', label: 'Beranda' },
+  { href: '/biaya-konsultan-k3/', label: 'Biaya Konsultan' },
+  { href: '/audit-smk3/', label: 'Audit SMK3' },
+  { href: '/dokumen-smk3/', label: 'Dokumen SMK3' },
+  { href: '/smkk-konstruksi/', label: 'SMKK Konstruksi' },
+  { href: '/konsultasi-gratis/', label: 'Konsultasi Gratis', isCta: true }
+];
+---
+
+<header class="site-header">
+  <div class="header-container">
+    <a href="/" class="brand-link">
+      <span class="brand-name">{SITE_INFO.name}</span>
+      <span class="brand-tagline">{SITE_INFO.tagline}</span>
+    </a>
+    <nav class="main-nav" aria-label="Navigasi Utama">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li class="nav-item">
+            <a href={link.href} class={`nav-link ${link.isCta ? 'nav-cta' : ''}`}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background-color: #0B2545;
+    color: #ffffff;
+    border-bottom: 3px solid #F47C20;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .brand-link {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+  }
+  .brand-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+  .brand-tagline {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    font-weight: 400;
+  }
+  .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .nav-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.925rem;
+    font-weight: 500;
+    padding: 0.4rem 0.65rem;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .nav-cta {
+    background-color: #F47C20;
+    color: #ffffff !important;
+    font-weight: 700;
+    padding: 0.45rem 0.9rem;
+  }
+  .nav-cta:hover {
+    background-color: #e06912 !important;
+  }
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-list {
+      gap: 0.5rem;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.5rem;
+    }
+  }
+</style>

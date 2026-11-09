@@ -1,0 +1,309 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+import LeadBlock from '../../components/LeadBlock.astro';
+import { TARGET_SITES } from '../../config';
+
+const title = 'Contoh HIRADC Lengkap: Matriks Risiko & Template K3';
+const description = 'Panduan dan contoh HIRADC keselamatan kerja. Metode identifikasi bahaya, penilaian risiko matriks 5x5, hierarki pengendalian, dan format tabel.';
+const canonicalPath = '/contoh-hiradc/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Contoh HIRADC', url: '/contoh-hiradc/' }
+];
+
+const tocItems = [
+  { id: 'pengertian-dasar-hiradc', title: 'Definisi dan Fungsi HIRADC dalam Sistem K3' },
+  { id: 'metode-identifikasi-bahaya', title: 'Metode Identifikasi Bahaya di Tempat Kerja' },
+  { id: 'matriks-penilaian-risiko', title: 'Matriks Penilaian Risiko 5x5 (Severity x Likelihood)' },
+  { id: 'hierarki-pengendalian-risiko', title: 'Penerapan 5 Tingkat Hierarki Pengendalian Risiko' },
+  { id: 'tabel-contoh-hiradc', title: 'Tabel Contoh HIRADC Sektor Industri & Pergudangan' },
+  { id: 'jadwal-tinjauan-hiradc', title: 'Kapan Tabel HIRADC Wajib Ditinjau Ulang?' },
+  { id: 'faq-section', title: 'Pertanyaan Seputar Penyusunan HIRADC' }
+];
+
+const faqItems = [
+  {
+    question: 'Apa perbedaan antara HIRADC dan JSA (Job Safety Analysis)?',
+    answer: 'HIRADC adalah instrumen analisis risiko komprehensif tingkat makro yang mencakup seluruh aktivitas rutin dan non-rutin di satu departemen atau fasilitas kerja. Sedangkan JSA adalah analisis risiko mikro yang berfokus langkah-demi-langkah pada satu pekerjaan spesifik berisiko tinggi di lapangan.'
+  },
+  {
+    question: 'Siapa saja yang wajib dilibatkan dalam penyusunan HIRADC?',
+    answer: 'Penyusunan HIRADC harus melibatkan tim multidisiplin: Ahli K3 / HSE officer, supervisor area kerja langsung, perwakilan operator teknis yang menjalankan mesin harian, serta perwakilan bagian pemeliharaan (maintenance).'
+  },
+  {
+    question: 'Apakah tabel HIRADC harus diperbarui setiap tahun?',
+    answer: 'Ya, minimal ditinjau ulang satu tahun sekali. Namun HIRADC wajib langsung dimutakhirkan seketika jika terjadi insiden kecelakaan kerja, modifikasi mesin baru, perubahan tata letak pabrik, atau adanya regulasi baru dari pemerintah.'
+  },
+  {
+    question: 'Bagaimana membuktikan efektivitas pengendalian risiko pada audit?',
+    answer: 'Auditor akan membandingkan nilai risiko awal (Initial Risk) dengan nilai risiko sisa (Residual Risk). Perusahaan harus membuktikan bahwa setelah tindakan kontrol dipasang, skor keparahan dan kemungkinan bahaya menurun secara terukur.'
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>Contoh HIRADC Praktis dan Matriks Penilaian Risiko K3</h1>
+      <div class="article-meta">
+        <span>Kategori: Manajemen Risiko & HIRADC</span>
+        <span>Pembaruan: November 2026</span>
+        <span>Waktu Baca: 11 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Manajemen risiko merupakan inti operasional dari seluruh kerangka keselamatan kerja modern. Dokumen <em>Hazard Identification, Risk Assessment, and Determining Control</em> (HIRADC)—atau di Indonesia kerap disebut Identifikasi Bahaya, Penilaian Risiko, dan Penentuan Pengendalian (IBPRP)—adalah dokumen primer yang dievaluasi dalam audit PP 50/2012 maupun ISO 45001. Mempelajari <strong>contoh hiradc</strong> yang aplikatif akan memandu Anda merumuskan sistem proteksi kerja yang akurat dan berbasis data lapangan nyata.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="pengertian-dasar-hiradc">
+      <h2>Definisi dan Fungsi HIRADC dalam Sistem K3</h2>
+      <p>
+        HIRADC adalah metode terstruktur untuk mengidentifikasi potensi bahaya di setiap tahapan proses kerja, memperkirakan besaran kemungkinan (likelihood) dan tingkat keparahan (severity) dari dampak yang ditimbulkan, serta menetapkan langkah pengendalian yang proporsional guna mencegah kecelakaan kerja dan penyakit akibat kerja (PAK).
+      </p>
+      <p>
+        Berdasarkan PP No. 50 Tahun 2012 Lampiran II Elemen 2 tentang Perencanaan K3, perusahaan wajib melakukan kajian bahaya secara menyeluruh pada semua aktivitas, produk, dan jasa yang dihasilkan. Dokumen HIRADC bukan sekadar formalitas kertas, melainkan panduan utama yang mendikte pembuatan Standar Operasional Prosedur (SOP), jadwal inspeksi peralatan, penentuan jenis APD karyawan, hingga <a href="/dokumen-smk3/">integrasi ke dalam dokumen SMK3 wajib</a> yang dipersyaratkan kementerian.
+      </p>
+      <p>
+        Di sektor pekerjaan infrastruktur, tabel HIRADC dikembangkan menjadi dokumen Identifikasi Bahaya, Penilaian Risiko, Pengendalian dan Peluang (IBPRP) yang merupakan komponen mutlak <a href="/smkk-konstruksi/">dokumen RKK untuk SMKK konstruksi kontraktor</a> saat lelang maupun pelaksanaan fisik.
+      </p>
+    </section>
+
+    <section id="metode-identifikasi-bahaya">
+      <h2>Metode Identifikasi Bahaya di Tempat Kerja</h2>
+      <p>
+        Langkah awal penyusunan HIRADC adalah mendata seluruh bahaya tanpa ada yang terlewat. Tim penilai harus mengelompokkan bahaya tempat kerja ke dalam 6 kategori mendasar:
+      </p>
+      <ul>
+        <li>
+          <strong>Bahaya Fisik (Physical Hazards):</strong> Kebisingan di atas 85 dBA, getaran mekanis lengan atau seluruh tubuh, pencahayaan minim, lantai licin, bekerja di ketinggian lebih dari 1,8 meter, dan radiasi panas.
+        </li>
+        <li>
+          <strong>Bahaya Mekanis (Mechanical Hazards):</strong> Titik jepit (pinch point) pada roda gigi mesin, pisau pemotong tanpa pelindung, benda berputar kencang, dan risiko tertabrak forklift.
+        </li>
+        <li>
+          <strong>Bahaya Kimiawi (Chemical Hazards):</strong> Gas beracun (CO, H2S), uap pelarut thinner, debu silika, zat asam/basa korosif, serta uap mudah terbakar (flammable vapors).
+        </li>
+        <li>
+          <strong>Bahaya Biologis (Biological Hazards):</strong> Bakteri, virus menular, jamur di ruang ber-AC yang lembap, gigitan serangga, serta paparan limbah medis.
+        </li>
+        <li>
+          <strong>Bahaya Ergonomi (Ergonomic Hazards):</strong> Gerakan berulang (repetitive motion), postur kerja membungkuk statis, pengangkatan manual melebihi beban aman (di atas 20-25 kg), dan tata letak meja kerja yang buruk.
+        </li>
+        <li>
+          <strong>Bahaya Psikososial (Psychosocial Hazards):</strong> Beban kerja berlebih, kerja lembur terus-menerus, intimidasi kerja, dan tekanan tenggat waktu yang memicu stres akut.
+        </li>
+      </ul>
+      <p>
+        Tahapan identifikasi ini wajib diuji secara teliti untuk memastikan kesiapan dalam <a href="/audit-smk3/">persiapan audit SMK3 perusahaan kecil pada elemen risiko</a>.
+      </p>
+    </section>
+
+    <section id="matriks-penilaian-risiko">
+      <h2>Matriks Penilaian Risiko 5x5 (Severity x Likelihood)</h2>
+      <p>
+        Setelah bahaya diidentifikasi, langkah berikutnya adalah menilai tingkat risiko menggunakan rumus dasar:
+      </p>
+      <blockquote>
+        <strong>Tingkat Risiko (Risk Score) = Tingkat Kemungkinan (Likelihood) &times; Tingkat Keparahan (Severity)</strong>
+      </blockquote>
+      <p>
+        Pendekatan yang paling banyak diakui dalam regulasi Indonesia adalah Matriks 5x5:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Skala / Nilai</th>
+              <th>Kemungkinan Terjadi (Likelihood)</th>
+              <th>Tingkat Keparahan Dampak (Severity)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Sangat Jarang (Hampir mustahil terjadi)</td>
+              <td>Tidak Signifikan (P3K ringan, tidak ada jam kerja hilang)</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jarang (Bisa terjadi dalam kondisi tertentu)</td>
+              <td>Kecil (Luka ringan, pengobatan medis tanpa rawat inap)</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Sedang (Pernah terjadi beberapa kali setahun)</td>
+              <td>Sedang (Kehilangan hari kerja &lt; 3 hari, cedera reversibel)</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Sering (Terjadi berkali-kali dalam sebulan)</td>
+              <td>Berat (Cacat permanen, kehilangan hari kerja &gt; 3 hari)</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Sangat Sering (Pasti terjadi secara rutin)</td>
+              <td>Bencana / Fatal (Kematian tunggal / massal, kerugian aset masif)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Hasil perkalian angka 1 sampai 25 tersebut kemudian diklasifikasikan ke dalam 4 zona risiko:
+      </p>
+      <ul>
+        <li><strong>Skor 1 – 3 (Rendah / Low):</strong> Risiko dapat diterima dengan pemantauan rutin standar.</li>
+        <li><strong>Skor 4 – 9 (Sedang / Medium):</strong> Memerlukan prosedur kerja tertulis dan pengawasan operasional berkala.</li>
+        <li><strong>Skor 10 – 16 (Tinggi / High):</strong> Pekerjaan hanya boleh dilakukan dengan izin kerja khusus (PTW) dan pengawasan ketat.</li>
+        <li><strong>Skor 17 – 25 (Ekstrem / Critical):</strong> Pekerjaan tidak boleh dimulai sebelum tindakan mitigasi terbukti menurunkan skor risiko.</li>
+      </ul>
+    </section>
+
+    <section id="hierarki-pengendalian-risiko">
+      <h2>Penerapan 5 Tingkat Hierarki Pengendalian Risiko</h2>
+      <p>
+        Salah satu kesalahan terbesar dalam menyusun HIRADC adalah langsung menuliskan "Gunakan APD" pada kolom tindakan pengendalian. Secara kaidah K3, Alat Pelindung Diri adalah pertahanan terakhir (last line of defense). Anda wajib menerapkan 5 Hierarki Pengendalian (Hierarchy of Controls) secara berurutan:
+      </p>
+      <ol>
+        <li>
+          <strong>Eliminasi (Elimination):</strong> Menghilangkan sumber bahaya secara total dari lingkungan kerja (misalnya: menyingkirkan pekerjaan manual di ketinggian dengan menggunakan drone inspeksi).
+        </li>
+        <li>
+          <strong>Substitusi (Substitution):</strong> Mengganti bahan atau proses berbahaya dengan yang lebih ramah (misalnya: mengganti pelarut berbasis benzena dengan pembersih berbahan dasar air).
+        </li>
+        <li>
+          <strong>Rekayasa Teknik (Engineering Control):</strong> Memodifikasi mesin atau lingkungan fisik (misalnya: memasang pelindung mesin/machine guard, sistem ventilasi hisap lokal/local exhaust ventilation, dan peredam suara).
+        </li>
+        <li>
+          <strong>Pengendalian Administratif (Administrative Control):</strong> Merancang prosedur aman, rotasi jadwal kerja operator untuk membatasi durasi paparan, pemasangan rambu peringatan K3, dan safety briefing harian.
+        </li>
+        <li>
+          <strong>Alat Pelindung Diri (Personal Protective Equipment - APD):</strong> Membekali pekerja dengan helm keselamatan, sepatu pelindung jari baja (steel toe), kacamata anti-benturan, dan earplug.
+        </li>
+      </ol>
+      <p>
+        Untuk memperkaya wawasan mengenai standarisasi teknik kontrol risiko dan studi kasus di lapangan, Anda dapat merujuk materi <a href="https://pelatihan-k3.co.id" target="_blank" rel="noopener noreferrer">referensi di https://pelatihan-k3.co.id</a> yang mengulas berbagai silabus teknik identifikasi bahaya.
+      </p>
+    </section>
+
+    <section id="tabel-contoh-hiradc">
+      <h2>Tabel Contoh HIRADC Sektor Industri & Pergudangan</h2>
+      <p>
+        Berikut adalah format tabel contoh HIRADC pada aktivitas pergudangan logistik dan pengoperasian mesin produksi yang memenuhi standar audit resmi:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Aktivitas Kerja</th>
+              <th>Potensi Bahaya</th>
+              <th>Konsekuensi / Dampak</th>
+              <th>L</th>
+              <th>S</th>
+              <th>Skor Awal</th>
+              <th>Tindakan Pengendalian (Hierarki)</th>
+              <th>Skor Sisa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pengoperasian Forklift di Gudang</td>
+              <td>Lalu lintas pejalan kaki bercampur, blind spot lorong rak</td>
+              <td>Pekerja tertabrak, cedera fraktur kaki atau kematian</td>
+              <td>3</td>
+              <td>5</td>
+              <td><strong>15 (Tinggi)</strong></td>
+              <td>
+                1. Pasang pembatas fisik pejalan kaki (Engineering)<br />
+                2. Buat SOP batas kecepatan 10 km/jam (Admin)<br />
+                3. Wajibkan rompi reflektif hi-vis & SIO forklift aktif (APD & Legal)
+              </td>
+              <td><strong>4 (Sedang)</strong></td>
+            </tr>
+            <tr>
+              <td>Pekerjaan Pengelasan Rangka Baja</td>
+              <td>Percikan bunga api panas dekat bahan mudah terbakar</td>
+              <td>Kebakaran gudang, luka bakar derajat tiga pada operator</td>
+              <td>3</td>
+              <td>4</td>
+              <td><strong>12 (Tinggi)</strong></td>
+              <td>
+                1. Pembersihan area kerja 10 m dari bahan mudah terbakar (Admin)<br />
+                2. Sediakan APAR 6 kg dan fire blanket di lokasi kerja (Engineering)<br />
+                3. Izin kerja panas (Hot Work Permit) & topeng las standar (Admin/APD)
+              </td>
+              <td><strong>3 (Rendah)</strong></td>
+            </tr>
+            <tr>
+              <td>Pembersihan Tangki Kimia Tertutup</td>
+              <td>Kekurangan oksigen (&lt; 19,5%), akumulasi gas beracun</td>
+              <td>Asfiksia seketika, hilang kesadaran, kematian pekerja</td>
+              <td>3</td>
+              <td>5</td>
+              <td><strong>15 (Tinggi)</strong></td>
+              <td>
+                1. Kalibrasi uji gas portabel 4 gas detector sebelum masuk (Admin)<br />
+                2. Pasang blower exhaust fan ventilasi terus menerus (Engineering)<br />
+                3. Izin kerja ruang terbatas & standby personil siaga di luar (Admin)
+              </td>
+              <td><strong>5 (Sedang)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Format matriks di atas menunjukkan adanya penurunan skor risiko awal menjadi skor sisa yang terkendali, yang merupakan poin kunci evaluasi auditor saat memverifikasi efektivitas mitigasi bahaya.
+      </p>
+    </section>
+
+    <section id="jadwal-tinjauan-hiradc">
+      <h2>Kapan Tabel HIRADC Wajib Ditinjau Ulang?</h2>
+      <p>
+        Buku register HIRADC bukanlah dokumen statis yang sekali dibuat langsung disimpan selamanya. Regulasi mengharuskan peninjauan ulang secara terjadwal:
+      </p>
+      <ul>
+        <li>Tinjauan berkala minimal 1 (satu) kali dalam 12 bulan;</li>
+        <li>Setiap kali terjadi kecelakaan kerja fatal, insiden berulang, atau nyaris celaka (near miss);</li>
+        <li>Saat dilakukan instalasi mesin baru, penggantian bahan kimia produksi, atau perubahan tata letak bengkel kerja;</li>
+        <li>Ketika terbit peraturan perundangan baru terkait ambang batas lingkungan kerja.</li>
+      </ul>
+      <p>
+        Jika departemen keselamatan di perusahaan Anda membutuhkan telaah ahli untuk menyusun atau mengaudit register risiko, tim kami siap memberikan <a href="/konsultasi-gratis/">bantuan review konsultasi K3 gratis</a> guna menelaah ketepatan metodologi yang Anda gunakan.
+      </p>
+    </section>
+
+    <LeadBlock 
+      title="Susun Matriks HIRADC Sesuai Kebutuhan Pabrik Anda"
+      subtitle="Dapatkan template lembar kerja HIRADC format Excel dan pendampingan identifikasi bahaya langsung bersama konsultan bersertifikat kami."
+      defaultNeed="Penyusunan Matriks Risiko HIRADC Lengkap"
+    />
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

@@ -1,0 +1,104 @@
+---
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  title?: string;
+}
+
+const {
+  items,
+  title = 'Pertanyaan yang Sering Diajukan (FAQ)'
+} = Astro.props;
+---
+
+<section class="faq-section" id="faq-section" aria-label="Pertanyaan yang Sering Diajukan">
+  <h2 class="faq-main-title">{title}</h2>
+  <div class="faq-grid">
+    {items.map((item, index) => (
+      <details class="faq-item" open={index === 0}>
+        <summary class="faq-question">
+          <span class="faq-q-text">{item.question}</span>
+          <span class="faq-toggle-icon" aria-hidden="true">+</span>
+        </summary>
+        <div class="faq-answer">
+          <p>{item.answer}</p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    margin: 3.5rem 0 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e2e8f0;
+  }
+  .faq-main-title {
+    color: #0B2545;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+  .faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .faq-item {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .faq-item[open] {
+    border-color: #0B2545;
+  }
+  .faq-question {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    font-weight: 700;
+    color: #0B2545;
+    cursor: pointer;
+    background-color: #ffffff;
+    user-select: none;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-q-text {
+    font-size: 1.05rem;
+    line-height: 1.4;
+    padding-right: 1rem;
+  }
+  .faq-toggle-icon {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #F47C20;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .faq-item[open] .faq-toggle-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    padding: 0 1.25rem 1.25rem;
+    color: #334155;
+    line-height: 1.65;
+    font-size: 0.95rem;
+    border-top: 1px solid #f1f5f9;
+    background-color: #fafaf9;
+  }
+  .faq-answer p {
+    margin: 0.75rem 0 0;
+  }
+</style>

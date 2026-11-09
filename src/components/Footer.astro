@@ -1,0 +1,182 @@
+---
+import { SITE_INFO, CONTACT_INFO } from '../config';
+
+const pillarLinks = [
+  { href: '/biaya-konsultan-k3/', label: 'Biaya Jasa Konsultan K3' },
+  { href: '/audit-smk3/', label: 'Persiapan Audit SMK3' },
+  { href: '/syarat-sertifikasi-smk3/', label: 'Syarat Sertifikat SMK3 PP 50/2012' },
+  { href: '/dokumen-smk3/', label: 'Daftar Dokumen SMK3 Wajib' },
+  { href: '/membentuk-p2k3/', label: 'Tata Cara Membentuk P2K3' },
+  { href: '/smkk-konstruksi/', label: 'SMKK Konstruksi Kontraktor' },
+  { href: '/contoh-hiradc/', label: 'Contoh HIRADC & Matriks Risiko' },
+  { href: '/sanksi-tidak-menerapkan-k3/', label: 'Sanksi Tidak Menerapkan K3' },
+  { href: '/konsultasi-gratis/', label: 'Konsultasi K3 Gratis' },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col about-col">
+      <h3 class="footer-title">{SITE_INFO.name}</h3>
+      <p class="footer-desc">
+        {SITE_INFO.tagline}. Kami mendampingi perusahaan di seluruh Indonesia dalam penyusunan sistem manajemen keselamatan dan kesehatan kerja berbasis regulasi resmi (PP 50/2012, Permenaker 5/2018, dan Permen PUPR 10/2021).
+      </p>
+      <p class="footer-note">
+        Fokus layanan: audit SMK3, penyusunan HIRADC, pembentukan P2K3, serta kepatuhan SMKK konstruksi untuk tender dan operasional harian.
+      </p>
+    </div>
+
+    <div class="footer-col links-col">
+      <h3 class="footer-title">Panduan Regulasi K3</h3>
+      <ul class="footer-links">
+        {pillarLinks.map((link) => (
+          <li>
+            <a href={link.href} class="footer-link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="footer-col contact-col">
+      <h3 class="footer-title">Kontak & Asistensi</h3>
+      <p class="contact-item">
+        <strong>WhatsApp:</strong><br />
+        <a href={CONTACT_INFO.whatsappUrl} class="footer-link">{CONTACT_INFO.whatsappNumber}</a>
+      </p>
+      <p class="contact-item">
+        <strong>Email:</strong><br />
+        <a href={`mailto:${CONTACT_INFO.email}`} class="footer-link">{CONTACT_INFO.email}</a>
+      </p>
+      <p class="contact-item">
+        <strong>Jam Operasional:</strong><br />
+        Senin – Jumat: 08.30 – 17.00 WIB
+      </p>
+      <div class="footer-cta-box">
+        <a href="/konsultasi-gratis/" class="footer-btn">Ajukan Konsultasi K3</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer-container">
+    <div class="disclaimer-inner">
+      <h4 class="disclaimer-title">Pernyataan Penafian (Disclaimer)</h4>
+      <p class="disclaimer-text">
+        KonsultanK3 merupakan penyedia layanan konsultasi teknis, bimbingan penyusunan dokumen, dan pendampingan audit K3 independen. KonsultanK3 bukan lembaga audit sertifikasi resmi (Lembaga Audit SMK3 yang ditunjuk Menaker) dan bukan instansi penegak hukum pemerintah. Audit resmi sertifikasi SMK3 dilakukan secara independen oleh Lembaga Audit yang diakreditasi Kemnaker RI. Seluruh informasi regulasi disajikan untuk kepentingan edukasi kepatuhan hukum kerja di Indonesia.
+      </p>
+      <p class="copyright-text">
+        &copy; {new Date().getFullYear()} {SITE_INFO.name}. Hak cipta dilindungi undang-undang.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #0B2545;
+    color: #e2e8f0;
+    margin-top: 4rem;
+    border-top: 4px solid #F47C20;
+    font-size: 0.95rem;
+  }
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 2rem;
+    display: grid;
+    grid-template-columns: 1.4fr 1.2fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-title {
+    color: #ffffff;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(244, 124, 32, 0.4);
+    padding-bottom: 0.4rem;
+    display: inline-block;
+  }
+  .footer-desc {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    color: #cbd5e1;
+  }
+  .footer-note {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-link {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s, padding-left 0.2s;
+    font-size: 0.9rem;
+  }
+  .footer-link:hover {
+    color: #ffffff;
+    padding-left: 4px;
+  }
+  .contact-item {
+    margin: 0 0 0.85rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+  .footer-cta-box {
+    margin-top: 1.25rem;
+  }
+  .footer-btn {
+    display: inline-block;
+    background-color: #F47C20;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  .footer-btn:hover {
+    background-color: #e06912;
+  }
+  .disclaimer-container {
+    background-color: #07172c;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1.5rem 1.25rem;
+  }
+  .disclaimer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .disclaimer-title {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem;
+  }
+  .disclaimer-text {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+  .copyright-text {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+  }
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
