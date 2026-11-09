@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import * as cheerio from 'cheerio';
+import { TARGET_SITES } from '../src/config.ts';
 
 const PAGES = [
   {
@@ -67,7 +68,6 @@ const PAGES = [
   }
 ];
 
-const TARGET_SISTER_HOST = 'pelatihan-k3.co.id';
 let hasError = false;
 
 console.log('=== Step 1: Building the site with Astro ===');
@@ -407,28 +407,28 @@ for (const page of PAGES) {
     console.log(`  [PASS] Found ${internalLinks.length} descriptive internal pillar links`);
   }
 
-  // 10. Exactly ONE contextual outbound link to sister site
-  const sisterLinks = [];
-  mainEl.find('a[href*="' + TARGET_SISTER_HOST + '"]').each((_, el) => {
-    sisterLinks.push({
-      href: $(el).attr('href'),
-      text: $(el).text().trim()
-    });
+  // 10. Exactly ZERO contextual outbound links to sister sites or pelatihan-k3
+  const forbiddenHosts = [
+    ...TARGET_SITES.map(s => {
+      try { return new URL(s).host; } catch (_) { return s; }
+    }),
+    'pelatihan-k3.co.id',
+    'pelatihan-k3'
+  ];
+
+  const foundSisterLinks = [];
+  $('a[href]').each((_, el) => {
+    const href = $(el).attr('href') || '';
+    if (href.toLowerCase().includes('pelatihan-k3') || forbiddenHosts.some(host => host && href.toLowerCase().includes(host.toLowerCase()))) {
+      foundSisterLinks.push(href);
+    }
   });
 
-  const allSisterLinks = [];
-  $('a[href*="' + TARGET_SISTER_HOST + '"]').each((_, el) => {
-    allSisterLinks.push({
-      href: $(el).attr('href'),
-      text: $(el).text().trim()
-    });
-  });
-
-  if (sisterLinks.length !== 1 || allSisterLinks.length !== 1) {
-    console.error(`  [FAIL] Expected exactly 1 sister-site link on page, found in main: ${sisterLinks.length}, total: ${allSisterLinks.length}`);
+  if (foundSisterLinks.length !== 0) {
+    console.error(`  [FAIL] Expected exactly 0 sister-site links on page ${page.path}, found ${foundSisterLinks.length}: ${foundSisterLinks.join(', ')}`);
     hasError = true;
   } else {
-    console.log(`  [PASS] Exactly 1 sister-site link found: "${sisterLinks[0].text}" -> ${sisterLinks[0].href}`);
+    console.log(`  [PASS] Exactly 0 sister-site links found`);
   }
 
   // 11. Word count >= 1200
@@ -565,7 +565,8 @@ const FORBIDDEN_STRINGS = [
   '08.30',
   'Jam Operasional',
   'Jam Layanan',
-  '1x24'
+  '1x24',
+  'pelatihan-k3'
 ];
 
 function scanDist(dir) {
@@ -603,7 +604,42 @@ function scanDist(dir) {
 scanDist('dist');
 console.log('  [PASS] No prohibited strings or mailto links found in dist/');
 
-console.log('\n=== Step 6: Checking git ls-files for dist/ ===');
+console.log('\n=== Step 6: Checking dist/ has no href to any external host except wa.me and formsubmit.co ===');
+const ALLOWED_EXTERNAL_HOSTS = new Set(['wa.me', 'formsubmit.co']);
+
+function checkExternalHrefs(dir) {
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      checkExternalHrefs(fullPath);
+    } else if (fullPath.endsWith('.html')) {
+      const html = fs.readFileSync(fullPath, 'utf-8');
+      const $ = cheerio.load(html);
+      $('[href]').each((_, el) => {
+        const href = $(el).attr('href') || '';
+        if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('//')) {
+          try {
+            const urlObj = new URL(href, 'https://konsultank3.space');
+            if (urlObj.host !== 'konsultank3.space') {
+              if (!ALLOWED_EXTERNAL_HOSTS.has(urlObj.host) && !urlObj.host.endsWith('.formsubmit.co')) {
+                console.error(`  [FAIL] Disallowed external host in href "${href}" found in ${fullPath}`);
+                hasError = true;
+              }
+            }
+          } catch (e) {
+            console.error(`  [FAIL] Malformed href "${href}" in ${fullPath}`, e);
+            hasError = true;
+          }
+        }
+      });
+    }
+  }
+}
+checkExternalHrefs('dist');
+console.log('  [PASS] No unauthorized external hrefs found in dist/');
+
+console.log('\n=== Step 7: Checking git ls-files for dist/ ===');
 try {
   const gitDist = execSync('git ls-files dist', { encoding: 'utf-8' }).trim();
   if (gitDist.length > 0) {

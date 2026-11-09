@@ -24,6 +24,4 @@ export const SITE_INFO = {
   description: 'Panduan dan layanan konsultasi K3 untuk perusahaan Indonesia. Pendampingan audit SMK3, SMKK Konstruksi, dokumen K3, dan pembentukan P2K3.'
 };
 
-export const TARGET_SITES = [
-  'https://pelatihan-k3.co.id'
-];
+export const TARGET_SITES: string[] = [];
