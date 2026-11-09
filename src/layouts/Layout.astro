@@ -21,6 +21,8 @@ interface Props {
   breadcrumbs: BreadcrumbItem[];
   faqItems: FaqItem[];
   isHomePage?: boolean;
+  lastUpdated?: string;
+  headline?: string;
 }
 
 const {
@@ -29,7 +31,9 @@ const {
   canonicalPath,
   breadcrumbs,
   faqItems,
-  isHomePage = false
+  isHomePage = false,
+  lastUpdated = '2026-11-10',
+  headline
 } = Astro.props;
 
 // Ensure trailing slash normalization
@@ -58,6 +62,25 @@ const faqSchema = {
       text: item.answer
     }
   }))
+};
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: headline || title,
+  datePublished: lastUpdated,
+  dateModified: lastUpdated,
+  author: {
+    '@type': 'Organization',
+    name: 'KonsultanK3',
+    legalName: 'PT. Bina Katiga Sejahtera'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'KonsultanK3',
+    legalName: 'PT. Bina Katiga Sejahtera'
+  },
+  mainEntityOfPage: canonicalUrl
 };
 
 const organizationSchema = isHomePage ? {
@@ -93,6 +116,8 @@ const organizationSchema = isHomePage ? {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0B2545" />
     
     <!-- Open Graph -->
     <meta property="og:site_name" content={SITE_INFO.name} />
@@ -101,15 +126,26 @@ const organizationSchema = isHomePage ? {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content="id_ID" />
+    <meta property="og:image" content="https://konsultank3.space/og-default.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://konsultank3.space/og-default.png" />
     
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
     {organizationSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     )}
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Lewati ke konten</a>
     <Header />
 
     <div class="site-container">
@@ -150,6 +186,41 @@ const organizationSchema = isHomePage ? {
       
       * {
         box-sizing: border-box;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid #F47C20;
+        outline-offset: 2px;
+      }
+
+      .skip-link {
+        position: absolute;
+        top: -999px;
+        left: 1rem;
+        background-color: #F47C20;
+        color: #0B2545;
+        padding: 0.6rem 1rem;
+        font-weight: 700;
+        z-index: 9999;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      .skip-link:focus {
+        top: 1rem;
+      }
+
+      h2[id], h3[id], section[id] {
+        scroll-margin-top: 90px;
       }
 
       body {
@@ -320,6 +391,12 @@ const organizationSchema = isHomePage ? {
         }
         h3 {
           font-size: 1.15rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        body {
+          padding-bottom: 5rem;
         }
       }
     </style>

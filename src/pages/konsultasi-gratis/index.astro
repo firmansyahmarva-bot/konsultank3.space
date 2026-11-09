@@ -47,6 +47,8 @@ const faqItems = [
     answer: 'Sama sekali tidak ada kewajiban. Anda bebas menggunakan ringkasan rekomendasi (action plan) yang kami berikan untuk ditindaklanjuti secara mandiri bersama tim internal perusahaan Anda.'
   }
 ];
+const lastUpdated = '2026-11-10';
+const headline = 'Layanan Sesi Konsultasi K3 Gratis untuk Perusahaan';
 ---
 
 <Layout
@@ -55,13 +57,15 @@ const faqItems = [
   canonicalPath={canonicalPath}
   breadcrumbs={breadcrumbs}
   faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
 >
   <article class="article-body">
     <header class="article-header">
-      <h1>Layanan Sesi Konsultasi K3 Gratis untuk Perusahaan</h1>
+      <h1>{headline}</h1>
       <div class="article-meta">
         <span>Kategori: Konsultasi & Layanan Terbuka</span>
-        <span>Pembaruan: November 2026</span>
+        <span>Diperbarui: 10 November 2026</span>
         <span>Waktu Baca: 12 Menit</span>
       </div>
     </header>
@@ -138,7 +142,7 @@ const faqItems = [
           <strong>Pengisian Formulir Permintaan / Kontak WhatsApp:</strong> Anda mengirimkan data singkat perihal nama perusahaan, sektor usaha, jumlah pekerja, dan kendala spesifik yang dihadapi melalui formulir di halaman ini atau tautan WhatsApp resmi.
         </li>
         <li>
-          <strong>Pra-Review Profil oleh Tim Teknis (1x24 Jam):</strong> Tim konsultan kami meneliti karakteristik industri Anda, peraturan perundangan sektoral yang relevan, dan riwayat risiko umum pada bidang usaha terkait.
+          <strong>Pra-Review Profil oleh Tim Teknis:</strong> Tim konsultan kami meneliti karakteristik industri Anda, peraturan perundangan sektoral yang relevan, dan riwayat risiko umum pada bidang usaha terkait secara menyeluruh.
         </li>
         <li>
           <strong>Pelaksanaan Sesi Diskusi 1-on-1 (Online / Tatap Muka):</strong> Diskusi interaktif langsung via Google Meet / Zoom dipimpin oleh konsultan berlisensi SKP Kemnaker. Kami membedah masalah Anda, memberikan jawaban atas pertanyaan regulasi, dan memaparkan solusi teknis terbaik.
@@ -223,7 +227,6 @@ const faqItems = [
       </p>
       <ul>
         <li><strong>WhatsApp Cepat:</strong> <a href={CONTACT_INFO.whatsappUrl}>{CONTACT_INFO.whatsappNumber}</a></li>
-        <li><strong>Jam Layanan:</strong> Senin – Jumat pukul 08.30 – 17.00 WIB</li>
       </ul>
     </section>
 

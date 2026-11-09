@@ -21,7 +21,7 @@ const {
   </div>
 
   <div class="lead-content">
-    <form class="lead-form" action={CONTACT_INFO.leadFormAction} data-endpoint={CONTACT_INFO.leadEndpoint} method="POST">
+    <form class="lead-form" action={CONTACT_INFO.leadFormAction} data-endpoint={CONTACT_INFO.leadEndpoint} data-wa={CONTACT_INFO.whatsappUrl} method="POST">
       <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <input type="hidden" name="_subject" value="Lead baru konsultank3.space" />
       <input type="hidden" name="_template" value="table" />
@@ -67,11 +67,13 @@ const {
           id="lead-phone" 
           name="phone" 
           required 
+          inputmode="tel"
+          autocomplete="tel"
           placeholder="0812xxxxxxx" 
         />
       </div>
 
-      <div class="form-feedback" style="display:none;"></div>
+      <div class="form-feedback" aria-live="polite" style="display:none;"></div>
 
       <button type="submit" class="submit-btn">Kirim Permintaan Konsultasi</button>
     </form>
@@ -104,9 +106,10 @@ const {
       const feedback = form.querySelector('.form-feedback');
       const submitBtn = form.querySelector('.submit-btn');
       const endpoint = form.dataset.endpoint || form.action;
+      const waUrl = form.dataset.wa || 'https://wa.me/6281233367191?text=Halo%2C%20saya%20ingin%20berkonsultasi%20tentang%20layanan%20K3';
       
       const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      const dataPayload = Object.fromEntries(formData.entries());
       
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -120,10 +123,17 @@ const {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(dataPayload)
         });
         
-        if (response.ok) {
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_) {
+          data = {};
+        }
+        
+        if (response.ok && (data.success === true || data.success === 'true')) {
           form.reset();
           if (feedback) {
             feedback.style.display = 'block';
@@ -140,7 +150,7 @@ const {
         if (feedback) {
           feedback.style.display = 'block';
           feedback.className = 'form-feedback error';
-          feedback.textContent = 'Terjadi kendala saat mengirim formulir. Silakan coba lagi atau hubungi kami langsung via WhatsApp.';
+          feedback.innerHTML = `Terjadi kendala saat mengirim formulir. Silakan coba lagi atau hubungi kami via <a href="${waUrl}" target="_blank" rel="noopener noreferrer">WhatsApp</a>.`;
         }
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -226,17 +236,18 @@ const {
   .submit-btn {
     grid-column: span 2;
     background-color: #F47C20;
-    color: #ffffff;
+    color: #0B2545;
     border: none;
     padding: 0.85rem 1.5rem;
     font-size: 1rem;
     font-weight: 700;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
   }
   .submit-btn:hover {
     background-color: #e06912;
+    color: #0B2545;
   }
   .lead-divider {
     text-align: center;
