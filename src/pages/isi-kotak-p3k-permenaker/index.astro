@@ -1,0 +1,404 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Daftar Isi Kotak P3K Tipe A, B, C Sesuai Permenaker 15/2008';
+const description = 'Tabel lengkap 21 daftar isi kotak P3K Tipe A, B, dan C menurut Permenaker No. 15/2008. Rasio petugas P3K, standar ruang P3K, dan larangan obat oral.';
+const canonicalPath = '/isi-kotak-p3k-permenaker/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Isi Kotak P3K Permenaker', url: '/isi-kotak-p3k-permenaker/' }
+];
+
+const tocItems = [
+  { id: 'landasan-regulasi-p3k', title: 'Landasan Hukum Permenaker No. PER.15/MEN/VIII/2008 tentang P3K di Tempat Kerja' },
+  { id: 'tabel-lengkap-21-isi-kotak', title: 'Tabel Lengkap 21 Daftar Isi Kotak P3K Tipe A, Tipe B, dan Tipe C' },
+  { id: 'fungsi-setiap-item-p3k', title: 'Penjelasan Fungsi Medis dari Setiap Item di Dalam Kotak P3K Standar' },
+  { id: 'mengapa-obat-minum-dilarang', title: 'Mengapa Obat Minum (Parasetamol, Obat Maag, Antibiotik) Dilarang Masuk Kotak P3K?' },
+  { id: 'standar-desain-dan-penempatan-kotak', title: 'Spesifikasi Fisik Kotak P3K (Warna Lambang Hijau) dan Aturan Jarak Penempatan' },
+  { id: 'rasio-petugas-p3k-berlisensi', title: 'Tabel Rasio Jumlah Petugas P3K Berlisensi Kemnaker Berdasarkan Tingkat Risiko' },
+  { id: 'syarat-wajib-ruang-p3k', title: 'Syarat dan Fasilitas Wajib Ruang P3K (Klinik) di Perusahaan' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Isi Kotak P3K Permenaker 15/2008' }
+];
+
+const faqItems = [
+  {
+    question: 'Mengapa lambang kotak P3K di tempat kerja harus berwarna Hijau di atas dasar Putih, bukan Palang Merah?',
+    answer: 'Berdasarkan Pasal 10 huruf a Permenaker No. PER.15/MEN/VIII/2008 serta Undang-Undang Nomor 1 Tahun 2018 tentang Kepalangmerahan, lambang Palang Merah di atas dasar putih adalah simbol perlindungan khusus milik Palang Merah Internasional dan dinas medis militer. Untuk fasilitas Pertolongan Pertama Pada Kecelakaan (P3K) di tempat kerja dan industri, standar hukum yang wajib digunakan adalah lambang Palang Hijau di atas warna dasar Putih.'
+  },
+  {
+    question: 'Bolehkah perusahaan menggunakan 2 buah Kotak P3K Tipe A sebagai pengganti 1 buah Kotak P3K Tipe B?',
+    answer: 'Boleh. Berdasarkan Lampiran II Permenaker No. 15/2008, terdapat aturan ekuivalensi: 1 (satu) buah Kotak P3K Tipe B setara dengan 2 (dua) buah Kotak P3K Tipe A; dan 1 (satu) buah Kotak P3K Tipe C setara dengan 2 (dua) buah Kotak P3K Tipe B atau 4 (empat) buah Kotak P3K Tipe A. Penggunaan beberapa kotak yang lebih kecil justru disarankan jika area kerja tersebar di beberapa lantai atau ruangan terpisah.'
+  },
+  {
+    question: 'Apakah kotak P3K di dinding pabrik boleh dikunci dengan gembok agar isinya tidak hilang diambil pekerja?',
+    answer: 'Tidak boleh dikunci mati! Menggembok kotak P3K adalah temuan pelanggaran klasik saat audit SMK3 karena menghambat kecepatan akses penyelamatan nyawa pada detik-detik darurat. Untuk mencegah penyalahgunaan isi kotak tanpa menghambat akses darurat, perusahaan dapat menggunakan segel plastik tipis sekali tarik (breakable plastic seal) yang mudah diputus dengan tangan kosong saat darurat sekaligus menjadi penanda bagi petugas bahwa kotak telah dibuka.'
+  },
+  {
+    question: 'Apa sanksi atau dampaknya jika saat audit SMK3 ditemukan obat warung/tablet sakit kepala di dalam kotak P3K?',
+    answer: 'Auditor SMK3 maupun Pengawas Ketenagakerjaan akan mencatatnya sebagai ketidaksesuaian pada Kriteria 6.8.1 PP 50/2012 karena menyalahi Lampiran II Permenaker No. 15/2008. Kotak P3K hanya boleh berisi material pertolongan pertama luar (pembalut luka dan antiseptik) dan dilarang menyimpan obat dalam/oral maupun salep luka bakar.'
+  },
+  {
+    question: 'Seberapa sering daftar isi kotak P3K wajib diperiksa dan dicatat dalam kartu ceklis?',
+    answer: 'Petugas P3K yang ditunjuk wajib memeriksa kelengkapan kuantitas dan tanggal kedaluwarsa (expired date) seluruh item di dalam kotak P3K minimal 1 (satu) bulan sekali, serta langsung mengisi ulang (restock) item yang terpakai setiap kali habis digunakan untuk menangani insiden.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Daftar Isi Kotak P3K Tempat Kerja Tipe A, B, C Sesuai Permenaker No. 15/2008';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Kesehatan Kerja & Tanggap Darurat</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 17 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Saat seorang pekerja mengalami perdarahan hebat akibat tersayat pelat logam atau percikan cairan kimia ke mata, penanganan pada 3 hingga 5 menit pertama (<em>Golden Period</em>) di lokasi kejadian akan menentukan apakah korban dapat pulih sepenuhnya atau mengalami kecacatan permanen. Sayangnya, saat kotak pertolongan pertama dibuka di banyak kantor dan pabrik, isinya sering kali hanya menyisakan kapas berdebu, botol antiseptik kedaluwarsa, atau obat sakit kepala warung yang justru dilarang regulasi. Memahami standar <strong>isi kotak p3k</strong> sesuai Peraturan Menteri Tenaga Kerja dan Transmigrasi Nomor PER.15/MEN/VIII/2008 adalah kewajiban mutlak bagi setiap pengurus perusahaan, tim HSE, dan bagian <em>General Affairs</em>.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="landasan-regulasi-p3k">
+      <h2>Landasan Hukum Permenaker No. PER.15/MEN/VIII/2008 tentang P3K di Tempat Kerja</h2>
+      <p>
+        Penyelenggaraan Pertolongan Pertama Pada Kecelakaan (P3K) di tempat kerja memiliki dasar hukum yang mengikat langsung dari Pasal 3 ayat (1) huruf e Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja. Sebagai pedoman teknis pelaksanaannya, pemerintah menerbitkan <strong>Permenakertrans Nomor PER.15/MEN/VIII/2008 tentang Pertolongan Pertama Pada Kecelakaan di Tempat Kerja</strong>.
+      </p>
+      <p>
+        Dalam Pasal 2 regulasi tersebut, ditegaskan bahwa pengusaha wajib menyediakan <strong>Petugas P3K dan Fasilitas P3K</strong> di tempat kerja. Fasilitas P3K yang dimaksud mencakup ruang P3K, kotak P3K beserta isinya, alat evakuasi dan alat transportasi (tandu/ambulans), serta fasilitas tambahan berupa alat pelindung diri dan peralatan khusus di tempat kerja yang memiliki potensi bahaya spesifik (seperti pancuran cuci mata darurat / <em>emergency eyewash and body shower</em> di gudang bahan kimia).
+      </p>
+      <p>
+        Pemenuhan atas Permenaker 15/2008 ini juga menjadi poin penilaian langsung dalam <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3 PP 50/2012</a>, tepatnya pada <strong>Elemen 6 Sub-elemen 6.8 (Kriteria 6.8.1 dan 6.8.2)</strong> yang menyatakan bahwa alat P3K harus tersedia, diperiksa secara rutin, dan petugas P3K telah dilatih sesuai peraturan perundang-undangan.
+      </p>
+    </section>
+
+    <section id="tabel-lengkap-21-isi-kotak">
+      <h2>Tabel Lengkap 21 Daftar Isi Kotak P3K Tipe A, Tipe B, dan Tipe C</h2>
+      <p>
+        Berdasarkan Lampiran II Permenaker Nomor PER.15/MEN/VIII/2008, pemerintah membagi kotak P3K menjadi tiga tipe berdasarkan jumlah tenaga kerja yang dilayani dalam satu unit kerja:
+      </p>
+      <ul>
+        <li><strong>Kotak P3K Tipe A:</strong> Wajib disediakan untuk setiap <strong>25 (dua puluh lima) orang pekerja atau kurang</strong>.</li>
+        <li><strong>Kotak P3K Tipe B:</strong> Wajib disediakan untuk setiap <strong>50 (lima puluh) orang pekerja atau kurang</strong>.</li>
+        <li><strong>Kotak P3K Tipe C:</strong> Wajib disediakan untuk setiap <strong>100 (seratus) orang pekerja atau kurang</strong>.</li>
+      </ul>
+      <p>
+        Berikut adalah matriks tabel resmi <strong>21 item wajib</strong> beserta jumlah kuantitas minimum yang harus selalu tersedia di dalam masing-masing tipe kotak P3K:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Nama Item / Perlengkapan Medis Wajib</th>
+              <th>Kotak Tipe A<br />(&le; 25 Pekerja)</th>
+              <th>Kotak Tipe B<br />(&le; 50 Pekerja)</th>
+              <th>Kotak Tipe C<br />(&le; 100 Pekerja)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Kasa steril terbungkus (<em>Sterile Gauze Pads</em>)</td>
+              <td>20 bungkus</td>
+              <td>40 bungkus</td>
+              <td>40 bungkus</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Perban gulung (lebar 5 cm)</td>
+              <td>2 rol</td>
+              <td>4 rol</td>
+              <td>6 rol</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Perban gulung (lebar 10 cm)</td>
+              <td>2 rol</td>
+              <td>4 rol</td>
+              <td>6 rol</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Plester gulung (lebar 1,25 cm)</td>
+              <td>2 rol</td>
+              <td>4 rol</td>
+              <td>6 rol</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Plester Cepat (<em>Adhesive Bandage</em> / Hansaplast)</td>
+              <td>10 buah</td>
+              <td>15 buah</td>
+              <td>20 buah</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Kapas medis bersih (berat 25 gram)</td>
+              <td>1 bungkus</td>
+              <td>2 bungkus</td>
+              <td>3 bungkus</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Kain segitiga / <em>Mittela</em> (pembalut penyangga lengan)</td>
+              <td>2 buah</td>
+              <td>4 buah</td>
+              <td>6 buah</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Gunting perban medis (ujung tumpul anti-tusuk)</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Peniti pengaman (<em>Safety Pins</em>)</td>
+              <td>12 buah</td>
+              <td>12 buah</td>
+              <td>12 buah</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Sarung tangan sekali pakai (<em>Latex/Nitrile Medical Gloves</em>)</td>
+              <td>2 pasang</td>
+              <td>3 pasang</td>
+              <td>4 pasang</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Masker medis sekali pakai (<em>Surgical Mask</em>)</td>
+              <td>1 buah (atau 1 box kecil)</td>
+              <td>1 buah (atau 1 box kecil)</td>
+              <td>1 buah (atau 1 box kecil)</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Pinset anatomis logam (penjepit serpihan/kotoran)</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>Lampu senter pemeriksaan (<em>Flashlight / Penlight</em>)</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>Gelas untuk cuci mata (<em>Eye Bath Glass</em>)</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+              <td>1 buah</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>Kantong plastik bersih (untuk menampung limbah medis P3K)</td>
+              <td>1 buah</td>
+              <td>2 buah</td>
+              <td>3 buah</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>Aquades (100 ml larutan Saline 0,9% NaCl steril untuk cuci mata/luka)</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>Povidone Iodine (60 ml cairan antiseptik luka luar)</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>Alkohol 70% (untuk mensterilkan gunting/pinset, bukan disiram ke luka terbuka)</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+              <td>1 botol</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>Buku Panduan P3K di tempat kerja</td>
+              <td>1 buku</td>
+              <td>1 buku</td>
+              <td>1 buku</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Buku Catatan Penggunaan P3K (<em>First Aid Logbook</em>)</td>
+              <td>1 buku</td>
+              <td>1 buku</td>
+              <td>1 buku</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>Daftar Isi Kotak P3K &amp; Kartu Inspeksi Bulanan</td>
+              <td>1 lembar</td>
+              <td>1 lembar</td>
+              <td>1 lembar</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <strong>Aturan Perhitungan untuk Perusahaan dengan Lebih dari 100 Pekerja:</strong><br />
+        Apabila satu pabrik mempekerjakan 150 orang karyawan dalam satu gedung, maka perusahaan wajib menyediakan minimal <strong>1 Kotak Tipe C (untuk 100 orang) ditambah 1 Kotak Tipe B (untuk 50 orang sisanya)</strong>. Regulasi juga mengizinkan konversi penyetaraan: 1 Kotak Tipe C dapat diganti dengan 2 Kotak Tipe B atau 4 Kotak Tipe A agar titik penempatan kotak lebih merata dan dekat dengan jangkauan pekerja di tiap departemen.
+      </p>
+    </section>
+
+    <section id="fungsi-setiap-item-p3k">
+      <h2>Penjelasan Fungsi Medis dari Setiap Item di Dalam Kotak P3K Standar</h2>
+      <p>
+        Agar petugas P3K maupun karyawan memahami cara penggunaan yang tepat dan tidak salah mengaplikasikan cairan medis saat darurat, berikut adalah fungsi spesifik dari komponen utama kotak P3K:
+      </p>
+      <ul>
+        <li>
+          <strong>Kasa Steril Terbungkus &amp; Perban Gulung (5 cm &amp; 10 cm):</strong> Kasa steril digunakan untuk menutup langsung permukaan luka terbuka atau menekan titik perdarahan (<em>direct pressure</em>) agar bebas kontaminasi bakteri. Perban gulung kemudian dililitkan di atas kasa steril untuk mengikat posisi kasa agar tidak bergeser.
+        </li>
+        <li>
+          <strong>Kain Segitiga (Mittela) &amp; Peniti:</strong> Digunakan sebagai gendongan penyangga lengan (<em>arm sling</em>) pada kasus patah tulang lengan bawah, dislokasi bahu, atau sebagai pembebat darurat pada cedera kepala dan bidai (<em>splint</em>). Peniti digunakan untuk mengunci ujung kain segitiga.
+        </li>
+        <li>
+          <strong>Larutan Aquades / Saline (NaCl 0,9%) &amp; Gelas Cuci Mata:</strong> Digunakan untuk membilas bola mata yang kemasukan debu halus atau membersihkan kotoran pada luka lecet sebelum diolesi antiseptik.
+        </li>
+        <li>
+          <strong>Povidone Iodine vs Alkohol 70%:</strong> Povidone Iodine adalah cairan antiseptik untuk membunuh kuman di sekitar luka luar. Sementara <strong>Alkohol 70% digunakan untuk membersihkan/mensterilkan alat logam (gunting, pinset)</strong> atau membersihkan kulit utuh, dan tidak dianjurkan dituangkan langsung ke dalam jaringan luka robek terbuka karena merusak sel jaringan sehat dan memicu rasa perih hebat.
+        </li>
+        <li>
+          <strong>Sarung Tangan Lateks/Nitril &amp; Masker Medis:</strong> Merupakan Alat Pelindung Diri wajib bagi Petugas P3K sebelum menyentuh darah atau cairan tubuh korban guna mencegah penularan penyakit melalui darah (<em>bloodborne pathogens</em> seperti Hepatitis B/C).
+        </li>
+      </ul>
+    </section>
+
+    <section id="mengapa-obat-minum-dilarang">
+      <h2>Mengapa Obat Minum (Parasetamol, Obat Maag, Antibiotik) Dilarang Masuk Kotak P3K?</h2>
+      <p>
+        Dalam hampir setiap pelaksanaan <a href="/audit-smk3/">persiapan audit SMK3</a> di perusahaan yang belum didampingi konsultan, tim auditor selalu menemukan adanya tablet obat sakit kepala, obat maag, obat diare, balsem, minyak kayu putih, tetes mata obat, hingga salep luka bakar/pasta gigi di dalam kotak P3K dinding. Mengapa seluruh barang tersebut <strong>dilarang keras</strong> dimasukkan ke dalam kotak P3K tempat kerja?
+      </p>
+      <ol>
+        <li>
+          <strong>Risiko Reaksi Alergi Obat Akut (Syok Anafilaktik):</strong> Petugas P3K di pabrik bukanlah dokter atau apoteker yang berwenang meresepkan obat sistemik (obat yang diminum dan masuk ke peredaran darah). Apabila seorang pekerja mengeluh pusing lalu mengambil obat analgesik dari kotak P3K dan ternyata pekerja tersebut memiliki alergi obat tertentu, ia dapat mengalami pembengkakan saluran napas dan syok anafilaktik yang berujung fatal.
+        </li>
+        <li>
+          <strong>Menyamarkan Gejala Klinis Kecelakaan Serius (Masking Effect):</strong> Seorang pekerja yang kepalanya baru saja terbentur pipa atau menghirup uap pelarut kimia mungkin mengeluh pusing dan mual. Jika ia langsung meminum obat pereda nyeri dan obat mual dari kotak P3K, gejala gegar otak ringan atau keracunan gas tersebut akan tertutupi sementara hingga kondisinya memburuk secara mendadak di rumah.
+        </li>
+        <li>
+          <strong>Larangan Salep/Minyak pada Luka Bakar:</strong> Penanganan pertama luka bakar termal (terkena uap panas atau logam panas) adalah mengalirkan air bersih bersuhu ruang selama 15–20 menit. Mengoleskan salep berminyak, odol, atau kecap justru memerangkap panas di dalam jaringan kulit dan memperparah derajat luka bakar serta menyulitkan dokter saat membersihkan luka di rumah sakit.
+        </li>
+      </ol>
+      <p>
+        Apabila perusahaan ingin menyediakan obat-obatan minum ringan bagi karyawan, obat tersebut hanya boleh disimpan dan diberikan di <strong>Klinik Perusahaan / Ruang Kesehatan</strong> di bawah pengawasan langsung Dokter Perusahaan atau Perawat Hiperkes yang mencatat riwayat alergi pasien.
+      </p>
+    </section>
+
+    <section id="standar-desain-dan-penempatan-kotak">
+      <h2>Spesifikasi Fisik Kotak P3K (Warna Lambang Hijau) dan Aturan Jarak Penempatan</h2>
+      <p>
+        Berdasarkan Pasal 10 Permenaker Nomor PER.15/MEN/VIII/2008, kotak P3K beserta titik pemasangannya harus memenuhi persyaratan rekayasa fisik berikut:
+      </p>
+      <ul>
+        <li>
+          <strong>Bahan dan Warna Kotak:</strong> Terbuat dari bahan yang kuat dan mudah dibawa (dapat dilepas dari pengait dindingnya untuk dibawa berlari ke titik lokasi korban), berwarna dasar <strong>PUTIH</strong> dengan lambang <strong>PALANG HIJAU</strong> di bagian depannya. Jangan gunakan kotak berlambang palang merah!
+        </li>
+        <li>
+          <strong>Aturan Jarak dan Lantai Penempatan:</strong> Kotak P3K harus diletakkan pada tempat yang mudah dilihat, mudah dijangkau, diberi <a href="/arti-rambu-k3/">rambu penunjuk lokasi P3K berwarna hijau sesuai arti rambu K3</a>, tidak terhalang lemari/tumpukan barang, serta berjarak <strong>kurang dari 500 meter</strong> dari setiap titik kerja. Apabila gedung kerja terdiri dari beberapa lantai, maka <strong>setiap lantai gedung wajib memiliki minimal 1 (satu) unit kotak P3K</strong>.
+        </li>
+      </ul>
+    </section>
+
+    <section id="rasio-petugas-p3k-berlisensi">
+      <h2>Tabel Rasio Jumlah Petugas P3K Berlisensi Kemnaker Berdasarkan Tingkat Risiko</h2>
+      <p>
+        Menyediakan kotak P3K tanpa menunjuk personel terlatih yang mengelolanya adalah belum memenuhi regulasi. Sesuai Pasal 3 dan Lampiran I Permenaker No. 15/2008, pengusaha wajib menyekolahkan karyawannya dalam pelatihan <strong>Petugas P3K bersertifikat dan berlisensi resmi Kemnaker RI (Kartu Lisensi &amp; Buku Kegiatan P3K)</strong> dengan rasio jumlah minimum sebagai berikut:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Klasifikasi Tempat Kerja</th>
+              <th>Jumlah Tenaga Kerja</th>
+              <th>Jumlah Minimum Petugas P3K Berlisensi Kemnaker</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tempat Kerja dengan Potensi Bahaya Rendah</strong><br /><em>(Perkantoran, ritel, jasa perbankan, perhotelan)</em></td>
+              <td>25 s.d. 150 orang<br />&gt; 150 orang</td>
+              <td><strong>1 (Satu) orang Petugas P3K</strong><br /><strong>1 orang untuk setiap 150 pekerja</strong> atau kurang (kelipatannya)</td>
+            </tr>
+            <tr>
+              <td><strong>Tempat Kerja dengan Potensi Bahaya Tinggi</strong><br /><em>(Pabrik manufaktur, konstruksi, kimia, galangan, tambang)</em></td>
+              <td>&le; 100 orang<br />&gt; 100 orang</td>
+              <td><strong>1 (Satu) orang Petugas P3K</strong><br /><strong>1 orang untuk setiap 100 pekerja</strong> atau kurang (kelipatannya)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Catatan tambahan: Apabila perusahaan mempekerjakan karyawan dalam beberapa giliran kerja (misalnya 3 <em>shift</em> kerja sehari) atau memiliki beberapa unit gedung yang terpisah jauh, maka rasio Petugas P3K di atas harus diatur sedemikian rupa sehingga <strong>pada setiap shift kerja dan di setiap unit gedung selalu hadir Petugas P3K yang bertugas</strong>. Nama dan foto Petugas P3K wajib ditempelkan di sebelah kotak P3K yang menjadi tanggung jawabnya.
+      </p>
+    </section>
+
+    <section id="syarat-wajib-ruang-p3k">
+      <h2>Syarat dan Fasilitas Wajib Ruang P3K (Klinik) di Perusahaan</h2>
+      <p>
+        Kapan sebuah perusahaan tidak cukup hanya mengandalkan kotak P3K dinding dan wajib membangun <strong>Ruang P3K khusus</strong>? Berdasarkan Pasal 9 ayat (1) Permenaker No. 15/2008, pengusaha wajib menyediakan Ruang P3K apabila:
+      </p>
+      <ol>
+        <li>Mempekerjakan pekerja/buruh <strong>100 (seratus) orang atau lebih</strong>; ATAU</li>
+        <li>Mempekerjakan pekerja/buruh kurang dari 100 orang namun memiliki <strong>potensi bahaya tinggi</strong>.</li>
+      </ol>
+      <p>
+        Spesifikasi teknis Ruang P3K yang akan diperiksa saat audit SMK3 maupun inspeksi Disnaker meliputi:
+      </p>
+      <ul>
+        <li>Lokasi ruang P3K harus berada di lantai dasar, dekat dengan jalan keluar/area parkir mobil ambulans, dekat dengan kamar mandi/toilet, memiliki ventilasi dan pencahayaan yang terang, serta pintu masuk yang cukup lebar untuk dilalui tandu (<em>stretcher</em>).</li>
+        <li>Luas ruangan minimal cukup untuk menampung 1 (satu) tempat tidur pemeriksaan pasien dan ruang gerak petugas.</li>
+        <li>Dilengkapi fasilitas wajib: wastafel dengan air mengalir bersih, tempat tidur pasien lengkap dengan bantal dan selimut, tandu evakuasi (<em>folding stretcher / spinal board</em>), tabung oksigen medis lengkap dengan regulator dan kanula hidung, alat ukur tekanan darah (tensimeter) dan stetoskop, bidai penyangga patah tulang (<em>splint set</em>), kotak P3K isi lengkap, tempat sampah medis infeksius (kuning), serta papan jadwal jaga petugas.</li>
+      </ul>
+      <p>
+        Seluruh catatan pemakaian isi kotak P3K, buku kunjungan Ruang P3K, serta lembar pemeriksaan bulanan harus diarsipkan secara tertib oleh Sekretaris P2K3 untuk dimasukkan ke dalam <a href="/laporan-p2k3-disnaker/">laporan triwulan P2K3 ke Disnaker</a> dan dilampirkan sebagai bagian dari <a href="/dokumen-smk3/">dokumen SMK3 wajib</a> serta pemenuhan kuesioner <a href="/panduan-csms-kontraktor/">panduan CSMS kontraktor</a>.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

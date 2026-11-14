@@ -1,0 +1,411 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Arti Rambu K3: Standar Warna, Bentuk ISO 7010 & Simbol B3';
+const description = 'Ensiklopedia arti rambu K3, standar kode warna keselamatan kerja, bentuk geometris ISO 7010, rumus jarak pandang rambu, serta 9 piktogram bahaya B3 GHS.';
+const canonicalPath = '/arti-rambu-k3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Arti Rambu K3', url: '/arti-rambu-k3/' }
+];
+
+const tocItems = [
+  { id: 'fungsi-dan-regulasi-rambu', title: 'Fungsi Strategis dan Dasar Regulasi Rambu K3 di Indonesia' },
+  { id: 'empat-warna-dan-bentuk', title: 'Matriks 4 Kode Warna dan Bentuk Geometris Rambu K3 (ISO 7010)' },
+  { id: 'katalog-rambu-tempat-kerja', title: 'Katalog Lengkap Arti Rambu K3 Berdasarkan Kategori Bahaya' },
+  { id: 'sembilan-simbol-b3-ghs', title: 'Panduan 9 Simbol dan Piktogram Bahan Berbahaya dan Beracun (B3 / GHS)' },
+  { id: 'rumus-ukuran-jarak-baca', title: 'Rumus Teknis Perhitungan Ukuran Rambu vs Jarak Pandang Maksimum' },
+  { id: 'standar-pemasangan-pencahayaan', title: 'Standar Ketinggian Pemasangan, Material Photoluminescent, & Kode Warna Pipa' },
+  { id: 'audit-dan-pemeliharaan-rambu', title: 'Poin Pemeriksaan Rambu K3 dalam Audit SMK3 dan Inspeksi Rutin' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Arti Rambu K3 dan Simbol B3' }
+];
+
+const faqItems = [
+  {
+    question: 'Apa perbedaan antara standar rambu K3 ISO 7010 dengan ANSI Z535?',
+    answer: 'Standar ISO 7010 mengutamakan komunikasi visual berbasis piktogram (simbol gambar universal) dan bentuk geometris (lingkaran, segitiga, bujursangkar) agar langsung dipahami oleh pekerja lintas bahasa tanpa perlu membaca teks panjang. Sedangkan standar Amerika ANSI Z535 menonjolkan penggunaan panel kata sinyal (Signal Words) di bagian atas rambu seperti DANGER (Merah), WARNING (Oranye), CAUTION (Kuning), dan NOTICE (Biru) yang disertai teks penjelasan bahaya.'
+  },
+  {
+    question: 'Mengapa rambu jalur evakuasi dan titik kumpul berwarna hijau, sedangkan rambu APAR berwarna merah?',
+    answer: 'Dalam psikologi ergonomi visual dan standar ISO 3864 / ISO 7010, warna hijau melambangkan kondisi aman (safe condition), kebebasan akses penyelamatan diri, dan pertolongan pertama (P3K). Sebaliknya, warna merah persegi khusus didedikasikan untuk peralatan pemadam kebakaran (APAR, hidran, alarm titik panggil manual) agar kontras dan langsung mudah ditemukan saat terjadi kobaran api.'
+  },
+  {
+    question: 'Di mana posisi Rambu K3 dalam 5 Hierarki Pengendalian Risiko?',
+    answer: 'Pemasangan rambu K3 menempati posisi keempat dalam hierarki pengendalian risiko, yaitu sebagai bagian dari Pengendalian Administratif (Administrative Control). Artinya, rambu berfungsi memberikan peringatan visual dan instruksi perilaku, namun tidak menghilangkan sumber bahaya fisik secara langsung.'
+  },
+  {
+    question: 'Apa perbedaan antara piktogram B3 belah ketupat merah (GHS) dengan simbol B3 persegi miring Permen LH 03/2008?',
+    answer: 'Simbol B3 berdasarkan Permen LH No. 03 Tahun 2008 wajib dipasang pada kemasan, kendaraan pengangkut, dan Tempat Penyimpanan Sementara (TPS) Limbah B3 di Indonesia. Sementara piktogram GHS (Globally Harmonized System) berbentuk belah ketupat berbingkai merah digunakan secara internasional dan nasional (Kemenperin) pada label kemasan produk bahan kimia murni dan campuran beserta dokumen SDS (Safety Data Sheet).'
+  },
+  {
+    question: 'Kapan perusahaan wajib menggunakan rambu K3 berbahan photoluminescent (glow in the dark)?',
+    answer: 'Rambu berbahan photoluminescent wajib dipasang pada seluruh penunjuk arah jalur evakuasi, pintu keluar darurat (Exit), tangga darurat, serta penanda lokasi APAR dan hidran di dalam gedung tertutup, ruang bawah tanah, atau pabrik yang beroperasi malam hari agar tetap menyala terang minimal 60 menit saat aliran listrik padam total.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Ensiklopedia Arti Rambu K3, Standar Warna ISO 7010, dan Simbol Piktogram B3';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Komunikasi Visual & Lingkungan Kerja</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 16 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Di tengah kebisingan mesin pabrik, pergerakan alat berat proyek konstruksi, maupun kompleksitas laboratorium kimia, komunikasi verbal sering kali tidak efektif untuk memperingatkan pekerja akan bahaya yang mengintai. Di sinilah rambu keselamatan memegang peranan vital sebagai bahasa visual universal yang menyelamatkan nyawa dalam hitungan detik. Memahami <strong>arti rambu k3</strong> secara komprehensif—mulai dari filosofi bentuk geometris, psikologi kode warna, rumus dimensi jarak baca, hingga piktogram bahan berbahaya—merupakan kompetensi wajib bagi setiap personel HSE, pengelola fasilitas gedung, dan auditor keselamatan kerja.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="fungsi-dan-regulasi-rambu">
+      <h2>Fungsi Strategis dan Dasar Regulasi Rambu K3 di Indonesia</h2>
+      <p>
+        Rambu Keselamatan dan Kesehatan Kerja (<em>Safety Sign</em>) bukanlah hiasan dinding pabrik. Secara keilmuan keselamatan kerja, pemasangan rambu merupakan instrumen <strong>Pengendalian Administratif (<em>Administrative Control</em>)</strong> pada tingkat keempat dalam <a href="/hierarki-pengendalian-risiko/">5 hierarki pengendalian risiko K3</a>. Rambu berfungsi memberikan informasi instan mengenai keberadaan potensi bahaya sisa (<em>residual hazard</em>), melarang tindakan tidak aman yang dapat memicu insiden fatal, mewajibkan pemakaian alat pelindung spesifik di zona tertentu, serta memandu arah penyelamatan diri saat terjadi kondisi darurat.
+      </p>
+      <p>
+        Di Indonesia, kewajiban penyediaan dan pemasangan rambu keselamatan kerja diatur secara tegas dalam berbagai instrumen hukum nasional maupun rujukan standar internasional:
+      </p>
+      <ul>
+        <li>
+          <strong>Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja (Pasal 14 huruf b):</strong> Mewajibkan pengurus perusahaan memasang dalam tempat kerja yang dipimpinnya semua gambar keselamatan kerja yang diwajibkan dan semua bahan pembinaan lainnya pada tempat-tempat yang mudah dilihat dan terbaca menurut petunjuk pegawai pengawas atau ahli keselamatan kerja.
+        </li>
+        <li>
+          <strong>PP Nomor 50 Tahun 2012 tentang Penerapan SMK3 (Kriteria 6.4.4):</strong> Menetapkan bahwa rambu-rambu K3 harus dipasang sesuai dengan standar dan pedoman teknis yang berlaku di seluruh area kerja, khususnya pada area terbatas dan berbahaya.
+        </li>
+        <li>
+          <strong>Permenaker Nomor 5 Tahun 2018 tentang K3 Lingkungan Kerja:</strong> Mengatur standar tata graha (<em>housekeeping</em>) 5R/5S, penandaan batas jalur pejalan kaki, marka lintasan forklift, dan pelabelan wadah bahan berbahaya di area produksi.
+        </li>
+        <li>
+          <strong>Standar Internasional ISO 7010 &amp; ISO 3864 (Diadopsi ke dalam SNI ISO 7010):</strong> Mengatur standarisasi grafis piktogram keselamatan kerja, proporsi geometri, dan koordinat kromatisitas warna agar seragam di seluruh dunia.
+        </li>
+        <li>
+          <strong>Permen LHK Nomor 03 Tahun 2008 &amp; Permenperin Nomor 23/M-IND/PER/4/2013 (GHS):</strong> Mengatur tata cara pemberian simbol dan label pada kemasan Bahan Berbahaya dan Beracun (B3) serta Limbah B3.
+        </li>
+      </ul>
+    </section>
+
+    <section id="empat-warna-dan-bentuk">
+      <h2>Matriks 4 Kode Warna dan Bentuk Geometris Rambu K3 (ISO 7010)</h2>
+      <p>
+        Mengapa rambu K3 menggunakan kombinasi bentuk geometri (lingkaran, segitiga, persegi) dan warna yang berbeda-beda? Desain ganda ini dirancang khusus untuk mengakomodasi kecepatan persepsi otak manusia sekaligus membantu pekerja yang memiliki gangguan penglihatan warna parsial (buta warna merah-hijau) agar tetap dapat mengenali instruksi rambu dari bentuk bingkainya.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode Warna Utama</th>
+              <th>Bentuk Geometris (ISO 7010)</th>
+              <th>Kategori &amp; Makna Instruksi</th>
+              <th>Desain Visual &amp; Kontras Warna</th>
+              <th>Contoh Penggunaan di Lapangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>MERAH (Red)</strong></td>
+              <td>Lingkaran dengan garis diagonal miring 45&deg; dari kiri atas ke kanan bawah</td>
+              <td><strong>Rambu Larangan (Prohibition Sign):</strong> Melarang keras perilaku atau tindakan yang dapat memicu bahaya langsung.</td>
+              <td>Latar belakang putih, piktogram hitam di tengah, tepi lingkaran dan garis palang berwarna merah (minimal 35% luas rambu).</td>
+              <td>Dilarang Merokok, Dilarang Masuk Selain Petugas, Dilarang Menyalakan Api, Dilarang Mengambil Foto.</td>
+            </tr>
+            <tr>
+              <td><strong>MERAH (Red)</strong></td>
+              <td>Bujursangkar atau Persegi Panjang</td>
+              <td><strong>Rambu Proteksi Kebakaran (Fire Safety Sign):</strong> Menunjukkan lokasi peralatan pemadam api dan instalasi proteksi kebakaran.</td>
+              <td>Latar belakang merah penuh (minimal 50% luas rambu) dengan piktogram dan teks berwarna putih kontras.</td>
+              <td>Lokasi APAR, Kotak Hidran (Hydrant Box), Tombol Alarm Kebakaran (Fire Alarm Call Point), Telepon Darurat Api.</td>
+            </tr>
+            <tr>
+              <td><strong>KUNING / AMBER (Yellow)</strong></td>
+              <td>Segitiga Sama Sisi dengan sudut membulat</td>
+              <td><strong>Rambu Peringatan / Bahaya (Warning Sign):</strong> Memperingatkan adanya potensi bahaya, risiko cedera, atau kondisi berisiko di area tersebut.</td>
+              <td>Latar belakang kuning cerah (minimal 50% luas rambu), bingkai tepi segitiga dan piktogram berwarna hitam pekat.</td>
+              <td>Awas Tegangan Tinggi, Awas Lantai Licin, Bahaya Lalu Lintas Forklift, Bahaya Benda Jatuh, Awas Permukaan Panas.</td>
+            </tr>
+            <tr>
+              <td><strong>BIRU (Blue)</strong></td>
+              <td>Lingkaran Penuh</td>
+              <td><strong>Rambu Perintah / Wajib (Mandatory Sign):</strong> Mewajibkan tindakan keselamatan tertentu atau pemakaian Alat Pelindung Diri (APD).</td>
+              <td>Latar belakang biru keselamatan (minimal 50% luas rambu) dengan piktogram gambar berwarna putih.</td>
+              <td>Wajib Gunakan Helm Safety, Wajib Pakai Sepatu Safety, Wajib Gunakan Pelindung Telinga (Earplug), Wajib Pakai Full Body Harness.</td>
+            </tr>
+            <tr>
+              <td><strong>HIJAU (Green)</strong></td>
+              <td>Bujursangkar atau Persegi Panjang</td>
+              <td><strong>Rambu Kondisi Aman, Evakuasi &amp; P3K (Safe Condition Sign):</strong> Menunjukkan arah penyelamatan diri, pintu darurat, dan fasilitas pertolongan medis.</td>
+              <td>Latar belakang hijau keselamatan (minimal 50% luas rambu) dengan piktogram dan panah arah berwarna putih.</td>
+              <td>Jalur Evakuasi (Emergency Exit), Titik Kumpul (Assembly Point), Lokasi Kotak P3K, Pancuran Cuci Mata Darurat (Emergency Eyewash).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Dalam sistem standar Amerika (<strong>ANSI Z535</strong>) yang juga sering dijumpai pada mesin-mesin impor di pabrik Indonesia, terdapat tambahan hierarki <em>Signal Word</em> pada header rambu:
+      </p>
+      <ul>
+        <li><strong>DANGER (Header Merah dengan teks Putih):</strong> Menandakan situasi bahaya ekstrem yang apabila tidak dihindari <strong>pasti akan</strong> mengakibatkan kematian atau cedera parah permanen (misal: gardu listrik 20.000 Volt atau gas beracun mematikan).</li>
+        <li><strong>WARNING (Header Oranye dengan teks Hitam):</strong> Menandakan situasi bahaya tingkat menengah-tinggi yang apabila tidak dihindari <strong>dapat</strong> mengakibatkan kematian atau cedera berat (misal: bagian mesin berputar atau perancah tinggi).</li>
+        <li><strong>CAUTION (Header Kuning dengan teks Hitam):</strong> Menandakan potensi bahaya tingkat rendah-sedang yang apabila tidak dihindari dapat menyebabkan cedera ringan atau sedang (misal: lantai tidak rata, potensi tersandung).</li>
+        <li><strong>NOTICE (Header Biru dengan teks Putih):</strong> Digunakan untuk menyampaikan informasi kebijakan keselamatan umum, kebersihan, atau keamanan aset yang tidak terkait langsung dengan cedera fisik manusia.</li>
+      </ul>
+    </section>
+
+    <section id="katalog-rambu-tempat-kerja">
+      <h2>Katalog Lengkap Arti Rambu K3 Berdasarkan Kategori Bahaya</h2>
+      <p>
+        Untuk memudahkan tim HSE dan bagian fasilitas dalam merencanakan pengadaan rambu berdasarkan hasil <a href="/contoh-hiradc/">identifikasi bahaya matriks contoh HIRADC</a>, berikut adalah pengelompokan kode piktogram standar ISO 7010 yang wajib terpasang di area kerja:
+      </p>
+
+      <h3>1. Kelompok Rambu Larangan (Kode ISO: Seri P - Prohibition)</h3>
+      <ul>
+        <li><strong>P001 (Larangan Umum):</strong> Tanda lingkaran merah umum untuk larangan tindakan spesifik yang dijelaskan pada rambu tambahan.</li>
+        <li><strong>P002 (Dilarang Merokok / No Smoking):</strong> Wajib dipasang di area gudang bahan mudah terbakar, SPBU, ruang penyimpanan tabung gas, dan seluruh gedung kerja bebas asap rokok.</li>
+        <li><strong>P003 (Dilarang Menyalakan Api Terbuka / No Open Flame):</strong> Mencegah penyulutan uap mudah menyala di area tangki timbun BBM, gudang cat/thinner, dan ruang pengisian baterai forklift.</li>
+        <li><strong>P004 (Dilarang Melintas Bagi Pejalan Kaki):</strong> Dipasang pada jalur khusus lintasan alat berat, ramp loading dock, atau area jangkauan ayunan crane.</li>
+        <li><strong>P005 (Air Bukan Untuk Diminum / Not Drinking Water):</strong> Dipasang pada keran air proses industri, air pendingin mesin, atau air hidran agar tidak dikonsumsi pekerja.</li>
+        <li><strong>P006 (Dilarang Masuk Bagi Forklift dan Kendaraan Industri):</strong> Melindungi zona pejalan kaki murni atau lantai bangunan yang tidak dirancang menahan beban terpusat roda forklift.</li>
+        <li><strong>P010 (Dilarang Menyentuh / Do Not Touch):</strong> Dipasang pada komponen mesin presisi, sensor otomatis, atau panel yang sedang menjalani isolasi.</li>
+        <li><strong>P011 (Dilarang Memadamkan dengan Air):</strong> Sangat krusial dipasang di dekat panel listrik tegangan tinggi dan gudang logam reaktif (natrium/magnesium), karena penyiraman air justru memicu ledakan atau sengatan listrik fatal.</li>
+      </ul>
+
+      <h3>2. Kelompok Rambu Peringatan Bahaya (Kode ISO: Seri W - Warning)</h3>
+      <ul>
+        <li><strong>W001 (Peringatan Bahaya Umum):</strong> Segitiga kuning dengan tanda seru hitam.</li>
+        <li><strong>W002 (Bahaya Bahan Mudah Meledak / Explosive Material):</strong> Gudang bahan peledak tambang, ruang boiler bertekanan tinggi, atau silinder gas bertekanan.</li>
+        <li><strong>W004 (Bahaya Sinar Laser):</strong> Area pemotongan logam CNC laser atau laboratorium optik.</li>
+        <li><strong>W008 (Bahaya Jatuh dari Ketinggian / Drop/Fall Hazard):</strong> Tepian lantai gedung konstruksi yang belum berpagar, bukaan lubang lantai (<em>floor opening</em>), dan area dermaga.</li>
+        <li><strong>W012 (Bahaya Tegangan Listrik Tinggi / Electricity Hazard):</strong> Simbol kilat hitam dalam segitiga kuning; wajib dipasang pada setiap pintu panel listrik, gardu trafo, dan ruang genset.</li>
+        <li><strong>W014 (Bahaya Lalu Lintas Forklift):</strong> Dipasang di setiap persimpangan lorong rak gudang (<em>aisle intersection</em>) dan pintu keluar-masuk gudang.</li>
+        <li><strong>W015 (Bahaya Beban Menggantung / Overhead Load):</strong> Area kerja di bawah lintasan <em>overhead hoist crane</em> atau <em>tower crane</em>.</li>
+        <li><strong>W017 (Bahaya Permukaan Panas / Hot Surface):</strong> Pipa uap boiler, dinding tungku pembakaran (<em>furnace</em>), dan mesin cetak injeksi plastik.</li>
+        <li><strong>W024 (Bahaya Titik Jepit Tangan / Crushing of Hands):</strong> Dipasang langsung pada bodi mesin press, mesin giling (<em>roller</em>), konveyor sabuk, dan roda gigi transmisi.</li>
+      </ul>
+
+      <h3>3. Kelompok Rambu Perintah Wajib APD (Kode ISO: Seri M - Mandatory)</h3>
+      <p>
+        Pemasangan rambu seri M harus selaras dengan matriks <a href="/jenis-apd-k3/">spesifikasi teknis 8 jenis APD K3 sesuai Permenaker 08/2010</a> di masing-masing zona pabrik:
+      </p>
+      <ul>
+        <li><strong>M003 (Wajib Gunakan Pelindung Pendengaran):</strong> Dipasang di pintu masuk ruang mesin dengan intensitas bising melebihi Nilai Ambang Batas 85 dBA (seperti ruang genset, kompresor, dan penempaan logam).</li>
+        <li><strong>M004 (Wajib Gunakan Kacamata Safety):</strong> Bengkel bubut, area penggerindaan, pemotongan kayu, dan laboratorium.</li>
+        <li><strong>M007 (Wajib Gunakan Kedok Las / Welding Mask):</strong> Stasiun kerja pengelasan busur listrik maupun las karbit.</li>
+        <li><strong>M008 (Wajib Gunakan Sepatu Keselamatan / Safety Shoes):</strong> Seluruh area produksi pabrik, gudang logistik, dan proyek konstruksi.</li>
+        <li><strong>M009 (Wajib Gunakan Sarung Tangan Pelindung):</strong> Penanganan pelat tajam, bahan kimia, atau benda panas.</li>
+        <li><strong>M014 (Wajib Gunakan Helm Pelindung Kepala):</strong> Area konstruksi, bawah crane, dan instalasi perpipaan bertingkat.</li>
+        <li><strong>M015 (Wajib Gunakan Rompi Visibilitas Tinggi / Hi-Vis Vest):</strong> Area parkir truk, gudang forklift, dan pekerjaan jalan raya.</li>
+        <li><strong>M017 (Wajib Gunakan Pelindung Pernapasan / Respirator):</strong> Ruang pengecatan (<em>spray booth</em>), pencampuran bubuk kimia, dan area berdebu tinggi.</li>
+        <li><strong>M018 (Wajib Gunakan Sabuk Pengaman Tubuh / Full Body Harness):</strong> Setiap akses tangga panjat vertikal dan pekerjaan di ketinggian di atas 1,8 meter.</li>
+      </ul>
+    </section>
+
+    <section id="sembilan-simbol-b3-ghs">
+      <h2>Panduan 9 Simbol dan Piktogram Bahan Berbahaya dan Beracun (B3 / GHS)</h2>
+      <p>
+        Selain rambu keselamatan umum, tempat kerja yang menyimpan, menggunakan, atau menghasilkan limbah bahan kimia wajib memasang simbol dan label B3 sesuai Elemen 9.3 pada <a href="/kriteria-audit-smk3/">166 kriteria SMK3 PP 50/2012</a>. Sistem klasifikasi global yang berlaku saat ini adalah <strong>GHS (Globally Harmonized System of Classification and Labelling of Chemicals)</strong> yang terdiri dari 9 piktogram berbentuk belah ketupat dengan bingkai merah dan latar putih:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kode GHS</th>
+              <th>Nama Piktogram &amp; Visual Simbol</th>
+              <th>Arti Bahaya Fisik / Kesehatan / Lingkungan</th>
+              <th>Contoh Bahan Kimia di Industri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GHS01</strong></td>
+              <td><strong>Mudah Meledak (Explosive)</strong><br />Simbol: Bola meledak memancarkan serpihan</td>
+              <td>Zat atau campuran tidak stabil yang dapat meledak akibat benturan, gesekan, percikan api, atau pemanasan suhu tinggi.</td>
+              <td>Dinamit (TNT), Amonium Nitrat konsentrasi tinggi, Nitrogliserin, Peroksida organik tertentu.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS02</strong></td>
+              <td><strong>Mudah Menyala (Flammable)</strong><br />Simbol: Lidah api menyala di atas garis</td>
+              <td>Cairan, gas, aerosol, atau padatan yang memiliki titik nyala (<em>flash point</em>) rendah dan sangat mudah terbakar jika terkena sumber panas atau elektrostatik.</td>
+              <td>Bensin, Solar, Thinner, Aseton, Alkohol (Etanol/Metanol), Gas LPG, Gas Asetilen.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS03</strong></td>
+              <td><strong>Pengoksidasi (Oxidizing)</strong><br />Simbol: Lidah api di atas lingkaran (huruf O)</td>
+              <td>Bahan yang tidak selalu mudah terbakar sendiri, namun melepaskan oksigen aktif yang dapat memicu atau memperhebat kebakaran bahan lain secara dahsyat.</td>
+              <td>Hidrogen Peroksida (H<sub>2</sub>O<sub>2</sub>) pekat, Kalium Permanganat, Asam Nitrat pekat, Gas Oksigen murni.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS04</strong></td>
+              <td><strong>Gas Bertekanan (Compressed Gas)</strong><br />Simbol: Silinder tabung gas mendatar</td>
+              <td>Gas yang disimpan di dalam tabung di bawah tekanan tinggi (gas kempa, gas cair, atau gas terlarut). Dapat meledak jika tabung dipanaskan atau jatuh patah katupnya.</td>
+              <td>Tabung Nitrogen (N<sub>2</sub>), Argon, Karbon Dioksida (CO<sub>2</sub>), Oksigen medis/industri, Gas Freon refrigeran.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS05</strong></td>
+              <td><strong>Korosif (Corrosive)</strong><br />Simbol: Cairan menetes merusak batang logam dan tangan</td>
+              <td>Zat asam kuat atau basa kuat yang dapat mengikis logam serta menyebabkan luka bakar kimiawi parah pada jaringan kulit dan kerusakan mata permanen.</td>
+              <td>Asam Sulfat (H<sub>2</sub>SO<sub>4</sub> / Air Aki), Asam Klorida (HCl), Soda Api / Natrium Hidroksida (NaOH), Amonia pekat.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS06</strong></td>
+              <td><strong>Beracun Akut (Acute Toxicity)</strong><br />Simbol: Tengkorak manusia dan dua tulang bersilang</td>
+              <td>Bahan yang dalam dosis sangat kecil sekalipun dapat menyebabkan kematian atau keracunan akut parah apabila tertelan, terhirup uapnya, atau terserap melalui pori-pori kulit.</td>
+              <td>Sianida, Metanol murni, Hidrogen Sulfida (H<sub>2</sub>S), Pestisida organofosfat pekat, Merkuri.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS07</strong></td>
+              <td><strong>Bahaya Iritasi / Berbahaya (Harmful / Irritant)</strong><br />Simbol: Tanda seru hitam tebal</td>
+              <td>Menyebabkan iritasi kulit, iritasi mata serius, alergi kulit, kantuk/pusing jika uapnya terhirup, atau berbahaya jika tertelan dalam jumlah tertentu.</td>
+              <td>Deterjen industri, Kalsium Klorida, Pelarut cat ringan, Serbuk semen/kapur, Asam sitrat pekat.</td>
+            </tr>
+            <tr>
+              <td><strong>GHS08</strong></td>
+              <td><strong>Bahaya Kesehatan Kronis (Health Hazard)</strong><br />Simbol: Siluet dada manusia dengan pancaran bintang putih</td>
+              <td>Bahaya jangka panjang yang sangat serius: pemicu kanker (<em>karsinogenik</em>), mutasi genetik (<em>mutagenik</em>), gangguan kesuburan/janin, kerusakan organ paru-paru kronis (silikosis/asbestosis), atau bahaya aspirasi.</td>
+              <td>Benzena, Serat Asbes (Asbestos), Formalin (Formaldehida), Debu Silika bebas, Uap Timbal (Pb).</td>
+            </tr>
+            <tr>
+              <td><strong>GHS09</strong></td>
+              <td><strong>Berbahaya Bagi Lingkungan Akuatik (Environmental Hazard)</strong><br />Simbol: Pohon kering dan ikan mati mengapung</td>
+              <td>Zat yang bersifat sangat toksik bagi organisme perairan (ikan, alga) dengan dampak pencemaran ekosistem jangka panjang apabila tumpah ke saluran drainase atau sungai.</td>
+              <td>Oli bekas mesin, Limbah logam berat, Pestisida, Pelarut klorinasi, Tumpahan minyak mentah.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Khusus untuk pengelolaan <strong>Tempat Penyimpanan Sementara (TPS) Limbah B3</strong> di pabrik, perusahaan juga wajib menempelkan simbol B3 berukuran minimal <strong>10 cm &times; 10 cm</strong> pada setiap kemasan drum/jerigen limbah dan berukuran <strong>25 cm &times; 25 cm</strong> pada dinding luar bangunan TPS Limbah B3 maupun kendaraan pengangkut sesuai Peraturan Menteri Negara Lingkungan Hidup Nomor 03 Tahun 2008 (dan pembaruannya pada Permen LHK Nomor 6 Tahun 2021).
+      </p>
+    </section>
+
+    <section id="rumus-ukuran-jarak-baca">
+      <h2>Rumus Teknis Perhitungan Ukuran Rambu vs Jarak Pandang Maksimum</h2>
+      <p>
+        Kesalahan umum saat memasang rambu di gudang besar atau lapangan proyek terbuka adalah mencetak rambu berukuran terlalu kecil (misalnya seukuran kertas A4) untuk dipasang di dinding setinggi 6 meter, sehingga sama sekali tidak terbaca oleh operator dari kejauhan. Standar internasional <strong>ISO 3864-1</strong> menetapkan rumus matematis untuk menghitung dimensi tinggi minimum rambu (<em>h</em>) berdasarkan jarak pandang maksimum (<em>L</em>) dan faktor jarak (<em>Z<sub>0</sub></em>):
+      </p>
+      <blockquote>
+        <strong>Rumus Tinggi Minimum Rambu: <code>h = L &divide; Z<sub>0</sub></code> &nbsp;&nbsp;atau&nbsp;&nbsp; Jarak Baca Maksimum: <code>L = h &times; Z<sub>0</sub></code></strong>
+      </blockquote>
+      <p>
+        Dalam kondisi pencahayaan normal di tempat kerja (iluminasi di atas 50 lux), nilai faktor jarak standar (<em>Z<sub>0</sub></em>) untuk rambu larangan, peringatan, dan perintah adalah <strong>40</strong>, sedangkan untuk rambu penunjuk arah evakuasi adalah <strong>100</strong> (untuk penerangan eksternal) hingga <strong>200</strong> (untuk rambu beriluminasi internal / lampu kotak Exit). Berikut adalah tabel acuan praktis ukuran rambu K3 yang wajib Anda gunakan saat memesan atau mengaudit rambu di lapangan:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Jarak Pandang Pekerja (<em>L</em>)</th>
+              <th>Ukuran Diameter / Tinggi Rambu Minimum (<em>h</em>)</th>
+              <th>Rekomendasi Dimensi Pelat Rambu Standar (cm)</th>
+              <th>Area Penempatan Ideal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sampai dengan 4 Meter</strong></td>
+              <td>10 cm (100 mm)</td>
+              <td>15 &times; 20 cm atau 20 &times; 30 cm</td>
+              <td>Ditempel langsung pada pintu panel listrik, dekat tombol mesin produksi, atau di atas meja laboratorium.</td>
+            </tr>
+            <tr>
+              <td><strong>4 hingga 8 Meter</strong></td>
+              <td>20 cm (200 mm)</td>
+              <td>30 &times; 40 cm atau 35 &times; 50 cm</td>
+              <td>Dinding koridor kantor, pintu masuk ruang genset/boiler, area bengkel pemeliharaan.</td>
+            </tr>
+            <tr>
+              <td><strong>8 hingga 12 Meter</strong></td>
+              <td>30 cm (300 mm)</td>
+              <td>40 &times; 60 cm</td>
+              <td>Area produksi pabrik menengah, lorong gudang forklift, area bongkar muat (loading dock).</td>
+            </tr>
+            <tr>
+              <td><strong>12 hingga 16 Meter</strong></td>
+              <td>40 cm (400 mm)</td>
+              <td>60 &times; 80 cm</td>
+              <td>Gudang distribusi tinggi (high-bay warehouse), jalan internal pabrik, area konstruksi terbuka.</td>
+            </tr>
+            <tr>
+              <td><strong>16 hingga 25 Meter</strong></td>
+              <td>60 cm (600 mm)</td>
+              <td>80 &times; 120 cm</td>
+              <td>Gerbang utama proyek konstruksi, area tambang terbuka, dermaga pelabuhan, papan titik kumpul utama.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="standar-pemasangan-pencahayaan">
+      <h2>Standar Ketinggian Pemasangan, Material Photoluminescent, & Kode Warna Pipa</h2>
+      <p>
+        Agar rambu K3 yang telah dicetak sesuai ukuran standar dapat berfungsi optimal dan lolos verifikasi auditor SMK3, perhatikan tiga kaidah instalasi teknis berikut:
+      </p>
+      <ol>
+        <li>
+          <strong>Ketinggian Titik Pasang (Mounting Height):</strong> Untuk rambu yang dibaca pada jarak dekat hingga menengah (dinding koridor, pintu ruangan, tiang pabrik), titik tengah rambu wajib dipasang sejajar dengan garis pandang mata manusia normal (<em>eye level</em>), yakni pada ketinggian <strong>1,5 meter hingga 1,8 meter</strong> dari permukaan lantai kerja. Sedangkan untuk rambu gantung (<em>hanging sign</em>) penunjuk lokasi APAR, Hidran, atau Jalur Evakuasi di tengah hall pabrik yang luas, rambu harus dipasang pada ketinggian minimal <strong>2,1 meter hingga 2,5 meter</strong> agar tidak terhalang oleh tumpukan barang atau lalu-lalang pekerja.
+        </li>
+        <li>
+          <strong>Spesifikasi Material Tahan Cuaca dan Photoluminescent:</strong> Di area luar ruangan (<em>outdoor</em>) yang terpapar sinar ultraviolet matahari dan hujan, gunakan pelat aluminium tebal minimal 1,2 mm–2,0 mm atau akrilik dengan stiker reflektif (<em>retro-reflective sheeting</em>) agar memantulkan cahaya lampu kendaraan di malam hari. Sementara untuk seluruh rambu jalur evakuasi, tangga darurat, lokasi APAR, dan <a href="/isi-kotak-p3k-permenaker/">penanda lokasi kotak P3K sesuai Permenaker 15/2008</a> di dalam ruangan, gunakan bahan <strong>Photoluminescent (Glow in the Dark)</strong> standar DIN 67510 yang mampu memancarkan pendaran cahaya mandiri saat terjadi pemadaman listrik total.
+        </li>
+        <li>
+          <strong>Kode Warna Perpipaan Industri (Standar ASME A13.1):</strong> Selain rambu dinding, setiap jaringan pipa di pabrik wajib diberi label nama fluida, tanda panah arah aliran, dan kode warna identifikasi:
+          <ul>
+            <li><strong>Merah (Fire Quenching Fluids):</strong> Pipa air pemadam kebakaran (hidran &amp; sprinkler) dan pipa foam pemadam.</li>
+            <li><strong>Kuning / Oranye (Toxic &amp; Flammable Fluids):</strong> Pipa gas alam, LPG, bahan bakar cair, uap panas bertekanan (steam), serta cairan asam/basa kimia berbahaya.</li>
+            <li><strong>Hijau (Water):</strong> Pipa air bersih, air pendingin (cooling water), dan air umpan boiler.</li>
+            <li><strong>Biru (Compressed Air):</strong> Pipa distribusi udara bertekanan dari kompresor pabrik.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="audit-dan-pemeliharaan-rambu">
+      <h2>Poin Pemeriksaan Rambu K3 dalam Audit SMK3 dan Inspeksi Rutin</h2>
+      <p>
+        Dalam pelaksanaan inspeksi bulanan oleh komite P2K3 maupun saat penilaian eksternal <a href="/audit-smk3/">persiapan audit SMK3</a>, kondisi rambu keselamatan diperiksa menggunakan empat parameter kelayakan:
+      </p>
+      <ul>
+        <li><strong>Keterbacaan &amp; Kondisi Warna (Legibility):</strong> Rambu yang sudah pudar warnanya karena terjemur matahari, terkelupas, berkarat, atau tertutup debu tebal/cipratan oli harus segera dibersihkan atau diganti baru.</li>
+        <li><strong>Bebas Halangan Visual (Unobstructed View):</strong> Pastikan tidak ada rambu APAR atau rambu larangan yang tertutup oleh tumpukan kardus produk, daun pintu yang dibuka terus-menerus, atau rimbunnya pepohonan taman.</li>
+        <li><strong>Kesesuaian dengan Risiko Aktual:</strong> Apabila suatu ruangan telah beralih fungsi (misalnya gudang bahan kimia diubah menjadi ruang arsip kertas biasa), maka rambu bahaya B3 yang lama wajib dilepas agar tidak menimbulkan kebingungan atau menurunkan tingkat kepatuhan pekerja terhadap rambu di area lain (<em>sign fatigue</em>).</li>
+        <li><strong>Konsistensi Penegakan Aturan:</strong> Rambu wajib APD (seperti Wajib Pakai Earplug dan Safety Shoes) yang terpasang di pintu pabrik harus ditegakkan secara disiplin. Apabila auditor melihat ada pekerja atau tamu yang melintas di bawah rambu tersebut tanpa mengenakan APD yang diperintahkan, maka hal itu langsung dicatat sebagai bukti kegagalan implementasi sistem pengawasan di lapangan.</li>
+      </ul>
+      <p>
+        Dengan menata sistem komunikasi visual rambu K3 secara presisi sesuai kaidah ISO 7010 dan regulasi ketenagakerjaan nasional, perusahaan Anda membangun lingkungan kerja yang informatif, responsif terhadap keadaan darurat, dan terlindung dari risiko kecelakaan akibat ketidaktahuan bahaya.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

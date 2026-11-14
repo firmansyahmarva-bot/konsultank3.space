@@ -1,0 +1,524 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Panduan 166 Kriteria SMK3: Matriks 64, 122 & 166 PP 50/2012';
+const description = 'Bedah lengkap 166 kriteria SMK3 sesuai PP No. 50 Tahun 2012 Lampiran II. Tabel perbandingan tingkat awal (64), transisi (122), lanjutan, dan bukti audit.';
+const canonicalPath = '/kriteria-audit-smk3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: '166 Kriteria SMK3', url: '/kriteria-audit-smk3/' }
+];
+
+const tocItems = [
+  { id: 'struktur-lampiran-pp50', title: 'Struktur Lampiran II PP No. 50 Tahun 2012 tentang Kriteria Audit' },
+  { id: 'perbandingan-64-122-166', title: 'Matriks Perbandingan Tingkat Awal (64), Transisi (122), dan Lanjutan (166)' },
+  { id: 'bedah-12-elemen', title: 'Bedah Rinci 12 Elemen dan Sub-Elemen dalam 166 Kriteria SMK3' },
+  { id: 'kategori-temuan-audit', title: 'Klasifikasi Temuan Audit: Kritikal, Mayor, dan Minor' },
+  { id: 'sistem-skoring-bendera', title: 'Mekanisme Penilaian dan Ambang Batas Bendera Perak vs Emas' },
+  { id: 'matriks-bukti-objektif', title: 'Daftar Bukti Objektif Lapangan yang Diperiksa Auditor' },
+  { id: 'strategi-lolos-verifikasi', title: 'Strategi Teknis Menghindari Ketidaksesuaian Mayor di Lapangan' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar 166 Kriteria SMK3' }
+];
+
+const faqItems = [
+  {
+    question: 'Apakah perusahaan baru wajib langsung mengambil penilaian 166 kriteria SMK3?',
+    answer: 'Tidak selalu. Bagi perusahaan yang menerapkan SMK3 secara sukarela atau memiliki tingkat risiko bahaya rendah hingga sedang, penilaian dapat dimulai dari Tingkat Awal (64 kriteria) atau Tingkat Transisi (122 kriteria). Namun bagi perusahaan dengan potensi bahaya tinggi yang ditetapkan wajib oleh pengawas ketenagakerjaan, pencapaian akhir yang ditargetkan adalah Tingkat Lanjutan (166 kriteria).'
+  },
+  {
+    question: 'Apa yang dimaksud dengan penilaian Tidak Berlaku (Not Applicable / N/A) saat audit SMK3?',
+    answer: 'Kriteria Tidak Berlaku (N/A) adalah klausul dalam 166 kriteria SMK3 yang secara teknis tidak relevan dengan proses bisnis perusahaan. Contohnya, kriteria mengenai keselamatan boiler atau crane tidak berlaku bagi perusahaan jasa perbankan yang sama sekali tidak mengoperasikan pesawat uap maupun alat angkat berat. Kriteria N/A dikeluarkan dari pembagi perhitungan persentase skor akhir.'
+  },
+  {
+    question: 'Berapa jumlah temuan mayor yang dapat menggagalkan perolehan Bendera Emas?',
+    answer: 'Walaupun total persentase pemenuhan kriteria mencapai di atas 85%, apabila terdapat satu saja temuan ketidaksesuaian kategori Kritikal atau temuan Mayor yang tidak berhasil ditutup (closed) dalam batas waktu tindakan korektif yang ditetapkan lembaga audit, maka tingkat penghargaan dapat diturunkan atau sertifikat ditangguhkan hingga perbaikan diverifikasi.'
+  },
+  {
+    question: 'Bagaimana hubungan antara 166 kriteria SMK3 dengan klausul ISO 45001:2018?',
+    answer: 'Keduanya berlandaskan siklus PDCA (Plan-Do-Check-Act), namun 166 kriteria SMK3 PP 50/2012 jauh lebih preskriptif dan menuntut kepatuhan spesifik terhadap regulasi ketenagakerjaan Indonesia, seperti kewajiban pengesahan P2K3 Disnaker, lisensi K3 Kemnaker (SIO/AK3U), dan pelaporan pemeriksaan kesehatan berkala.'
+  },
+  {
+    question: 'Berapa lama bukti rekaman implementasi harus tersedia sebelum audit dilakukan?',
+    answer: 'Auditor eksternal umumnya mensyaratkan bukti rekaman operasional (objective evidence) yang konsisten minimal selama 3 (tiga) hingga 6 (enam) bulan terakhir sebelum tanggal pelaksanaan audit, termasuk laporan rapat P2K3, inspeksi rutin, dan catatan pemeliharaan peralatan.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Panduan Lengkap 166 Kriteria SMK3: Matriks 64, 122, dan 166 Kriteria PP 50/2012';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Standar Audit & Regulasi SMK3</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 18 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Instrumen evaluasi kepatuhan keselamatan kerja di Indonesia bertumpu pada parameter baku yang tertuang dalam Peraturan Pemerintah Nomor 50 Tahun 2012. Memahami rincian <strong>166 kriteria smk3</strong> secara utuh adalah langkah fundamental bagi manajemen perusahaan, komite P2K3, serta praktisi HSE dalam memetakan kesiapan sistem, menyiapkan rekaman bukti objektif, dan menavigasi proses verifikasi oleh lembaga audit independen tanpa terjebak pada temuan ketidaksesuaian fatal.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="struktur-lampiran-pp50">
+      <h2>Struktur Lampiran II PP No. 50 Tahun 2012 tentang Kriteria Audit</h2>
+      <p>
+        Dalam kerangka hukum ketenagakerjaan nasional, Peraturan Pemerintah (PP) Nomor 50 Tahun 2012 membagi pedoman Sistem Manajemen Keselamatan dan Kesehatan Kerja ke dalam dua bagian utama. Lampiran I memuat pedoman penerapan yang berbasis pada 5 (lima) prinsip dasar manajemen: penetapan kebijakan, perencanaan, pelaksanaan, pemantauan dan evaluasi kinerja, serta peninjauan dan peningkatan kinerja. Sementara itu, Lampiran II menerjemahkan kelima prinsip dasar tersebut ke dalam instrumen ukur kuantitatif berupa <strong>12 elemen utama, 44 sub-elemen, dan 166 kriteria penilaian</strong>.
+      </p>
+      <p>
+        Berbeda dengan standar manajemen internasional yang sering kali memberikan kebebasan interpretasi metode bagi organisasi, struktur penilaian dalam PP 50/2012 bersifat sangat spesifik dan mengikat secara regulasi. Setiap nomor kriteria ditulis sebagai pernyataan normatif yang harus dapat dibuktikan kebenarannya melalui tiga metode verifikasi auditor: telaah dokumen tertulis, observasi fisik langsung di fasilitas kerja, serta wawancara mendalam dengan personel dari tingkat direksi hingga pekerja pelaksana di lini terdepan.
+      </p>
+      <p>
+        Penyusunan struktur 12 elemen ini dirancang agar saling mengunci (<em>interlocking</em>). Sebagai contoh, klaim bahwa perusahaan telah mengidentifikasi bahaya pada Elemen 2 (Strategi Pendokumentasian dan Perencanaan) akan diuji konsistensinya pada Elemen 6 (Keamanan Bekerja Berdasarkan SMK3), Elemen 7 (Standar Pemantauan), hingga Elemen 12 (Pengembangan Keterampilan dan Kemampuan). Apabila terdapat mata rantai yang terputus—misalnya bahaya pengoperasian forklift telah tercatat di tabel risiko, namun operator yang bertugas tidak memiliki lisensi aktif dan forklift belum menjalani pengujian teknis—maka kegagalan tersebut akan berdampak beruntun pada beberapa nomor kriteria sekaligus. Oleh sebab itu, pemahaman komprehensif mengenai <a href="/syarat-sertifikasi-smk3/">persyaratan dasar sertifikasi SMK3 PP 50 Tahun 2012</a> menjadi pondasi awal sebelum memasuki bedah klausul per klausul.
+      </p>
+    </section>
+
+    <section id="perbandingan-64-122-166">
+      <h2>Matriks Perbandingan Tingkat Awal (64), Transisi (122), dan Lanjutan (166)</h2>
+      <p>
+        Pemerintah menyadari bahwa kapasitas sumber daya dan kompleksitas operasional setiap badan usaha bervariasi. Oleh karena itu, Lampiran II PP 50/2012 mengelompokkan kedalaman audit ke dalam tiga tingkatan penerapan, yaitu Tingkat Awal yang menilai 64 kriteria, Tingkat Transisi yang menilai 122 kriteria, dan Tingkat Lanjutan yang menilai keseluruhan 166 kriteria.
+      </p>
+      <p>
+        Pemilihan tingkatan ini ditentukan oleh profil risiko bisnis dan skala perusahaan. Perusahaan sektor jasa dengan risiko bahaya rendah atau perusahaan yang baru membangun sistem keselamatan dari nol umumnya memulai dari 64 kriteria sebagai fondasi operasional. Sebaliknya, perusahaan manufaktur skala besar, kontraktor EPC, pertambangan, kimia, serta rumah sakit rujukan yang mempekerjakan lebih dari 100 tenaga kerja atau berisiko tinggi wajib mengarah pada pemenuhan 166 kriteria secara menyeluruh.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No. Elemen</th>
+              <th>Nama Elemen Audit SMK3</th>
+              <th>Tingkat Awal (64)</th>
+              <th>Tingkat Transisi (122)</th>
+              <th>Tingkat Lanjutan (166)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Elemen 1</strong></td>
+              <td>Pembangunan dan Pemeliharaan Komitmen</td>
+              <td>12 Kriteria</td>
+              <td>21 Kriteria</td>
+              <td>26 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 2</strong></td>
+              <td>Pembuatan dan Pendokumentasian Rencana K3</td>
+              <td>4 Kriteria</td>
+              <td>9 Kriteria</td>
+              <td>14 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 3</strong></td>
+              <td>Pengendalian Perancangan dan Peninjauan Kontrak</td>
+              <td>2 Kriteria</td>
+              <td>5 Kriteria</td>
+              <td>8 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 4</strong></td>
+              <td>Pengendalian Dokumen</td>
+              <td>2 Kriteria</td>
+              <td>5 Kriteria</td>
+              <td>7 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 5</strong></td>
+              <td>Pembelian dan Pengendalian Produk</td>
+              <td>3 Kriteria</td>
+              <td>5 Kriteria</td>
+              <td>9 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 6</strong></td>
+              <td>Keamanan Bekerja Berdasarkan SMK3</td>
+              <td>23 Kriteria</td>
+              <td>35 Kriteria</td>
+              <td>41 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 7</strong></td>
+              <td>Standar Pemantauan</td>
+              <td>6 Kriteria</td>
+              <td>13 Kriteria</td>
+              <td>17 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 8</strong></td>
+              <td>Pelaporan dan Perbaikan Kekurangan</td>
+              <td>2 Kriteria</td>
+              <td>6 Kriteria</td>
+              <td>9 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 9</strong></td>
+              <td>Pengelolaan Material dan Perpindahannya</td>
+              <td>4 Kriteria</td>
+              <td>8 Kriteria</td>
+              <td>12 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 10</strong></td>
+              <td>Pengumpulan dan Penggunaan Data</td>
+              <td>0 Kriteria</td>
+              <td>4 Kriteria</td>
+              <td>6 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 11</strong></td>
+              <td>Pemeriksaan SMK3 (Audit Internal)</td>
+              <td>0 Kriteria</td>
+              <td>2 Kriteria</td>
+              <td>3 Kriteria</td>
+            </tr>
+            <tr>
+              <td><strong>Elemen 12</strong></td>
+              <td>Pengembangan Keterampilan dan Kemampuan</td>
+              <td>6 Kriteria</td>
+              <td>9 Kriteria</td>
+              <td>14 Kriteria</td>
+            </tr>
+            <tr>
+              <td colspan="2"><strong>Total Akumulasi Kriteria yang Diuji</strong></td>
+              <td><strong>64 Kriteria</strong></td>
+              <td><strong>122 Kriteria</strong></td>
+              <td><strong>166 Kriteria</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Perhatikan distribusi pada tabel di atas: <strong>Elemen 6 (Keamanan Bekerja Berdasarkan SMK3)</strong> dan <strong>Elemen 1 (Pembangunan dan Pemeliharaan Komitmen)</strong> menyumbang lebih dari 40% total bobot kriteria di semua tingkatan. Selain itu, pada Tingkat Awal (64 kriteria), Elemen 10 (Pengumpulan Data) dan Elemen 11 (Audit Internal SMK3) belum masuk dalam daftar klausul yang diuji secara langsung, meskipun dalam praktik terbaiknya perusahaan tetap disarankan melakukan evaluasi internal sebelum mengundang auditor eksternal. Anda dapat menelaah langkah-langkah praktis bagi skala usaha menengah pada panduan <a href="/audit-smk3/">persiapan audit SMK3 perusahaan kecil dan menengah</a>.
+      </p>
+    </section>
+
+    <section id="bedah-12-elemen">
+      <h2>Bedah Rinci 12 Elemen dan Sub-Elemen dalam 166 Kriteria SMK3</h2>
+      <p>
+        Agar tim internal perusahaan dapat menyusun daftar periksa (<em>self-assessment checklist</em>) yang presisi, berikut adalah uraian teknis mengenai substansi, cakupan klausul, dan titik kritis pada masing-masing dari 12 elemen audit:
+      </p>
+
+      <h3>1. Elemen 1: Pembangunan dan Pemeliharaan Komitmen (26 Kriteria)</h3>
+      <p>
+        Elemen pertama menguji apakah keselamatan kerja benar-benar dipimpin oleh pucuk pimpinan tertinggi atau hanya didelegasikan tanpa dukungan sumber daya. Terdiri dari 4 sub-elemen:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 1.1 Kebijakan K3 (Kriteria 1.1.1 – 1.1.5):</strong> Menuntut adanya dokumen Kebijakan K3 tertulis, bertanggal, ditandatangani oleh pengusaha atau pengurus tertinggi, memuat komitmen jelas terhadap peningkatan berkelanjutan, disusun melalui proses konsultasi dengan wakil tenaga kerja, disebarluaskan kepada seluruh karyawan maupun tamu/kontraktor, serta ditinjau ulang secara berkala.</li>
+        <li><strong>Sub-elemen 1.2 Tanggung Jawab dan Wewenang untuk Bertindak (Kriteria 1.2.1 – 1.2.7):</strong> Mengatur pembagian tanggung jawab K3 di setiap level jabatan (uraian tugas tertulis), penunjukan penanggung jawab K3 yang memiliki kualifikasi sesuai regulasi (Ahli K3 Umum), komitmen pimpinan unit kerja atas kinerja keselamatan di areanya, serta prosedur mendapatkan saran dari tenaga ahli.</li>
+        <li><strong>Sub-elemen 1.3 Tinjauan dan Evaluasi (Kriteria 1.3.1 – 1.3.3):</strong> Kewajiban manajemen puncak melaksanakan Rapat Tinjauan Manajemen (RTM) secara berkala untuk mengevaluasi kesesuaian dan efektivitas SMK3 berdasarkan hasil audit, laporan insiden, dan pencapaian program.</li>
+        <li><strong>Sub-elemen 1.4 Keterlibatan dan Konsultasi dengan Tenaga Kerja (Kriteria 1.4.1 – 1.4.11):</strong> Fokus utama pada pembentukan Panitia Pembina Keselamatan dan Kesehatan Kerja (P2K3) yang disahkan oleh Dinas Ketenagakerjaan setempat, penunjukan Sekretaris P2K3 yang berlisensi Ahli K3 Umum, pelaksanaan rapat rutin bulanan P2K3, dan penyebarluasan notulen rapat kepada seluruh pekerja. Baca panduan <a href="/membentuk-p2k3/">cara membentuk P2K3 dan syarat pengesahan Disnaker</a> untuk memastikan kesesuaian penuh pada sub-elemen ini.</li>
+      </ul>
+
+      <h3>2. Elemen 2: Pembuatan dan Pendokumentasian Rencana K3 (14 Kriteria)</h3>
+      <p>
+        Elemen kedua menilai bagaimana organisasi menerjemahkan kebijakan di atas kertas menjadi rencana strategis dan operasional yang terukur:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 2.1 Rencana Strategi K3 (Kriteria 2.1.1 – 2.1.6):</strong> Kewajiban menyusun prosedur dan melaksanakan identifikasi potensi bahaya, penilaian risiko, dan pengendalian risiko (HIRADC/IBPRP) oleh petugas yang kompeten. Berdasarkan hasil kajian risiko tersebut, perusahaan harus menetapkan Program Kerja K3 tahunan beserta target terukur, indikator pencapaian, anggaran biaya, dan batas waktu pelaksanaan.</li>
+        <li><strong>Sub-elemen 2.2 Manual SMK3 (Kriteria 2.2.1 – 2.2.3):</strong> Penyediaan dokumen Manual SMK3 yang memuat kebijakan, tujuan, rencana, prosedur, serta matriks silang antara klausul PP 50/2012 dengan dokumen internal perusahaan.</li>
+        <li><strong>Sub-elemen 2.3 Peraturan Perundangan dan Persyaratan Lain di Bidang K3 (Kriteria 2.3.1 – 2.3.4):</strong> Prosedur mengidentifikasi, memelihara, dan memutakhirkan daftar peraturan perundangan K3 (UU, PP, Permenaker, Kepmen, SNI) yang relevan dengan kegiatan perusahaan serta menyosialisasikannya kepada pekerja terkait.</li>
+        <li><strong>Sub-elemen 2.4 Informasi K3 (Kriteria 2.4.1):</strong> Kemudahan akses informasi keselamatan kerja bagi seluruh karyawan melalui papan pengumuman, intranet, poster, atau buku saku.</li>
+      </ul>
+
+      <h3>3. Elemen 3: Pengendalian Perancangan dan Peninjauan Kontrak (8 Kriteria)</h3>
+      <p>
+        Elemen ketiga mencegah masuknya bahaya baru sejak fase rekayasa desain fasilitas maupun sejak penandatanganan kontrak kerja dengan pihak luar:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 3.1 Pengendalian Perancangan (Kriteria 3.1.1 – 3.1.4):</strong> Prosedur terdokumentasi yang mempertimbangkan identifikasi bahaya saat merancang gedung baru, memodifikasi mesin produksi, atau mengubah alur proses kerja (<em>Management of Change / MOC</em>). Seluruh modifikasi harus diverifikasi oleh personel kompeten sebelum dioperasikan.</li>
+        <li><strong>Sub-elemen 3.2 Peninjauan Kontrak (Kriteria 3.2.1 – 3.2.4):</strong> Prosedur yang menjamin bahwa perusahaan mampu memenuhi persyaratan K3 yang diminta oleh pelanggan dalam kontrak penjualan/proyek, serta melakukan identifikasi bahaya sebelum menyepakati tender baru.</li>
+      </ul>
+
+      <h3>4. Elemen 4: Pengendalian Dokumen (7 Kriteria)</h3>
+      <p>
+        Elemen keempat menguji tata kelola administrasi dan ketertelusuran dokumen sistem manajemen:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 4.1 Persetujuan, Pengeluaran, dan Pengendalian Dokumen (Kriteria 4.1.1 – 4.1.4):</strong> Setiap dokumen SMK3 harus memiliki status identifikasi jelas (nomor dokumen, nomor revisi, tanggal efektif), disetujui oleh pejabat berwenang, didistribusikan ke lokasi kerja yang membutuhkan, dan dokumen usang (<em>obsolete</em>) harus segera ditarik dari peredaran agar tidak digunakan secara keliru.</li>
+        <li><strong>Sub-elemen 4.2 Perubahan dan Modifikasi Dokumen (Kriteria 4.2.1 – 4.2.3):</strong> Sistem pengendalian perubahan dokumen yang mencatat alasan revisi dan daftar riwayat perubahan secara tertib.</li>
+      </ul>
+
+      <h3>5. Elemen 5: Pembelian dan Pengendalian Produk (9 Kriteria)</h3>
+      <p>
+        Elemen kelima memastikan bahwa barang, mesin, bahan kimia, maupun jasa subkontraktor yang dibeli oleh bagian pengadaan (<em>procurement</em>) tidak membawa risiko bahaya tak terkendali ke dalam area kerja:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 5.1 Spesifikasi Pembelian Barang dan Jasa (Kriteria 5.1.1 – 5.1.5):</strong> Prosedur pembelian yang mewajibkan konsultasi aspek K3 sebelum membeli mesin, APD, atau bahan kimia berbahaya (misalnya mewajibkan vendor melampirkan Lembar Data Keselamatan Bahan / SDS dan sertifikat SNI pada APD). Termasuk di dalamnya adalah evaluasi prakualifikasi K3 bagi subkontraktor dan vendor jasa (CSMS).</li>
+        <li><strong>Sub-elemen 5.2 Sistem Verifikasi Barang dan Jasa yang Telah Dibeli (Kriteria 5.2.1):</strong> Pemeriksaan barang saat diterima di gudang untuk memastikan kesesuaian dengan spesifikasi keselamatan yang dipesan.</li>
+        <li><strong>Sub-elemen 5.3 Pengendalian Barang dan Jasa yang Dipasok Pelanggan (Kriteria 5.3.1):</strong> Identifikasi bahaya dan penyimpanan aman atas material milik pelanggan yang dititipkan di pabrik untuk diolah.</li>
+        <li><strong>Sub-elemen 5.4 Kemampuan Telusur Produk (Kriteria 5.4.1 – 5.4.2):</strong> Prosedur ketertelusuran (<em>traceability</em>) produk akhir yang dibuat perusahaan guna mengantisipasi potensi penarikan produk jika ditemukan cacat keselamatan.</li>
+      </ul>
+
+      <h3>6. Elemen 6: Keamanan Bekerja Berdasarkan SMK3 (41 Kriteria)</h3>
+      <p>
+        Ini adalah elemen terbesar dan paling krusial dalam audit lapangan. Mencakup 9 sub-elemen operasional teknis:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 6.1 Sistem Kerja (Kriteria 6.1.1 – 6.1.8):</strong> Penyusunan instruksi kerja aman (IK), penerapan <a href="/izin-kerja-k3-ptw/">sistem izin kerja K3 (Permit to Work)</a> untuk pekerjaan berisiko tinggi (ruang terbatas, ketinggian, kerja panas, listrik), serta penyediaan Alat Pelindung Diri (APD) gratis yang memenuhi standar dan diawasi pemakaiannya.</li>
+        <li><strong>Sub-elemen 6.2 Pengawasan (Kriteria 6.2.1 – 6.2.5):</strong> Peran aktif pengawas/supervisor lini depan dalam memastikan pekerjaan dilakukan sesuai prosedur, membimbing pekerja, dan berpartisipasi dalam inspeksi serta investigasi insiden.</li>
+        <li><strong>Sub-elemen 6.3 Seleksi dan Penempatan Personel (Kriteria 6.3.1 – 6.3.2):</strong> Persyaratan kemampuan fisik dan kesehatan kerja (<em>Medical Check-Up</em> awal) serta kepemilikan lisensi K3 wajib sebelum menempatkan pekerja pada tugas khusus.</li>
+        <li><strong>Sub-elemen 6.4 Area Terbatas (Kriteria 6.4.1 – 6.4.4):</strong> Penetapan area kerja berisiko tinggi yang memerlukan pembatasan akses, pemasangan rambu keselamatan kerja, rambu larangan, serta penyediaan fasilitas K3 seperti kamar mandi, loker, kantin higienis, dan kotak P3K sesuai regulasi.</li>
+        <li><strong>Sub-elemen 6.5 Pemeliharaan, Perbaikan, dan Perubahan Sarana Produksi (Kriteria 6.5.1 – 6.5.10):</strong> Penjadwalan perawatan preventif mesin, penerapan sistem penguncian dan pelabelan energi berbahaya (<em>Lockout/Tagout - LOTO</em>), serta kewajiban memiliki pengesahan/sertifikasi kelayakan alat (SIA/SILO) melalui riksa uji berkala atas pesawat angkat angkut, bejana tekan, genset, instalasi listrik, dan penyalur petir.</li>
+        <li><strong>Sub-elemen 6.6 Pelayanan (Kriteria 6.6.1 – 6.6.2):</strong> Jaminan keselamatan apabila perusahaan memberikan layanan purna jual atau instalasi di lokasi milik pelanggan.</li>
+        <li><strong>Sub-elemen 6.7 Kesiapan untuk Menangani Keadaan Darurat (Kriteria 6.7.1 – 6.7.7):</strong> Identifikasi potensi keadaan darurat, penyusunan prosedur tanggap darurat, pembentukan dan pelatihan tim tanggap darurat (termasuk petugas pemadam kebakaran berlisensi Kelas D/C/B/A), pelaksanaan simulasi evakuasi berkala (<em>emergency drill</em>), penyediaan APAR, hidran, alarm, serta peta jalur evakuasi.</li>
+        <li><strong>Sub-elemen 6.8 Pertolongan Pertama Pada Kecelakaan / P3K (Kriteria 6.8.1 – 6.8.2):</strong> Pemeriksaan rutin isi kotak P3K dan pelatihan petugas P3K berlisensi Kemnaker.</li>
+        <li><strong>Sub-elemen 6.9 Rencana dan Pemulihan Keadaan Darurat (Kriteria 6.9.1):</strong> Prosedur pemulihan bisnis (<em>recovery plan</em>) pasca terjadinya insiden besar agar operasional dapat kembali berjalan aman.</li>
+      </ul>
+
+      <h3>7. Elemen 7: Standar Pemantauan (17 Kriteria)</h3>
+      <p>
+        Elemen ketujuh mengevaluasi rutinitas inspeksi, pengujian lingkungan kerja, dan surveilans kesehatan karyawan:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 7.1 Pemeriksaan Bahaya (Kriteria 7.1.1 – 7.1.7):</strong> Pelaksanaan inspeksi K3 terjadwal menggunakan daftar periksa (<em>checklist</em>) oleh petugas bersama wakil pekerja, serta tindak lanjut perbaikan atas temuan kondisi tidak aman.</li>
+        <li><strong>Sub-elemen 7.2 Pemantauan/Pengukuran Lingkungan Kerja (Kriteria 7.2.1 – 7.2.3):</strong> Pengukuran berkala terhadap faktor fisika (kebisingan, pencahayaan, iklim kerja panas ISBB, getaran), faktor kimia (debu, gas), faktor biologi, ergonomi, dan psikologi sesuai Permenaker No. 5 Tahun 2018.</li>
+        <li><strong>Sub-elemen 7.3 Peralatan Pemeriksaan/Inspeksi, Pengukuran, dan Pengujian (Kriteria 7.3.1 – 7.3.2):</strong> Kalibrasi berkala terhadap seluruh alat ukur K3 (sound level meter, lux meter, multi-gas detector, pressure gauge).</li>
+        <li><strong>Sub-elemen 7.4 Pemantauan Kesehatan Tenaga Kerja (Kriteria 7.4.1 – 7.4.5):</strong> Pelaksanaan pemeriksaan kesehatan berkala (MCU tahunan) dan pemeriksaan khusus bagi pekerja yang terpapar bahaya spesifik oleh Dokter Pemeriksa Kesehatan Tenaga Kerja yang memiliki SKP resmi Kemnaker, serta pelaporan hasilnya ke Disnaker.</li>
+      </ul>
+
+      <h3>8. Elemen 8: Pelaporan dan Perbaikan Kekurangan (9 Kriteria)</h3>
+      <p>
+        Elemen kedelapan mengukur responsivitas sistem terhadap laporan bahaya, insiden, dan ketidaksesuaian:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 8.1 Pelaporan Bahaya (Kriteria 8.1.1):</strong> Prosedur bagi pekerja untuk melaporkan kondisi berbahaya atau kejadian nyaris celaka (<em>near miss</em>) dengan mudah tanpa rasa takut.</li>
+        <li><strong>Sub-elemen 8.2 Pelaporan Kecelakaan (Kriteria 8.2.1):</strong> Prosedur dokumentasi dan kewajiban melaporkan setiap kecelakaan kerja atau penyakit akibat kerja kepada Dinas Ketenagakerjaan maksimal dalam waktu 48 jam sesuai Permenaker No. 03/1998.</li>
+        <li><strong>Sub-elemen 8.3 Pemeriksaan dan Pengkajian Kecelakaan (Kriteria 8.3.1 – 8.3.6):</strong> Pelaksanaan <a href="/investigasi-kecelakaan-kerja/">investigasi kecelakaan kerja secara sistematis</a> untuk menemukan akar penyebab masalah, bukan sekadar menyalahkan pekerja, serta memantau efektivitas tindakan perbaikan.</li>
+        <li><strong>Sub-elemen 8.4 Penanganan Masalah (Kriteria 8.4.1):</strong> Prosedur penyelesaian keluhan atau masalah K3 yang diajukan oleh tenaga kerja.</li>
+      </ul>
+
+      <h3>9. Elemen 9: Pengelolaan Material dan Perpindahannya (12 Kriteria)</h3>
+      <p>
+        Elemen kesembilan mengaudit keamanan penanganan barang, pergudangan, dan pengelolaan Bahan Berbahaya dan Beracun (B3):
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 9.1 Penanganan Secara Manual dan Mekanis (Kriteria 9.1.1 – 9.1.4):</strong> Prosedur ergonomi angkat-angkut manual untuk mencegah cedera punggung, serta pengoperasian alat angkut mekanis oleh operator kompeten.</li>
+        <li><strong>Sub-elemen 9.2 Sistem Pengangkutan, Penyimpanan, dan Pembuangan (Kriteria 9.2.1 – 9.2.3):</strong> Penataan tumpukan barang di gudang agar stabil, tidak menghalangi APAR atau jalur evakuasi, serta pengelolaan limbah sesuai aturan.</li>
+        <li><strong>Sub-elemen 9.3 Pengendalian Bahan Kimia Berbahaya / B3 (Kriteria 9.3.1 – 9.3.5):</strong> Penyediaan Lembar Data Keselamatan Bahan (LDKB/SDS) berbahasa Indonesia yang mudah diakses di lokasi penyimpanan, pemasangan label dan simbol B3 pada setiap wadah termasuk wadah sekunder, penyediaan <em>spill kit</em>, <em>eyewash/body shower</em>, serta penunjukan Petugas K3 Kimia / Ahli K3 Kimia apabila melampaui Nilai Ambang Kuantitas (NAK) sesuai Kepmenaker No. 187/1999.</li>
+      </ul>
+
+      <h3>10. Elemen 10: Pengumpulan dan Penggunaan Data (6 Kriteria)</h3>
+      <p>
+        Elemen kesepuluh menguji sistem pengarsipan catatan K3 dan analisis tren statistik:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 10.1 Catatan K3 (Kriteria 10.1.1 – 10.1.4):</strong> Prosedur identifikasi, penyimpanan, masa retensi, dan kerahasiaan rekaman medis maupun rekaman keselamatan kerja.</li>
+        <li><strong>Sub-elemen 10.2 Data dan Laporan K3 (Kriteria 10.2.1 – 10.2.2):</strong> Pengumpulan dan analisis data statistik kinerja K3 bulanan/tahunan, seperti perhitungan <em>Frequency Rate</em> (FR) dan <em>Severity Rate</em> (SR), yang disebarluaskan kepada manajemen dan pekerja.</li>
+      </ul>
+
+      <h3>11. Elemen 11: Pemeriksaan SMK3 / Audit Internal (3 Kriteria)</h3>
+      <p>
+        Elemen kesebelas menilai mekanisme evaluasi mandiri oleh internal organisasi:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 11.1 Audit Internal SMK3 (Kriteria 11.1.1 – 11.1.3):</strong> Pelaksanaan audit internal terjadwal terhadap seluruh elemen SMK3 oleh personel Auditor Internal SMK3 yang terlatih, independen dari bagian yang diaudit (prinsip ketidakberpihakan), serta pendokumentasian laporan temuan untuk ditindaklanjuti pada rapat tinjauan manajemen.</li>
+      </ul>
+
+      <h3>12. Elemen 12: Pengembangan Keterampilan dan Kemampuan (14 Kriteria)</h3>
+      <p>
+        Elemen kedua belas memastikan kompetensi seluruh sumber daya manusia di tempat kerja:
+      </p>
+      <ul>
+        <li><strong>Sub-elemen 12.1 Strategi Pelatihan (Kriteria 12.1.1 – 12.1.7):</strong> Pelaksanaan Analisis Kebutuhan Pelatihan (<em>Training Need Analysis / TNA</em>) K3, penyusunan matriks pelatihan tahunan, pelatihan oleh lembaga PJK3 resmi untuk sertifikasi wajib, evaluasi efektivitas pasca pelatihan, dan pengarsipan sertifikat.</li>
+        <li><strong>Sub-elemen 12.2 Pelatihan Bagi Manajemen dan Penyelia (Kriteria 12.2.1 – 12.2.2):</strong> Pembekalan khusus bagi direksi, manajer, dan supervisor mengenai tanggung jawab hukum serta teknis pengawasan K3.</li>
+        <li><strong>Sub-elemen 12.3 Pelatihan Bagi Tenaga Kerja (Kriteria 12.3.1 – 12.3.3):</strong> Pelatihan prosedur kerja aman bagi seluruh karyawan lama maupun karyawan yang mengalami mutasi jabatan/mesin baru.</li>
+        <li><strong>Sub-elemen 12.4 Pelatihan Pengenalan / Safety Induction untuk Pengunjung dan Kontraktor (Kriteria 12.4.1):</strong> Prosedur pemberian <em>safety induction</em> wajib bagi setiap tamu, kurir, dan pekerja vendor sebelum diizinkan memasuki area operasional.</li>
+        <li><strong>Sub-elemen 12.5 Pelatihan Keahlian Khusus (Kriteria 12.5.1):</strong> Pemenuhan sertifikasi dan lisensi K3 resmi Kemnaker RI bagi operator alat berat, teknisi listrik, juru las, petugas ruang terbatas, dan petugas bekerja di ketinggian.</li>
+      </ul>
+    </section>
+
+    <section id="kategori-temuan-audit">
+      <h2>Klasifikasi Temuan Audit: Kritikal, Mayor, dan Minor</h2>
+      <p>
+        Ketika auditor dari Lembaga Audit SMK3 independen melakukan pemeriksaan terhadap 166 kriteria di atas, setiap ketidaksesuaian (<em>non-conformity</em>) yang ditemukan tidak diperlakukan sama rata, melainkan diklasifikasikan ke dalam tiga tingkatan keparahan berdasarkan Permenaker No. 26 Tahun 2014:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kategori Temuan</th>
+              <th>Definisi Regulasi & Kriteria Penetapan</th>
+              <th>Dampak Langsung pada Sertifikasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kategori Kritikal (Critical)</strong></td>
+              <td>Temuan yang mengakibatkan kematian (fatality) atau menimbulkan potensi bahaya serius yang mengancam jiwa manusia dan kerusakan aset besar secara langsung tanpa ada pengaman sama sekali.</td>
+              <td>Tindakan koreksi harus dilakukan seketika (maksimal dalam 24 jam). Jika tidak dapat diatasi, auditor wajib menghentikan proses dan melaporkan langsung ke Dirjen Binwasnaker & K3.</td>
+            </tr>
+            <tr>
+              <td><strong>Kategori Mayor (Major)</strong></td>
+              <td>
+                1. Tidak memenuhi ketentuan peraturan perundang-undangan K3 wajib (misal: belum punya P2K3 sah, alat belum riksa uji SIA, operator tanpa SIO);<br />
+                2. Tidak melaksanakan salah satu prinsip SMK3 secara sistemik;<br />
+                3. Terdapat sejumlah temuan minor yang terkumpul pada satu kriteria atau elemen yang sama sehingga menyebabkan kegagalan sistem.
+              </td>
+              <td>Wajib diperbaiki dan ditutup (<em>closed</em>) dalam waktu maksimal 1 (satu) hingga 2 (dua) bulan. Kegagalan menutup temuan mayor menghambat penerbitan sertifikat.</td>
+            </tr>
+            <tr>
+              <td><strong>Kategori Minor (Minor)</strong></td>
+              <td>Ketidaksesuaian tunggal atau penyimpangan administratif kecil dalam pemenuhan prosedur, instruksi kerja, atau kelengkapan pengisian formulir yang tidak berdampak sistemik maupun tidak membahayakan jiwa secara langsung.</td>
+              <td>Mengurangi perolehan persentase skor kriteria yang bersangkutan. Harus tetap ditindaklanjuti dalam rencana tindakan perbaikan (CAPA).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Dalam praktik di lapangan, penyebab terbesar munculnya <strong>Temuan Mayor</strong> adalah kelalaian pemenuhan perizinan normatif (legal compliance), seperti masa berlaku Surat Keterangan Penunjukan (SKP) Ahli K3 Umum yang sudah kedaluwarsa, ketiadaan laporan triwulan P2K3 ke Disnaker, atau penggunaan forklift dan kompresor udara yang belum memiliki Surat Keterangan Layak K3. Untuk memahami rincian perizinan peralatan dan operator ini, silakan pelajari <a href="/sio-dan-sia-k3/">panduan lengkap SIO dan SIA K3 beserta regulasi riksa uji alat</a>.
+      </p>
+    </section>
+
+    <section id="sistem-skoring-bendera">
+      <h2>Mekanisme Penilaian dan Ambang Batas Bendera Perak vs Emas</h2>
+      <p>
+        Perhitungan skor akhir dalam audit SMK3 menggunakan rumus proporsional terhadap jumlah kriteria yang dinyatakan berlaku (<em>Applicable</em>) di perusahaan tersebut:
+      </p>
+      <blockquote>
+        <strong>Persentase Pencapaian (%) = [ Jumlah Kriteria Memenuhi Syarat / (Total Kriteria Tingkat Audit &minus; Jumlah Kriteria Tidak Berlaku) ] &times; 100%</strong>
+      </blockquote>
+      <p>
+        Sebagai ilustrasi, apabila sebuah pabrik manufaktur diaudit pada <strong>Tingkat Lanjutan (166 kriteria)</strong>, dan setelah diverifikasi oleh auditor terdapat 6 kriteria yang dinyatakan Tidak Berlaku (N/A) karena pabrik tersebut tidak memproduksi barang dengan sistem ketertelusuran khusus pelanggan dan tidak melayani instalasi di luar pabrik, maka pembagi (denominator) yang digunakan adalah <strong>160 kriteria</strong>. Apabila pabrik tersebut berhasil memenuhi 144 kriteria secara sah (<em>conformance</em>), maka skor akhirnya adalah <code>(144 / 160) &times; 100% = 90,0%</code>.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Rentang Skor Pencapaian</th>
+              <th>Predikat Tingkat Penilaian</th>
+              <th>Bentuk Penghargaan / Tindak Lanjut Kemnaker</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>0% – 59%</strong></td>
+              <td>Tingkat Penilaian Kurang</td>
+              <td>Tidak mendapatkan sertifikat. Bagi perusahaan kategori wajib, Kemnaker dapat melayangkan peringatan hingga proses tindakan hukum pengawasan.</td>
+            </tr>
+            <tr>
+              <td><strong>60% – 84%</strong></td>
+              <td>Tingkat Penilaian Baik</td>
+              <td>
+                - Tingkat Awal (64): Sertifikat Perak<br />
+                - Tingkat Transisi (122): Sertifikat Perak<br />
+                - Tingkat Lanjutan (166): Sertifikat Perak &amp; <strong>Bendera Perak SMK3</strong>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>85% – 100%</strong></td>
+              <td>Tingkat Penilaian Memuaskan</td>
+              <td>
+                - Tingkat Awal (64): Sertifikat Emas<br />
+                - Tingkat Transisi (122): Sertifikat Emas<br />
+                - Tingkat Lanjutan (166): Sertifikat Emas &amp; <strong>Bendera Emas SMK3</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Penting untuk dicatat bahwa penghargaan fisik berupa <strong>Bendera Perak</strong> maupun <strong>Bendera Emas</strong> hanya diberikan kepada perusahaan yang diaudit pada <strong>Tingkat Lanjutan (166 Kriteria)</strong>. Sementara perusahaan yang mengikuti audit pada Tingkat Awal (64 kriteria) dan Tingkat Transisi (122 kriteria) dengan skor di atas 85% akan memperoleh <strong>Sertifikat Emas Tingkat Awal/Transisi</strong> yang berlaku selama 3 (tiga) tahun dan diakui secara sah untuk keperluan tender maupun kepatuhan hukum.
+      </p>
+    </section>
+
+    <section id="matriks-bukti-objektif">
+      <h2>Daftar Bukti Objektif Lapangan yang Diperiksa Auditor</h2>
+      <p>
+        Keberhasilan melewati verifikasi 166 kriteria sangat bergantung pada kesiapan rekaman bukti fisik. Anda juga dapat memeriksa rincian arsip pada halaman <a href="/dokumen-smk3/">daftar dokumen SMK3 wajib</a>. Berikut adalah matriks bukti objektif krusial yang wajib disiapkan oleh tim internal sebelum hari pelaksanaan audit:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Kelompok Verifikasi</th>
+              <th>Nomor Kriteria Kunci</th>
+              <th>Bukti Objektif (Objective Evidence) yang Ditagih Auditor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Legalitas Kelembagaan &amp; Personel</strong></td>
+              <td>1.2.2, 1.4.3, 1.4.4, 12.5.1</td>
+              <td>SK Pengesahan P2K3 dari Disnaker Provinsi, Sertifikat + SKP + Kartu Kewenangan Ahli K3 Umum aktif, Lisensi Petugas P3K, Petugas Damkar, Operator Forklift/Crane/Boiler (SIO), dan Auditor Internal SMK3.</td>
+            </tr>
+            <tr>
+              <td><strong>Kelayakan Sarana Produksi (Riksa Uji)</strong></td>
+              <td>6.5.2, 6.5.3, 6.5.4, 6.5.7</td>
+              <td>Surat Keterangan Layak K3 (SIA/SILO) yang masih berlaku untuk Pesawat Angkat Angkut, Bejana Tekan, Kompresor, Genset, Instalasi Listrik, Instalasi Penyalur Petir, dan Instalasi Proteksi Kebakaran, beserta penempelan label pengesahan pada unit alat.</td>
+            </tr>
+            <tr>
+              <td><strong>Kesehatan Kerja &amp; Lingkungan Kerja</strong></td>
+              <td>7.2.1, 7.4.1, 7.4.3, 7.4.4</td>
+              <td>Laporan hasil uji lingkungan kerja (kebisingan, pencahayaan, iklim kerja, kualitas udara) oleh laboratorium terakreditasi/PJK3, rekap hasil MCU berkala pekerja yang dievaluasi oleh Dokter Hiperkes ber-SKP Kemnaker, dan tanda terima pelaporan MCU ke Disnaker.</td>
+            </tr>
+            <tr>
+              <td><strong>Pengendalian Bahaya Lapangan</strong></td>
+              <td>2.1.1, 6.1.5, 6.4.4, 9.3.1</td>
+              <td>Dokumen <a href="/contoh-hiradc/">matriks penilaian risiko contoh HIRADC</a> terkini, arsip form Permit to Work (PTW) yang telah ditutup, pemasangan <a href="/arti-rambu-k3/">rambu keselamatan kerja sesuai arti rambu K3</a> di titik bahaya, serta ketersediaan SDS dan label B3 pada gudang bahan kimia.</td>
+            </tr>
+            <tr>
+              <td><strong>Evaluasi &amp; Peningkatan Sistem</strong></td>
+              <td>1.3.1, 1.4.6, 10.2.2, 11.1.1</td>
+              <td>Notulen rapat bulanan P2K3 minimal 3 bulan berturut-turut, bukti tanda terima <a href="/laporan-p2k3-disnaker/">laporan triwulan P2K3 ke Disnaker</a>, laporan Audit Internal SMK3 lengkap dengan form CAR (<em>Corrective Action Request</em>), serta notulen Rapat Tinjauan Manajemen (RTM).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="strategi-lolos-verifikasi">
+      <h2>Strategi Teknis Menghindari Ketidaksesuaian Mayor di Lapangan</h2>
+      <p>
+        Banyak perusahaan yang telah menyusun dokumen tebal di ruang rapat namun tetap gagal meraih skor memuaskan saat auditor melakukan <em>factory tour</em> (inspeksi keliling area kerja). Untuk mencegah terjadinya diskrepansi antara dokumen tertulis dan realitas lapangan, terapkan empat strategi teknis berikut minimal 60 hari sebelum jadwal audit eksternal:
+      </p>
+      <ol>
+        <li>
+          <strong>Sinkronisasi Tanggal dan Nomor Dokumen:</strong> Pastikan urutan kronologis dokumen masuk akal secara logika sistem. Tanggal penetapan Kebijakan K3 dan Manual SMK3 harus mendahului tanggal terbitnya SOP, tanggal sosialisasi SOP harus mendahului tanggal pelaksanaan inspeksi, dan tanggal pelaksanaan Audit Internal harus dilakukan sebelum Rapat Tinjauan Manajemen (RTM) digelar.
+        </li>
+        <li>
+          <strong>Audit Fisik Fasilitas K3 dan Kemudahan Akses:</strong> Lakukan penyisiran area kerja untuk memastikan tidak ada tumpukan palet atau barang produksi yang menghalangi akses menuju Alat Pemadam Api Ringan (APAR), kotak hidran, panel listrik, maupun pintu darurat. Periksa kartu gantung inspeksi bulanan pada setiap tabung APAR dan pastikan isi <a href="/isi-kotak-p3k-permenaker/">kotak P3K sesuai daftar isi Permenaker 15/2008</a> tanpa ada obat minum atau barang kedaluwarsa di dalamnya.
+        </li>
+        <li>
+          <strong>Briefing Kesiapan Wawancara Pekerja Lini Depan:</strong> Auditor akan memilih pekerja operator, satpam, atau petugas kebersihan secara acak untuk diwawancarai. Pastikan setiap pekerja mengetahui letak Kebijakan K3 perusahaan, memahami bahaya utama di mesin yang mereka operasikan, mengetahui siapa anggota P2K3 atau petugas P3K di area mereka, serta memahami prosedur evakuasi menuju titik kumpul apabila sirine darurat berbunyi.
+        </li>
+        <li>
+          <strong>Verifikasi Legalitas Vendor dan Subkontraktor:</strong> Apabila di dalam area pabrik atau proyek Anda terdapat pekerja dari perusahaan alih daya (<em>outsourcing</em>), katering, keamanan, atau kontraktor perawatan gedung, pastikan mereka juga mematuhi aturan APD, telah menerima <em>safety induction</em>, dan dievaluasi kinerjanya melalui prosedur <a href="/panduan-csms-kontraktor/">panduan CSMS kontraktor</a> yang terdokumentasi.
+        </li>
+      </ol>
+      <p>
+        Dengan memetakan seluruh 166 kriteria secara terstruktur, melengkapi perizinan normatif tepat waktu, serta menjaga konsistensi rekaman implementasi harian, perusahaan Anda tidak hanya akan lulus audit dengan predikat memuaskan, tetapi juga membangun ketahanan operasional jangka panjang terhadap risiko kecelakaan dan sanksi hukum.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

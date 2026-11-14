@@ -1,0 +1,309 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = '8 Jenis APD K3: Standar Teknis SNI/ANSI/EN & Permenaker';
+const description = 'Ensiklopedia 8 jenis APD K3 sesuai Permenaker No. 08/2010. Spesifikasi teknis ANSI Z89.1, EN 388, EN ISO 20345, rumus reduksi bising NRR, dan perawatan.';
+const canonicalPath = '/jenis-apd-k3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Jenis APD K3', url: '/jenis-apd-k3/' }
+];
+
+const tocItems = [
+  { id: 'regulasi-kewajiban-apd', title: 'Kewajiban Hukum Pengusaha Menyediakan APD Gratis (Permenaker No. 08/2010)' },
+  { id: 'delapan-kategori-jenis-apd', title: 'Bedah Teknis 8 Jenis APD K3 Berdasarkan Bagian Tubuh & Standar SNI/ANSI/EN' },
+  { id: 'arti-warna-helm-proyek', title: 'Tabel Standar Arti Warna Helm Safety Proyek & Industri di Indonesia' },
+  { id: 'rumus-perhitungan-nrr-bising', title: 'Rumus Perhitungan Reduksi Kebisingan (NRR) pada Earplug dan Earmuff' },
+  { id: 'kode-standar-sarung-tangan-sepatu', title: 'Membaca Kode Spesifikasi EN 388 (Sarung Tangan) & EN ISO 20345 (Safety Shoes)' },
+  { id: 'manajemen-inspeksi-dan-afkir', title: 'Prosedur Inspeksi Rutin, Pemeliharaan, Masa Pakai, dan Pemusnahan APD Rusak' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Jenis APD K3 dan Regulasinya' }
+];
+
+const faqItems = [
+  {
+    question: 'Bolehkah perusahaan memotong gaji pekerja untuk biaya pembelian helm atau sepatu safety (APD)?',
+    answer: 'Tidak boleh dan dilarang keras oleh undang-undang. Berdasarkan UU No. 1 Tahun 1970 Pasal 14 huruf c serta Permenaker No. 08 Tahun 2010 Pasal 2, pengusaha wajib menyediakan Alat Pelindung Diri (APD) bagi seluruh pekerja di tempat kerja secara cuma-cuma (gratis) tanpa memungut biaya atau memotong upah pekerja.'
+  },
+  {
+    question: 'Apakah pekerja berhak menolak bekerja jika perusahaan tidak menyediakan APD yang sesuai standar?',
+    answer: 'Ya, sangat berhak. Sesuai Pasal 6 ayat (2) Permenaker No. 08 Tahun 2010, pekerja/buruh berhak menyatakan keberatan untuk melakukan pekerjaan apabila Alat Pelindung Diri yang disediakan oleh pengusaha tidak memenuhi ketentuan dan persyaratan keselamatan dan kesehatan kerja yang berlaku.'
+  },
+  {
+    question: 'Berapa tahun batas masa pakai (kedaluwarsa) helm safety proyek?',
+    answer: 'Meskipun secara visual cangkang helm plastik HDPE/ABS tampak belum pecah, masa pakai efektif helm safety umumnya adalah 3 hingga 5 tahun sejak tanggal produksi (tercetak pada bagian dalam lidah helm) untuk cangkang luar, dan 1 hingga 1,5 tahun untuk tali suspensi bagian dalam (inner harness) karena degradasi akibat keringat dan paparan sinar ultraviolet matahari.'
+  },
+  {
+    question: 'Apa perbedaan antara Safety Shoes berujung besi (Steel Toe) dengan ujung komposit (Composite Toe)?',
+    answer: 'Keduanya sama-sama memenuhi standar ketahanan tumbukan beban 200 Joule (EN ISO 20345). Namun Composite Toe terbuat dari bahan non-logam (serat karbon, kevlar, atau fiberglass) sehingga lebih ringan, tidak menghantarkan arus listrik (cocok untuk teknisi listrik), serta tidak memicu bunyi detektor logam di area bandara atau fasilitas keamanan tinggi.'
+  },
+  {
+    question: 'Kapan pekerja wajib memakai Full Body Harness dibandingkan Safety Belt (Sabuk Pinggang)?',
+    answer: 'Dalam standar K3 modern (Permenaker No. 9 Tahun 2016), penggunaan sabuk pinggang tunggal (single waist safety belt) sudah tidak diizinkan untuk menahan jatuh bebas (fall arrest) karena hentakannya dapat mematahkan tulang belakang pekerja. Untuk setiap risiko jatuh dari ketinggian di atas 1,8 meter, pekerja wajib mengenakan Full Body Harness yang mendistribusikan beban hentakan ke paha, panggul, dada, dan bahu.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Ensiklopedia 8 Jenis APD K3: Spesifikasi Teknis Standar SNI, ANSI, dan EN';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Perlengkapan Proteksi & Standar Teknis</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 18 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Meskipun menempati posisi terakhir dalam <a href="/hierarki-pengendalian-risiko/">5 hierarki pengendalian risiko K3</a>, keberadaan Alat Pelindung Diri tetap menjadi benteng penyelamat nyawa yang tak tergantikan saat rekayasa teknis dan prosedur administratif belum mampu meniadakan sisa bahaya di lingkungan kerja. Namun, membagikan APD yang salah spesifikasi sama berbahayanya dengan tidak memakai pelindung sama sekali. Memahami karakteristik teknis dari <strong>jenis apd k3</strong> beserta kode sertifikasi SNI, ANSI, dan EN adalah pengetahuan mutlak bagi tim HSE, bagian pengadaan (<em>purchasing</em>), maupun pengawas lapangan.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="regulasi-kewajiban-apd">
+      <h2>Kewajiban Hukum Pengusaha Menyediakan APD Gratis (Permenaker No. 08/2010)</h2>
+      <p>
+        Dalam kerangka hukum ketenagakerjaan Indonesia, pengaturan mengenai Alat Pelindung Diri diatur secara khusus melalui <strong>Peraturan Menteri Tenaga Kerja dan Transmigrasi Nomor PER.08/MEN/VII/2010 tentang Alat Pelindung Diri</strong> sebagai aturan pelaksana dari Undang-Undang Nomor 1 Tahun 1970. Regulasi ini menetapkan empat prinsip hukum yang mengikat setiap pemberi kerja:
+      </p>
+      <ul>
+        <li>
+          <strong>Kewajiban Penyediaan Cuma-Cuma (Pasal 2 ayat 1):</strong> Pengusaha wajib menyediakan APD bagi pekerja/buruh di tempat kerja secara gratis tanpa memungut biaya sepeser pun. Kewajiban ini juga berlaku bagi penyediaan APD untuk tamu, mahasiswa magang, dan pengawas yang memasuki area produksi.
+        </li>
+        <li>
+          <strong>Kewajiban Standar Mutu SNI atau Internasional (Pasal 2 ayat 2):</strong> APD yang dibeli dan dibagikan tidak boleh berupa produk tiruan tanpa uji laboratorium, melainkan wajib memenuhi Standar Nasional Indonesia (SNI) atau standar internasional yang diakui (seperti ANSI Amerika, EN Eropa, atau JIS Jepang).
+        </li>
+        <li>
+          <strong>Kewajiban Pengumuman dan Pemasangan Rambu (Pasal 5):</strong> Pengusaha wajib mengumumkan secara tertulis dan memasang <a href="/arti-rambu-k3/">rambu perintah wajib APD sesuai arti rambu K3</a> berwarna biru bulat di setiap pintu masuk area kerja yang mengharuskan pemakaian pelindung diri tertentu.
+        </li>
+        <li>
+          <strong>Sanksi Pidana Pelanggaran (Pasal 9):</strong> Pengusaha yang dengan sengaja tidak menyediakan APD sesuai standar diancam dengan sanksi pidana sesuai UU No. 1 Tahun 1970 dan pencatatan temuan mayor pada evaluasi <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3 PP 50/2012</a> (Kriteria 6.1.6 dan 6.1.7).
+        </li>
+      </ul>
+    </section>
+
+    <section id="delapan-kategori-jenis-apd">
+      <h2>Bedah Teknis 8 Jenis APD K3 Berdasarkan Bagian Tubuh & Standar SNI/ANSI/EN</h2>
+      <p>
+        Berdasarkan Lampiran Permenaker Nomor 08 Tahun 2010, jenis APD diklasifikasikan ke dalam 8 (delapan) kelompok utama dari ujung kepala hingga ujung kaki, ditambah perlengkapan pelindung jatuh dan pelampung keselamatan:
+      </p>
+
+      <h3>1. Alat Pelindung Kepala (Head Protection)</h3>
+      <p>
+        Berfungsi melindungi tempurung kepala dari benturan benda keras, kejatuhan benda dari atas, percikan bahan kimia/logam cair, serta sengatan arus listrik. Standar rujukan utama adalah <strong>SNI ISO 3873 / ANSI Z89.1 / EN 397</strong>. Dalam standar ANSI Z89.1, helm safety dibagi menurut arah tumbukan dan ketahanan listriknya:
+      </p>
+      <ul>
+        <li><strong>Tipe I vs Tipe II:</strong> Helm <em>Type I</em> dirancang menahan tumbukan dari arah atas kepala saja; sedangkan <em>Type II</em> dilengkapi lapisan busa EPS di bagian dalam sehingga mampu menahan tumbukan dari atas maupun benturan dari arah samping (lateral).</li>
+        <li><strong>Kelas E (Electrical):</strong> Diuji menahan tegangan listrik tinggi hingga <strong>20.000 Volt</strong> (wajib bagi teknisi listrik jaringan tegangan menengah/tinggi dan gardu PLN).</li>
+        <li><strong>Kelas G (General):</strong> Diuji menahan tegangan listrik rendah hingga <strong>2.200 Volt</strong> (paling umum digunakan di proyek konstruksi dan pabrik manufaktur).</li>
+        <li><strong>Kelas C (Conductive):</strong> Tidak memberikan perlindungan terhadap arus listrik sama sekali (biasanya terbuat dari aluminium atau memiliki lubang ventilasi udara besar).</li>
+      </ul>
+
+      <h3>2. Alat Pelindung Mata dan Muka (Eye and Face Protection)</h3>
+      <p>
+        Melindungi kornea mata dan kulit wajah dari lontaran partikel berkecepatan tinggi (serpihan gerinda/bubut), cipratan cairan kimia korosif, debu, uap panas, serta radiasi sinar ultraviolet/inframerah pengelasan. Standar rujukan utama: <strong>ANSI Z87.1 / EN 166</strong>:
+      </p>
+      <ul>
+        <li><strong>Safety Spectacles (Kacamata Safety):</strong> Dilengkapi pelindung samping (<em>side shield</em>) berbahan polikarbonat tahan benturan (kode <code>Z87+</code> menandakan <em>High Impact Rated</em>).</li>
+        <li><strong>Safety Goggles (Goggles Kimia/Debu):</strong> Menutup rapat sekeliling rongga mata dengan karet elastis (<em>indirect vent</em>) sehingga uap asam atau cipratan cairan B3 tidak bisa menyusup dari celah samping.</li>
+        <li><strong>Face Shield (Tameng Muka Penuh):</strong> Melindungi seluruh wajah dari dagu hingga dahi saat melakukan penggerindaan berat atau menuang cairan kimia. Penting: <em>Face shield</em> wajib tetap dipadukan dengan pemakaian <em>safety glasses</em> di bagian dalamnya.</li>
+        <li><strong>Welding Helmet / Kedok Las:</strong> Dilengkapi kaca filter gelap (<em>shade number</em> 9 hingga 14 sesuai besaran ampere las) atau fitur <em>auto-darkening</em> untuk menangkal sinar busur las yang memicu kebutaan <em>arc eye</em>.</li>
+      </ul>
+
+      <h3>3. Alat Pelindung Telinga (Hearing Protection)</h3>
+      <p>
+        Melindungi organ koklea telinga bagian dalam dari kerusakan pendengaran permanen (<em>Noise-Induced Hearing Loss / NIHL</em>) di area kerja yang memiliki intensitas bising melebihi Nilai Ambang Batas <strong>85 dBA untuk 8 jam kerja</strong> (Permenaker No. 5 Tahun 2018). Standar rujukan: <strong>ANSI S3.19 / EN 352</strong>:
+      </p>
+      <ul>
+        <li><strong>Earplug (Sumbat Telinga):</strong> Dimasukkan ke dalam liang telinga, berbahan busa poliuretan sekali pakai (<em>disposable foam</em>) atau silikon yang dapat dicuci ulang. Memiliki nilai NRR berkisar antara 22 dB hingga 33 dB.</li>
+        <li><strong>Earmuff (Tutup Telinga):</strong> Menutup seluruh daun telinga dari luar dengan bantalan akustik kedap suara. Lebih mudah diawasi kepatuhan pakainya dan dapat dikombinasikan dengan <em>earplug</em> (<em>double protection</em>) pada area ekstrem di atas 100 dBA (seperti ruang uji mesin pesawat atau turbin uap).</li>
+      </ul>
+
+      <h3>4. Alat Pelindung Pernapasan Beserta Perlengkapannya (Respiratory Protection)</h3>
+      <p>
+        Melindungi organ paru-paru dari inhalasi debu partikulat mikro, serat asbes, kabut cat (<em>mist</em>), uap logam las (<em>fume</em>), gas beracun, maupun kekurangan oksigen. Standar rujukan: <strong>NIOSH 42 CFR Part 84 / EN 149 / EN 136</strong>:
+      </p>
+      <ul>
+        <li><strong>Particulate Respirator (N95 / N99 / P100 / FFP2 / FFP3):</strong> Menyaring partikel debu padat dan aerosol non-minyak (kode N = <em>Not resistant to oil</em>; kode R = <em>Resistant to oil</em>; kode P = <em>Oil Proof</em>). Masker partikulat <strong>tidak dapat</strong> menyaring gas atau uap kimia!</li>
+        <li><strong>Air-Purifying Respirator (Half-Mask / Full-Face dengan Cartridge Kimia):</strong> Menggunakan tabung katrid berisi karbon aktif terimpregnasi dengan kode warna spesifik: <strong>Putih</strong> (Gas Asam), <strong>Hitam</strong> (Uap Organik / Thinner / Cat), <strong>Kuning</strong> (Kombinasi Uap Organik &amp; Gas Asam), <strong>Hijau</strong> (Gas Amonia).</li>
+        <li><strong>Supplied-Air Respirator &amp; SCBA (Self-Contained Breathing Apparatus):</strong> Wajib digunakan pada kondisi atmosfer <em>IDLH (Immediately Dangerous to Life or Health)</em> atau saat kadar oksigen di ruang terbatas kurang dari 19,5% sebagaimana diatur dalam <a href="/izin-kerja-k3-ptw/">prosedur izin kerja K3 ruang terbatas</a>.</li>
+      </ul>
+
+      <h3>5. Alat Pelindung Tangan (Hand Protection)</h3>
+      <p>
+        Melindungi jari dan telapak tangan dari bahaya sayatan benda tajam, tusukan, suhu panas/dingin ekstrem, sengatan arus listrik, dan penyerapan bahan kimia. Standar rujukan: <strong>EN 388 (Mekanis), EN 374 (Kimia), EN 407 (Panas), ASTM D120 / EN 60903 (Listrik)</strong>.
+      </p>
+
+      <h3>6. Alat Pelindung Kaki (Foot Protection)</h3>
+      <p>
+        Melindungi telapak dan jari kaki dari tertimpa benda berat, tertusuk paku dari bawah sol, terpeleset lantai berminyak, cipratan logam cair, serta bahaya listrik statis/tegangan tinggi. Standar rujukan: <strong>SNI 7079 / EN ISO 20345 / ASTM F2413</strong>.
+      </p>
+
+      <h3>7. Pakaian Pelindung (Protective Clothing)</h3>
+      <p>
+        Melindungi sebagian atau seluruh badan dari percikan api, panas radiasi, tumpahan bahan kimia korosif, maupun visibilitas rendah di area lalu lintas kendaraan berat. Mencakup: <em>Flame-Retardant Coverall</em> (Wearpack tahan api standar NFPA 2112 untuk pekerja migas/las), <em>Chemical Protection Suit</em> (Tipe 1 s.d. Tipe 6), Apron kulit las, dan <strong>Rompi Visibilitas Tinggi (Hi-Vis Vest standar EN ISO 20471 Kelas 1, 2, dan 3)</strong>.
+      </p>
+
+      <h3>8. Alat Pelindung Jatuh Perorangan & Pelampung (Fall Protection & Life Jacket)</h3>
+      <p>
+        Meliputi sistem penahan jatuh (<em>Full Body Harness</em> standar EN 361, <em>Energy Absorbing Lanyard</em> EN 355, <em>Self-Retracting Lifeline / Fall Arrester</em> EN 360, serta <em>Anchorage</em> EN 795 yang mampu menahan beban statis minimal 15–22 kN atau sekitar 1,5 hingga 2,2 ton per orang), serta jaket pelampung (<em>Life Jacket</em>) bagi pekerja di atas perairan atau anjungan lepas pantai.
+      </p>
+    </section>
+
+    <section id="arti-warna-helm-proyek">
+      <h2>Tabel Standar Arti Warna Helm Safety Proyek & Industri di Indonesia</h2>
+      <p>
+        Di lokasi proyek konstruksi dan pabrik industri, warna helm keselamatan (<em>safety helmet</em>) tidak dipilih berdasarkan selera pribadi, melainkan berfungsi sebagai kode identifikasi visual cepat untuk mengenali jabatan, wewenang, dan fungsi personel dari kejauhan:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Warna Helm Safety</th>
+              <th>Jabatan / Fungsi Personel di Proyek &amp; Pabrik</th>
+              <th>Kewenangan &amp; Tanggung Jawab Lapangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>PUTIH (White)</strong></td>
+              <td>Manajer Proyek, Direktur, Insinyur Utama (<em>Site Engineer</em>), Mandor Kepala.</td>
+              <td>Pemegang wewenang pengambilan keputusan teknis tertinggi dan penanggung jawab manajemen proyek.</td>
+            </tr>
+            <tr>
+              <td><strong>MERAH (Red)</strong></td>
+              <td>Petugas K3 / HSE Officer, Safety Inspector, Ahli K3, dan Tim Pemadam Kebakaran.</td>
+              <td>Bertanggung jawab mengaudit kepatuhan keselamatan dan memiliki wewenang menghentikan pekerjaan berbahaya (<em>Stop Work Authority</em>).</td>
+            </tr>
+            <tr>
+              <td><strong>KUNING (Yellow)</strong></td>
+              <td>Pekerja Umum, Operator Alat Berat, Pekerja Subkontraktor, Buruh Konstruksi.</td>
+              <td>Pelaksana pekerjaan fisik harian di lapangan; warna kuning dipilih agar sangat mudah terlihat oleh operator crane dan alat berat.</td>
+            </tr>
+            <tr>
+              <td><strong>BIRU (Blue)</strong></td>
+              <td>Teknisi Kelistrikan (<em>Electrician</em>), Supervisor Lapangan, Operator Teknis Mekanikal.</td>
+              <td>Personel spesialis yang menangani instalasi kelistrikan, perpipaan, dan pemeliharaan mesin teknis.</td>
+            </tr>
+            <tr>
+              <td><strong>HIJAU (Green)</strong></td>
+              <td>Pengawas Lingkungan (<em>Environmental Officer</em>), Staf Humas/CSR, atau Pekerja Baru/Percobaan (<em>Probation</em>).</td>
+              <td>Bertanggung jawab atas pemantauan limbah, penghijauan, atau penanda bagi pekerja baru yang masih butuh pendampingan ekstra.</td>
+            </tr>
+            <tr>
+              <td><strong>ORANYE (Orange)</strong></td>
+              <td>Tamu Perusahaan (<em>Visitor</em>), Petugas Pengatur Lalu Lintas / Rigger Crane.</td>
+              <td>Digunakan oleh tamu kunjungan proyek agar mudah diawasi oleh pengantar, atau digunakan oleh juru ikat beban (<em>rigger</em>).</td>
+            </tr>
+            <tr>
+              <td><strong>COKELAT (Brown)</strong></td>
+              <td>Juru Las (<em>Welder</em>) dan Pekerja Area Suhu Tinggi (Pengecoran Logam).</td>
+              <td>Spesialis pekerjaan panas dan pengelasan berisiko percikan api tinggi.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="rumus-perhitungan-nrr-bising">
+      <h2>Rumus Perhitungan Reduksi Kebisingan (NRR) pada Earplug dan Earmuff</h2>
+      <p>
+        Banyak petugas K3 yang salah kaprah saat membaca angka <strong>NRR (<em>Noise Reduction Rating</em>)</strong> pada bungkus kemasan <em>earplug</em>. Jika pada kemasan tertulis <code>NRR 29 dB</code>, bukan berarti alat tersebut langsung mengurangi kebisingan sebesar 29 dBA di telinga pekerja! Angka NRR diuji di laboratorium ideal menggunakan skala desibel C (dBC), sehingga untuk menghitung tingkat peredaman efektif di dunia nyata pada skala dBA, <strong>OSHA dan NIOSH menetapkan Rumus Koreksi Lapangan (Derating Formula)</strong> sebagai berikut:
+      </p>
+      <blockquote>
+        <strong>Reduksi Efektif (dBA) = (NRR &minus; 7) &divide; 2</strong><br />
+        <strong>Tingkat Paparan Suara di Telinga = Kebisingan Area Kerja (dBA) &minus; [ (NRR &minus; 7) &divide; 2 ]</strong>
+      </blockquote>
+      <p>
+        <strong>Contoh Perhitungan Praktis:</strong><br />
+        Sebuah ruang mesin genset memiliki tingkat kebisingan sebesar <strong>94 dBA</strong> (melampaui NAB 85 dBA). Perusahaan membagikan <em>earplug</em> dengan spesifikasi label <strong>NRR 29 dB</strong>. Berapa tingkat suara yang sebenarnya diterima gendang telinga pekerja?
+      </p>
+      <ul>
+        <li>Hitung Reduksi Efektif: <code>(29 &minus; 7) &divide; 2 = 22 &divide; 2 = 11 dBA</code>.</li>
+        <li>Hitung Paparan di Telinga: <code>94 dBA &minus; 11 dBA = 83 dBA</code>.</li>
+        <li><strong>Kesimpulan:</strong> Karena 83 dBA sudah berada di bawah Nilai Ambang Batas 85 dBA, maka <em>earplug</em> NRR 29 dB tersebut dinyatakan <strong>memenuhi syarat</strong> untuk melindungi pekerja selama 8 jam kerja penuh. Namun jika kebisingan ruangan mencapai 102 dBA, maka perusahaan wajib menerapkan <strong>Double Protection (Earplug + Earmuff sekaligus)</strong> di mana rumusnya adalah menggunakan NRR tertinggi dari salah satu alat lalu ditambah ekstra <strong>5 dBA</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="kode-standar-sarung-tangan-sepatu">
+      <h2>Membaca Kode Spesifikasi EN 388 (Sarung Tangan) & EN ISO 20345 (Safety Shoes)</h2>
+      <p>
+        Saat memeriksa APD di gudang atau menyusun spesifikasi pembelian pada Elemen 5 SMK3, Anda wajib memahami arti kode angka dan huruf yang tercetak pada punggung sarung tangan dan lidah sepatu safety:
+      </p>
+
+      <h3>1. Kode 4 Angka pada Sarung Tangan Mekanis (Standar EN 388)</h3>
+      <p>
+        Pada punggung sarung tangan kerja mekanis (seperti sarung tangan berlapis nitril/PU), terdapat simbol perisai palu dengan 4 digit angka di bawahnya, misalnya <strong><code>4 5 4 3</code></strong> (atau ditambah huruf A–F pada versi EN 388:2016):
+      </p>
+      <ul>
+        <li><strong>Digit ke-1 (Ketahanan Abrasi / Gesekan, Skala 1–4):</strong> Angka 4 berarti sangat tahan aus saat mengamplas atau memegang permukaan kasar.</li>
+        <li><strong>Digit ke-2 (Ketahanan Sayatan Pisau / Cut Resistance, Skala 1–5):</strong> Angka 5 (atau Huruf E/F pada uji ISO 13997) berarti berbahan serat Kevlar/HPPE yang tahan terhadap sayatan pelat baja tajam atau kaca.</li>
+        <li><strong>Digit ke-3 (Ketahanan Sobek / Tear Resistance, Skala 1–4):</strong> Mengukur kekuatan bahan menahan tarikan robekan.</li>
+        <li><strong>Digit ke-4 (Ketahanan Tusukan / Puncture Resistance, Skala 1–4):</strong> Mengukur ketahanan telapak terhadap tusukan benda runcing seperti paku atau kawat.</li>
+      </ul>
+
+      <h3>2. Kode Kelas Sepatu Safety (Standar EN ISO 20345)</h3>
+      <p>
+        Seluruh sepatu yang memiliki kode <strong>EN ISO 20345</strong> telah dilengkapi pelindung jari (<em>toe cap</em>) yang tahan tumbukan <strong>200 Joule</strong> dan tekanan <strong>15 kN</strong>. Perbedaan kode huruf di belakangnya adalah:
+      </p>
+      <ul>
+        <li><strong>Kode SB (Safety Basic):</strong> Perlindungan dasar <em>toe cap</em> 200 Joule dengan sol anti-slip.</li>
+        <li><strong>Kode S1:</strong> Fitur SB + bagian tumit tertutup + sifat <strong>Antistatik (A)</strong> + penyerapan energi hentakan pada tumit (E) + sol tahan minyak/BBM (FO). Cocok untuk pabrik perakitan kering.</li>
+        <li><strong>Kode S1P:</strong> Fitur S1 + <strong>Pelat Baja/Kevlar Anti-Paku pada Sol Tengah (<em>Penetration Resistance / Midsole Plate</em>)</strong>.</li>
+        <li><strong>Kode S2:</strong> Fitur S1 + kulit sepatu tahan penetrasi dan penyerapan air (<em>Water Resistant Upper / WRU</em>) minimal 60 menit. Cocok untuk industri makanan/minuman dan area basah.</li>
+        <li><strong>Kode S3 (Paling Lengkap untuk Konstruksi &amp; Tambang):</strong> Gabungan seluruh fitur S2 (tahan air) + <strong>Pelat Anti-Tusuk Paku (Midsole)</strong> + sol beralur tebal (<em>cleated outsole</em>).</li>
+      </ul>
+    </section>
+
+    <section id="manajemen-inspeksi-dan-afkir">
+      <h2>Prosedur Inspeksi Rutin, Pemeliharaan, Masa Pakai, dan Pemusnahan APD Rusak</h2>
+      <p>
+        Berdasarkan Pasal 6 dan Pasal 7 Permenaker No. 08 Tahun 2010, manajemen APD tidak berhenti saat barang diserahkan ke karyawan. Pengusaha wajib melaksanakan tata kelola siklus hidup APD hingga pemusnahannya:
+      </p>
+      <ol>
+        <li>
+          <strong>Penyimpanan dan Perawatan Higienis:</strong> Sediakan loker atau gantungan khusus APD yang kering, sejuk, dan terhindar dari sinar matahari langsung maupun paparan uap kimia. <em>Full body harness</em> yang basah harus diangin-anginkan tanpa dijemur langsung di bawah terik matahari agar serat nilon tidak getas.
+        </li>
+        <li>
+          <strong>Kriteria Afkir / Penggantian Segera:</strong> Setiap APD yang telah mengalami benturan keras (misalnya helm yang baru saja kejatuhan bata atau <em>body harness</em> yang baru saja menahan pekerja jatuh dan <em>shock absorber</em>-nya telah terbuka/memanjang) <strong>wajib langsung ditarik dari pemakaian dan dihancurkan</strong> meskipun secara kasat mata tampak masih utuh.
+        </li>
+        <li>
+          <strong>Pemusnahan APD Terkontaminasi B3:</strong> Sarung tangan, masker respirator, dan pakaian <em>hazmat</em> bekas pakai yang telah terkontaminasi bahan kimia beracun, pestisida, oli bekas, atau limbah medis infeksius dikategorikan sebagai <strong>Limbah B3</strong>. APD bekas tersebut dilarang dibuang ke tempat sampah domestik biasa, melainkan harus dikumpulkan di TPS Limbah B3 berlabel sesuai panduan <a href="/arti-rambu-k3/">simbol dan piktogram B3 pada arti rambu K3</a> untuk diserahkan kepada pengelola limbah berizin resmi.
+        </li>
+      </ol>
+      <p>
+        Dengan mendokumentasikan matriks pemberian APD, tanda terima personel, serta berita acara inspeksi bulanan ke dalam <a href="/dokumen-smk3/">dokumen SMK3 wajib perusahaan</a> dan <a href="/laporan-p2k3-disnaker/">laporan triwulan P2K3 ke Disnaker</a>, organisasi Anda menjamin perlindungan paripurna bagi tenaga kerja sekaligus memenuhi standar kepatuhan regulasi tertinggi.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

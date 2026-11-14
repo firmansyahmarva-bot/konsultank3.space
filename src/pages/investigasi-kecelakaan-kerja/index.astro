@@ -1,0 +1,346 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Investigasi Kecelakaan Kerja: Metode 5-Why, Fishbone & SCAT';
+const description = 'Metodologi investigasi kecelakaan kerja sesuai Permenaker 03/1998. Studi kasus analisis akar masalah 5-Why, diagram Fishbone 6M, SCAT, dan rumus FR/SR.';
+const canonicalPath = '/investigasi-kecelakaan-kerja/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Investigasi Kecelakaan Kerja', url: '/investigasi-kecelakaan-kerja/' }
+];
+
+const tocItems = [
+  { id: 'tujuan-dan-regulasi-investigasi', title: 'Tujuan Filosofis dan Kewajiban Hukum Pelaporan Kecelakaan (Permenaker 03/1998)' },
+  { id: 'protokol-tanggap-awal-tkp', title: 'Protokol Pengamanan TKP, Pengumpulan Bukti 4P, dan Wawancara Saksi' },
+  { id: 'model-kausalitas-scat-domino', title: 'Teori Domino dan Model SCAT: Penyebab Langsung vs Penyebab Dasar' },
+  { id: 'studi-kasus-metode-5-why', title: 'Studi Kasus 1: Analisis Akar Masalah dengan Metode 5-Why (Jatuh dari Perancah)' },
+  { id: 'studi-kasus-diagram-fishbone', title: 'Studi Kasus 2: Analisis Kecelakaan dengan Diagram Fishbone 6M (Mesin Press)' },
+  { id: 'perumusan-tindakan-capa', title: 'Merumuskan Tindakan Korektif dan Preventif (CAPA) Berbasis Prinsip SMART' },
+  { id: 'rumus-statistik-fr-dan-sr', title: 'Rumus Perhitungan Statistik K3: Frequency Rate (FR) dan Severity Rate (SR)' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Investigasi Kecelakaan Kerja' }
+];
+
+const faqItems = [
+  {
+    question: 'Berapa batas waktu wajib bagi perusahaan untuk melaporkan kecelakaan kerja ke Dinas Ketenagakerjaan?',
+    answer: 'Berdasarkan Peraturan Menteri Tenaga Kerja Nomor PER.03/MEN/1998 Pasal 4, pengurus atau pengusaha wajib melaporkan secara tertulis setiap kecelakaan kerja kepada Kepala Kantor Dinas Ketenagakerjaan setempat dalam waktu tidak lebih dari 2 kali 24 jam (48 jam) terhitung sejak terjadinya kecelakaan menggunakan formulir Bentuk 3 KK2 A.'
+  },
+  {
+    question: 'Apakah kejadian nyaris celaka (Near Miss) yang tidak menimbulkan korban luka juga wajib diinvestigasi?',
+    answer: 'Ya, sangat wajib. Berdasarkan piramida kecelakaan kerja (Frank Bird Accident Ratio), di balik setiap 1 kecelakaan fatal terdapat sekitar 10 kecelakaan ringan, 30 insiden kerusakan properti, dan 600 kejadian nyaris celaka (near miss). Menginvestigasi near miss adalah cara paling efektif untuk memutus rantai bahaya sebelum jatuh korban jiwa.'
+  },
+  {
+    question: 'Siapa saja yang harus masuk dalam tim investigasi kecelakaan kerja di perusahaan?',
+    answer: 'Tim investigasi harus bersifat lintas fungsi dan dipimpin oleh pihak yang memahami metodologi analisis akar masalah, meliputi: Ahli K3 Umum / HSE Officer, Sekretaris atau anggota P2K3, Supervisor langsung dari area tempat terjadinya insiden, teknisi ahli terkait mesin/proses tersebut, serta perwakilan pekerja.'
+  },
+  {
+    question: 'Mengapa kesimpulan investigasi tidak boleh berhenti pada kalimat "Kesalahan Pekerja / Human Error"?',
+    answer: 'Menyalahkan pekerja (human error) sebagai kesimpulan akhir adalah kegagalan investigasi karena tidak menyelesaikan kelemahan sistemik. Jika seorang pekerja lalai atau mengambil jalan pintas, tim investigasi harus menggali lebih dalam: mengapa prosedur mengizinkan hal itu terjadi, apakah pengawasan kurang, apakah desain pelindung mesin tidak efektif, atau apakah beban target produksi mendorong pekerja mengabaikan keselamatan.'
+  },
+  {
+    question: 'Apa perbedaan antara Lost Time Injury (LTI) dengan Medical Treatment Case (MTC)?',
+    answer: 'Lost Time Injury (LTI) adalah cedera akibat kecelakaan kerja yang menyebabkan pekerja tidak mampu kembali bekerja pada shift atau hari kerja berikutnya (kehilangan hari kerja minimal 1 hari penuh di luar hari kejadian). Sedangkan Medical Treatment Case (MTC) adalah cedera yang memerlukan penanganan medis oleh dokter/rumah sakit (seperti jahitan luka), namun pekerja masih dapat kembali bekerja pada hari berikutnya tanpa kehilangan hari kerja.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Metodologi Investigasi Kecelakaan Kerja: Analisis 5-Why, Fishbone, dan Model SCAT';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Analisis Insiden & Pelaporan K3</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 18 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Ketika sebuah insiden kecelakaan terjadi di lantai pabrik atau area proyek konstruksi, respons manajemen dalam 48 jam pertama akan menentukan apakah kejadian serupa akan terulang kembali di masa depan. Pelaksanaan <strong>investigasi kecelakaan kerja</strong> yang ilmiah bukanlah sidang pengadilan untuk mencari kambing hitam (<em>blame culture</em>), melainkan proses forensik manajemen untuk membedah kegagalan pertahanan sistem, mengidentifikasi penyebab dasar yang tersembunyi, dan merancang tindakan perbaikan permanen agar tidak ada lagi pekerja yang menjadi korban.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="tujuan-dan-regulasi-investigasi">
+      <h2>Tujuan Filosofis dan Kewajiban Hukum Pelaporan Kecelakaan (Permenaker 03/1998)</h2>
+      <p>
+        Prinsip utama dalam manajemen keselamatan modern menyatakan bahwa setiap kecelakaan kerja selalu memiliki penyebab (<em>every accident is caused</em>), dan sebagian besar kecelakaan adalah gejala dari adanya disfungsi pada sistem manajemen operasional perusahaan. Apabila sebuah investigasi hanya berhenti pada pemberian surat peringatan kepada pekerja yang terluka tanpa memperbaiki desain mesin, prosedur kerja, maupun sistem pengawasan, maka jebakan bahaya yang sama tetap menanti pekerja berikutnya.
+      </p>
+      <p>
+        Secara hukum positif di Indonesia, kewajiban melaporkan dan mengkaji setiap insiden di tempat kerja diatur secara ketat dalam instrumen perundang-undangan berikut:
+      </p>
+      <ul>
+        <li>
+          <strong>Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja (Pasal 11):</strong> Mewajibkan pengurus perusahaan melaporkan tiap kecelakaan yang terjadi dalam tempat kerja yang dipimpinnya kepada pejabat yang ditunjuk oleh Menteri Tenaga Kerja.
+        </li>
+        <li>
+          <strong>Peraturan Menteri Tenaga Kerja Nomor PER.03/MEN/1998 tentang Tata Cara Pelaporan dan Pemeriksaan Kecelakaan:</strong> Menetapkan bahwa setiap kecelakaan kerja, kebakaran, peledakan, penyakit akibat kerja (PAK), maupun kejadian berbahaya lainnya wajib dilaporkan secara tertulis oleh pengurus kepada Kepala Kantor Dinas Ketenagakerjaan dalam waktu <strong>tidak lebih dari 48 jam (dua kali dua puluh empat jam)</strong> sejak terjadinya insiden menggunakan <strong>Formulir Bentuk 3 KK2 A</strong>. Selain ke Disnaker, laporan juga wajib ditembuskan ke BPJS Ketenagakerjaan untuk pengurusan hak jaminan kecelakaan kerja korban.
+        </li>
+        <li>
+          <strong>PP Nomor 50 Tahun 2012 tentang Penerapan SMK3 (Lampiran II Elemen 8 Sub-elemen 8.2 dan 8.3):</strong> Dalam penilaian <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3</a> (khususnya Kriteria 8.3.1 hingga 8.3.6), perusahaan wajib memiliki prosedur terdokumentasi untuk melakukan pemeriksaan dan pengkajian kecelakaan oleh petugas yang kompeten bersama wakil P2K3, menyebarluaskan hasil temuan, serta memantau efektivitas tindakan perbaikan yang diambil.
+        </li>
+      </ul>
+      <p>
+        Kelalaian sengaja menyembunyikan kecelakaan kerja fatal atau tidak melaporkannya kepada instansi ketenagakerjaan merupakan pelanggaran hukum yang dapat memicu <a href="/sanksi-tidak-menerapkan-k3/">sanksi hukum perusahaan tidak menerapkan K3</a> serta hilangnya hak klaim santunan kecelakaan.
+      </p>
+    </section>
+
+    <section id="protokol-tanggap-awal-tkp">
+      <h2>Protokol Pengamanan TKP, Pengumpulan Bukti 4P, dan Wawancara Saksi</h2>
+      <p>
+        Keberhasilan analisis akar masalah sangat bergantung pada kualitas data yang dikumpulkan sesaat setelah insiden terjadi. Semakin lama tim investigasi menunda turun ke lapangan, semakin banyak barang bukti fisik yang berubah posisi dan semakin kabur ingatan para saksi mata. Ikuti protokol tanggap awal berikut:
+      </p>
+
+      <h3>1. Tanggap Darurat Medis dan Isolasi Tempat Kejadian Perkara (TKP)</h3>
+      <p>
+        Prioritas mutlak pertama adalah penyelamatan jiwa korban melalui pemberian pertolongan pertama menggunakan fasilitas <a href="/isi-kotak-p3k-permenaker/">isi kotak P3K sesuai standar Permenaker 15/2008</a> dan evakuasi medis ke rumah sakit rujukan. Bersamaan dengan itu, matikan sumber energi berbahaya yang masih aktif (agar tidak melukai tim penolong) dan segera pasang pita barikade kuning-hitam (<em>safety line</em>) di sekeliling lokasi insiden. Larang siapa pun membersihkan lokasi, memindahkan posisi alat, atau mengoperasikan kembali mesin yang terlibat sebelum tim investigasi selesai mengambil dokumentasi.
+      </p>
+
+      <h3>2. Metode Pengumpulan Bukti Empat P (4P Evidence Collection)</h3>
+      <p>
+        Tim investigator di lapangan harus mengumpulkan empat kategori bukti objektif yang dikenal dengan kerangka <strong>4P</strong>:
+      </p>
+      <ul>
+        <li>
+          <strong>Position (Posisi &amp; Lingkungan Fisik):</strong> Ambil foto dari berbagai sudut (jarak jauh/wide, jarak menengah, dan jarak dekat dengan pembanding ukuran/penggaris), buat sketsa denah lokasi kejadian, ukur jarak lontaran material, catat posisi berdiri korban, kondisi pencahayaan (lux), tingkat kebisingan, ceceran oli di lantai, serta kondisi cuaca saat kejadian.
+        </li>
+        <li>
+          <strong>Parts (Komponen Mesin, Perkakas, &amp; APD):</strong> Amankan komponen yang patah, tali sling yang putus, batu gerinda yang pecah, katup pengaman, maupun Alat Pelindung Diri (helm, kacamata, harness) yang dikenakan korban untuk diuji secara teknis atau metalurgi.
+        </li>
+        <li>
+          <strong>People (Saksi Mata &amp; Korban):</strong> Identifikasi seluruh individu yang terlibat langsung, rekan kerja yang melihat kejadian (saksi primer), supervisor yang memberi perintah kerja, hingga teknisi yang terakhir kali merawat mesin tersebut.
+        </li>
+        <li>
+          <strong>Paper (Dokumen &amp; Rekaman Sistem):</strong> Kumpulkan seluruh rekaman tertulis terkait aktivitas tersebut: dokumen <a href="/contoh-hiradc/">identifikasi risiko contoh HIRADC</a>, lembar JSA, arsip <a href="/izin-kerja-k3-ptw/">surat izin kerja K3 (Permit to Work)</a> hari itu, daftar hadir safety briefing pagi, riwayat pemeliharaan mesin, sertifikat riksa uji SIA, lisensi SIO operator, serta jadwal shift kerja korban selama 7 hari terakhir (untuk mengecek potensi kelelahan/fatigue).
+        </li>
+      </ul>
+
+      <h3>3. Teknik Wawancara Saksi yang Efektif (Pendekatan Kognitif)</h3>
+      <p>
+        Saat mewawancarai saksi mata, lakukan secara empat mata (satu per satu secara terpisah agar kesaksian tidak saling memengaruhi) di tempat yang tenang sesegera mungkin:
+      </p>
+      <ul>
+        <li>Tegaskan sejak menit pertama bahwa wawancara ini bertujuan mencari perbaikan keselamatan agar rekan lain tidak mengalami musibah serupa, <strong>bukan untuk mencari kesalahan atau menghukum pekerja</strong>.</li>
+        <li>Gunakan pertanyaan terbuka (<em>open-ended questions</em>) seperti: <em>"Ceritakan secara berurutan apa yang Anda lihat sejak awal shift pagi tadi hingga kejadian berlangsung?"</em> atau <em>"Bagaimana cara mesin tersebut biasanya dioperasikan sehari-hari?"</em></li>
+        <li>Hindari pertanyaan yang menyudutkan atau mengarahkan jawaban (<em>leading questions</em>) seperti: <em>"Korban tadi lupa mengunci pengaman mesin ya?"</em></li>
+      </ul>
+    </section>
+
+    <section id="model-kausalitas-scat-domino">
+      <h2>Teori Domino dan Model SCAT: Penyebab Langsung vs Penyebab Dasar</h2>
+      <p>
+        Dalam keilmuan investigasi K3 yang dikembangkan oleh H.W. Heinrich dan disempurnakan oleh Frank E. Bird Jr. menjadi <strong>Model Loss Causation / SCAT (Systematic Cause Analysis Technique)</strong>, setiap kecelakaan kerja terbentuk dari runtuhnya 5 (lima) kartu domino secara berurutan dari hulu ke hilir. Investigator harus menelusuri mundur dari domino kelima (Kerugian) kembali ke domino pertama (Lemahnya Kontrol Sistem):
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Urutan Domino Kausalitas</th>
+              <th>Kategori Faktor Penyebab</th>
+              <th>Rincian Contoh dalam Praktik Industri</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Penyebab Langsung (Immediate / Direct Causes)</strong><br /><em>Gejala yang terlihat di permukaan saat insiden</em></td>
+              <td>
+                <strong>a. Tindakan Tidak Aman (Unsafe Acts):</strong> Perilaku manusia yang menyimpang dari prosedur.<br /><br />
+                <strong>b. Kondisi Tidak Aman (Unsafe Conditions):</strong> Keadaan fisik lingkungan/alat yang berbahaya.
+              </td>
+              <td>
+                - <em>Unsafe Acts:</em> Mengoperasikan mesin tanpa wewenang, melepas pelindung mesin (guarding), tidak memakai APD, bekerja sambil bercanda, memanjat tanpa mencantolkan harness.<br />
+                - <em>Unsafe Conditions:</em> Pelindung pisau potong tidak ada, lantai licin tertutup tumpahan oli, kabel listrik terkelupas, ventilasi ruang terbatas mati, pencahayaan gelap.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>2. Penyebab Dasar (Basic / Root Causes)</strong><br /><em>Alasan mengapa tindakan &amp; kondisi tidak aman bisa muncul</em></td>
+              <td>
+                <strong>a. Faktor Pribadi (Personal Factors):</strong> Kondisi internal individu pekerja.<br /><br />
+                <strong>b. Faktor Pekerjaan (Job / System Factors):</strong> Kondisi lingkungan organisasi &amp; teknis kerja.
+              </td>
+              <td>
+                - <em>Faktor Pribadi:</em> Kurang pengetahuan/belum dilatih, kelelahan fisik (fatigue) akibat lembur berlebih, gangguan penglihatan, motivasi yang keliru (ingin cepat selesai demi kejar target).<br />
+                - <em>Faktor Pekerjaan:</em> Pengawasan supervisor lemah, rekayasa teknik tidak memadai, pembelian alat kerja berkualitas buruk, jadwal perawatan preventif tidak jalan, SOP membingungkan.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3. Kelemahan Sistem Manajemen (Lack of Control)</strong><br /><em>Akar terdalam kegagalan organisasi</em></td>
+              <td>
+                1. Program K3 Tidak Memadai (<em>Inadequate Program</em>)<br />
+                2. Standar Program Tidak Memadai (<em>Inadequate Standards</em>)<br />
+                3. Kepatuhan terhadap Standar Lemah (<em>Inadequate Compliance</em>)
+              </td>
+              <td>
+                Belum adanya prosedur LOTO di perusahaan, tidak dilakukannya evaluasi HIRADC saat membeli mesin baru, tidak berjalannya inspeksi rutin P2K3, atau manajemen membiarkan pelanggaran rambu K3 terjadi berulang kali tanpa teguran.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Pahami perbedaan krusial ini: <strong>Penyebab Langsung (Unsafe Act &amp; Unsafe Condition) hanyalah gejala</strong>. Apabila seorang pekerja tidak memakai kacamata safety lalu matanya terkena serpihan gerinda, maka "tidak memakai kacamata safety" adalah <em>Penyebab Langsung</em>. Investigator wajib menggali <em>Penyebab Dasar</em>-nya: Mengapa ia tidak memakai kacamata? Ternyata kacamata yang dibagikan gudang buram berembun sehingga pekerja tidak bisa melihat garis potong dengan jelas (Faktor Pekerjaan: spesifikasi pembelian APD pada Elemen 5 SMK3 tidak tepat).
+      </p>
+    </section>
+
+    <section id="studi-kasus-metode-5-why">
+      <h2>Studi Kasus 1: Analisis Akar Masalah dengan Metode 5-Why (Jatuh dari Perancah)</h2>
+      <p>
+        <strong>Metode 5-Why (Lima Mengapa)</strong> adalah teknik iteratif yang dikembangkan oleh Sakichi Toyoda untuk menembus lapisan gejala permukaan menuju akar masalah sistemik dengan bertanya "Mengapa?" secara beruntun. Berikut adalah contoh studi kasus nyata yang telah dikerjakan secara lengkap:
+      </p>
+      <p>
+        <strong>Deskripsi Insiden:</strong> Pada tanggal 10 November pukul 14.15 WIB, seorang pekerja teknisi mekanik terjatuh dari lantai kerja perancah (<em>scaffolding</em>) setinggi 4 meter saat sedang memperbaiki pipa uap, mengakibatkan patah tulang lengan kanan (<em>Lost Time Injury</em>).
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tahapan Pertanyaan 5-Why</th>
+              <th>Temuan Jawaban Berbasis Fakta Investigasi</th>
+              <th>Klasifikasi Level Kausalitas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mengapa 1:</strong> Mengapa teknisi terjatuh dari perancah setinggi 4 meter?</td>
+              <td>Karena papan lantai kerja (<em>metal plank / catwalk</em>) yang diinjaknya tergeser lepas dari pipa penyangga, dan teknisi tidak mencantolkan <em>hook</em> tali <em>full body harness</em>.</td>
+              <td>Penyebab Langsung (<em>Unsafe Condition &amp; Unsafe Act</em>)</td>
+            </tr>
+            <tr>
+              <td><strong>Mengapa 2:</strong> Mengapa papan lantai kerja bisa tergeser lepas dan mengapa <em>hook harness</em> tidak dicantolkan?</td>
+              <td>Papan lantai kerja tidak memiliki kunci pengait (<em>clamp</em>) di kedua ujungnya. Teknisi sudah memakai <em>body harness</em> di badan, tetapi tidak ada pipa <em>handrail</em> atau <em>lifeline</em> di atasnya untuk tempat mencantolkan <em>hook</em>.</td>
+              <td>Penyebab Langsung Teknis</td>
+            </tr>
+            <tr>
+              <td><strong>Mengapa 3:</strong> Mengapa perancah dirakit tanpa kunci pengait papan dan tanpa pipa pengaman atas (<em>guardrail</em>)?</td>
+              <td>Karena perancah tersebut dirakit sendiri secara darurat oleh tim mekanik yang belum pernah mengikuti pelatihan <em>Scaffolder</em> dan tidak diperiksa oleh Inspektur Perancah sebelum dinaiki.</td>
+              <td>Penyebab Dasar (Faktor Pribadi &amp; Faktor Pekerjaan)</td>
+            </tr>
+            <tr>
+              <td><strong>Mengapa 4:</strong> Mengapa tim mekanik merakit sendiri dan naik tanpa pemeriksaan Inspektur Perancah maupun tanpa menerbitkan Izin Kerja Ketinggian (PTW)?</td>
+              <td>Karena supervisor produksi mendesak agar pipa uap yang bocor segera diselesaikan sore itu juga, sementara prosedur perusahaan belum mewajibkan sistem pelabelan <em>Scaff-Tag</em> (Merah/Hijau) pada perancah.</td>
+              <td>Penyebab Dasar (Pengawasan &amp; Prosedur Tidak Memadai)</td>
+            </tr>
+            <tr>
+              <td><strong>Mengapa 5 (Akar Masalah Sistem):</strong> Mengapa belum ada prosedur <em>Scaff-Tag</em> dan mengapa supervisor bisa mengabaikan prosedur Izin Kerja Ketinggian?</td>
+              <td>Karena dokumen HIRADC departemen pemeliharaan belum mengidentifikasi aktivitas pendirian perancah internal, dan belum ada mekanisme audit kepatuhan PTW harian oleh komite P2K3.</td>
+              <td><strong>Akar Masalah Sistemik (Lack of Control)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="studi-kasus-diagram-fishbone">
+      <h2>Studi Kasus 2: Analisis Kecelakaan dengan Diagram Fishbone 6M (Mesin Press)</h2>
+      <p>
+        Untuk insiden yang melibatkan banyak faktor penyebab sekaligus (multikausal), metode 5-Why linear perlu dilengkapi dengan <strong>Diagram Tulang Ikan (Fishbone / Ishikawa Diagram)</strong> yang membedah potensi penyebab ke dalam 6 cabang utama (<strong>6M: Man, Machine, Method, Material, Measurement, Milieu/Environment</strong>).
+      </p>
+      <p>
+        <strong>Deskripsi Insiden:</strong> Jari tangan operator bagian produksi terjepit cetakan (<em>dies</em>) mesin press hidrolik saat sedang mengambil potongan pelat logam yang tersangkut di dalam area titik jepit.
+      </p>
+      <ul>
+        <li>
+          <strong>1. Man (Faktor Manusia / Personel):</strong> Operator baru bekerja selama 2 minggu di mesin tersebut; belum menerima pelatihan khusus bahaya titik jepit mesin press; mengalami kelelahan karena bekerja shift malam berturut-turut.
+        </li>
+        <li>
+          <strong>2. Machine (Faktor Mesin &amp; Peralatan):</strong> Sensor tirai cahaya pengaman (<em>light curtain sensor</em>) pada bukaan depan mesin press dalam kondisi dimatikan (<em>bypassed</em>) sejak 3 hari lalu karena sering error; tidak tersedia tongkat penjepit bantu (<em>hand feeding tool / pliers</em>) untuk mengambil pelat yang macet.
+        </li>
+        <li>
+          <strong>3. Method (Faktor Prosedur &amp; Metode Kerja):</strong> Instruksi Kerja (IK) pengoperasian mesin press tidak mencantumkan langkah wajib mematikan mesin dan memasang gembok LOTO saat membersihkan pelat yang tersangkut (<em>unjamming procedure</em>).
+        </li>
+        <li>
+          <strong>4. Material (Faktor Bahan Baku):</strong> Pelat baja yang dipasok batch minggu ini memiliki ketebalan tidak seragam dan tepian berkerak sehingga sering macet tersangkut di dalam cetakan <em>dies</em> (terjadi macet hingga 8 kali per shift).
+        </li>
+        <li>
+          <strong>5. Measurement / Management (Faktor Pengukuran &amp; Pengawasan):</strong> Checklist pemeriksaan harian pra-operasi (<em>pre-use inspection</em>) tetap dicentang "Baik" oleh operator meskipun sensor <em>light curtain</em> sedang rusak, dan tidak diverifikasi silang oleh leader lini produksi.
+        </li>
+        <li>
+          <strong>6. Milieu / Environment (Faktor Lingkungan Kerja):</strong> Tingkat kebisingan di area stamping mencapai 91 dBA dan suhu ruangan panas, yang menurunkan konsentrasi kognitif pekerja.
+        </li>
+      </ul>
+    </section>
+
+    <section id="perumusan-tindakan-capa">
+      <h2>Merumuskan Tindakan Korektif dan Preventif (CAPA) Berbasis Prinsip SMART</h2>
+      <p>
+        Setelah akar masalah ditemukan melalui 5-Why dan Fishbone, langkah terpenting adalah menyusun rencana <strong>Tindakan Perbaikan dan Pencegahan (<em>Corrective and Preventive Action</em> / CAPA)</strong>. Rencana perbaikan yang buruk seperti <em>"Menghimbau pekerja agar lebih berhati-hati"</em> akan ditolak oleh pengawas ketenagakerjaan maupun auditor SMK3.
+      </p>
+      <p>
+        Setiap butir CAPA wajib mengutamakan level atas pada <a href="/hierarki-pengendalian-risiko/">5 hierarki pengendalian risiko K3</a> (Rekayasa Teknik diutamakan di atas Administratif/APD) dan dirumuskan menggunakan kaidah <strong>SMART</strong>:
+      </p>
+      <ul>
+        <li><strong>Specific (Spesifik):</strong> Menyebutkan secara jelas apa tindakan teknis yang dilakukan dan di mesin/area mana (misal: <em>"Memperbaiki sensor light curtain dan memasang sistem interlock tombol tekan dua tangan / two-hand control pada Mesin Press लाइन 1 s.d. 5"</em>).</li>
+        <li><strong>Measurable (Terukur):</strong> Memiliki bukti fisik yang dapat diverifikasi (misal: <em>"Tersedia 10 unit tongkat penjepit magnetik di seluruh meja mesin press dan revisi dokumen IK-PROD-04"</em>).</li>
+        <li><strong>Assignable / Achievable (Ada Penanggung Jawab Jelas):</strong> Menunjuk satu nama jabatan penanggung jawab eksekusi (<em>Person in Charge / PIC</em>), misalnya Manajer Engineering atau Kepala Bagian Produksi.</li>
+        <li><strong>Relevant (Menjawab Akar Masalah):</strong> Setiap tindakan perbaikan harus terhubung langsung untuk menutup akar masalah yang teridentifikasi pada tabel 5-Why/Fishbone.</li>
+        <li><strong>Time-Bound (Memiliki Batas Waktu Tegas):</strong> Mencantumkan tanggal jatuh tempo penyelesaian yang pasti (misal: <em>"Paling lambat tanggal 25 November 2026"</em>).</li>
+      </ul>
+    </section>
+
+    <section id="rumus-statistik-fr-dan-sr">
+      <h2>Rumus Perhitungan Statistik K3: Frequency Rate (FR) dan Severity Rate (SR)</h2>
+      <p>
+        Dalam pemenuhan Elemen 10 pada audit SMK3 serta penyusunan <a href="/laporan-p2k3-disnaker/">laporan triwulan P2K3 ke Disnaker</a>, setiap kecelakaan kerja yang tercatat harus diolah ke dalam dua indikator statistik baku berbasis <strong>1.000.000 (satu juta) jam kerja orang</strong> sesuai standar Kemnaker RI dan ILO:
+      </p>
+
+      <h3>1. Tingkat Kekerapan Kecelakaan (Frequency Rate / FR)</h3>
+      <p>
+        Mengukur berapa banyak kejadian kecelakaan kerja yang menyebabkan kehilangan hari kerja (LTI) untuk setiap satu juta jam kerja manusia:
+      </p>
+      <blockquote>
+        <strong>Rumus FR = [ Jumlah Kecelakaan Kerja (LTI) &times; 1.000.000 ] / Total Jam Kerja Orang (Man-Hours)</strong>
+      </blockquote>
+
+      <h3>2. Tingkat Keparahan Kecelakaan (Severity Rate / SR)</h3>
+      <p>
+        Mengukur berapa total hari kerja yang hilang (akibat absen perawatan medis maupun konversi tabel hari hilang cacat tetap/kematian) untuk setiap satu juta jam kerja manusia:
+      </p>
+      <blockquote>
+        <strong>Rumus SR = [ Jumlah Hari Kerja Hilang &times; 1.000.000 ] / Total Jam Kerja Orang (Man-Hours)</strong>
+      </blockquote>
+
+      <h3>Contoh Perhitungan Kasus Nyata di Pabrik:</h3>
+      <p>
+        Sebuah pabrik komponen otomotif mempekerjakan 500 orang karyawan dengan total akumulasi jam kerja selama satu tahun sebesar <strong>1.250.000 jam kerja orang</strong>. Dalam periode tahun tersebut, terjadi <strong>2 kasus kecelakaan kerja LTI</strong>: kasus pertama menyebabkan pekerja dirawat dan absen selama 12 hari kerja, sedangkan kasus kedua menyebabkan pekerja absen selama 18 hari kerja (total hari kerja hilang = <strong>30 hari</strong>).
+      </p>
+      <ul>
+        <li><strong>Perhitungan Nilai FR:</strong> <code>(2 &times; 1.000.000) / 1.250.000 = 1,60</code></li>
+        <li><strong>Perhitungan Nilai SR:</strong> <code>(30 &times; 1.000.000) / 1.250.000 = 24,00</code></li>
+      </ul>
+      <p>
+        Catatan penting: Apabila terjadi kecelakaan fatal yang mengakibatkan <strong>kematian (fatality)</strong> atau cacat total tetap, standar konversi hari kerja hilang yang ditetapkan secara internasional dan nasional adalah <strong>6.000 hari kerja hilang</strong> untuk setiap satu korban meninggal dunia. Data FR dan SR ini wajib dipantau grafiknya setiap bulan oleh komite P2K3 dan dilampirkan saat perusahaan mengikuti evaluasi tender <a href="/panduan-csms-kontraktor/">prakualifikasi panduan CSMS kontraktor</a> sebagai bukti transparansi kinerja keselamatan perusahaan.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

@@ -5,12 +5,25 @@ const pillarLinks = [
   { href: '/biaya-konsultan-k3/', label: 'Biaya Jasa Konsultan K3' },
   { href: '/audit-smk3/', label: 'Persiapan Audit SMK3' },
   { href: '/syarat-sertifikasi-smk3/', label: 'Syarat Sertifikat SMK3 PP 50/2012' },
+  { href: '/kriteria-audit-smk3/', label: '166 Kriteria Audit SMK3' },
   { href: '/dokumen-smk3/', label: 'Daftar Dokumen SMK3 Wajib' },
   { href: '/membentuk-p2k3/', label: 'Tata Cara Membentuk P2K3' },
+  { href: '/laporan-p2k3-disnaker/', label: 'Laporan Triwulan P2K3 Disnaker' },
   { href: '/smkk-konstruksi/', label: 'SMKK Konstruksi Kontraktor' },
+  { href: '/panduan-csms-kontraktor/', label: 'Panduan CSMS Kontraktor' },
+  { href: '/sanksi-tidak-menerapkan-k3/', label: 'Sanksi Tidak Menerapkan K3' }
+];
+
+const technicalLinks = [
   { href: '/contoh-hiradc/', label: 'Contoh HIRADC & Matriks Risiko' },
-  { href: '/sanksi-tidak-menerapkan-k3/', label: 'Sanksi Tidak Menerapkan K3' },
-  { href: '/konsultasi-gratis/', label: 'Konsultasi K3 Gratis' },
+  { href: '/hierarki-pengendalian-risiko/', label: '5 Hierarki Pengendalian Risiko' },
+  { href: '/sio-dan-sia-k3/', label: 'Panduan Lisensi SIO & SIA K3' },
+  { href: '/izin-kerja-k3-ptw/', label: 'Sistem Izin Kerja Aman (PTW)' },
+  { href: '/investigasi-kecelakaan-kerja/', label: 'Investigasi Kecelakaan Kerja' },
+  { href: '/jenis-apd-k3/', label: 'Ensiklopedia 8 Jenis APD K3' },
+  { href: '/arti-rambu-k3/', label: 'Arti Rambu K3 & Simbol B3' },
+  { href: '/isi-kotak-p3k-permenaker/', label: 'Daftar Isi Kotak P3K Standar' },
+  { href: '/konsultasi-gratis/', label: 'Konsultasi K3 Gratis' }
 ];
 ---
 
@@ -29,7 +42,7 @@ const pillarLinks = [
     </div>
 
     <div class="footer-col links-col">
-      <h3 class="footer-title">Panduan Regulasi K3</h3>
+      <h3 class="footer-title">Panduan Regulasi & Audit</h3>
       <ul class="footer-links">
         {pillarLinks.map((link) => (
           <li>
@@ -40,7 +53,14 @@ const pillarLinks = [
     </div>
 
     <div class="footer-col contact-col">
-      <h3 class="footer-title">Layanan Asistensi</h3>
+      <h3 class="footer-title">Ensiklopedia & Teknis K3</h3>
+      <ul class="footer-links">
+        {technicalLinks.map((link) => (
+          <li>
+            <a href={link.href} class="footer-link">{link.label}</a>
+          </li>
+        ))}
+      </ul>
       <div class="footer-cta-box">
         <a href="/konsultasi-gratis/" class="footer-btn">Ajukan Konsultasi K3</a>
       </div>

@@ -1,0 +1,328 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Sistem Izin Kerja K3 (Permit to Work): 6 Jenis & Prosedur';
+const description = 'Panduan operasional sistem izin kerja K3 (Permit to Work / PTW). Prosedur Hot Work, Confined Space, Working at Height, Excavation, LOTO, dan Lifting.';
+const canonicalPath = '/izin-kerja-k3-ptw/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'Izin Kerja K3 (PTW)', url: '/izin-kerja-k3-ptw/' }
+];
+
+const tocItems = [
+  { id: 'konsep-dasar-ptw', title: 'Konsep Dasar dan Landasan Hukum Sistem Izin Kerja K3 (PTW)' },
+  { id: 'enam-jenis-izin-kerja', title: 'Bedah Teknis 6 Jenis Surat Izin Kerja K3 Berisiko Tinggi' },
+  { id: 'parameter-uji-gas-ruang-terbatas', title: 'Tabel Parameter Uji Gas Atmosfer pada Confined Space & Hot Work' },
+  { id: 'peran-dan-wewenang-ptw', title: 'Struktur Otorisasi: Peran Permit Issuer, Receiver, Gas Tester, dan Watcher' },
+  { id: 'siklus-lima-tahap-ptw', title: 'Siklus 5 Tahap Pengelolaan Permit to Work dari Pengajuan hingga Penutupan' },
+  { id: 'hubungan-ptw-jsa-loto', title: 'Integrasi Dokumen PTW dengan Job Safety Analysis (JSA) dan LOTO' },
+  { id: 'kesalahan-fatal-implementasi', title: 'Kesalahan Fatal dalam Pelaksanaan Izin Kerja dan Cara Mencegahnya' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Izin Kerja K3 (Permit to Work)' }
+];
+
+const faqItems = [
+  {
+    question: 'Berapa lama masa berlaku satu lembar Surat Izin Kerja K3 (Permit to Work)?',
+    answer: 'Secara standar keselamatan industri, satu lembar Permit to Work (PTW) hanya berlaku untuk 1 (satu) giliran kerja (shift), biasanya maksimal 8 hingga 12 jam kerja pada hari yang sama. Apabila pekerjaan belum selesai dan dilanjutkan ke shift berikutnya atau keesokan harinya, izin kerja harus diperbarui (re-validated) atau diterbitkan ulang setelah dilakukan pemeriksaan kondisi lokasi dan uji gas ulang.'
+  },
+  {
+    question: 'Apakah pekerjaan rutin harian di lini produksi memerlukan Permit to Work?',
+    answer: 'Pekerjaan produksi rutin yang telah memiliki Standar Operasional Prosedur (SOP) baku dan dilakukan di stasiun kerja permanen yang aman umumnya tidak memerlukan PTW harian. Sistem PTW dirancang khusus untuk pekerjaan non-rutin, pekerjaan pemeliharaan (maintenance/repair), modifikasi instalasi, serta pekerjaan kontraktor yang mengandung bahaya spesifik berisiko tinggi.'
+  },
+  {
+    question: 'Siapa yang berhak menandatangani pengesahan (approval) Permit to Work?',
+    answer: 'Pengesahan PTW tidak boleh ditandatangani oleh sembarang staf, melainkan wajib diotorisasi oleh pejabat yang ditunjuk secara tertulis oleh manajemen (Authorized Permit Issuer), biasanya Kepala Area/Pemilik Fasilitas (Area Authority) bersama pengesahan verifikasi dari Ahli K3 / HSE Officer setelah melakukan pemeriksaan langsung di titik kerja.'
+  },
+  {
+    question: 'Apa yang harus dilakukan terhadap Permit to Work yang sedang aktif jika alarm keadaan darurat berbunyi?',
+    answer: 'Apabila sirine keadaan darurat (kebakaran, kebocoran gas, atau gempa) berbunyi di fasilitas pabrik, maka seluruh Surat Izin Kerja (PTW) yang sedang aktif dinyatakan batal atau ditangguhkan secara otomatis seketika itu juga. Pekerja wajib mematikan peralatan kerja, mengamankan lokasi, dan melakukan evakuasi menuju titik kumpul. Pekerjaan tidak boleh dimulai kembali sebelum kondisi dinyatakan aman dan PTW diperiksa ulang oleh tim K3.'
+  },
+  {
+    question: 'Berapa lembar salinan (copy) formulir PTW yang harus dicetak?',
+    answer: 'Sistem PTW umumnya menggunakan formulir rangkap 3 (tiga) warna kertas berbeda: Lembar Pertama (Asli) wajib digantung atau ditempel secara terlihat jelas di lokasi fisik pekerjaan berlangsung; Lembar Kedua disimpan oleh Pengawas Area / Ruang Kontrol (Control Room); dan Lembar Ketiga diarsipkan oleh Departemen HSE sebagai bukti audit.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Panduan Sistem Izin Kerja K3 (Permit to Work): Prosedur Otorisasi dan 6 Jenis PTW';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Prosedur Operasi & Pengendalian Risiko</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 17 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Statistik kecelakaan kerja industri menunjukkan bahwa mayoritas insiden fatal—seperti ledakan tangki, keracunan gas di dalam saluran tertutup, jatuh dari atap pabrik, maupun sengatan listrik tegangan tinggi—tidak terjadi pada aktivitas produksi rutin, melainkan saat dilakukannya pekerjaan perbaikan (<em>maintenance</em>), instalasi baru, atau proyek subkontraktor. Untuk mengendalikan aktivitas non-rutin berisiko tinggi tersebut, organisasi wajib menerapkan sistem <strong>izin kerja k3</strong> atau <em>Permit to Work</em> (PTW) yang ketat, terverifikasi di lapangan, dan terintegrasi langsung dengan analisis keselamatan kerja.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="konsep-dasar-ptw">
+      <h2>Konsep Dasar dan Landasan Hukum Sistem Izin Kerja K3 (PTW)</h2>
+      <p>
+        <strong>Sistem Izin Kerja Aman (<em>Permit to Work System</em> / PTW)</strong> adalah sistem manajemen kontrol formal dan tertulis yang digunakan untuk mengendalikan jenis pekerjaan tertentu yang diidentifikasi memiliki potensi bahaya tinggi. Dokumen PTW bukanlah sekadar selembar kertas birokrasi tanda tangan di balik meja kantor, melainkan instrumen komunikasi operasional yang memastikan bahwa seluruh sumber energi berbahaya telah diisolasi, kondisi atmosfer telah diuji, peralatan darurat telah disiagakan, dan seluruh pihak yang terlibat memahami batasan keselamatan sebelum satu baut pun dibuka di lapangan.
+      </p>
+      <p>
+        Dalam regulasi ketenagakerjaan Indonesia, kewajiban penerapan sistem izin kerja berakar pada:
+      </p>
+      <ul>
+        <li>
+          <strong>PP Nomor 50 Tahun 2012 tentang Penerapan SMK3 (Lampiran II Kriteria 6.1.5):</strong> Menegaskan bahwa terdapat prosedur izin kerja untuk tugas-tugas yang berisiko tinggi dan prosedur tersebut harus dipatuhi secara konsisten. Ketiadaan sistem PTW pada pekerjaan berbahaya akan langsung memicu temuan mayor saat verifikasi <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3</a>.
+        </li>
+        <li>
+          <strong>Permenaker Nomor 9 Tahun 2016 tentang K3 dalam Pekerjaan pada Ketinggian:</strong> Mewajibkan perencanaan dan prosedur kerja aman tertulis bagi setiap aktivitas di mana pekerja berpotensi jatuh dari perbedaan elevasi.
+        </li>
+        <li>
+          <strong>Kepmenaker Nomor 113 Tahun 2006 &amp; Permenaker Nomor 11 Tahun 2023 tentang K3 di Ruang Terbatas (<em>Confined Spaces</em>):</strong> Mengatur secara preskriptif bahwa dilarang keras memasuki ruang terbatas tanpa adanya surat izin masuk tertulis yang disahkan oleh petugas berwenang setelah pengujian gas dinyatakan aman.
+        </li>
+        <li>
+          <strong>Permen PUPR Nomor 10 Tahun 2021 tentang SMKK:</strong> Mewajibkan kontraktor menerapkan prosedur izin memulai pekerjaan (<em>Request for Work / PTW</em>) yang dilampiri Analisis Keselamatan Konstruksi (AKK/JSA) pada setiap tahapan konstruksi berisiko sedang hingga tinggi sebagaimana dijelaskan dalam panduan <a href="/smkk-konstruksi/">penerapan SMKK konstruksi kontraktor</a>.
+        </li>
+      </ul>
+    </section>
+
+    <section id="enam-jenis-izin-kerja">
+      <h2>Bedah Teknis 6 Jenis Surat Izin Kerja K3 Berisiko Tinggi</h2>
+      <p>
+        Agar pengendalian bahaya tepat sasaran, perusahaan umumnya membagi formulir PTW ke dalam 6 (enam) kategori spesifik dengan kode warna lembaran yang berbeda:
+      </p>
+
+      <h3>1. Izin Kerja Panas (Hot Work Permit — Kode Warna Merah)</h3>
+      <p>
+        Izin kerja panas diwajibkan untuk setiap aktivitas yang menghasilkan nyala api terbuka, percikan bunga api (<em>sparks</em>), atau panas tinggi yang berpotensi menyulut bahan mudah terbakar maupun uap cairan <em>flammable</em> di sekitarnya. Contoh pekerjaan meliputi pengelasan listrik/asetilen (<em>welding</em>), pemotongan logam dengan gerinda (<em>grinding</em>), pemotongan gas (<em>gas cutting</em>), penyolderan, hingga penggunaan alat <em>sandblasting</em> di area berisiko ledakan.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Hot Work Permit:</strong>
+      </p>
+      <ul>
+        <li>Pembersihan seluruh bahan mudah terbakar (kardus, kayu, kain majun berminyak, jerigen pelarut) dalam radius minimal <strong>10 hingga 11 meter (35 kaki)</strong> dari titik pengelasan.</li>
+        <li>Apabila terdapat objek mudah terbakar yang tidak dapat dipindahkan, wajib ditutup rapat menggunakan selimut tahan api (<em>fire blanket / welding curtain</em>) yang dibasahi atau diisolasi.</li>
+        <li>Seluruh lubang drainase, parit kabel, atau celah lantai di sekitar titik kerja harus ditutup rapat agar percikan bunga api tidak jatuh ke ruang bawah tanah atau saluran limbah yang mengandung gas mudah menyala.</li>
+        <li>Penyediaan Alat Pemadam Api Ringan (APAR) siap pakai minimal 1 hingga 2 tabung di titik kerja, serta penunjukan <strong>Fire Watcher (Petugas Jaga Api)</strong> yang berjaga selama pekerjaan berlangsung hingga minimal <strong>30 sampai 60 menit setelah pengelasan selesai</strong> guna memastikan tidak ada bara api tersembunyi (<em>smoldering fire</em>).</li>
+      </ul>
+
+      <h3>2. Izin Kerja Ruang Terbatas (Confined Space Entry Permit — Kode Warna Hijau / Ungu)</h3>
+      <p>
+        Ruang terbatas (<em>confined space</em>) adalah ruangan yang cukup luas bagi pekerja untuk masuk ke dalamnya, memiliki akses masuk dan keluar yang terbatas/sempit, serta tidak dirancang untuk tempat bekerja secara terus-menerus. Contohnya adalah bagian dalam tangki timbun BBM/kimia, ketel uap (boiler), silo penyimpanan biji-bijian, gorong-gorong saluran air, sumur, <em>manhole</em> utilitas, dan ruang palka kapal.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Confined Space Permit:</strong>
+      </p>
+      <ul>
+        <li>Isolasi total seluruh pipa aliran fluida atau uap yang mengarah ke dalam tangki menggunakan metode <em>blinding/spading</em> (pemasangan pelat buta) atau sistem kunci gembok LOTO pada katup dan motor pengaduk (<em>agitator</em>).</li>
+        <li>Pembersihan sisa lumpur kimia (<em>purging &amp; flushing</em>) serta pemasangan kipas ventilasi paksa (<em>mechanical blower / exhaust fan</em>) secara terus-menerus.</li>
+        <li>Pengujian atmosfer udara di dalam ruang terbatas menggunakan alat <em>Multi-Gas Detector</em> terkalibrasi oleh Petugas Penguji Gas (<em>Authorized Gas Tester</em>) sebelum pekerja diizinkan masuk.</li>
+        <li>Penempatan minimal 1 (satu) orang <strong>Standby Person (Attendant / Petugas Jaga Luar)</strong> yang berjaga terus-menerus di luar mulut lubang akses, mencatat jam masuk-keluar setiap personel, menjaga komunikasi radio/tali, dan dilarang masuk ke dalam lubang tanpa tim penyelamat lengkap (SCBA &amp; Tripod Winch) apabila terjadi keadaan darurat.</li>
+      </ul>
+
+      <h3>3. Izin Kerja di Ketinggian (Working at Height Permit — Kode Warna Biru)</h3>
+      <p>
+        Diterbitkan untuk setiap pekerjaan yang dilakukan pada elevasi <strong>1,8 meter atau lebih</strong> di atas permukaan lantai dasar atau di mana terdapat risiko pekerja terjatuh ke level yang lebih rendah, seperti perbaikan atap pabrik (<em>skylight</em>), pemasangan rangka baja, pemeliharaan lampu high-bay, pekerjaan di atas perancah (<em>scaffolding</em>), atau pembersihan kaca fasad gedung dengan gondola.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Working at Height Permit:</strong>
+      </p>
+      <ul>
+        <li>Pemeriksaan kelayakan konstruksi perancah oleh <em>Scaffolder</em> bersertifikat dan pemasangan label hijau (<strong>Green Scaff-Tag</strong>) sebelum perancah boleh dinaiki.</li>
+        <li>Kewajiban mengenakan <em>Full Body Harness</em> berstandar EN 361 dengan <em>double lanyard</em> berperedam kejut (<em>shock absorber</em>) yang dicantolkan pada titik angkur kuat (prinsip <em>100% tie-off</em>).</li>
+        <li>Pemasangan jaring pengaman jatuh (<em>safety net</em>), pagar pengaman tepi (<em>guardrail</em>), dan pengikatan perkakas tangan (<em>tool lanyard</em>) agar kunci pas atau palu tidak jatuh menimpa pekerja di bawah.</li>
+        <li>Pemeriksaan tekanan darah pekerja sebelum memanjat serta larangan bekerja di area terbuka saat turun hujan deras, petir, atau kecepatan angin melebihi batas aman (umumnya di atas 32–40 km/jam).</li>
+      </ul>
+
+      <h3>4. Izin Kerja Penggalian (Excavation Permit — Kode Warna Cokelat / Kuning)</h3>
+      <p>
+        Diwajibkan untuk setiap pekerjaan penggalian tanah, pembuatan parit pipa, atau fondasi bangunan dengan kedalaman lebih dari 30 cm hingga lebih dari 1,5 meter menggunakan tenaga manual maupun excavator.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Excavation Permit:</strong>
+      </p>
+      <ul>
+        <li>Verifikasi peta jalur utilitas bawah tanah (<em>underground utilities drawing</em>) dan deteksi menggunakan <em>cable/pipe locator</em> untuk memastikan mata keruk excavator tidak menghantam kabel listrik tegangan tinggi PLN, pipa gas bertekanan, atau pipa serat optik.</li>
+        <li>Untuk galian dengan kedalaman <strong>lebih dari 1,2 hingga 1,5 meter</strong>, wajib dipasang sistem penahan dinding tanah (<em>shoring / sheet pile</em>) atau pembuatan kemiringan lereng bertingkat (<em>sloping / benching</em>) guna mencegah bencana tanah longsor yang mengubur pekerja di dasar galian.</li>
+        <li>Penempatan tumpukan tanah hasil galian minimal berjarak <strong>1 meter</strong> dari bibir tepi lubang galian, serta penyediaan tangga akses keluar-masuk setiap jarak maksimal 7,5 meter.</li>
+      </ul>
+
+      <h3>5. Izin Kerja Listrik & Isolasi Energi (Electrical & LOTO Permit — Kode Warna Abu-abu / Kuning)</h3>
+      <p>
+        Digunakan saat teknisi melakukan perbaikan panel listrik tegangan rendah/menengah, perawatan gardu transformator, atau pembongkaran mesin produksi yang digerakkan oleh energi listrik, hidrolik, pneumatik, maupun pegas mekanis.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Electrical &amp; LOTO Permit:</strong>
+      </p>
+      <ul>
+        <li>Penerapan prosedur <strong>LOTO (Lockout / Tagout)</strong>: mematikan sumber energi utama, mengunci sakelar pemutus (MCCB/ACB) menggunakan gembok khusus (<em>padlock</em>) di mana anak kuncinya dipegang sendiri oleh teknisi yang sedang bekerja, memasang label peringatan (<em>Danger Tag: Do Not Operate</em>), membuang sisa energi tersimpan (mengosongkan kapasitor atau membuang tekanan pipa), dan melakukan uji coba nyala (<em>Try Out / Zero Energy Verification</em>) menggunakan <em>multimeter/voltage detector</em>.</li>
+        <li>Penggunaan perkakas tangan berisolasi penuh (standar IEC 60900 hingga 1.000 Volt), sepatu dielektrik, sarung tangan karet isolasi listrik, dan alas kerja karet (<em>insulating rubber mat</em>).</li>
+      </ul>
+
+      <h3>6. Izin Kerja Pengangkatan Beban Kritis (Critical Lifting Permit — Kode Warna Oranye)</h3>
+      <p>
+        Wajib diterbitkan untuk operasi pengangkatan beban menggunakan crane yang masuk dalam kategori kritis: beban melebihi <strong>75%–80% dari kapasitas tabel beban crane (<em>Load Chart</em>)</strong>, pengangkatan menggunakan dua unit crane secara bersamaan (<em>tandem lifting</em>), pengangkatan beban di atas fasilitas pipa aktif/jalur listrik, atau pengangkatan benda berdimensi sangat besar yang rentan terempas angin.
+      </p>
+      <p>
+        <strong>Syarat Mutlak Critical Lifting Permit:</strong>
+      </p>
+      <ul>
+        <li>Penyusunan dokumen <strong>Lifting Plan (Rencana Pengangkatan)</strong> yang ditandatangani oleh <em>Lifting Engineer</em> atau Ahli K3 Pesawat Angkat dan Angkut, memuat perhitungan radius kerja, panjang <em>boom</em>, sudut angkat, kapasitas <em>sling/shackle</em>, dan persentase beban.</li>
+        <li>Verifikasi kepemilikan <a href="/sio-dan-sia-k3/">SIO Operator Crane, SIO Rigger, dan SIA/Suket Layak K3</a> yang masih berlaku pada unit crane yang digunakan.</li>
+        <li>Pemasangan landasan pelat baja (<em>outrigger pad / steel mat</em>) di bawah kaki penumpu crane di atas tanah yang padat dan rata, serta pemasangan tali pengarah beban (<em>tag line</em>).</li>
+      </ul>
+    </section>
+
+    <section id="parameter-uji-gas-ruang-terbatas">
+      <h2>Tabel Parameter Uji Gas Atmosfer pada Confined Space & Hot Work</h2>
+      <p>
+        Sebelum mengesahkan <em>Confined Space Entry Permit</em> maupun <em>Hot Work Permit</em> di area proses kimia/migas, Petugas Penguji Gas wajib mengukur kandungan udara menggunakan <em>4-Gas Detector</em> pada bagian atas, tengah, dan dasar ruangan (karena ada gas yang lebih ringan dari udara seperti Metana, dan ada gas yang lebih berat dari udara sehingga mengendap di dasar lubang seperti H<sub>2</sub>S). Berikut adalah batas parameter atmosfer aman yang wajib dipenuhi:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter Gas yang Diukur</th>
+              <th>Rentang Konsentrasi Aman (Boleh Masuk / Kerja)</th>
+              <th>Kondisi Bahaya jika di Luar Ambang Batas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Oksigen (O<sub>2</sub>)</strong></td>
+              <td><strong>19,5% hingga 23,5%</strong> volume udara</td>
+              <td>
+                - Di bawah 19,5%: Bahaya asfiksia (lemas kekurangan oksigen, pingsan seketika, kematian).<br />
+                - Di atas 23,5%: Atmosfer kaya oksigen (<em>oxygen-enriched</em>), memicu pakaian atau minyak menyala hebat hanya karena percikan kecil.
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Gas Mudah Terbakar / Meledak (% LEL - Lower Explosive Limit)</strong></td>
+              <td><strong>0% LEL</strong> (untuk Hot Work)<br /><strong>&lt; 5% – 10% LEL</strong> (batas maksimum inspeksi dingin dengan alat <em>intrinsically safe</em>)</td>
+              <td>Pada konsentrasi di atas 10% LEL, campuran gas hidrokarbon/metana dengan udara sangat berisiko meledak dahsyat jika bertemu percikan api atau listrik statis.</td>
+            </tr>
+            <tr>
+              <td><strong>Hidrogen Sulfida (H<sub>2</sub>S)</strong></td>
+              <td><strong>0 ppm</strong> (atau di bawah NAB <strong>1 ppm</strong> sesuai Permenaker 05/2018)</td>
+              <td>Gas berbau telur busuk yang sangat mematikan. Pada konsentrasi di atas 10–20 ppm melumpuhkan indra penciuman, dan pada 100 ppm ke atas memicu kelumpuhan pernapasan fatal.</td>
+            </tr>
+            <tr>
+              <td><strong>Karbon Monoksida (CO)</strong></td>
+              <td><strong>0 ppm</strong> (atau di bawah NAB <strong>25 ppm</strong> untuk 8 jam kerja)</td>
+              <td>Gas tidak berwarna dan tidak berbau hasil pembakaran tidak sempurna. Mengikat hemoglobin darah 200 kali lebih kuat dari oksigen sehingga memicu keracunan hipoksia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="peran-dan-wewenang-ptw">
+      <h2>Struktur Otorisasi: Peran Permit Issuer, Receiver, Gas Tester, dan Watcher</h2>
+      <p>
+        Agar sistem izin kerja memiliki fungsi kontrol silang (<em>check and balance</em>), satu orang tidak boleh merangkap sebagai pemohon sekaligus pemberi izin. Struktur tanggung jawab dalam sistem PTW dibagi menjadi:
+      </p>
+      <ol>
+        <li>
+          <strong>Pemohon / Pelaksana Izin (Permit Applicant / Permit Receiver / Performing Authority):</strong> Supervisor teknik atau pengawas kontraktor yang memimpin tim kerja di lapangan. Bertanggung jawab menyusun JSA, menyiapkan peralatan yang laik pakai, memverifikasi kompetensi anggotanya, memastikan seluruh syarat di dalam PTW dijalankan selama pekerjaan, serta mengembalikan area kerja dalam kondisi bersih saat penutupan izin.
+        </li>
+        <li>
+          <strong>Pemberi Otorisasi / Pemilik Area (Permit Issuer / Area Authority):</strong> Manajer atau kepala bagian yang membawahi area fasilitas tempat pekerjaan akan dilakukan (misalnya Kepala Pabrik atau Supervisor Produksi). Bertanggung jawab memastikan bahwa pekerjaan perbaikan tersebut tidak berbenturan dengan operasi produksi di sekitarnya (<em>Simultaneous Operations / SIMOPS</em>) dan memastikan isolasi energi dari sisi proses telah dilakukan.
+        </li>
+        <li>
+          <strong>Verifikator Keselamatan (HSE / Safety Inspector):</strong> Personel Ahli K3 yang melakukan pemeriksaan independen di lokasi kerja, memverifikasi kecukupan <a href="/jenis-apd-k3/">spesifikasi jenis APD K3</a> yang dikenakan pekerja, memeriksa ketersediaan APAR, serta menandatangani kolom verifikasi keselamatan.
+        </li>
+        <li>
+          <strong>Petugas Khusus Pendukung (Gas Tester, Fire Watcher, Standby Person):</strong> Personel terlatih yang ditugaskan khusus di titik kerja untuk memantau parameter gas berkala, mengawasi percikan api las, atau menjaga akses keluar-masuk ruang terbatas.
+        </li>
+      </ol>
+    </section>
+
+    <section id="siklus-lima-tahap-ptw">
+      <h2>Siklus 5 Tahap Pengelolaan Permit to Work dari Pengajuan hingga Penutupan</h2>
+      <p>
+        Setiap lembar surat izin kerja wajib melewati 5 (lima) tahapan siklus hidup secara berurutan tanpa ada yang dilompati:
+      </p>
+      <ul>
+        <li>
+          <strong>Tahap 1: Pengajuan &amp; Perencanaan (Application &amp; Preparation):</strong> <em>Permit Receiver</em> mengisi formulir PTW minimal 1 hari sebelum pekerjaan (atau pagi hari sebelum mulai), mendeskripsikan lingkup pekerjaan, daftar peralatan yang dibawa, daftar nama pekerja, serta melampirkan dokumen JSA, sertifikat SIO/SIA, dan diagram isolasi LOTO.
+        </li>
+        <li>
+          <strong>Tahap 2: Inspeksi Bersama di Lokasi (Joint Site Inspection &amp; Gas Testing):</strong> <em>Permit Issuer</em>, <em>Permit Receiver</em>, dan petugas HSE mendatangi langsung titik lokasi kerja. Mereka memeriksa kondisi fisik area, melakukan pemasangan gembok LOTO, menguji kandungan gas atmosfer, serta memastikan rambu barikade dan APAR sudah terpasang di tempatnya.
+        </li>
+        <li>
+          <strong>Tahap 3: Otorisasi &amp; Briefing Lapangan (Authorization &amp; Toolbox Talk):</strong> Setelah seluruh daftar periksa (<em>checklist</em>) terpenuhi 100%, formulir PTW ditandatangani oleh <em>Issuer</em> dan HSE. Selanjutnya <em>Permit Receiver</em> mengumpulkan seluruh pekerja pelaksana di lokasi untuk membacakan isi PTW dan JSA, lalu menempelkan lembar asli PTW pada papan <em>Permit Holder</em> di titik kerja.
+        </li>
+        <li>
+          <strong>Tahap 4: Pelaksanaan &amp; Pemantauan Aktif (Execution &amp; Monitoring):</strong> Pekerjaan dilaksanakan di bawah pengawasan terus-menerus. Petugas HSE atau pengawas area dapat melakukan inspeksi mendadak kapan saja. Apabila terjadi perubahan kondisi cuaca atau penyimpangan prosedur, petugas berhak menghentikan pekerjaan seketika (<em>Stop Work Authority</em>).
+        </li>
+        <li>
+          <strong>Tahap 5: Penyelesaian, Serah Terima &amp; Penutupan (Handover &amp; Close-Out):</strong> Setelah pekerjaan fisik selesai, tim pelaksana membersihkan seluruh sisa material (<em>housekeeping</em>), melepas gembok LOTO sesuai prosedur bersama pemilik area, dan melakukan pemeriksaan akhir. <em>Permit Receiver</em> dan <em>Permit Issuer</em> menandatangani kolom <strong>Penutupan Izin (Close-Out)</strong>, lalu mengembalikan formulir ke ruang kontrol dan arsip HSE.
+        </li>
+      </ul>
+    </section>
+
+    <section id="hubungan-ptw-jsa-loto">
+      <h2>Integrasi Dokumen PTW dengan Job Safety Analysis (JSA) dan LOTO</h2>
+      <p>
+        Formulir PTW tidak pernah berdiri sendiri. Apabila tabel <a href="/contoh-hiradc/">contoh HIRADC manajemen risiko</a> memetakan bahaya secara makro di tingkat departemen, maka <strong>Job Safety Analysis (JSA)</strong> adalah lampiran wajib PTW yang memecah satu tugas spesifik menjadi urutan langkah kerja mikro (maksimal 6–10 langkah), mengidentifikasi bahaya pada tiap langkah tersebut, dan menentukan tindakan pengendalian spesifiknya.
+      </p>
+      <p>
+        Demikian pula dengan sertifikat isolasi energi (<strong>LOTO Certificate</strong>) dan daftar periksa peralatan (<strong>Pre-Use Equipment Checklist</strong>). Seluruh dokumen pendukung tersebut harus diklip menjadi satu kesatuan paket bersama lembar PTW di lokasi kerja. Praktik dokumentasi terpadu ini juga merupakan salah satu elemen penilaian utama saat perusahaan mengikuti audit <a href="/panduan-csms-kontraktor/">prakualifikasi panduan CSMS kontraktor</a> di sektor migas dan energi.
+      </p>
+    </section>
+
+    <section id="kesalahan-fatal-implementasi">
+      <h2>Kesalahan Fatal dalam Pelaksanaan Izin Kerja dan Cara Mencegahnya</h2>
+      <p>
+        Berdasarkan temuan <a href="/investigasi-kecelakaan-kerja/">investigasi kecelakaan kerja industri</a>, banyak perusahaan yang sudah memiliki formulir PTW namun tetap mengalami insiden fatal akibat empat penyimpangan berikut:
+      </p>
+      <ul>
+        <li>
+          <strong>Otorisasi di Atas Meja (<em>Desktop Signing</em>):</strong> Pemberi izin menandatangani lembar PTW di dalam ruangan kantor ber-AC tanpa pernah berjalan kaki memeriksa kondisi nyata di titik lokasi kerja. Solusinya: wajibkan tanda tangan pengesahan dilakukan langsung di lokasi kerja (<em>on-site verification</em>).
+        </li>
+        <li>
+          <strong>Pengisian Checklist secara Otomatis (<em>Tick-Box Mentality</em>):</strong> Pemohon mencentang "Ya/Memenuhi" pada seluruh baris daftar periksa (seperti ketersediaan APAR dan uji gas) padahal alat belum disiapkan di lapangan.
+        </li>
+        <li>
+          <strong>Kegagalan Mengelola Pekerjaan Simultan (SIMOPS):</strong> Menerbitkan izin kerja panas (pengelasan) di lantai atas tepat pada jam yang sama saat tim lain sedang melakukan pembersihan tangki menggunakan pelarut mudah terbakar (<em>thinner</em>) di lantai bawahnya. Solusinya: gunakan papan peta kendali izin kerja terpusat (<em>Central Permit Control Board</em>) di ruang kontrol untuk memvisualisasikan seluruh PTW yang sedang aktif.
+        </li>
+        <li>
+          <strong>Lupa Menutup PTW dan Melepas Isolasi Secara Sepihak:</strong> Pekerja langsung pulang setelah selesai bekerja tanpa melakukan serah terima penutupan izin (<em>close-out</em>), sehingga operator produksi menyalakan mesin saat kondisi pengaman belum terpasang kembali.
+        </li>
+      </ul>
+      <p>
+        Dengan menegakkan disiplin sistem Izin Kerja K3 (Permit to Work) tanpa kompromi, perusahaan menciptakan benteng pertahanan prosedural yang tangguh guna melindungi nyawa pekerja dan keandalan aset fasilitas dari insiden berisiko tinggi.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

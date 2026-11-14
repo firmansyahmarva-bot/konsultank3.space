@@ -1,0 +1,374 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TableOfContents from '../../components/TableOfContents.astro';
+import FaqSection from '../../components/FaqSection.astro';
+
+const title = 'Panduan SIO dan SIA K3: Lisensi Operator & Riksa Uji Alat';
+const description = 'Panduan lengkap perbedaan SIO dan SIA K3 (SILO) Disnaker. Regulasi Permenaker 08/2020, kelas operator forklift, crane, boiler, dan uji kelayakan alat.';
+const canonicalPath = '/sio-dan-sia-k3/';
+
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: 'SIO dan SIA K3', url: '/sio-dan-sia-k3/' }
+];
+
+const tocItems = [
+  { id: 'perbedaan-mendasar-sio-sia', title: 'Perbedaan Mendasar antara SIO dan SIA (SILO) dalam Regulasi K3' },
+  { id: 'regulasi-permenaker-terkait', title: 'Peta Peraturan Menteri Ketenagakerjaan tentang Peralatan dan Operator' },
+  { id: 'klasifikasi-sio-operator', title: 'Klasifikasi Kelas Lisensi K3 Operator (SIO): Forklift, Crane, dan Boiler' },
+  { id: 'objek-wajib-riksa-uji-sia', title: 'Daftar Peralatan dan Instalasi Wajib Riksa Uji (SIA / Suket Layak K3)' },
+  { id: 'jadwal-berkala-riksa-uji', title: 'Tabel Siklus Pemeriksaan Pertama dan Berkala Berdasarkan Jenis Alat' },
+  { id: 'prosedur-pengujian-lapangan', title: 'Tahapan Teknis Pemeriksaan dan Pengujian (Riksa Uji) oleh PJK3 & Pengawas' },
+  { id: 'risiko-hukum-tanpa-lisensi', title: 'Konsekuensi Hukum, Gugurnya Asuransi, dan Temuan Audit SMK3' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar SIO dan SIA K3' }
+];
+
+const faqItems = [
+  {
+    question: 'Apakah operator forklift yang sudah memiliki SIM B2 Umum tetap wajib memiliki SIO K3?',
+    answer: 'Ya, wajib. Surat Izin Mengemudi (SIM) yang diterbitkan Kepolisian berlaku untuk pengoperasian kendaraan bermotor di jalan raya umum. Sementara pengoperasian forklift, crane, atau loader di dalam area tempat kerja, pabrik, gudang, atau proyek konstruksi tunduk pada UU No. 1 Tahun 1970 dan Permenaker No. 8 Tahun 2020 yang mewajibkan kepemilikan Lisensi K3 (SIO) dari Kementerian Ketenagakerjaan.'
+  },
+  {
+    question: 'Berapa lama masa berlaku Lisensi K3 Operator (SIO) dan bagaimana cara memperpanjangnya?',
+    answer: 'Lisensi K3 atau SIO yang diterbitkan oleh Kemnaker RI memiliki masa berlaku selama 5 (lima) tahun sejak tanggal diterbitkan dan dapat diperpanjang untuk jangka waktu yang sama. Pengajuan perpanjangan dilakukan melalui sistem TemanK3 dengan melampirkan kartu SIO asli yang akan habis masa berlakunya, surat keterangan bekerja dari perusahaan, surat keterangan sehat dokter, dan pasfoto terbaru.'
+  },
+  {
+    question: 'Siapa yang berwenang menerbitkan Surat Keterangan Layak K3 (SIA/SILO) untuk alat berat?',
+    answer: 'Pemeriksaan dan pengujian teknis di lapangan dapat dilakukan oleh Ahli K3 Spesialis dari Perusahaan Jasa K3 (PJK3) bidang Riksa Uji yang ditunjuk Kemnaker atau Pengawas Ketenagakerjaan Spesialis. Namun demikian, dokumen Surat Keterangan (Suket) Memenuhi Persyaratan K3 atau SIA diterbitkan secara sah oleh Dinas Ketenagakerjaan Provinsi setempat.'
+  },
+  {
+    question: 'Apa perbedaan antara istilah SIA, SILO, dan Suket K3?',
+    answer: 'Ketiga istilah tersebut merujuk pada substansi dokumen legalitas kelayakan alat yang sama. SIA (Surat Izin Alat) dan SILO (Surat Izin Laik Operasi) adalah istilah populer yang lazim digunakan di lingkungan proyek konstruksi dan migas, sedangkan nomenklatur resmi yang tertulis pada dokumen terbitan Dinas Ketenagakerjaan saat ini adalah Surat Keterangan (Suket) Memenuhi Persyaratan K3.'
+  },
+  {
+    question: 'Apakah alat baru yang baru dibeli dari pabrik tetap wajib menjalani riksa uji pertama?',
+    answer: 'Benar. Setiap pesawat angkat angkut, bejana tekan, boiler, maupun instalasi listrik baru wajib menjalani Pemeriksaan dan Pengujian Pertama sebelum dioperasikan secara komersial guna memastikan pemasangan dan perangkat pengamannya sesuai standar regulasi Indonesia.'
+  }
+];
+
+const lastUpdated = '2026-11-14';
+const headline = 'Panduan Lengkap SIO dan SIA K3: Regulasi Lisensi Operator dan Kelayakan Alat Kerja';
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs}
+  faqItems={faqItems}
+  lastUpdated={lastUpdated}
+  headline={headline}
+>
+  <article class="article-body">
+    <header class="article-header">
+      <h1>{headline}</h1>
+      <div class="article-meta">
+        <span>Kategori: Lisensi Personel & Kelayakan Alat</span>
+        <span>Diperbarui: 14 November 2026</span>
+        <span>Waktu Baca: 17 Menit</span>
+      </div>
+    </header>
+
+    <p class="lead-paragraph">
+      Dalam operasional industri manufaktur, pergudangan logistik, pertambangan, hingga proyek infrastruktur, kecelakaan kerja fatal paling sering bersumber dari dua titik lemah: kegagalan mekanis peralatan berat atau kesalahan manusia (<em>human error</em>) saat mengoperasikan mesin berisiko tinggi. Untuk menutup celah bahaya tersebut, hukum ketenagakerjaan Indonesia mewajibkan dua instrumen perizinan kembar yang tidak dapat dipisahkan, yakni <strong>sio dan sia k3</strong>. Memahami perbedaan, dasar hukum, klasifikasi kelas tonase, serta jadwal pengujian berkala dari kedua dokumen ini sangat krusial bagi manajemen perusahaan maupun praktisi keselamatan kerja.
+    </p>
+
+    <TableOfContents items={tocItems} />
+
+    <section id="perbedaan-mendasar-sio-sia">
+      <h2>Perbedaan Mendasar antara SIO dan SIA (SILO) dalam Regulasi K3</h2>
+      <p>
+        Di kalangan pengelola proyek dan staf pengadaan vendor, istilah SIO, SIA, SILO, dan Suket K3 sering kali tertukar penggunaannya. Secara prinsip hukum keselamatan kerja, pemerintah memisahkan sertifikasi kelayakan menjadi dua subjek hukum yang berbeda, yaitu <strong>sertifikasi kompetensi personel (manusia)</strong> dan <strong>sertifikasi kelayakan teknis sarana produksi (mesin/instalasi)</strong>.
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Dimensi Perbandingan</th>
+              <th>SIO (Surat Izin Operator / Lisensi K3)</th>
+              <th>SIA / SILO (Surat Keterangan Layak K3 Alat)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Objek yang Disertifikasi</strong></td>
+              <td>Personel / Tenaga Kerja (Operator, Teknisi, Juru Ikat / Rigger, Juru Las).</td>
+              <td>Unit Mesin, Alat Berat, Pesawat, atau Instalasi Fisik di tempat kerja.</td>
+            </tr>
+            <tr>
+              <td><strong>Nomenklatur Resmi Regulasi</strong></td>
+              <td>Lisensi K3 Operator / Petugas / Teknisi (Kartu Kewenangan &amp; Sertifikat Kemnaker).</td>
+              <td>Surat Keterangan (Suket) Memenuhi Persyaratan K3 dari Disnaker Provinsi.</td>
+            </tr>
+            <tr>
+              <td><strong>Tujuan Utama</strong></td>
+              <td>Membuktikan bahwa pekerja memiliki pengetahuan teoritis, keterampilan teknis, dan kecakapan mengoperasikan alat secara aman.</td>
+              <td>Membuktikan bahwa konstruksi mekanis, sistem hidrolik, katup pengaman, dan kelistrikan alat berada dalam kondisi laik pakai tanpa cacat.</td>
+            </tr>
+            <tr>
+              <td><strong>Instansi Penerbit</strong></td>
+              <td>Direktorat Jenderal Pembinaan Pengawasan Ketenagakerjaan dan K3 (Ditjen Binwasnaker &amp; K3) Kemnaker RI.</td>
+              <td>Dinas Tenaga Kerja dan Transmigrasi (Disnakertrans) Tingkat Provinsi sesuai lokasi tempat kerja.</td>
+            </tr>
+            <tr>
+              <td><strong>Masa Berlaku</strong></td>
+              <td><strong>5 (Lima) Tahun</strong> dan dapat diperpanjang kembali melalui evaluasi portofolio/administrasi.</td>
+              <td><strong>1 (Satu) hingga 2 (Dua) Tahun</strong> untuk riksa uji berkala (tergantung jenis pesawat/instalasi).</td>
+            </tr>
+            <tr>
+              <td><strong>Analogi Sederhana</strong></td>
+              <td>Ibarat SIM (Surat Izin Mengemudi) yang melekat pada pengemudi.</td>
+              <td>Ibarat STNK &amp; Uji KIR yang melekat pada nomor rangka dan nomor seri mesin kendaraan.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Kedua dokumen ini bersifat komplementer mutlak. Sebuah perusahaan tidak diperbolehkan mengoperasikan unit forklift yang sudah memiliki SIA/Suket Layak K3 apabila dikemudikan oleh pekerja yang tidak memegang kartu SIO aktif. Sebaliknya, seorang operator pemegang SIO resmi dilarang mengemudikan crane atau menyalakan boiler yang masa berlaku uji kelayakan SIA-nya telah kedaluwarsa. Pelanggaran terhadap salah satu komponen ini langsung dikategorikan sebagai temuan ketidaksesuaian mayor dalam evaluasi <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3 PP 50/2012</a> khususnya pada Elemen 6 dan Elemen 12.
+      </p>
+    </section>
+
+    <section id="regulasi-permenaker-terkait">
+      <h2>Peta Peraturan Menteri Ketenagakerjaan tentang Peralatan dan Operator</h2>
+      <p>
+        Kewajiban kepemilikan SIO dan pelaksanaan pemeriksaan pengujian (riksa uji) SIA memiliki landasan hukum berlapis yang berakar dari Pasal 2, Pasal 3, dan Pasal 4 Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja. Untuk mengatur spesifikasi teknis per kelompok peralatan, Menteri Ketenagakerjaan telah menetapkan serangkaian Peraturan Menteri (Permenaker) spesifik yang wajib dijadikan acuan oleh setiap perusahaan:
+      </p>
+      <ul>
+        <li>
+          <strong>Permenaker No. 8 Tahun 2020 tentang K3 Pesawat Angkat dan Pesawat Angkut (PAA):</strong> Menggantikan peraturan lama Permenaker No. 05/MEN/1985 dan Permenaker No. 09/MEN/VII/2010. Regulasi ini mengatur secara ketat syarat teknis desain, pengujian beban (<em>load test</em>), serta klasifikasi lisensi operator dan juru ikat (<em>rigger</em>) untuk segala jenis crane, forklift, reach stacker, excavator, loader, gondola, hingga pita transpor (konveyor).
+        </li>
+        <li>
+          <strong>Permenaker No. 37 Tahun 2016 tentang K3 Bejana Tekanan dan Tangki Timbun (PUBT):</strong> Mengatur pemeriksaan dan pengujian kompresor udara, botol baja gas bertekanan, <em>air receiver tank</em>, tangki penyimpanan bahan kimia cair/BBM, serta lisensi teknisi bejana tekan.Untuk ketel uap (boiler), regulasi ini bersanding dengan Undang-Undang Uap Tahun 1930 (<em>Stoom Ordonnantie</em>) dan Peraturan Uap Tahun 1930 serta Permenaker No. 01/MEN/1988 tentang Kualifikasi dan Syarat-Syarat Operator Pesawat Uap.
+        </li>
+        <li>
+          <strong>Permenaker No. 38 Tahun 2016 tentang K3 Pesawat Tenaga dan Produksi (PTP):</strong> Mengatur kelayakan teknis dan kompetensi operator untuk penggerak mula (generator set / genset, turbin, motor diesel), mesin perkakas dan produksi (mesin press, mesin bubut, mesin potong, tanur/furnace), serta transmisi tenaga mekanik.
+        </li>
+        <li>
+          <strong>Permenaker No. 12 Tahun 2015 tentang K3 Listrik di Tempat Kerja:</strong> Mewajibkan pemeriksaan dan pengujian instalasi penyediaan dan pemanfaatan tenaga listrik (panel TM/TR, transformator, sistem pembumian/grounding) serta mewajibkan teknisi dan ahli K3 listrik memiliki lisensi resmi.
+        </li>
+        <li>
+          <strong>Permenaker No. 31 Tahun 2015 (Jo. Permenaker No. 02/MEN/1989) tentang Pengawasan Instalasi Penyalur Petir:</strong> Mengatur standar riksa uji sistem proteksi petir eksternal dan nilai tahanan sebaran tanah (<em>grounding resistance</em> maksimal 5 Ohm).
+        </li>
+        <li>
+          <strong>Permenaker No. 6 Tahun 2017 tentang K3 Elevator dan Eskalator:</strong> Mengatur kelayakan operasi lift penumpang, lift barang, dan tangga berjalan di gedung bertingkat maupun fasilitas industri.
+        </li>
+      </ul>
+      <p>
+        Seluruh peraturan di atas wajib dicantumkan dalam daftar inventaris regulasi perusahaan dan dijadikan dasar pemenuhan <a href="/dokumen-smk3/">dokumen SMK3 wajib untuk audit</a>.
+      </p>
+    </section>
+
+    <section id="klasifikasi-sio-operator">
+      <h2>Klasifikasi Kelas Lisensi K3 Operator (SIO): Forklift, Crane, dan Boiler</h2>
+      <p>
+        Satu kesalahan fatal yang sering terjadi di bagian HRD dan operasional pabrik adalah menganggap semua kartu SIO berlaku untuk kapasitas alat berapa pun. Dalam regulasi Kemnaker, Lisensi K3 Operator dibagi menjadi beberapa <strong>Kelas (Kelas I, Kelas II, dan Kelas III)</strong> berdasarkan kapasitas angkat (tonase) atau kapasitas uap peralatan yang dioperasikan. Seorang operator Kelas II secara hukum dilarang mengoperasikan unit alat yang masuk dalam kategori kapasitas Kelas I.
+      </p>
+
+      <h3>1. Klasifikasi Lisensi Operator Forklift (Permenaker No. 8 Tahun 2020)</h3>
+      <p>
+        Untuk pesawat angkut jenis forklift, reach truck, dan telehandler, pembagian kelas lisensi operator diatur menjadi dua jenjang:
+      </p>
+      <ul>
+        <li><strong>Operator Forklift Kelas II:</strong> Berwenang mengoperasikan unit forklift dengan kapasitas angkut maksimal <strong>sampai dengan 15 Ton</strong>. Kelas ini adalah yang paling banyak dibutuhkan di gudang logistik umum dan pabrik manufaktur.</li>
+        <li><strong>Operator Forklift Kelas I:</strong> Berwenang mengoperasikan unit forklift kapasitas besar <strong>di atas 15 Ton</strong> (seperti <em>heavy duty forklift</em> di pelabuhan peti kemas atau industri baja) serta berwenang mengoperasikan unit kapasitas Kelas II.</li>
+      </ul>
+
+      <h3>2. Klasifikasi Lisensi Operator Keran Angkat / Crane (Overhead Crane, Mobile Crane, Tower Crane)</h3>
+      <p>
+        Untuk pesawat angkat jenis keran (crane), pembagian kewenangan dibagi ke dalam tiga jenjang berdasarkan beban angkat maksimum (<em>Safe Working Load / SWL</em>):
+      </p>
+      <ul>
+        <li><strong>Operator Keran Angkat Kelas III:</strong> Berwenang mengoperasikan crane dengan kapasitas angkat <strong>sampai dengan 25 Ton</strong>, atau tinggi menara tower crane sampai dengan 40 meter.</li>
+        <li><strong>Operator Keran Angkat Kelas II:</strong> Berwenang mengoperasikan crane dengan kapasitas angkat <strong>di atas 25 Ton sampai dengan 100 Ton</strong>, atau tinggi menara tower crane sampai dengan 60 meter.</li>
+        <li><strong>Operator Keran Angkat Kelas I:</strong> Berwenang mengoperasikan crane dengan kapasitas angkat <strong>di atas 100 Ton</strong>, atau tinggi menara tower crane di atas 60 meter, serta berwenang mengoperasikan seluruh crane pada kapasitas Kelas II dan Kelas III.</li>
+      </ul>
+      <p>
+        Selain operator yang duduk di kabin kemudi, setiap operasi pengangkatan beban dengan crane wajib didampingi oleh <strong>Juru Ikat (Rigger)</strong> berlisensi Kemnaker yang bertugas mengikat beban (<em>rigging</em>), memeriksa kelayakan tali kawat baja (<em>wire rope</em>) atau <em>webbing sling</em>, serta memberikan aba-aba tangan (<em>hand signals</em>) kepada operator. Dalam pelaksanaan pekerjaan angkat kritis di lapangan, keberadaan SIO Operator dan Rigger ini menjadi syarat mutlak sebelum diterbitkannya <a href="/izin-kerja-k3-ptw/">surat izin kerja K3 (Critical Lifting Permit)</a>.
+      </p>
+
+      <h3>3. Klasifikasi Lisensi Operator Pesawat Uap / Boiler (Permenaker No. 01/MEN/1988)</h3>
+      <p>
+        Bagi industri tekstil, pengolahan kelapa sawit, makanan-minuman, dan pembangkit listrik yang mengoperasikan ketel uap (boiler), kelas operator ditentukan oleh kapasitas produksi uap per jam:
+      </p>
+      <ul>
+        <li><strong>Operator Pesawat Uap Kelas II:</strong> Berwenang mengoperasikan ketel uap dengan kapasitas uap <strong>kurang dari 10 Ton/jam</strong> (&le; 10 ton/jam).</li>
+        <li><strong>Operator Pesawat Uap Kelas I:</strong> Berwenang mengoperasikan ketel uap dengan kapasitas uap <strong>sama dengan atau lebih dari 10 Ton/jam</strong> (&ge; 10 ton/jam), sekaligus membawahi pengawasan teknis terhadap operator Kelas II.</li>
+      </ul>
+
+      <h3>4. Klasifikasi Lisensi Operator Penggerak Mula / Genset (Permenaker No. 38 Tahun 2016)</h3>
+      <ul>
+        <li><strong>Operator Penggerak Mula Kelas II:</strong> Berwenang mengoperasikan mesin genset/turbin dengan kapasitas daya <strong>sampai dengan 214,47 HP (Horsepower) / 160 kW</strong>.</li>
+        <li><strong>Operator Penggerak Mula Kelas I:</strong> Berwenang mengoperasikan mesin genset/turbin dengan kapasitas daya <strong>di atas 214,47 HP (160 kW)</strong>.</li>
+      </ul>
+    </section>
+
+    <section id="objek-wajib-riksa-uji-sia">
+      <h2>Daftar Peralatan dan Instalasi Wajib Riksa Uji (SIA / Suket Layak K3)</h2>
+      <p>
+        Banyak pengurus perusahaan yang belum menyadari bahwa peralatan pendukung di pabrik atau gedung kantornya termasuk objek pengawasan K3 yang wajib memiliki Surat Keterangan Memenuhi Persyaratan K3 (SIA/SILO). Berikut adalah inventarisasi lengkap peralatan yang wajib menjalani riksa uji:
+      </p>
+      <ol>
+        <li>
+          <strong>Kelompok Pesawat Angkat dan Pesawat Angkut (PAA):</strong> Overhead travelling crane (hoist crane), gantry crane, mobile crane, tower crane, pedestal crane, forklift, reach stacker, excavator, backhoe loader, wheel loader, bulldozer, dump truck area kerja khusus, manlift / scissor lift, gondola gedung, passenger hoist, dan konveyor pabrik.
+        </li>
+        <li>
+          <strong>Kelompok Pesawat Uap, Bejana Tekanan, dan Tangki Timbun (PUBT):</strong> Steam boiler (ketel uap), thermal oil heater, autoclave, tabung kompresor udara (air receiver tank), bejana proses bertekanan, instalasi pipa bertekanan, botol baja LPG/oksigen/asetilen, serta tangki timbun solar/bahan kimia cair.
+        </li>
+        <li>
+          <strong>Kelompok Pesawat Tenaga dan Produksi (PTP):</strong> Generator set (genset) darurat maupun utama, mesin bubut, mesin frais, mesin press stamping mekanik/hidrolik, mesin potong plat (shearing), mesin gergaji industri, mesin injeksi plastik, mesin pencampur (mixer), dan tanur pembakaran (furnace).
+        </li>
+        <li>
+          <strong>Kelompok Instalasi Listrik dan Penyalur Petir:</strong> Gardu transformator perusahaan, panel distribusi utama (LVMDP/MVMDP), sistem pembumian (grounding), instalasi penerangan dan daya pabrik, serta sistem penangkal petir konvensional (Franklin) maupun elektrostatis.
+        </li>
+        <li>
+          <strong>Kelompok Sarana Proteksi Kebakaran dan Elevator:</strong> Sistem pompa hidran (jockey pump, electric pump, diesel pump), sistem sprinkler otomatis, sistem deteksi dan alarm kebakaran (heat/smoke detector), lift penumpang, dan lift barang (cargo lift).
+        </li>
+      </ol>
+      <p>
+        Dalam proyek konstruksi dan tender BUMN, kelengkapan dokumen SIA dan SIO untuk seluruh daftar peralatan di atas merupakan salah satu syarat penilaian tertinggi saat vendor mengikuti <a href="/panduan-csms-kontraktor/">prakualifikasi panduan CSMS kontraktor</a> maupun saat menyusun <a href="/smkk-konstruksi/">dokumen RKK pada SMKK konstruksi</a>.
+      </p>
+    </section>
+
+    <section id="jadwal-berkala-riksa-uji">
+      <h2>Tabel Siklus Pemeriksaan Pertama dan Berkala Berdasarkan Jenis Alat</h2>
+      <p>
+        Surat Keterangan Layak K3 (SIA) tidak berlaku selamanya. Logam mengalami kelelahan (<em>metal fatigue</em>), tali baja mengalami aus, nilai resistansi pembumian berubah akibat cuaca, dan katup pengaman (<em>safety valve</em>) dapat macet karena korosi. Oleh sebab itu, regulasi menetapkan jadwal pemeriksaan dan pengujian berkala yang wajib dipatuhi:
+      </p>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Jenis Peralatan / Instalasi K3</th>
+              <th>Dasar Regulasi</th>
+              <th>Uji Berkala Pertama</th>
+              <th>Siklus Uji Berkala Selanjutnya</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pesawat Angkat &amp; Angkut (Forklift, Crane, Gondola, Excavator)</strong></td>
+              <td>Permenaker No. 8 Tahun 2020 Pasal 176</td>
+              <td>Paling lambat <strong>2 Tahun</strong> setelah pemeriksaan/pengujian pertama.</td>
+              <td>Wajib diuji ulang setiap <strong>1 (Satu) Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Pesawat Tenaga &amp; Produksi (Genset, Mesin Produksi/Press)</strong></td>
+              <td>Permenaker No. 38 Tahun 2016 Pasal 133</td>
+              <td>Dilakukan <strong>1 Tahun</strong> sejak alat dioperasikan.</td>
+              <td>Pemeriksaan berkala setiap <strong>1 Tahun</strong> sekali; Pengujian berkala setiap <strong>5 Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Bejana Tekanan (Kompresor, Air Receiver Tank, Autoclave)</strong></td>
+              <td>Permenaker No. 37 Tahun 2016 Pasal 75</td>
+              <td>Pemeriksaan berkala paling lambat <strong>2 Tahun</strong> sekali.</td>
+              <td>Pengujian berkala (hidrostatik) paling lambat <strong>5 Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Tangki Timbun (Storage Tank BBM / Kimia)</strong></td>
+              <td>Permenaker No. 37 Tahun 2016 Pasal 76</td>
+              <td>Pemeriksaan luar setiap <strong>2 Tahun</strong> sekali.</td>
+              <td>Pengujian berkala menyeluruh paling lambat <strong>5 Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Ketel Uap / Steam Boiler</strong></td>
+              <td>UU &amp; Peraturan Uap 1930</td>
+              <td>Pemeriksaan dalam &amp; luar berkala.</td>
+              <td>Setiap <strong>1 hingga 2 Tahun</strong> sekali (untuk ketel darat tetap maksimal 2 tahun).</td>
+            </tr>
+            <tr>
+              <td><strong>Instalasi Listrik Tempat Kerja</strong></td>
+              <td>Permenaker No. 12 Tahun 2015 Pasal 11</td>
+              <td>Pemeriksaan berkala setiap <strong>1 Tahun</strong> sekali.</td>
+              <td>Pengujian berkala kelayakan instalasi setiap <strong>5 Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Instalasi Penyalur Petir</strong></td>
+              <td>Permenaker No. 02/MEN/1989 Pasal 50</td>
+              <td>Setelah instalasi selesai dipasang atau pasca tersambar petir.</td>
+              <td>Wajib diperiksa dan diuji ulang setiap <strong>2 (Dua) Tahun</strong> sekali.</td>
+            </tr>
+            <tr>
+              <td><strong>Elevator (Lift) &amp; Eskalator</strong></td>
+              <td>Permenaker No. 6 Tahun 2017 Pasal 72</td>
+              <td>Paling lambat <strong>1 Tahun</strong> setelah pengujian pertama.</td>
+              <td>Wajib diuji ulang setiap <strong>1 (Satu) Tahun</strong> sekali.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Selain jadwal pemeriksaan pertama dan berkala di atas, regulasi juga mengatur <strong>Pemeriksaan dan Pengujian Khusus</strong>, yakni riksa uji wajib yang harus segera dilaksanakan apabila peralatan tersebut baru saja mengalami kecelakaan kerja, dilakukan modifikasi/reparasi teknis besar (seperti pengelasan ulang struktur <em>boom crane</em>), atau dipindahkan lokasi pemasangannya ke pabrik baru.
+      </p>
+    </section>
+
+    <section id="prosedur-pengujian-lapangan">
+      <h2>Tahapan Teknis Pemeriksaan dan Pengujian (Riksa Uji) oleh PJK3 & Pengawas</h2>
+      <p>
+        Bagaimana proses riksa uji peralatan dilakukan di lapangan hingga terbitnya Suket Layak K3 (SIA)? Proses ini tidak boleh dilakukan sembarangan, melainkan mengikuti tahapan rekayasa teknik yang baku:
+      </p>
+      <ol>
+        <li>
+          <strong>Tahap 1: Pemeriksaan Dokumen Teknis (Document Review)</strong><br />
+          Ahli K3 Spesialis dari PJK3 Riksa Uji memeriksa gambar konstruksi (<em>manual book / blueprint</em>), sertifikat material pabrik pembuat (<em>mill certificate</em>), diagram kelistrikan/hidrolik, sertifikat kalibrasi alat ukur (<em>pressure gauge</em>), serta riwayat pemeliharaan atau Suket periode sebelumnya.
+        </li>
+        <li>
+          <strong>Tahap 2: Pemeriksaan Visual dan Dimensi (Visual &amp; Dimensional Inspection)</strong><br />
+          Dalam kondisi mesin mati, inspektur memeriksa keutuhan fisik komponen: kondisi las-lasan rangka, keausan garpu forklift (ketebalan garpu tidak boleh berkurang lebih dari 10%), kondisi kait angkat (<em>hook</em>) beserta pengunci (<em>safety latch</em>), keausan <em>wire rope</em>, rem, ban, klakson, lampu rotari, kaca spion, dan tersedianya APAR di kabin.
+        </li>
+        <li>
+          <strong>Tahap 3: Pengujian Tidak Merusak (Non-Destructive Test / NDT) dan Pengukuran Teknis</strong><br />
+          Dilakukan pengujian ketebalan pelat baja bejana tekan atau ketel uap menggunakan <em>Ultrasonic Thickness Gauge</em>, pengujian keretakan mikro pada <em>hook crane</em> atau <em>fork</em> menggunakan metode <em>Magnetic Particle Test (MPI)</em> atau <em>Dye Penetrant Test (PT)</em>, pengukuran nilai tahanan isolasi kabel listrik (<em>Megger test</em>), pencitraan panas panel listrik (<em>Thermography</em>), serta uji nilai resistansi grounding.
+        </li>
+        <li>
+          <strong>Tahap 4: Pengujian Fungsi dan Uji Beban (Function &amp; Load Test)</strong><br />
+          Mesin dinyalakan untuk menguji fungsi seluruh perangkat pengaman (<em>limit switch</em>, <em>emergency stop</em>, <em>overload limiter</em>, <em>safety valve popping test</em>). Untuk pesawat angkat dan angkut, dilakukan <strong>Pengujian Beban Dinamis</strong> (hingga 100%–110% kapasitas SWL) dan <strong>Pengujian Beban Statis</strong> (hingga 125% kapasitas SWL pada unit baru) untuk mengukur defleksi struktur dan kemampuan tahan sistem pengereman hidrolik. Sedangkan untuk bejana tekan dilakukan uji tekan hidrostatik (<em>hydrostatic test</em>) sebesar 1,3 hingga 1,5 kali tekanan kerja maksimum yang diizinkan (MAWP).
+        </li>
+        <li>
+          <strong>Tahap 5: Penyusunan Laporan Teknis dan Penerbitan Suket Disnaker</strong><br />
+          Seluruh hasil pengukuran dan perhitungan kekuatan konstruksi dituangkan dalam Laporan Hasil Pemeriksaan dan Pengujian (LHP). Apabila ditemukan cacat kritis, perusahaan wajib memperbaikinya terlebih dahulu. Setelah seluruh parameter dinyatakan memenuhi syarat, berkas diajukan ke Dinas Ketenagakerjaan Provinsi untuk diverifikasi oleh Pengawas Ketenagakerjaan Spesialis hingga diterbitkannya <strong>Surat Keterangan Memenuhi Persyaratan K3</strong> resmi.
+        </li>
+      </ol>
+      <p>
+        Rekapitulasi seluruh pelaksanaan riksa uji alat dan daftar masa berlaku SIO operator di pabrik Anda juga merupakan materi utama yang wajib dilaporkan secara berkala melalui <a href="/laporan-p2k3-disnaker/">laporan triwulan P2K3 ke Disnaker</a>.
+      </p>
+    </section>
+
+    <section id="risiko-hukum-tanpa-lisensi">
+      <h2>Konsekuensi Hukum, Gugurnya Asuransi, dan Temuan Audit SMK3</h2>
+      <p>
+        Mengabaikan masa berlaku SIO operator atau membiarkan mesin produksi beroperasi tanpa SIA yang sah menyimpan tiga risiko besar bagi kelangsungan bisnis dan direksi perusahaan:
+      </p>
+      <ul>
+        <li>
+          <strong>Sanksi Penghentian Operasional Alat (Penyegelan) dan Pidana:</strong> Saat Pengawas Ketenagakerjaan melakukan inspeksi mendadak dan menemukan pesawat uap, crane, atau genset beroperasi tanpa Suket K3 yang sah, pengawas berwenang menerbitkan Nota Pemeriksaan hingga perintah penghentian pemakaian alat seketika. Apabila terjadi kecelakaan fatal akibat alat yang belum diuji, pengurus perusahaan dapat dijerat sanksi pidana kurungan maupun pidana kejahatan kelalaian sebagaimana diuraikan dalam panduan <a href="/sanksi-tidak-menerapkan-k3/">sanksi perusahaan tidak menerapkan K3</a>.
+        </li>
+        <li>
+          <strong>Penolakan Klaim Asuransi Industri dan Alat Berat:</strong> Hampir seluruh polis asuransi kerugian properti (<em>Property All Risk</em>) dan asuransi alat berat (<em>Contractor's Plant and Machinery / CPM</em>) mencantumkan klausul kepatuhan hukum (<em>warranty of legality</em>). Apabila terjadi kebakaran akibat meledaknya boiler atau robohnya crane, dan hasil investigasi klaim menunjukkan bahwa alat tersebut tidak memiliki SIA aktif atau dioperasikan oleh pekerja tanpa SIO resmi Kemnaker, pihak maskapai asuransi berhak menolak pencairan klaim ganti rugi sepenuhnya.
+        </li>
+        <li>
+          <strong>Diskualifikasi Tender dan Gagal Sertifikasi SMK3:</strong> Dalam audit SMK3 PP 50/2012, ketiadaan SIA dan SIO langsung dijatuhi penilaian <strong>Temuan Mayor</strong> karena melanggar peraturan perundangan wajib (Kriteria 6.3.2, 6.5.2, 6.5.4, dan 12.5.1). Perusahaan tidak akan bisa memperoleh sertifikat SMK3 sebelum seluruh alat dan operatornya disertifikasi secara sah.
+        </li>
+      </ul>
+      <p>
+        Dengan membangun sistem pemantauan masa berlaku (<em>monitoring matrix</em>) atas seluruh kartu SIO personel dan sertifikat SIA peralatan minimal 60 hari sebelum tanggal kedaluwarsa, perusahaan dapat menjaga keandalan produksi sekaligus mempertahankan kepatuhan hukum tanpa celah.
+      </p>
+    </section>
+
+    <FaqSection items={faqItems} />
+  </article>
+</Layout>
+
+<style>
+  .article-header {
+    margin-bottom: 2rem;
+  }
+  .lead-paragraph {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    border-left: 4px solid #0B2545;
+    padding-left: 1rem;
+    font-weight: 450;
+  }
+</style>

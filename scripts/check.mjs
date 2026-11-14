@@ -65,6 +65,66 @@ const PAGES = [
     url: 'https://konsultank3.space/konsultasi-gratis/',
     path: '/konsultasi-gratis/',
     keyword: 'konsultasi k3 gratis'
+  },
+  {
+    file: 'dist/kriteria-audit-smk3/index.html',
+    url: 'https://konsultank3.space/kriteria-audit-smk3/',
+    path: '/kriteria-audit-smk3/',
+    keyword: '166 kriteria smk3'
+  },
+  {
+    file: 'dist/sio-dan-sia-k3/index.html',
+    url: 'https://konsultank3.space/sio-dan-sia-k3/',
+    path: '/sio-dan-sia-k3/',
+    keyword: 'sio dan sia k3'
+  },
+  {
+    file: 'dist/arti-rambu-k3/index.html',
+    url: 'https://konsultank3.space/arti-rambu-k3/',
+    path: '/arti-rambu-k3/',
+    keyword: 'arti rambu k3'
+  },
+  {
+    file: 'dist/izin-kerja-k3-ptw/index.html',
+    url: 'https://konsultank3.space/izin-kerja-k3-ptw/',
+    path: '/izin-kerja-k3-ptw/',
+    keyword: 'izin kerja k3'
+  },
+  {
+    file: 'dist/investigasi-kecelakaan-kerja/index.html',
+    url: 'https://konsultank3.space/investigasi-kecelakaan-kerja/',
+    path: '/investigasi-kecelakaan-kerja/',
+    keyword: 'investigasi kecelakaan kerja'
+  },
+  {
+    file: 'dist/hierarki-pengendalian-risiko/index.html',
+    url: 'https://konsultank3.space/hierarki-pengendalian-risiko/',
+    path: '/hierarki-pengendalian-risiko/',
+    keyword: 'hierarki pengendalian risiko'
+  },
+  {
+    file: 'dist/panduan-csms-kontraktor/index.html',
+    url: 'https://konsultank3.space/panduan-csms-kontraktor/',
+    path: '/panduan-csms-kontraktor/',
+    keyword: 'panduan csms'
+  },
+  {
+    file: 'dist/jenis-apd-k3/index.html',
+    url: 'https://konsultank3.space/jenis-apd-k3/',
+    path: '/jenis-apd-k3/',
+    keyword: 'jenis apd k3'
+  },
+  {
+    file: 'dist/laporan-p2k3-disnaker/index.html',
+    url: 'https://konsultank3.space/laporan-p2k3-disnaker/',
+    path: '/laporan-p2k3-disnaker/',
+    keyword: 'laporan triwulan p2k3'
+  },
+  {
+    file: 'dist/isi-kotak-p3k-permenaker/index.html',
+    url: 'https://konsultank3.space/isi-kotak-p3k-permenaker/',
+    path: '/isi-kotak-p3k-permenaker/',
+    keyword: 'isi kotak p3k'
   }
 ];
 
