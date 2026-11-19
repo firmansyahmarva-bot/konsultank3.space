@@ -2,7 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import * as cheerio from 'cheerio';
-import { TARGET_SITES } from '../src/config.ts';
+import assert from 'node:assert/strict';
+import { SITE_INFO, TARGET_SITES } from '../src/config.ts';
+import { guides } from '../src/k3-guides.ts';
 
 const PAGES = [
   {
@@ -247,7 +249,53 @@ if (fs.existsSync(leadBlockFile)) {
   hasError = true;
 }
 
-console.log('\n=== Step 3: Validating 10 Pages ===');
+console.log('\n=== Step 3: Validating existing pages and new guides ===');
+
+const guideUrls = new Set();
+const guideTitles = new Set();
+const guideDescriptions = new Set();
+const sitemap = cheerio.load(fs.readFileSync('dist/sitemap.xml', 'utf-8'), { xml: true });
+const sitemapUrls = new Set(sitemap('loc').map((_, el) => sitemap(el).text()).get());
+
+for (const guide of guides) {
+  const route = `/${guide.slug}/`;
+  const url = `${SITE_INFO.baseUrl}${route}`;
+  const download = `/unduhan/${guide.slug}.csv`;
+  const $ = cheerio.load(fs.readFileSync(`dist${route}index.html`, 'utf-8'));
+
+  assert(!guideUrls.has(url), `Duplicate guide URL: ${url}`);
+  assert(!guideTitles.has(guide.title), `Duplicate guide title: ${guide.title}`);
+  assert(!guideDescriptions.has(guide.description), `Duplicate guide description: ${route}`);
+  guideUrls.add(url);
+  guideTitles.add(guide.title);
+  guideDescriptions.add(guide.description);
+
+  assert(sitemapUrls.has(url), `Sitemap missing ${url}`);
+  assert.equal($('link[rel="canonical"]').attr('href'), url);
+  assert.equal($('h1').length, 1);
+  assert.equal($('h1').text().trim(), guide.title);
+  assert.equal($('title').text().trim(), guide.title);
+  assert(guide.title.length <= 60, `Title too long: ${route}`);
+  assert.equal($('meta[name="description"]').attr('content'), guide.description);
+  assert(guide.description.length <= 160, `Description too long: ${route}`);
+  assert.equal($(`main a[download][href="${download}"]`).length, 1);
+  assert.equal($('main table tbody tr').length, guide.asset.examples.length);
+  assert(guide.asset.examples.every((row) => row.length === guide.asset.columns.length));
+  const csv = fs.readFileSync(`dist${download}`, 'utf-8');
+  assert(csv.startsWith('\uFEFF'), `CSV must use UTF-8 with BOM: ${download}`);
+  assert.equal(csv.trimEnd().split('\r\n').length, guide.asset.examples.length + 2);
+
+  for (const parent of guide.parents) {
+    const parentPage = cheerio.load(fs.readFileSync(`dist${parent}index.html`, 'utf-8'));
+    assert(parentPage(`main a[href="${route}"]`).length, `Missing link from ${parent} to ${route}`);
+    assert($(`main a[href="${parent}"]`).length, `Missing link from ${route} to ${parent}`);
+  }
+  for (const slug of guide.related) {
+    assert(guides.some((item) => item.slug === slug), `Unknown related guide: ${slug}`);
+    assert($(`main a[href="/${slug}/"]`).length, `Missing related link from ${route} to ${slug}`);
+  }
+  console.log(`  [PASS] Guide metadata, sitemap, links and CSV: ${route}`);
+}
 const paragraphMap = new Map();
 
 for (const page of PAGES) {
@@ -551,8 +599,8 @@ for (const page of PAGES) {
     console.log(`  [PASS] Footer contains WhatsApp number exactly once`);
   }
 
-  // 15. Collect all <p> longer than 80 chars
-  $('p').each((_, el) => {
+  // 15. Check page copy independently of shared navigation and footer text.
+  $('main p').each((_, el) => {
     const text = $(el).text().replace(/\s+/g, ' ').trim();
     if (text.length > 80) {
       if (!paragraphMap.has(text)) {
@@ -590,7 +638,7 @@ if (!fs.existsSync(sitemapFile)) {
       hasError = true;
     }
   }
-  console.log('  [PASS] All 10 URLs are present in sitemap.xml');
+  console.log(`  [PASS] All ${PAGES.length} existing URLs are present in sitemap.xml`);
 }
 
 const robotsFile = 'dist/robots.txt';

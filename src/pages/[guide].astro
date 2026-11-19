@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FaqSection from '../components/FaqSection.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import { guides, guideParentTitles, guideSources } from '../k3-guides';
+import { workedExamples } from '../k3-worked-examples';
+
+export function getStaticPaths() {
+  return guides.map((guide) => ({ params: { guide: guide.slug }, props: { guide } }));
+}
+
+const { guide } = Astro.props;
+const canonicalPath = `/${guide.slug}/`;
+const breadcrumbs = [
+  { name: 'Beranda', url: '/' },
+  { name: guide.title, url: canonicalPath },
+];
+const sections = [...guide.sections, ...workedExamples[guide.slug]].map((section, index) => ({
+  ...section,
+  id: `bagian-${index + 1}`,
+}));
+const related = guides.filter((item) => guide.related.includes(item.slug));
+const source = guideSources[guide.source];
+const downloadPath = `/unduhan/${guide.slug}.csv`;
+---
+
+<Layout title={guide.title} description={guide.description} canonicalPath={canonicalPath}
+  breadcrumbs={breadcrumbs} faqItems={guide.faqItems} lastUpdated="2026-11-19">
+  <article>
+    <header class="guide-header">
+      <h1>{guide.title}</h1>
+      <p class="updated">Diperbarui: <time datetime="2026-11-19">19 November 2026</time></p>
+      <p>{guide.intro}</p>
+      <a class="download" href={downloadPath} download>Unduh {guide.asset.title} (CSV)</a>
+    </header>
+
+    <TableOfContents items={[
+      ...sections.map(({ id, heading }) => ({ id, title: heading })),
+      { id: 'contoh-lembar-kerja', title: guide.asset.title },
+      { id: 'faq-section', title: 'Pertanyaan umum' },
+    ]} />
+
+    {sections.map(({ id, heading, paragraphs }) => (
+      <section id={id}>
+        <h2>{heading}</h2>
+        {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </section>
+    ))}
+
+    <section id="contoh-lembar-kerja" aria-labelledby="judul-lembar-kerja">
+      <h2 id="judul-lembar-kerja">{guide.asset.title}</h2>
+      <p>Contoh isian dapat disesuaikan dengan lingkup pekerjaan Anda.</p>
+      <div class="table-scroll" role="region" aria-label={guide.asset.title} tabindex="0">
+        <table>
+          <thead><tr>{guide.asset.columns.map((column) => <th scope="col">{column}</th>)}</tr></thead>
+          <tbody>
+            {guide.asset.examples.map(([label, ...cells]) => (
+              <tr><th scope="row">{label}</th>{cells.map((cell) => <td>{cell || '—'}</td>)}</tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <FaqSection items={guide.faqItems} />
+
+    <section>
+      <h2>Rujukan dan panduan terkait</h2>
+      <ul>
+        <li><cite>{source.title}</cite><br /><span class="source-address">{source.url}</span></li>
+        {guide.parents.map((path) => <li><a href={path}>{guideParentTitles[path]}</a></li>)}
+        {related.map((item) => <li><a href={`/${item.slug}/`}>{item.title}</a></li>)}
+      </ul>
+    </section>
+
+    <aside class="guide-contact">
+      <a href="/konsultasi-gratis/">{guide.cta}</a>
+    </aside>
+  </article>
+</Layout>
+
+<style>
+  .guide-header { margin-bottom: 2rem; }
+  .guide-header p { font-size: 1.12rem; }
+  .guide-header .updated { font-size: .9rem; }
+  .download {
+    display: inline-block;
+    padding: .75rem 1rem;
+    border: 1px solid var(--color-teal, #11665b);
+    border-radius: .5rem;
+    font-weight: 700;
+  }
+  .table-scroll { overflow-x: auto; }
+  .source-address { overflow-wrap: anywhere; }
+  table { min-width: 34rem; }
+  th[scope="row"] { text-align: left; }
+  .guide-contact {
+    margin-top: 2rem;
+    padding: 1rem 1.25rem;
+    border-left: .25rem solid var(--color-teal, #11665b);
+    background: var(--color-bg);
+    font-weight: 700;
+  }
+</style>

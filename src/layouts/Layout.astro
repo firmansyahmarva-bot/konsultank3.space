@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyWhatsApp from '../components/StickyWhatsApp.astro';
 import { SITE_INFO, CONTACT_INFO, COMPANY_INFO } from '../config';
+import { guides } from '../k3-guides';
 
 export interface BreadcrumbItem {
   name: string;
@@ -39,6 +40,7 @@ const {
 // Ensure trailing slash normalization
 const normalizedPath = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
 const canonicalUrl = `${SITE_INFO.baseUrl}${normalizedPath === '//' ? '/' : normalizedPath}`;
+const linkedGuides = guides.filter((guide) => guide.parents.includes(normalizedPath));
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -168,6 +170,14 @@ const organizationSchema = isHomePage ? {
 
       <main id="main-content" class="main-content">
         <slot />
+        {linkedGuides.length > 0 && (
+          <section class="linked-guides" aria-labelledby="panduan-lanjutan">
+            <h2 id="panduan-lanjutan">Panduan lanjutan</h2>
+            <ul>
+              {linkedGuides.map((guide) => <li><a href={`/${guide.slug}/`}>{guide.title}</a></li>)}
+            </ul>
+          </section>
+        )}
       </main>
     </div>
 
