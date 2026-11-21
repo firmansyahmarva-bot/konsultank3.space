@@ -1,3 +1,5 @@
+type GuideSource = keyof typeof guideSources;
+
 type Guide = {
   slug: string;
   title: string;
@@ -6,7 +8,7 @@ type Guide = {
   sections: { heading: string; paragraphs: string[] }[];
   asset: { title: string; columns: string[]; examples: string[][] };
   faqItems: { question: string; answer: string }[];
-  source: keyof typeof guideSources;
+  source: GuideSource | GuideSource[];
   lastUpdated?: string;
   parents: string[];
   related: string[];
@@ -19,6 +21,10 @@ export const guideSources = {
   csms: { title: 'Contoh formulir prakualifikasi CSMS Pertamina', url: 'https://www.pertamina.com/Media/Upload/Files/Form-Isian-PQ-CSMS.pdf' },
   p2k3: { title: 'Permenaker Nomor 13 Tahun 2025 tentang P2K3', url: 'https://jdih.kemnaker.go.id/asset/data_puu/2025pmnaker013.pdf' },
   jsa: { title: 'Contoh formulir JSA pada pedoman Badan Karantina Indonesia', url: 'https://jdih.karantinaindonesia.go.id/storage/common/dokumen/2024KepDeputiKI14.pdf' },
+  lingkungan: { title: 'Permenaker Nomor 5 Tahun 2018 tentang K3 Lingkungan Kerja', url: 'https://jdih.kemnaker.go.id/asset/data_puu/Permen_5_2018.pdf' },
+  forklift: { title: 'Permenaker Nomor 8 Tahun 2020 tentang K3 Pesawat Angkat dan Angkut', url: 'https://jdih.kemnaker.go.id/asset/data_puu/Permen_8_Tahun_2020.pdf' },
+  apar: { title: 'PER.04/MEN/1980 tentang Pemasangan dan Pemeliharaan APAR', url: 'https://temank3.kemnaker.go.id/page/perundangan_detail/52/2b6f3f64664cea53d9527b9388c9e67d' },
+  iso: { title: 'ISO 45001:2018 dan Amandemen 1:2024', url: 'https://www.iso.org/standard/45001' },
   bina: { title: 'Contoh program komunikasi keselamatan konstruksi pada SE Dirjen Bina Marga 16/SE/Db/2025', url: 'https://binamarga.pu.go.id/uploads/files/2105/surat-edaran-direktur-jenderal-bina-marga-nomor-16sedb2025-tentang-tata-cara-penetapan-persyaratan-kualifikasi-ldk-dan-mdp-paket-pekerjaan-konstruksi-preservasi-jalan-dan-jembatan-dengan-skema-long-segment-modifikasi-.pdf' },
 };
 
@@ -35,6 +41,10 @@ export const guideParentTitles: Record<string, string> = {
   '/dokumen-smk3/': 'Dokumen penerapan SMK3',
   '/membentuk-p2k3/': 'Cara membentuk P2K3',
   '/laporan-p2k3-disnaker/': 'Cara melaporkan kegiatan P2K3 ke Disnaker',
+  '/sio-dan-sia-k3/': 'Lisensi operator dan dokumen pemeriksaan alat',
+  '/checklist-inspeksi-k3/': 'Checklist inspeksi area kerja',
+  '/arti-rambu-k3/': 'Panduan arti rambu K3',
+  '/isi-kotak-p3k-permenaker/': 'Daftar isi kotak P3K di tempat kerja',
 };
 
 export const guides: Guide[] = [
@@ -806,5 +816,217 @@ export const guides: Guide[] = [
     ],
     "cta": "Bahas pengarahan K3 untuk tim lapangan",
     "lastUpdated": "2026-11-21"
-  }
+  },
+  {
+    slug: "pengukuran-lingkungan-kerja",
+    title: "Pengukuran Lingkungan Kerja K3: Panduan dan Checklist",
+    description: "Siapkan pengukuran lingkungan kerja K3 sesuai Permenaker 5/2018. Tentukan faktor pajanan, lingkup pengujian, dan tindak lanjut melalui worksheet.",
+    intro: "Untuk menyiapkan pengukuran lingkungan kerja K3, petakan aktivitas, sumber pajanan, pekerja yang terdampak, dan kondisi operasi sebelum meminta penawaran. Peta ini membantu lembaga penguji memilih metode serta titik atau pekerja yang perlu dinilai. Hasilnya kemudian dipakai untuk memeriksa kecukupan pengendalian.",
+    sections: [
+      { heading: "Faktor yang perlu dipetakan", paragraphs: [
+        "Permenaker 5/2018 mencakup faktor fisika, kimia, biologi, ergonomi, dan psikologi. Mulai dari sumber pada proses kerja. Mesin pemotong dapat memunculkan kebisingan, aktivitas tertentu bisa menimbulkan debu atau uap, dan pekerjaan pemindahan barang berulang dapat memerlukan penilaian ergonomi. Pilihan metode bergantung pada faktor dan tujuan evaluasi.",
+        "Tulis aktivitas normal serta aktivitas yang sesekali terjadi, seperti pembersihan, penggantian bahan, dan pemeliharaan. Sebutkan siapa yang bekerja di sekitar sumber, termasuk pekerja dari unit lain dan kontraktor. Cantumkan pengendalian yang sudah ada, perubahan proses terakhir, dan alasan memilih aktivitas untuk diperiksa.",
+      ] },
+      { heading: "Siapa yang melakukan pengujian dan kapan", paragraphs: [
+        "Pasal 59 membedakan pemeriksaan atau pengujian internal dan eksternal. Personel K3 bidang lingkungan kerja dapat menjalankan pemeriksaan internal sesuai ketentuan. Pemeriksaan internal tetap menyisakan kewajiban pengukuran eksternal. Untuk lembaga eksternal di luar unit pemerintah yang tercantum pada pasal tersebut, periksa akreditasi dan penunjukan Menteri serta kesesuaiannya dengan lingkup pengujian.",
+        "Pasal 62 mengatur pemeriksaan atau pengujian berkala secara eksternal setidaknya setahun sekali atau sesuai penilaian risiko maupun ketentuan yang berlaku. Saat membuat kalender, catat tanggal pemeriksaan terakhir, dasar jadwal berikutnya, dan kondisi yang memerlukan review. Perubahan bahan, kapasitas produksi, tata letak, atau ventilasi dapat mengubah penilaian pajanan.",
+      ] },
+      { heading: "Contoh menyusun brief untuk pabrik dua giliran", paragraphs: [
+        "Pada contoh pabrik, pekerja pemotongan menghadapi sumber bising yang menyala selama beberapa bagian giliran. Gudang memakai peralatan dan pola kerja berbeda. Siapkan denah, jenis mesin, waktu operasi, jumlah pekerja per giliran, dan kegiatan yang paling mewakili pekerjaan mereka. Sertakan lembar data keselamatan bahan jika ada potensi pajanan kimia.",
+        "Tanyakan apakah metode yang diusulkan menilai kondisi pada titik tetap, pajanan personal, atau keduanya. Sebuah pembacaan dekat mesin membantu memetakan sumber. Evaluasi pajanan pekerja juga perlu mempertimbangkan tempat ia bekerja dan durasi tiap aktivitas. Minta penyedia mencatat alasan pemilihan titik atau pekerja serta kondisi produksi pada saat pengukuran.",
+      ] },
+      { heading: "Cara membaca hasil dan menentukan tindakan", paragraphs: [
+        "Cocokkan setiap hasil dengan faktor, satuan, durasi, metode, dan dasar pembanding pada laporan. Untuk hasil yang dibandingkan dengan nilai ambang batas, periksa apakah dasar waktu dan ukuran pajanan sesuai. Bila hasil berasal dari giliran dengan produksi lebih rendah, diskusikan keterwakilannya sebelum menerapkan kesimpulan pada giliran lain.",
+        "Misalnya, pengujian mencatat potensi pajanan tinggi selama aktivitas pemotongan. Telusuri waktu kerja dan kondisi pengendalian saat sampel diambil. Diskusikan perbaikan pada sumber atau jalur pajanan, tetapkan penanggung jawab dan jadwal, lalu rencanakan verifikasi dengan metode yang sesuai setelah perubahan. Catat keputusan dalam register agar dapat ditelusuri saat tinjauan K3.",
+      ] },
+      { heading: "Apa yang perlu diminta sebelum menyetujui penawaran", paragraphs: [
+        "Minta rincian parameter, metode, cakupan lokasi, jumlah sampel, jadwal, dan hasil yang diserahkan. Bandingkan penawaran dengan skenario produksi yang sama. Sepakati siapa yang menyiapkan izin akses, denah, catatan giliran, serta narahubung operasi. Jika mesin yang relevan berhenti pada hari pengukuran, tentukan cara menjadwalkan kembali atau mendokumentasikan batas hasil.",
+        "Pada serah terima, simpan lembar lingkup, laporan, dan daftar tindak lanjut bersama bukti verifikasi. Gunakan nomor sampel atau rujukan halaman saat mencatat tindakan. Untuk pengukuran ulang, catat pengendalian yang berubah dan kondisi operasi yang perlu diamati agar hasil sebelumnya dapat dibandingkan secara bermakna.",
+      ] },
+    ],
+    asset: { title: "Worksheet lingkup pengukuran lingkungan kerja", columns: ["Lokasi dan aktivitas","Faktor atau sumber","Pekerja dan durasi","Kondisi operasi","Bukti untuk penyedia","Keputusan atau tindak lanjut"], examples: [
+      ["Pemotongan logam","Kebisingan mesin","Operator, dua giliran","Catat lama mesin aktif","Denah, jadwal, dan daftar aktivitas","Diskusikan metode pajanan personal"],
+      ["Area pencampuran","Potensi pajanan bahan kimia","Operator pencampuran","Catat bahan dan periode proses","Lembar data keselamatan, catatan ventilasi","Konfirmasi parameter dengan penguji"],
+      ["Gudang","Pemindahan barang berulang","Pekerja penerimaan","Catat variasi volume dan giliran","Daftar tugas dan pola pemindahan","Bahas metode penilaian ergonomi"],
+    ] },
+    faqItems: [
+      { question: "Apakah hasil pengukuran internal cukup untuk kewajiban eksternal?", answer: "Pasal 59 Permenaker 5/2018 menyatakan pengukuran internal tidak menggugurkan kewajiban pengukuran eksternal." },
+      { question: "Apa yang dilakukan bila hasil melebihi pembanding?", answer: "Tinjau metode dan kondisi pengukuran bersama pihak kompeten, putuskan pengendalian, tetapkan pemilik tindakan, dan siapkan verifikasi efektivitas." },
+    ],
+    source: "lingkungan",
+    parents: ["/dokumen-smk3/","/contoh-hiradc/"],
+    related: ["checklist-inspeksi-k3","gap-analysis-smk3"],
+    cta: "Konsultasikan lingkup pengukuran lingkungan kerja",
+    lastUpdated: "2026-11-21",
+  },
+  {
+    slug: "riksa-uji-forklift",
+    title: "Riksa Uji Forklift: Syarat, Jadwal, dan Checklist",
+    description: "Ketahui jadwal riksa uji forklift menurut Permenaker 8/2020. Siapkan identitas unit, dokumen, lokasi, dan register tindak lanjut.",
+    intro: "Riksa uji forklift adalah pemeriksaan dan pengujian K3 terhadap unit forklift. Untuk menyiapkannya, cocokkan identitas setiap unit dengan bukti pemeriksaan sebelumnya, tentukan jenis pemeriksaan yang diperlukan, dan atur akses dengan pihak pemeriksa yang berwenang.",
+    sections: [
+      { heading: "Jadwal pemeriksaan pertama, berkala, dan khusus", paragraphs: [
+        "Permenaker 8/2020 Pasal 176 ayat (1) menetapkan pemeriksaan berkala pertama paling lambat dua tahun setelah pemeriksaan dan pengujian pertama untuk pesawat angkat dan angkut. Setelah itu, pemeriksaan berkala dilakukan setiap tahun. Gunakan tanggal yang tercatat pada dokumen pemeriksaan, bukan perkiraan tahun pembelian atau tanggal servis.",
+        "Pasal 177 mengatur pemeriksaan dan pengujian khusus setelah kecelakaan kerja, kebakaran, atau peledakan. Jika riwayat unit tidak jelas, ada perubahan pada unit, atau terjadi kejadian yang dapat memengaruhi kelayakan, catat faktanya dan konsultasikan pemeriksaan yang diperlukan sebelum merencanakan penggunaan berikutnya.",
+      ] },
+      { heading: "Bedakan kelayakan unit, lisensi operator, dan cek harian", paragraphs: [
+        "Bukti pemeriksaan forklift melekat pada unit yang diperiksa. Lisensi K3 operator berkaitan dengan orang yang mengoperasikan peralatan. Catat kedua jenis bukti di register terpisah yang dapat dihubungkan. Untuk unit sewa, minta bukti yang sesuai dengan nomor seri aktual dan periksa dokumen operator yang ditugaskan.",
+        "Cek sebelum penggunaan membantu menemukan perubahan kondisi dari satu giliran ke giliran berikutnya. Servis rutin membantu pemeliharaan. Gunakan bukti tersebut untuk menunjukkan riwayat unit saat riksa uji. Jika cek harian menemukan gejala yang dapat memengaruhi keselamatan, ikuti prosedur penghentian penggunaan dan pemeriksaan di tempat kerja.",
+      ] },
+      { heading: "Dokumen dan lokasi yang perlu disiapkan", paragraphs: [
+        "Siapkan daftar aset, merek dan model, nomor seri, data kapasitas pada pelat, lokasi pemakaian, riwayat pemeriksaan, catatan pemeliharaan, serta informasi perlengkapan tambahan yang dipasang. Catat ketidaksesuaian identitas sejak awal. Apabila laporan lama tidak ditemukan, tandai statusnya sebagai perlu konfirmasi dan hubungi pihak yang berwenang.",
+        "Sepakati waktu, akses, penanggung jawab lokasi, aktivitas yang perlu dijadwalkan ulang, dan cara mengendalikan area pemeriksaan. Serahkan penetapan metode serta pelaksanaan pengujian kepada pemeriksa yang berwenang. Konfirmasikan bentuk laporan atau dokumen hasil serta bagaimana temuan disampaikan kepada perusahaan.",
+      ] },
+      { heading: "Contoh menghitung tanggal untuk dua unit", paragraphs: [
+        "Misalkan F-01 pertama kali diperiksa pada 12 Februari 2025. Dengan ketentuan umum dua tahun, pemeriksaan berkala pertamanya dijadwalkan paling lambat 12 Februari 2027. Jika pemeriksaan berkala dilaksanakan pada 20 Januari 2027, jadwalkan siklus tahunan berikutnya berdasarkan rekaman tersebut dan konfirmasikan tanggal yang berlaku dengan pihak pemeriksa.",
+        "Untuk unit sewa F-02, pemasok menyerahkan dokumen yang menyebut nomor seri berbeda dari pelat. Jangan menyalin tanggal dokumen itu sebagai dasar jadwal F-02. Periksa berkas serah terima, minta dokumen sesuai unit, dan eskalasikan status yang belum terverifikasi kepada penanggung jawab penggunaan.",
+      ] },
+      { heading: "Tutup temuan dan pelihara register", paragraphs: [
+        "Setelah menerima hasil, cocokkan identitas unit dan ruang lingkupnya, lalu catat keputusan pemeriksa serta tindakan yang diminta. Untuk temuan yang memengaruhi kelayakan, ikuti pembatasan penggunaan dan persyaratan verifikasi dari pihak berwenang. Bukti perbaikan dapat berupa catatan pekerjaan atau hasil pemeriksaan lanjutan sesuai temuan.",
+        "Tentukan pemilik register dan tanggal pemeriksaan rutin atas kelengkapan data. Saat unit pindah, diganti, dikembalikan, atau memperoleh perlengkapan tambahan, perbarui data dan periksa dampaknya pada lingkup pemeriksaan. Simpan rekaman sebelumnya agar perubahan dapat ditelusuri tanpa mencampur riwayat dari dua nomor seri.",
+      ] },
+    ],
+    asset: { title: "Register persiapan riksa uji forklift", columns: ["ID unit","Nomor seri","Jenis pemeriksaan","Tanggal pemeriksaan terakhir","Target berikutnya","Dokumen atau kondisi","PIC","Status"], examples: [
+      ["F-01","Seri contoh A","Berkala pertama","2025-02-12","2027-02-12","Cocokkan berita acara pemeriksaan pertama","Penanggung jawab aset","Siapkan jadwal"],
+      ["F-02","Seri contoh B","Perlu konfirmasi","","","Nomor seri pada dokumen pemasok berbeda","Koordinator sewa","Telusuri bukti"],
+      ["F-03","Seri contoh C","Berkala tahunan","","","Periksa laporan terakhir dan catatan servis","Pemeliharaan","Isi tanggal dari laporan"],
+    ] },
+    faqItems: [
+      { question: "Berapa kali riksa uji forklift dilakukan?", answer: "Pasal 176 ayat (1) menetapkan pemeriksaan berkala pertama paling lambat dua tahun setelah pemeriksaan pertama dan selanjutnya setahun sekali. Keadaan tertentu dapat memerlukan pemeriksaan khusus." },
+      { question: "Apakah bukti riksa uji cukup untuk operator?", answer: "Bukti riksa uji berkaitan dengan unit. Periksa lisensi K3 dan penugasan operator secara terpisah sesuai kelas dan ketentuan yang berlaku." },
+    ],
+    source: "forklift",
+    parents: ["/sio-dan-sia-k3/"],
+    related: ["checklist-inspeksi-k3","contoh-jsa"],
+    cta: "Bahas kesiapan dokumen dan jadwal riksa uji forklift",
+    lastUpdated: "2026-11-21",
+  },
+  {
+    slug: "checklist-inspeksi-apar",
+    title: "Checklist Inspeksi APAR: Form dan Contoh Isian",
+    description: "Unduh checklist inspeksi APAR untuk mencatat lokasi, akses, kondisi tabung, jadwal pemeriksaan, serta tindakan perbaikan dan verifikasinya.",
+    intro: "Checklist inspeksi APAR membantu memastikan setiap alat pemadam api ringan dapat ditemukan, diakses, dan ditindaklanjuti bila ada cacat. Mulai dari daftar unit dan lokasi. Gunakan hasil pemeriksaan visual rutin sebagai masukan bagi pemeliharaan dan pemeriksaan berkala.",
+    sections: [
+      { heading: "Bedakan pengecekan rutin dan pemeriksaan berkala", paragraphs: [
+        "Pasal 11 PER.04/MEN/1980 menetapkan dua pemeriksaan dalam setahun, yaitu pemeriksaan jangka enam bulan dan dua belas bulan. Pasal 12 dan 13 merinci lingkup pemeriksaan masing-masing, sebagian bergantung pada tipe alat. Jika inspeksi visual internal dijadwalkan lebih sering, simpan rekamannya terpisah dari bukti pemeriksaan berkala.",
+        "Tentukan siapa yang mengecek akses dan kondisi visual pada rute rutin. Untuk pemeriksaan teknis, pemeriksaan isi, servis, atau penggantian, ikuti petunjuk pabrikan dan libatkan pihak yang kompeten. Jangan menggunakan posisi jarum tekanan sebagai satu-satunya dasar status. Beberapa jenis APAR memakai indikator atau cara pemeriksaan yang berbeda.",
+      ] },
+      { heading: "Urutan pemeriksaan visual per unit", paragraphs: [
+        "Cocokkan ID alat, titik pada denah, dan jenisnya dengan register. Lihat apakah alat berada pada posisi yang ditetapkan, tanda terlihat dari rute, akses bebas hambatan, serta dudukan atau lemari dalam kondisi baik. Catat jika tata letak, mesin, atau bahan di area telah berubah sejak penempatan APAR ditinjau.",
+        "Periksa bagian luar tabung, label, segel dan pin yang terlihat, selang atau nosel sesuai tipe, serta indikator yang tersedia. Laporkan penyok, korosi, kebocoran, atau tanda pernah digunakan. Catat tanggal pemeriksaan terakhir dan tanggal berikutnya berdasarkan rekaman. Unit yang tidak ditemukan perlu dicatat agar kekosongan perlindungan dapat segera ditinjau.",
+      ] },
+      { heading: "Contoh temuan dan tindakan di gudang", paragraphs: [
+        "Pada putaran pagi, unit G-07 tetap terpasang, tetapi palet menghalangi akses. Catat titik, waktu, bukti, dan pihak yang mengelola area. Minta akses dipulihkan segera sesuai prosedur. Periksa ulang titik yang sama saat kegiatan penerimaan berlangsung untuk melihat apakah palet kembali ditempatkan di sana. Jika berulang, ajukan perubahan zona transit dan periksa hasilnya pada giliran berikutnya.",
+        "Pada titik lain, tabung H-03 menunjukkan korosi. Catat cacat dan laporkan agar alat segera diperbaiki atau diganti sebagaimana ditentukan Pasal 11. Koordinasikan penanganan dengan pemilik peralatan agar ketersediaan proteksi di lokasi terjaga. Setelah penggantian, cocokkan ID baru dan tanggal pemasangan dengan register serta denah.",
+      ] },
+      { heading: "Pakai status yang menunjukkan keputusan berikutnya", paragraphs: [
+        "Gunakan status seperti baik secara visual, temuan akses, perlu tindakan teknis, atau tidak ditemukan. Pisahkan catatan inspeksi dari keputusan teknis yang dibuat petugas berwenang. Tambahkan PIC, tenggat, dan bukti setelah tindakan dilakukan. Pengecekan berikutnya dapat dimulai dari unit dengan temuan terbuka dan unit yang baru dipindahkan.",
+        "Jika pekerjaan dilakukan oleh penyedia, cocokkan daftar unit pada laporan dengan register lokasi. Simpan bukti yang menunjukkan jenis pemeriksaan, tanggal, identitas unit, dan hasilnya. Periksa bahwa unit sementara atau pengganti juga tercatat dan mudah ditemukan oleh pekerja.",
+      ] },
+      { heading: "Sesuaikan checklist saat area berubah", paragraphs: [
+        "Perubahan jenis material, tata letak, atau penggunaan ruang dapat memengaruhi penempatan dan jenis APAR yang dibutuhkan. Gunakan laporan inspeksi untuk menandai perubahan tersebut, lalu mintakan tinjauan kepada pihak yang menangani proteksi kebakaran. Dalam template, buat satu baris per unit dan sisakan ruang untuk nomor tindakan jika lebih dari satu masalah ditemukan.",
+        "Pada rapat tindak lanjut, pilih satu unit dan telusuri alurnya dari denah ke rekaman pemeriksaan serta bukti koreksi. Jika peninjau kesulitan menemukan unit atau tanggal pemeriksaan berikutnya, perbaiki penamaan atau struktur register sebelum inspeksi berikutnya.",
+      ] },
+    ],
+    asset: { title: "Log checklist inspeksi APAR", columns: ["ID unit","Lokasi","Tipe APAR","Akses dan tanda","Kondisi visual","Tanggal cek","Pemeriksaan berkala berikutnya","Tindakan dan PIC","Bukti verifikasi"], examples: [
+      ["G-07","Pintu penerimaan","Sesuai label unit","Akses terhalang palet","Bagian luar tampak baik","","","Pulihkan akses dan tinjau zona transit, supervisor","Periksa kembali saat penerimaan aktif"],
+      ["H-03","Lorong gudang","Sesuai label unit","Akses terbuka","Tampak korosi","","","Laporkan untuk perbaikan atau penggantian, pemilik aset","Cocokkan unit pengganti dan register"],
+      ["K-01","Koridor kantor","Sesuai label unit","Belum diperiksa","Belum diperiksa","","","",""],
+    ] },
+    faqItems: [
+      { question: "Apakah cek bulanan menggantikan pemeriksaan enam dan dua belas bulan?", answer: "Cek visual internal melengkapi pemeriksaan berkala. Jadwalkan pemeriksaan enam dan dua belas bulan sesuai Pasal 11 dan lingkup pada Pasal 12 dan 13." },
+      { question: "Bagaimana jika APAR ditemukan cacat?", answer: "Laporkan kepada pihak yang berwenang menangani alat agar cacat segera diperbaiki atau unit diganti. Catat tindakan, jaga ketersediaan proteksi, dan verifikasi hasilnya." },
+    ],
+    source: "apar",
+    parents: ["/checklist-inspeksi-k3/","/arti-rambu-k3/"],
+    related: ["contoh-sop-tanggap-darurat"],
+    cta: "Bahas program inspeksi dan pencatatan APAR",
+    lastUpdated: "2026-11-21",
+  },
+  {
+    slug: "contoh-sop-tanggap-darurat",
+    title: "Contoh SOP Tanggap Darurat: Evakuasi dan Simulasi",
+    description: "Lihat contoh SOP tanggap darurat untuk gudang atau tempat kerja, dari aktivasi alarm dan evakuasi hingga penghitungan orang serta evaluasi simulasi.",
+    intro: "Contoh SOP tanggap darurat berikut memakai skenario asap di area penerimaan gudang. Alurnya mencakup pemberitahuan, evakuasi, pendataan orang, koordinasi bantuan, dan keputusan masuk kembali. Isi peran, nomor kontak, denah, dan syarat aktivasi berdasarkan rencana yang disahkan di lokasi Anda.",
+    sections: [
+      { heading: "Isi pokok SOP dan dasar penetapan", paragraphs: [
+        "Cantumkan tujuan dan lingkup, skenario yang dicakup, kondisi untuk mengaktifkan respons, peran utama dan pengganti, saluran komunikasi, jalur evakuasi, titik kumpul, pendataan, dan prosedur pemulihan. PP 50/2012 Pasal 11 dan Lampiran II bagian 6.7 mengaitkan kesiapsiagaan dengan identifikasi potensi darurat, dokumentasi, komunikasi, pengujian, dan peninjauan rutin.",
+        "Untuk gudang, skenario dapat mencakup kebakaran, terhalangnya akses keluar, atau keadaan darurat kesehatan. Pilih skenario dari penilaian risiko lokasi. Tetapkan dalam dokumen siapa yang memanggil bantuan, bagaimana tamu dan kontraktor dihitung, dan siapa yang berwenang memberi izin masuk kembali. Minta petugas berkompeten meninjau denah dan alur sebelum SOP digunakan.",
+      ] },
+      { heading: "Langkah 1–2. Laporkan dan aktifkan respons", paragraphs: [
+        "Dalam contoh, pekerja melihat asap dekat pintu penerimaan. Pekerja menjauh dari bahaya, memberi tahu orang di sekitar, dan mengaktifkan atau melaporkan melalui sarana yang ditetapkan SOP. Isi pesan dengan lokasi tepat, jenis kejadian, potensi orang terdampak, dan akses yang diketahui. Koordinator atau petugas yang ditunjuk meneruskan informasi kepada layanan darurat sesuai prosedur lokasi.",
+        "Siapkan cara alternatif jika saluran komunikasi utama gagal. Tulis siapa yang memiliki daftar kontak dan siapa penggantinya pada giliran malam. Pada area dengan tamu atau pekerja yang membutuhkan bantuan, siapkan cara agar instruksi dapat diterima dan pendamping sudah ditetapkan.",
+      ] },
+      { heading: "Langkah 3–4. Evakuasi dan periksa siapa yang sudah aman", paragraphs: [
+        "Tim menuju jalur aman yang ditetapkan, mengikuti instruksi petugas, dan melapor di titik kumpul. Jika jalur utama terdampak, gunakan jalur alternatif yang sudah ditinjau. Petugas titik kumpul membandingkan orang yang hadir dengan data pekerja, tamu, dan kontraktor untuk periode tersebut. Catat informasi terakhir tentang orang yang belum ditemukan lalu sampaikan kepada koordinator dan petugas darurat.",
+        "Contoh latihan: dua pengunjung tertulis di buku tamu tetapi baru satu tiba di titik kumpul. Petugas menanyakan informasi terakhir kepada pendamping dan menyampaikan status kepada komando respons. Pekerja tetap di tempat aman dan mengikuti arahan petugas. Koordinator memperbarui status saat informasi baru diterima.",
+      ] },
+      { heading: "Langkah 5. Masuk kembali dan pulihkan kegiatan", paragraphs: [
+        "Pisahkan berakhirnya evakuasi dari izin masuk kembali. SOP harus menentukan pihak yang memberi izin dan cara menyampaikannya setelah kondisi dinyatakan aman. Catat waktu keputusan, area yang boleh dimasuki, serta pembatasan yang masih berlaku. Bila aktivitas harus dipindah atau dijadwalkan ulang, sampaikan kepada pemilik proses dan pihak yang terdampak.",
+        "Simpan catatan waktu alarm, pergerakan ke titik kumpul, informasi orang yang belum terkonfirmasi, dan koordinasi eksternal. Untuk kejadian nyata, jalankan prosedur pelaporan dan investigasi yang berlaku. Waktu respons membantu evaluasi, bersama kualitas pendataan, kejelasan instruksi, dan keterjangkauan jalur.",
+      ] },
+      { heading: "Uji dengan simulasi dan tindak lanjuti temuan", paragraphs: [
+        "Rancang simulasi bersama penanggung jawab lokasi. Tetapkan tujuan, misalnya menguji rute alternatif dan kelengkapan data tamu. Amati apakah alarm diterima pada area bising, daftar orang tersedia, petugas pengganti mengetahui tugasnya, dan akses bantuan terjaga. Gunakan pengamat untuk mencatat bukti pada tahapan yang disepakati.",
+        "Jika daftar kontraktor ternyata tidak tersedia saat simulasi, beri pemilik tindakan dan waktu penyelesaian. Uji kembali dengan satu skenario dari giliran berbeda. Perbarui SOP dan materi induksi bila hasilnya mengubah rute, peran, atau cara pelaporan. Simpan riwayat revisi serta hasil uji agar karyawan tahu versi yang digunakan.",
+      ] },
+    ],
+    asset: { title: "Matriks peran dan evaluasi tanggap darurat", columns: ["Tahap","Peran utama","Pengganti","Keputusan atau tindakan","Bukti simulasi","Temuan atau tindak lanjut"], examples: [
+      ["Pemberitahuan","Sesuai SOP lokasi","","Aktifkan alarm atau laporkan posisi kejadian","Waktu dan jangkauan alarm",""],
+      ["Evakuasi","Petugas evakuasi","","Arahkan ke jalur aman atau alternatif","Catatan jalur yang digunakan",""],
+      ["Pendataan","Petugas titik kumpul","","Cocokkan pekerja, tamu, dan kontraktor","Daftar orang dan status",""],
+      ["Masuk kembali","Pihak berwenang sesuai SOP","","Sampaikan izin dan batas area setelah dinyatakan aman","Waktu keputusan dan penerima informasi",""],
+    ] },
+    faqItems: [
+      { question: "Apakah contoh ini dapat langsung menjadi SOP perusahaan?", answer: "Gunakan sebagai kerangka. Isi skenario, denah, kontak, peran, dan kewenangan setempat. Tinjau dan uji bersama petugas yang kompeten sebelum digunakan." },
+      { question: "Apa yang sebaiknya dinilai saat simulasi?", answer: "Periksa penerimaan alarm, akses jalur, pemahaman instruksi, kelengkapan pendataan, koordinasi bantuan, dan kemampuan menindaklanjuti temuan." },
+    ],
+    source: "smk3",
+    parents: ["/dokumen-smk3/","/isi-kotak-p3k-permenaker/"],
+    related: ["materi-safety-induction","checklist-inspeksi-apar"],
+    cta: "Bahas penyusunan SOP dan evaluasi simulasi",
+    lastUpdated: "2026-11-21",
+  },
+  {
+    slug: "perbedaan-smk3-dan-iso-45001",
+    title: "Perbedaan SMK3 dan ISO 45001 untuk Perusahaan",
+    description: "Bandingkan SMK3 PP 50/2012 dan ISO 45001 dari dasar penerapan, lingkup, audit, dan bukti. Unduh matriks integrasi untuk persiapan perusahaan.",
+    intro: "Perbedaan utama SMK3 dan ISO 45001 terletak pada dasar penerapan dan skema penilaiannya. SMK3 dalam panduan ini mengacu pada PP 50/2012 di Indonesia. ISO 45001 adalah standar internasional sistem manajemen K3. Perusahaan dapat menggunakan sebagian bukti yang sama untuk keduanya, dengan verifikasi terpisah terhadap persyaratan masing-masing.",
+    sections: [
+      { heading: "Dasar penerapan dan kapan perusahaan perlu keduanya", paragraphs: [
+        "Pasal 5 PP 50/2012 menetapkan kewajiban penerapan SMK3 bagi perusahaan dengan sedikitnya 100 pekerja atau tingkat potensi bahaya tinggi. Periksa kedua kondisi dan aturan sektoral yang berlaku untuk perusahaan Anda. ISO 45001 dapat diterapkan oleh organisasi berbagai ukuran. Sertifikasi ISO 45001 dapat dipilih perusahaan, meski pelanggan atau kontrak tertentu dapat menjadikannya syarat komersial.",
+        "Jika tender meminta ISO 45001, baca persyaratan lingkup, lokasi, masa berlaku, dan badan sertifikasi yang diterima. Konfirmasi apakah bukti masih diperlukan pada saat penawaran atau saat pelaksanaan. Secara terpisah, evaluasi kewajiban nasional dan bukti yang relevan. Sertifikat ISO 45001 tidak menggantikan kewajiban penerapan SMK3.",
+      ] },
+      { heading: "Perbedaan ruang lingkup dan pola penilaian", paragraphs: [
+        "PP 50/2012 menguraikan kebijakan, perencanaan, pelaksanaan, evaluasi, dan peningkatan. Lampiran II memuat kriteria audit dengan tingkat awal, transisi, dan lanjutan. Untuk penilaian eksternal SMK3, konfirmasikan tingkat, cakupan, dan pelaksana audit sesuai mekanisme nasional. Tentukan bukti per lokasi dan proses sebelum menyusun rencana audit.",
+        "ISO 45001 menekankan konteks organisasi, kepemimpinan serta partisipasi pekerja, perencanaan, dukungan, operasi, evaluasi, dan peningkatan. Untuk sertifikasi, bahas lingkup dan penilaian dengan badan sertifikasi. ISO mencantumkan ISO 45001:2018 sebagai edisi terbit dengan Amandemen 1:2024. Saat memulai proyek, cek edisi yang digunakan dan jadwal transisi pada sumber resmi.",
+      ] },
+      { heading: "Contoh pabrik yang menghadapi kewajiban dan tender", paragraphs: [
+        "Pabrik ilustratif mempekerjakan 180 pekerja dan mendapat tender yang meminta sertifikat ISO 45001 untuk kegiatan manufaktur di lokasi yang ditawarkan. Tim mencatat dasar kewajiban SMK3 berdasarkan jumlah pekerja. Pada jalur tender, tim membaca ruang lingkup sertifikat yang diminta, batas penerimaan dokumen, serta proses sertifikasi yang terkait.",
+        "Saat melakukan gap analysis, tim menemukan penilaian risiko sudah tersedia, tetapi kriteria SMK3 belum dipetakan dan daftar pihak berkepentingan untuk ISO perlu ditinjau. Tim memakai satu daftar tindakan dengan kolom rujukan masing-masing skema. PIC produksi memperbaiki penerapan, HSE memeriksa bukti, dan tim tender memantau persyaratan kontrak serta tenggatnya.",
+      ] },
+      { heading: "Bukti yang bisa dikelola bersama", paragraphs: [
+        "Inventarisasi kebijakan K3, penilaian risiko, rekaman konsultasi pekerja, inspeksi, investigasi, audit internal, dan tinjauan manajemen. Catat versi, lokasi, pemilik, serta periode. Satu rekaman konsultasi bisa mendukung penilaian di kedua skema jika isi, keterlibatan pekerja, dan lingkupnya sesuai. Tandai kriteria yang masih membutuhkan bukti lain.",
+        "Untuk contoh inspeksi gudang, simpan jadwal, laporan, keputusan perbaikan, serta bukti pengujian efektivitas sekali dalam repositori. Rujuk dokumen yang sama dari pemetaan SMK3 dan ISO 45001. Bila salah satu lingkup sertifikasi mengecualikan suatu lokasi, tetap periksa apakah lokasi tersebut perlu tercakup dalam penerapan atau penilaian nasional.",
+      ] },
+      { heading: "Urutan keputusan untuk rencana implementasi", paragraphs: [
+        "Mulai dari daftar kewajiban hukum dan persyaratan pelanggan, lalu buat peta lokasi dan aktivitas. Setelah itu, tentukan proses yang dapat dipakai bersama dan pekerjaan yang hanya diperlukan untuk salah satu skema. Susun jadwal yang memuat waktu menghasilkan bukti, menutup kesenjangan, dan menjalani proses penilaian yang disepakati.",
+        "Gunakan matriks di bawah untuk memulai diskusi dengan manajemen. Untuk setiap baris, catat bukti yang tersedia dan kekurangannya. Tetapkan penanggung jawab dan tenggat yang sesuai kenyataan. Lakukan pemeriksaan terpisah atas hasil penilaian dan keputusan sertifikasi pada tiap skema, terutama bila satu hasil menjadi prasyarat kontrak.",
+      ] },
+    ],
+    asset: { title: "Matriks perbandingan bukti SMK3 dan ISO 45001", columns: ["Aspek","SMK3 PP 50/2012","ISO 45001","Bukti yang bisa dipakai bersama","Tindakan atau PIC"], examples: [
+      ["Dasar","Kewajiban menurut ruang lingkup Pasal 5","Standar internasional, cek persyaratan pelanggan","Daftar kewajiban dan persyaratan kontrak","Validasi dua ruang lingkup"],
+      ["Risiko","Pedoman penerapan dan kriteria audit nasional","Proses identifikasi bahaya serta perencanaan K3","Register risiko dan bukti verifikasi pengendalian","Tinjau lokasi serta aktivitas"],
+      ["Partisipasi","Keterlibatan dan konsultasi pekerja","Konsultasi serta partisipasi pekerja","Catatan rapat, masukan, dan keputusan","Periksa keterwakilan pada lingkup"],
+      ["Penilaian","Audit menurut skema SMK3 nasional","Audit badan sertifikasi bila sertifikasi dituju","Kertas kerja internal dan register tindakan","Jadwalkan penilaian sesuai skema"],
+    ] },
+    faqItems: [
+      { question: "Apakah ISO 45001 bisa menggantikan SMK3?", answer: "Periksa kewajiban SMK3 berdasarkan PP 50/2012 dan ketentuan terkait. Sertifikasi ISO 45001 tidak menggantikan kewajiban tersebut." },
+      { question: "Perusahaan sebaiknya mulai dari mana?", answer: "Petakan kewajiban nasional, kebutuhan kontrak, dan lingkup operasi. Prioritaskan pekerjaan yang menjawab kewajiban dan risiko, lalu gunakan bukti yang relevan untuk memenuhi kedua skema." },
+    ],
+    source: ["smk3","iso"],
+    parents: ["/syarat-sertifikasi-smk3/","/kriteria-audit-smk3/"],
+    related: ["gap-analysis-smk3","audit-internal-smk3"],
+    cta: "Bahas pemetaan kebutuhan SMK3 dan ISO 45001",
+    lastUpdated: "2026-11-21",
+  },
 ];

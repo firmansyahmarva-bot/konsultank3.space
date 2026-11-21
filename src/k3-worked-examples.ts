@@ -169,4 +169,49 @@ export const workedExamples: Record<string, { heading: string; paragraphs: strin
       "Setelah koordinasi, catat keputusan, waktu pemeriksaan, dan nama petugas yang memverifikasi. Jika aktivitas bergeser ke giliran berikutnya, teruskan catatan terbuka pada serah terima. Pada briefing berikutnya, periksa apakah perubahan akses masih berlaku. Satu catatan yang bisa ditelusuri membantu tim menghindari asumsi bahwa keputusan kemarin otomatis berlaku untuk kondisi hari ini.",
     ] },
   ],
+  'pengukuran-lingkungan-kerja': [
+    { heading: "Contoh menindaklanjuti dua hasil yang tampak bertentangan", paragraphs: [
+      "Peta kebisingan dalam contoh menandai satu area dekat mesin, sedangkan pengukuran personal dilakukan pada pekerja lain yang sebagian besar berada di gudang. Kedua pengukuran menjawab pertanyaan berbeda. Cocokkan pekerja, tugas, durasi, dan lokasi pada lembar hasil sebelum memutuskan bahwa pengendalian di area mesin sudah cukup. Jika tujuan awal adalah menilai pekerja pemotongan pada giliran padat, minta penguji menjelaskan siapa yang terwakili dan apa yang masih perlu diukur.",
+      "Gunakan status tindak lanjut yang jelas. Baris pertama dapat berupa “perlu klarifikasi keterwakilan giliran”. Baris berikutnya dapat berupa “periksa kondisi pengendalian di sumber”. Cantumkan rujukan sampel, PIC, dan tanggal keputusan. Saat hasil lanjutan diterima, dokumentasikan kondisi yang dibuat sebanding dan alasan perubahan metode jika ada. Dengan cara ini, manajemen dapat melihat dasar penutupan tanpa membaca ulang seluruh berkas.",
+    ] },
+    { heading: "Checklist penerimaan laporan dari penguji", paragraphs: [
+      "Sebelum menerima laporan, cocokkan nama fasilitas, tanggal, daftar parameter, identitas sampel, durasi, metode, hasil, pembanding, dan kondisi operasi dengan brief. Jika parameter yang dijanjikan belum tercakup, minta penjelasan tertulis. Pastikan rekomendasi dapat dikaitkan dengan proses dan kelompok pekerja. Berikan ringkasan hasil kepada pemilik proses dan catat tanggal tinjauan bersama.",
+    ] },
+  ],
+  'riksa-uji-forklift': [
+    { heading: "Contoh serah terima dan verifikasi unit pengganti", paragraphs: [
+      "Saat forklift sewa F-02 diganti sementara, catat tanggal masuk, nomor seri pengganti, dan foto pelat bila diizinkan. Buat baris baru agar jadwal serta riwayat F-02 tetap terpisah. Cocokkan laporan yang diserahkan dengan nomor seri pengganti dan periksa apakah penggunaan yang direncanakan serta perlengkapannya sesuai dokumen unit. Tunjuk pihak yang dapat memutuskan penerimaan setelah data dan kelayakan diperiksa.",
+      "Setelah pemeriksaan, tinjau dokumen bersama pemilik aset. Misalnya, laporan menyertakan satu tindakan perbaikan dan permintaan bukti lanjutan. Masukkan tindakan tersebut dengan nomor temuan, pembatasan penggunaan yang disampaikan, pemilik, tenggat, dan pihak yang memverifikasi. Biarkan status terbuka sampai keputusan tindak lanjut dapat dibuktikan. Gunakan ringkasan yang sama untuk tim gudang dan pengelola sewa agar keduanya melihat keputusan terbaru.",
+    ] },
+    { heading: "Checklist penawaran jasa pemeriksaan", paragraphs: [
+      "Sampaikan daftar unit dan riwayatnya kepada calon penyedia, lalu minta rincian jenis pemeriksaan, kewenangan pemeriksa, persiapan area, biaya per unit atau kunjungan, serta dokumen hasil yang akan diterima. Konfirmasikan siapa yang menangani penjadwalan ulang jika unit belum siap. Bandingkan cakupan kedua penawaran sebelum menilai biayanya.",
+    ] },
+  ],
+  'checklist-inspeksi-apar': [
+    { heading: "Contoh merekonsiliasi inventaris dengan inspeksi", paragraphs: [
+      "Pada daftar aset terdapat 12 unit, sementara tim hanya menemukan 11 pada putaran inspeksi. Catat ID yang belum ditemukan dan lokasi terakhir, lalu periksa apakah ada pemindahan sementara, servis, atau kesalahan pemetaan. Hubungi pemilik area agar perlindungan di titik tersebut ditinjau segera. Jika unit pindah, rekam kapan perpindahan disetujui, tempat baru, dan penanganan titik sebelumnya.",
+      "Pada kunjungan berikutnya, mulai dari titik tersebut dan pastikan unit, tanda, serta akses konsisten dengan denah terbaru. Cocokkan tanggal pemeriksaan berkala pada bukti masing-masing unit. Jika kontraktor servis mengganti dua alat, minta daftar ID alat keluar dan masuk. Dengan begitu, tim dapat menelusuri mana yang sudah diperiksa dan mana yang memerlukan penjadwalan ulang.",
+    ] },
+    { heading: "Pilih kolom yang cocok untuk catatan cetak", paragraphs: [
+      "Jika tim menggunakan lembar cetak, tambahkan identitas area, tanggal, nama pemeriksa, dan rujukan denah pada bagian atas. Tulis hasil yang teramati per unit dan sisakan ruang untuk tindakan. Pindahkan temuan terbuka ke register sebelum akhir giliran, lalu simpan lembar aslinya agar waktu serta detail laporan tetap dapat dilacak.",
+    ] },
+  ],
+  'contoh-sop-tanggap-darurat': [
+    { heading: "Contoh redaksi SOP yang dapat diadaptasi", paragraphs: [
+      "Aktivasi: “Jika melihat kondisi darurat, berpindahlah ke tempat aman dan hubungi [kontak internal] atau gunakan [sarana alarm]. Sebutkan [lokasi], kondisi yang terlihat, dan apakah ada orang yang memerlukan bantuan. [Peran koordinator] menghubungi [layanan darurat sesuai lokasi] dan menunjuk petugas penyambut bantuan.” Verifikasi kontak dan cara aktivasi sebelum menerbitkan instruksi ini.",
+      "Pendataan dan pemulihan: “Di [titik kumpul], [petugas] mencocokkan daftar pekerja, tamu, serta kontraktor. Sampaikan orang yang belum terkonfirmasi dan lokasi terakhirnya kepada [koordinator]. Tetap di tempat aman sampai [pejabat atau petugas yang berwenang] memberi izin masuk kembali.” Tambahkan langkah dan pengganti sesuai jadwal kerja serta kebutuhan orang yang memerlukan bantuan.",
+    ] },
+    { heading: "Contoh evaluasi hasil latihan", paragraphs: [
+      "Misalkan rute alternatif dapat dilalui, tetapi informasi akses baru hanya disampaikan kepada satu giliran. Tambahkan tindakan untuk memperbarui denah, mengomunikasikan perubahan pada kedua giliran, dan menguji apakah peserta dapat menunjukkan rute saat induksi. Tetapkan siapa yang memeriksa hasil dan bukti apa yang diterima. Catat tanggal uji ulang dan perubahan pada SOP.",
+    ] },
+  ],
+  'perbedaan-smk3-dan-iso-45001': [
+    { heading: "Contoh keputusan untuk pemasok kecil dan perusahaan multilokasi", paragraphs: [
+      "Pemasok dengan 65 pekerja perlu menilai potensi bahaya dan aturan sektoral sebelum menyimpulkan kewajiban SMK3. Jika klien meminta ISO 45001, cek apakah yang diminta adalah sertifikat, penerapan sistem, atau bukti tertentu. Catat hasil klarifikasi dan lingkup yang harus dipenuhi sebelum menganggarkan audit. Jumlah pekerja saja belum cukup untuk menjawab seluruh penilaian kewajiban.",
+      "Untuk perusahaan dengan kantor pusat dan dua pabrik, mulai dengan daftar lingkup per lokasi dan perjanjian pelanggan yang relevan. Gunakan kebijakan pusat sebagai dokumen yang berlaku bersama, kemudian ambil sampel penerapan dari setiap pabrik yang masuk lingkup. Pada matriks, tandai bukti terpusat dan bukti lokal agar audit dapat menelusuri siapa yang melakukan serta memverifikasi kegiatan di lapangan.",
+    ] },
+    { heading: "Cara menyiapkan tinjauan manajemen terpadu", paragraphs: [
+      "Kumpulkan hasil audit, perubahan risiko, masukan pekerja, dan kemajuan tindakan dalam satu agenda. Sertakan rujukan ke kriteria yang digunakan dan tampilkan keputusan, anggaran, PIC, serta tenggat. Saat menutup rapat, periksa apakah keluaran memenuhi kebutuhan masing-masing kerangka dan apakah ruang lingkup laporan sudah jelas. Simpan bukti pelaksanaan keputusan untuk pemeriksaan berikutnya.",
+    ] },
+  ],
 };

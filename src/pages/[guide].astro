@@ -20,7 +20,7 @@ const sections = [...guide.sections, ...(workedExamples[guide.slug] ?? [])].map(
   id: `bagian-${index + 1}`,
 }));
 const related = guides.filter((item) => guide.related.includes(item.slug));
-const source = guideSources[guide.source];
+const sources = [guide.source].flat().map((key) => guideSources[key]);
 const downloadPath = `/unduhan/${guide.slug}.csv`;
 const lastUpdated = guide.lastUpdated ?? '2026-11-19';
 const updatedLabel = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeZone: 'UTC' })
@@ -70,7 +70,7 @@ const updatedLabel = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeZ
     <section>
       <h2>Rujukan dan panduan terkait</h2>
       <ul>
-        <li><cite>{source.title}</cite><br /><span class="source-address">{source.url}</span></li>
+        {sources.map((source) => <li><cite>{source.title}</cite><br /><span class="source-address">{source.url}</span></li>)}
         {guide.parents.map((path) => <li><a href={path}>{guideParentTitles[path]}</a></li>)}
         {related.map((item) => <li><a href={`/${item.slug}/`}>{item.title}</a></li>)}
       </ul>
