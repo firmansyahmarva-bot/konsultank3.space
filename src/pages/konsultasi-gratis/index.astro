@@ -68,6 +68,7 @@ const headline = 'Layanan Sesi Konsultasi K3 Gratis untuk Perusahaan';
         <span>Diperbarui: 10 November 2026</span>
         <span>Waktu Baca: 12 Menit</span>
       </div>
+      <a class="booking-link" href="#form-konsultasi">Ajukan Konsultasi Gratis <span aria-hidden="true">↓</span></a>
     </header>
 
     <p class="lead-paragraph">
@@ -244,6 +245,19 @@ const headline = 'Layanan Sesi Konsultasi K3 Gratis untuk Perusahaan';
   .article-header {
     margin-bottom: 2rem;
   }
+  .booking-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    margin-top: 1.15rem;
+    border-radius: .75rem;
+    background: var(--color-amber);
+    color: var(--color-ink);
+    padding: .65rem 1rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .booking-link:hover { background: #ffd3a1; color: var(--color-ink); }
   .lead-paragraph {
     font-size: 1.15rem;
     line-height: 1.7;

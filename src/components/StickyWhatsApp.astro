@@ -20,25 +20,26 @@ import { CONTACT_INFO } from '../config';
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    background-color: #F47C20;
-    color: #0B2545;
+    background-color: var(--color-teal);
+    color: #ffffff;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.15rem;
     border-radius: 9999px;
-    box-shadow: 0 4px 14px rgba(244, 124, 32, 0.4);
+    box-shadow: 0 8px 24px #11665b45;
     text-decoration: none;
     font-weight: 700;
     font-size: 0.95rem;
     z-index: 100;
-    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s, color 0.2s;
   }
   .sticky-wa-button:hover {
-    background-color: #e06912;
-    color: #0B2545;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(244, 124, 32, 0.5);
+    background-color: #0c5249;
+    color: #ffffff;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sticky-wa-button { transition: transform .2s, background-color .2s; }
+    .sticky-wa-button:hover { transform: translateY(-2px); }
   }
   .wa-icon {
     flex-shrink: 0;

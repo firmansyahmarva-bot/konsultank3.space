@@ -13,15 +13,15 @@ const navLinks = [
 
 <header class="site-header">
   <div class="header-container">
-    <a href="/" class="brand-link">
-      <span class="brand-name">{SITE_INFO.name}</span>
-      <span class="brand-tagline">{SITE_INFO.tagline}</span>
+    <a href="/" class="brand-link" aria-label={SITE_INFO.name}>
+      <span class="brand-mark" aria-hidden="true">K3</span>
+      <span class="brand-name">Konsultan<span>K3</span></span>
     </a>
     <nav class="main-nav" aria-label="Navigasi Utama">
       <ul class="nav-list">
         {navLinks.map((link) => (
           <li class="nav-item">
-            <a href={link.href} class={`nav-link ${link.isCta ? 'nav-cta' : ''}`}>
+            <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined} class:list={['nav-link', { 'nav-cta': link.isCta }]}>
               {link.label}
             </a>
           </li>
@@ -33,15 +33,22 @@ const navLinks = [
 
 <style>
   .site-header {
-    background-color: #0B2545;
+    background-color: #102b3d;
     color: #ffffff;
-    border-bottom: 3px solid #F47C20;
+    border-bottom: 1px solid #dcfdf238;
+    box-shadow: 0 6px 24px #102b3d1c;
     position: sticky;
     top: 0;
     z-index: 50;
   }
+  @supports (backdrop-filter: blur(16px)) {
+    .site-header {
+      background-color: #102b3dec;
+      backdrop-filter: saturate(135%) blur(16px);
+    }
+  }
   .header-container {
-    max-width: 1200px;
+    max-width: 1232px;
     margin: 0 auto;
     padding: 0.85rem 1.25rem;
     display: flex;
@@ -54,52 +61,65 @@ const navLinks = [
     text-decoration: none;
     color: #ffffff;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: .65rem;
+    flex-shrink: 0;
+  }
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: .65rem;
+    background: #91e7d2;
+    color: var(--color-ink);
+    font-size: .85rem;
+    font-weight: 850;
   }
   .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     color: #ffffff;
   }
-  .brand-tagline {
-    font-size: 0.75rem;
-    color: #cbd5e1;
-    font-weight: 400;
-  }
+  .brand-name span { color: #91e7d2; }
   .nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: .35rem;
     flex-wrap: wrap;
   }
+  .nav-item { margin: 0; }
   .nav-link {
+    display: block;
     color: #e2e8f0;
     text-decoration: none;
     font-size: 0.925rem;
     font-weight: 500;
     padding: 0.4rem 0.65rem;
-    border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
+    border-radius: .55rem;
   }
-  .nav-link:hover {
+  .nav-link:hover, .nav-link[aria-current="page"] {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
   }
   .nav-cta {
-    background-color: #F47C20;
-    color: #0B2545 !important;
+    background-color: var(--color-amber);
+    color: var(--color-ink);
     font-weight: 700;
     padding: 0.45rem 0.9rem;
   }
-  .nav-cta:hover {
-    background-color: #e06912 !important;
-    color: #0B2545 !important;
+  .nav-cta:hover, .nav-cta[aria-current="page"] {
+    background-color: #ffd3a1;
+    color: var(--color-ink);
   }
-  @media (max-width: 768px) {
+  @media (prefers-reduced-motion: no-preference) {
+    .nav-link { transition: background-color .2s, color .2s; }
+  }
+  @media (max-width: 900px) {
     .header-container {
       flex-direction: column;
       align-items: stretch;
@@ -115,7 +135,7 @@ const navLinks = [
       display: flex;
       flex-wrap: nowrap;
       gap: 0.5rem;
-      padding-bottom: 0.25rem;
+      padding: .25rem;
       white-space: nowrap;
     }
     .nav-link {
