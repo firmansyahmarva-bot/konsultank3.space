@@ -120,7 +120,7 @@ const PAGES = [
     file: 'dist/laporan-p2k3-disnaker/index.html',
     url: 'https://konsultank3.space/laporan-p2k3-disnaker/',
     path: '/laporan-p2k3-disnaker/',
-    keyword: 'laporan triwulan p2k3'
+    keyword: 'laporan p2k3 ke disnaker'
   },
   {
     file: 'dist/isi-kotak-p3k-permenaker/index.html',

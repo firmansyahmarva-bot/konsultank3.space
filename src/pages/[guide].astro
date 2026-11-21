@@ -15,21 +15,24 @@ const breadcrumbs = [
   { name: 'Beranda', url: '/' },
   { name: guide.title, url: canonicalPath },
 ];
-const sections = [...guide.sections, ...workedExamples[guide.slug]].map((section, index) => ({
+const sections = [...guide.sections, ...(workedExamples[guide.slug] ?? [])].map((section, index) => ({
   ...section,
   id: `bagian-${index + 1}`,
 }));
 const related = guides.filter((item) => guide.related.includes(item.slug));
 const source = guideSources[guide.source];
 const downloadPath = `/unduhan/${guide.slug}.csv`;
+const lastUpdated = guide.lastUpdated ?? '2026-11-19';
+const updatedLabel = new Intl.DateTimeFormat('id-ID', { dateStyle: 'long', timeZone: 'UTC' })
+  .format(new Date(lastUpdated));
 ---
 
 <Layout title={guide.title} description={guide.description} canonicalPath={canonicalPath}
-  breadcrumbs={breadcrumbs} faqItems={guide.faqItems} lastUpdated="2026-11-19">
+  breadcrumbs={breadcrumbs} faqItems={guide.faqItems} lastUpdated={lastUpdated}>
   <article>
     <header class="guide-header">
       <h1>{guide.title}</h1>
-      <p class="updated">Diperbarui: <time datetime="2026-11-19">19 November 2026</time></p>
+      <p class="updated">Diperbarui: <time datetime={lastUpdated}>{updatedLabel}</time></p>
       <p>{guide.intro}</p>
       <a class="download" href={downloadPath} download>Unduh {guide.asset.title} (CSV)</a>
     </header>

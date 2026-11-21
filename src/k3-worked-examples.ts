@@ -139,4 +139,34 @@ export const workedExamples: Record<string, { heading: string; paragraphs: strin
       "Pada review dokumen, telusuri satu risiko dari IBPRP ke dukungan, operasi, dan evaluasi di RKK. Periksa apakah kegiatan pemeriksaan tersedia pada jadwal dan tanggung jawabnya jelas. Gunakan tabel unduhan untuk latihan pengisian, lalu pindahkan kolom dan terminologi ke format resmi paket sebelum dokumen diajukan.",
     ] },
   ],
+  'contoh-jsa': [
+    { heading: "Contoh pengisian saat akses yang direncanakan berubah", paragraphs: [
+      "Dalam skenario latihan, material dijadwalkan tiba pagi hari dan akan disimpan di area transit A. Sesaat sebelum pengiriman, area tersebut digunakan pekerjaan lain. Penerima barang mencatat perubahan pada langkah pemindahan dan memberi tahu supervisor. Tim meninjau titik penempatan alternatif, rute yang akan dipakai, serta siapa yang berpotensi terpapar jika material melewati pintu lain. Bila opsi baru membutuhkan koordinasi dengan giliran atau kontraktor lain, masukkan koordinasi itu ke baris pengendalian.",
+      "Pada kolom verifikasi, catat siapa yang memastikan ruang tersedia, jalur dapat digunakan, dan pihak terdampak telah menerima informasi. Tetapkan titik keputusan sebelum pekerjaan dimulai. Setelah supervisor memeriksa pengendalian, catat versi JSA yang digunakan dan sampaikan perubahan kepada orang yang menjalankan tugas. Contoh ini menunjukkan cara mendokumentasikan keputusan ketika satu asumsi berubah. Sesuaikan isi dan persetujuan dengan aturan di lokasi.",
+    ] },
+  ],
+  'checklist-inspeksi-k3': [
+    { heading: "Contoh pemeriksaan ulang temuan jalur yang terhalang", paragraphs: [
+      "Misalkan pemilik tindakan melaporkan palet sudah dipindahkan pukul 16.00 dan mengirim dokumentasi. Petugas verifikasi mencatat bukti koreksi itu, lalu kembali saat giliran sore berikutnya untuk memeriksa apakah jalur tetap tersedia pada waktu kegiatan serupa. Jika palet kembali menutup jalur, ambil sampel dari beberapa pengiriman dan tanyakan bagaimana ruang transit ditetapkan sebelum kendaraan tiba.",
+      "Simpan hasil verifikasi pertama dan hasil tinjauan ulang di baris yang sama. Jika tambahan tempat transit diperlukan, buat tindakan baru dan hubungkan ke ID temuan semula. Pada review manajemen, tunjukkan berapa kali kondisi terlihat, waktu pemeriksaan, dan apa yang diperlukan untuk mencegah pengulangan. Data tersebut memberi dasar yang lebih jelas untuk keputusan terkait ruang, jadwal, atau tanggung jawab serah terima.",
+    ] },
+  ],
+  'contoh-program-kerja-p2k3': [
+    { heading: "Contoh mengisi target, realisasi, dan rekomendasi semester", paragraphs: [
+      "Dalam contoh gudang, rencana semester mencakup pemetaan empat titik persinggungan dan empat pemeriksaan pada dua giliran. Pada akhir periode, empat titik sudah dipetakan dan tiga pemeriksaan selesai. Tulis kegiatan yang tertunda, penyebabnya, dan tanggal pemeriksaan pengganti. Jika inspeksi menemukan satu titik dengan hambatan berulang, cantumkan rujukan temuan dan kondisi yang terlihat.",
+      "Masukkan rekomendasi yang meminta keputusan spesifik. Misalnya, mintakan persetujuan penataan ulang ruang transit atau perubahan slot pengiriman pada jam tersibuk. Catat siapa yang menerima usulan dan kapan status ditinjau. Lampirkan atau rujuk bukti sesuai format penyampaian yang berlaku. Pada semester berikutnya, hubungkan rekomendasi yang disetujui dengan jadwal pelaksanaan serta ukuran keberhasilan yang sama agar perubahan dapat dibandingkan.",
+    ] },
+  ],
+  'materi-safety-induction': [
+    { heading: "Contoh penyampaian dan penilaian dalam satu sesi", paragraphs: [
+      "Seorang kontraktor datang untuk bekerja pada area yang berbatasan dengan ruang publik. Fasilitator menunjukkan denah, meminta peserta menandai batas akses, lalu menjelaskan kontak pengelola area dan cara mengonfirmasi perubahan kondisi. Setelah itu, peserta diminta menyebutkan dua hal: siapa yang harus dihubungi bila masuk melalui akses lain, dan ke titik mana ia menuju jika alarm berbunyi.",
+      "Catat hasilnya sebagai dipahami, perlu penjelasan ulang, atau menunggu konfirmasi akses. Gunakan denah terbaru atau pendamping bila penjelasan awal belum cukup. Sebelum akses diberikan, cek kembali bagian yang belum dipahami. Untuk pekerjaan hari berikutnya, sampaikan perubahan area pada pengarahan tugas dan pastikan dokumen yang dirujuk sesuai. Simpan versi denah bersama daftar hadir untuk menelusuri materi yang diterima peserta.",
+    ] },
+  ],
+  'contoh-toolbox-meeting': [
+    { heading: "Contoh mencatat keputusan yang muncul saat briefing", paragraphs: [
+      "Pada briefing penerimaan, seorang pekerja menyampaikan bahwa jalur pengganti biasa dipakai tim kebersihan saat jadwal pengiriman. Fasilitator mencatat perubahan, meminta supervisor mengonfirmasi jadwal, dan menentukan siapa yang memeriksa titik persinggungan. Tulis kondisi yang harus terpenuhi sebelum perpindahan material dimulai, sesuaikan pembahasan dengan JSA yang dipakai, lalu beri tahu pihak yang terdampak.",
+      "Setelah koordinasi, catat keputusan, waktu pemeriksaan, dan nama petugas yang memverifikasi. Jika aktivitas bergeser ke giliran berikutnya, teruskan catatan terbuka pada serah terima. Pada briefing berikutnya, periksa apakah perubahan akses masih berlaku. Satu catatan yang bisa ditelusuri membantu tim menghindari asumsi bahwa keputusan kemarin otomatis berlaku untuk kondisi hari ini.",
+    ] },
+  ],
 };

@@ -6,7 +6,8 @@ type Guide = {
   sections: { heading: string; paragraphs: string[] }[];
   asset: { title: string; columns: string[]; examples: string[][] };
   faqItems: { question: string; answer: string }[];
-  source: 'smk3' | 'smkk' | 'csms';
+  source: keyof typeof guideSources;
+  lastUpdated?: string;
   parents: string[];
   related: string[];
   cta: string;
@@ -16,6 +17,9 @@ export const guideSources = {
   smk3: { title: 'PP Nomor 50 Tahun 2012 dan lampirannya', url: 'https://jdih.kemnaker.go.id/asset/data_puu/PPNOMOR50_TAHUN_2012.pdf' },
   smkk: { title: 'Permen PUPR Nomor 10 Tahun 2021 dan lampirannya', url: 'https://jdih.pu.go.id/detail-dokumen/PermenPUPR-nomor-10-tahun-2021-Pedoman-Sistem-Manajemen-Keselamatan-Konstruksi' },
   csms: { title: 'Contoh formulir prakualifikasi CSMS Pertamina', url: 'https://www.pertamina.com/Media/Upload/Files/Form-Isian-PQ-CSMS.pdf' },
+  p2k3: { title: 'Permenaker Nomor 13 Tahun 2025 tentang P2K3', url: 'https://jdih.kemnaker.go.id/asset/data_puu/2025pmnaker013.pdf' },
+  jsa: { title: 'Contoh formulir JSA pada pedoman Badan Karantina Indonesia', url: 'https://jdih.karantinaindonesia.go.id/storage/common/dokumen/2024KepDeputiKI14.pdf' },
+  bina: { title: 'Contoh program komunikasi keselamatan konstruksi pada SE Dirjen Bina Marga 16/SE/Db/2025', url: 'https://binamarga.pu.go.id/uploads/files/2105/surat-edaran-direktur-jenderal-bina-marga-nomor-16sedb2025-tentang-tata-cara-penetapan-persyaratan-kualifikasi-ldk-dan-mdp-paket-pekerjaan-konstruksi-preservasi-jalan-dan-jembatan-dengan-skema-long-segment-modifikasi-.pdf' },
 };
 
 export const guideParentTitles: Record<string, string> = {
@@ -27,6 +31,10 @@ export const guideParentTitles: Record<string, string> = {
   '/smkk-konstruksi/': 'Panduan SMKK konstruksi',
   '/panduan-csms-kontraktor/': 'Panduan CSMS kontraktor',
   '/contoh-hiradc/': 'Contoh HIRADC dan matriks risiko',
+  '/izin-kerja-k3-ptw/': 'Sistem izin kerja K3',
+  '/dokumen-smk3/': 'Dokumen penerapan SMK3',
+  '/membentuk-p2k3/': 'Cara membentuk P2K3',
+  '/laporan-p2k3-disnaker/': 'Cara melaporkan kegiatan P2K3 ke Disnaker',
 };
 
 export const guides: Guide[] = [
@@ -301,4 +309,502 @@ export const guides: Guide[] = [
     ],
     source: 'smkk', parents: ['/smkk-konstruksi/', '/contoh-hiradc/'], related: ['contoh-rkk-penawaran', 'jasa-pendampingan-smkk'], cta: 'Bahas penyusunan IBPRP untuk proyek Anda',
   },
+  {
+    "slug": "contoh-jsa",
+    "title": "Contoh JSA: Cara Mengisi Job Safety Analysis",
+    "description": "Lihat contoh JSA untuk penerimaan material, cara menghubungkan langkah kerja dengan bahaya, dan unduh formulir Job Safety Analysis.",
+    "intro": "Job Safety Analysis (JSA) menguraikan satu pekerjaan menjadi langkah yang bisa diamati, lalu menghubungkan tiap langkah dengan bahaya, pengendalian, dan pemeriksaan sebelum mulai. Contoh ini memakai penerimaan material di gudang dengan jalur yang juga digunakan pejalan kaki.",
+    "sections": [
+      {
+        "heading": "Mulai dari pekerjaan yang benar-benar dilakukan",
+        "paragraphs": [
+          "Tetapkan awal dan akhir pekerjaan. Untuk contoh ini, lingkup dimulai dari kendaraan tiba dan berakhir setelah material berada di area penempatan. Ajak supervisor dan pekerja yang menjalankan tugas menjelaskan urutan aktual, termasuk variasi saat jalur sibuk, barang terlambat, atau pekerja dari area lain menggunakan akses yang sama.",
+          "Pisahkan langkah ketika sumber bahaya atau orang yang terpapar berubah. Kedatangan kendaraan, pembongkaran, dan pemindahan material layak dipisah. Untuk langkah yang terlalu umum seperti “bongkar barang”, peninjau sulit melihat kapan kendaraan bergerak, kapan material perlu diperiksa, serta kapan area dapat dibuka kembali."
+        ]
+      },
+      {
+        "heading": "Ubah bahaya menjadi pengendalian yang bisa diperiksa",
+        "paragraphs": [
+          "Untuk langkah kedatangan kendaraan, bahaya spesifiknya adalah pertemuan kendaraan dan orang di akses bersama. Pertimbangkan jadwal pengiriman serta pemisahan jalur sesuai kondisi lokasi. Tulis siapa yang memeriksa akses dan apa yang akan dilihat. Kalimat “periksa jalur yang disepakati dan pastikan akses pejalan kaki tetap tersedia” memberi supervisor objek pemeriksaan.",
+          "Untuk pemindahan material, periksa rute, kestabilan barang, dan kapasitas peralatan yang akan digunakan sesuai prosedur lokasi. Jika material berbeda dari yang direncanakan, tinjau ulang langkah dan aturan penggunaannya bersama pihak yang berwenang. Pastikan kelompok yang mungkin terdampak mengetahui perubahan sebelum pekerjaan dilanjutkan."
+        ]
+      },
+      {
+        "heading": "Bawa contoh JSA ke pengarahan sebelum mulai",
+        "paragraphs": [
+          "Pada pengarahan, minta pengemudi atau penerima material menunjukkan titik koordinasi pada denah. Minta seorang pekerja menjelaskan apa yang dilakukan jika jalur tidak dapat dipisahkan. Gunakan jawaban untuk memeriksa apakah pembagian peran, titik komunikasi, dan keputusan menunda pekerjaan dapat dipahami. Catat perubahan kondisi serta siapa yang memverifikasi pengendaliannya.",
+          "JSA dapat menjadi masukan pada izin kerja jika prosedur tempat kerja mensyaratkannya. Cocokkan identitas tugas, lokasi, waktu, serta pengendalian pada kedua dokumen. Apabila izin menyebut syarat tambahan, bawa syarat tersebut ke pengarahan dan pastikan tim mengetahui siapa yang memberi persetujuan."
+        ]
+      },
+      {
+        "heading": "Ketahui kapan contoh harus direvisi",
+        "paragraphs": [
+          "Setelah tugas selesai, tanyakan apakah ada langkah yang berbeda dari rencana. Misalnya, jika area penempatan penuh, alur mungkin berbelok melalui akses yang digunakan tim lain. Catat kondisi baru, orang yang dapat terpapar, dan pengendalian yang dibutuhkan. Pilih tanggal serta penanggung jawab untuk meninjau revisi sebelum pekerjaan serupa diulang.",
+          "Gunakan HIRADC untuk melihat bahaya pada lingkup proses atau area yang lebih luas. Turunkan bahaya yang relevan ke JSA dan periksa tiap langkah sesuai kondisi tempat kerja. Jika temuan JSA menunjukkan bahaya berulang pada beberapa tugas, bawa informasi itu kembali ke tinjauan HIRADC."
+        ]
+      }
+    ],
+    "asset": {
+      "title": "Form JSA penerimaan material",
+      "columns": [
+        "Langkah",
+        "Bahaya dan pihak terpapar",
+        "Pengendalian yang direncanakan",
+        "Cara verifikasi",
+        "PIC"
+      ],
+      "examples": [
+        [
+          "Kendaraan tiba",
+          "Orang dan kendaraan berbagi akses",
+          "Atur jadwal dan pisahkan jalur sesuai lokasi",
+          "Periksa denah dan kondisi jalur",
+          "Supervisor gudang"
+        ],
+        [
+          "Barang dipindahkan",
+          "Barang tidak stabil dan orang melintas",
+          "Periksa kemasan, alat, dan rute sesuai prosedur",
+          "Tinjau kondisi barang dan jalur sebelum mulai",
+          "Pemimpin tugas"
+        ],
+        [
+          "Area dibuka kembali",
+          "Material menghalangi jalur",
+          "Kembalikan jalur ke kondisi yang disepakati",
+          "Periksa akses sebelum dibuka",
+          "Penerima material"
+        ]
+      ]
+    },
+    "faqItems": [
+      {
+        "question": "Kapan JSA ditinjau ulang?",
+        "answer": "Tinjau ulang saat metode, orang yang terpapar, kondisi lokasi, atau peralatan berubah, serta setelah temuan yang memengaruhi pengendalian."
+      },
+      {
+        "question": "Siapa yang dilibatkan dalam pengisian?",
+        "answer": "Libatkan orang yang menjalankan pekerjaan, supervisor, dan pihak yang memeriksa pengendalian sesuai prosedur lokasi."
+      }
+    ],
+    "source": "jsa",
+    "parents": [
+      "/contoh-hiradc/",
+      "/izin-kerja-k3-ptw/"
+    ],
+    "related": [
+      "contoh-toolbox-meeting",
+      "checklist-inspeksi-k3"
+    ],
+    "cta": "Bahas JSA untuk pekerjaan Anda",
+    "lastUpdated": "2026-11-21"
+  },
+  {
+    "slug": "checklist-inspeksi-k3",
+    "title": "Checklist Inspeksi K3 Gudang dan Pabrik",
+    "description": "Unduh checklist inspeksi K3 untuk gudang atau pabrik. Lihat contoh temuan, tindakan sementara, penanggung jawab, dan verifikasi penutupan.",
+    "intro": "Checklist inspeksi K3 membantu tim mencatat kondisi yang dapat diperiksa dan mengubah temuan menjadi tindakan. Contoh ini berfokus pada jalur, material, dan kondisi yang berubah antargiliran kerja di gudang atau pabrik.",
+    "sections": [
+      {
+        "heading": "Siapkan rute dan tentukan kriteria",
+        "paragraphs": [
+          "Gunakan denah, hasil inspeksi sebelumnya, dan daftar aktivitas untuk memilih area. Pada satu rute gudang, periksa akses, penerimaan material, area penyimpanan, titik pertemuan orang dan kendaraan, serta jalur keluar. Pilih waktu ketika proses yang ingin diamati berlangsung. Catat area yang belum dapat dilihat dan masukkan ke jadwal berikutnya.",
+          "Gunakan pertanyaan yang mengacu pada keadaan nyata. Contohnya, “Apakah jalur pejalan kaki yang ditetapkan bebas hambatan?” lebih mudah diperiksa daripada “Apakah housekeeping baik?” Gunakan status sesuai, temuan, tidak berlaku, atau belum diperiksa. Tambahkan alasan ketika kondisi belum bisa diverifikasi."
+        ]
+      },
+      {
+        "heading": "Tulis temuan seperti orang lain akan memeriksanya",
+        "paragraphs": [
+          "Alih-alih menulis “jalur berbahaya”, catat “dua palet menutup sebagian jalur pejalan kaki di sisi pintu penerimaan, terlihat saat pergantian giliran sore”. Tambahkan tanggal, lokasi tepat, siapa yang dapat terdampak, dan rujukan foto bila pengambilan foto diizinkan. Bukti membantu penanggung jawab menemukan titik yang dimaksud.",
+          "Bila kondisi perlu tindakan segera, sampaikan kepada supervisor dan ikuti prosedur lokasi. Dalam contoh, tim memindahkan palet ke lokasi yang ditetapkan dan memeriksa akses sebelum membuka kembali jalur. Catat tindakan sementara, waktu, dan siapa yang memeriksa. Untuk mencegah pengulangan, telusuri apakah ruang transit, pengaturan jadwal, atau pengawasan serah terima perlu diperbaiki."
+        ]
+      },
+      {
+        "heading": "Tutup tindakan dengan bukti dan periksa temuan berulang",
+        "paragraphs": [
+          "Berikan ID, penanggung jawab, dan batas waktu untuk setiap tindakan. Setelah menerima bukti perbaikan, periksa kondisi melalui kunjungan atau rekaman yang sesuai. Untuk temuan jalur, gunakan observasi ulang pada waktu aktivitas serupa. Jika hambatan muncul lagi, buka kembali tindakan dan periksa apakah penyebab sebelumnya sudah ditangani.",
+          "Pada tinjauan bulanan internal, kelompokkan temuan berdasarkan area dan pola. Perhatikan tindakan lewat tenggat serta temuan serupa di tempat lain. Dua area yang sama-sama kekurangan tempat transit mungkin memerlukan keputusan yang lebih luas daripada memindahkan palet satu per satu."
+        ]
+      },
+      {
+        "heading": "Sesuaikan checklist dengan peralatan dan lingkup",
+        "paragraphs": [
+          "Tambahkan kategori sesuai proses, misalnya keterbacaan petunjuk, penempatan bahan, atau kondisi akses ke sarana darurat. Untuk pemeriksaan teknis, rujuk daftar khusus dan pihak yang kompeten. Catat nomor aset, lokasi, dan kapan pemeriksaan perlu ditindaklanjuti. Checklist umum dapat menjadi pintu masuk untuk mengarahkan kondisi yang perlu diperiksa lebih mendalam."
+        ]
+      }
+    ],
+    "asset": {
+      "title": "Checklist inspeksi area",
+      "columns": [
+        "Area",
+        "Item pemeriksaan",
+        "Status",
+        "Temuan atau bukti",
+        "Tindakan",
+        "PIC",
+        "Tenggat",
+        "Verifikasi"
+      ],
+      "examples": [
+        [
+          "Penerimaan",
+          "Jalur sesuai denah bebas hambatan",
+          "Temuan",
+          "Palet di sisi pintu",
+          "Pindahkan dan tinjau area transit",
+          "Supervisor",
+          "",
+          "Cek ulang saat pergantian giliran"
+        ],
+        [
+          "Gudang",
+          "Label lokasi penyimpanan terbaca",
+          "Belum diperiksa",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Akses keluar",
+          "Akses terjaga sesuai prosedur lokasi",
+          "Belum diperiksa",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ]
+      ]
+    },
+    "faqItems": [
+      {
+        "question": "Bolehkah satu checklist dipakai untuk semua area?",
+        "answer": "Gunakan daftar umum sebagai dasar, lalu tambahkan item yang sesuai aktivitas, aset, dan kriteria area."
+      },
+      {
+        "question": "Apa beda tindakan sementara dan penutupan?",
+        "answer": "Tindakan sementara mengendalikan kondisi saat itu. Penutupan membutuhkan bukti penyelesaian serta pemeriksaan sesuai sifat temuan."
+      }
+    ],
+    "source": "smk3",
+    "parents": [
+      "/dokumen-smk3/"
+    ],
+    "related": [
+      "contoh-program-kerja-p2k3",
+      "tindak-lanjut-temuan-audit-smk3"
+    ],
+    "cta": "Bahas sistem inspeksi K3 perusahaan",
+    "lastUpdated": "2026-11-21"
+  },
+  {
+    "slug": "contoh-program-kerja-p2k3",
+    "title": "Contoh Program Kerja P2K3 dan Kalender Tahunan",
+    "description": "Susun program kerja P2K3 sesuai Pasal 10 Permenaker 13/2025. Lihat contoh target, PIC, kalender, bukti kegiatan, dan unduh tabel kerja.",
+    "intro": "Program kerja P2K3 mengatur cara panitia menindaklanjuti masalah K3 sepanjang tahun. Gunakan contoh ini untuk mengubah lima komponen program pada Pasal 10 Permenaker 13/2025 menjadi kegiatan, penanggung jawab, ukuran keberhasilan, dan bukti.",
+    "sections": [
+      {
+        "heading": "Mulai dari lima komponen Pasal 10",
+        "paragraphs": [
+          "Susun daftar masalah K3 dari laporan pekerja, inspeksi, evaluasi sebelumnya, dan perubahan proses. Identifikasi potensi bahaya, termasuk pihak yang dapat terdampak. Pilih kegiatan pemeriksaan penerapan yang bisa memvalidasi apakah pengendalian yang disepakati benar-benar digunakan di area kerja.",
+          "Siapkan kegiatan analisis statistik kecelakaan dan penyakit akibat kerja dengan sumber dan periode data yang jelas. Setelah meninjau hasil, rumuskan saran perbaikan untuk pengusaha atau pengurus. Kelima komponen ini dapat dibuat dalam satu format kalender, dengan tambahan register tindakan agar hambatan serta rekomendasi tetap mudah dilacak."
+        ]
+      },
+      {
+        "heading": "Contoh mengubah temuan menjadi program tahunan",
+        "paragraphs": [
+          "Misalnya, pekerja dari dua giliran melaporkan akses penerimaan barang sering dipakai bersamaan oleh pejalan kaki dan kendaraan. Pada bulan pertama, inventarisasi titik persinggungan dan masukkan ke penilaian bahaya. Setelah manajemen memutuskan pengaturan akses, jadwalkan inspeksi saat penerimaan berlangsung. Keluaran yang diminta adalah catatan kondisi jalur, waktu, dan tindakan bila pengendalian belum tersedia.",
+          "Tetapkan penanggung jawab yang bisa menjalankan kegiatan, misalnya supervisor gudang sebagai pemilik pengaturan akses dan anggota P2K3 sebagai peninjau hasil. Contoh indikatornya adalah seluruh titik akses yang diidentifikasi telah ditinjau pada waktu operasi. Jika target belum tercapai, catat alasan, kebutuhan sumber daya, dan tanggal tindak lanjut."
+        ]
+      },
+      {
+        "heading": "Pakai rapat untuk mengambil keputusan",
+        "paragraphs": [
+          "Pada rapat, mulai dengan tindakan lama yang belum selesai dan kondisi berisiko yang berubah. Untuk setiap rekomendasi, tentukan keputusan yang diminta, penerima usulan, dan batas respons. Misalnya, perubahan akses bisa membutuhkan persetujuan penggunaan ruang dan perubahan jadwal pengiriman. Catat keputusan manajemen dan cara memeriksa hasil.",
+          "Bedakan indikator pelaksanaan dari hasil. Jumlah inspeksi menunjukkan kegiatan dilakukan. Frekuensi akses terhalang pada waktu yang sebanding dapat menunjukkan perubahan kondisi. Pilih ukuran yang dapat diuji dengan catatan yang sudah tersedia dan sepakati kapan hasilnya dinilai."
+        ]
+      },
+      {
+        "heading": "Siapkan bahan laporan setiap enam bulan",
+        "paragraphs": [
+          "Rekap realisasi, hambatan, dan rekomendasi dari kalender dan notulen. Untuk kegiatan yang terlambat, catat sebab, tindakan sementara, serta jadwal revisi. Simpan versi kalender yang dipakai pada periode laporan agar angka rencana dan realisasi dapat diperiksa. Pasal 11 menetapkan pelaporan kegiatan setiap enam bulan atau sewaktu-waktu apabila diperlukan.",
+          "Contoh kalender memakai tahun berjalan sebagai periode perencanaan. Tempat kerja dapat mengatur frekuensi rapat, inspeksi, dan evaluasi internal berdasarkan risiko serta kebutuhan. Hubungkan tiap baris kegiatan dengan bukti yang dapat digunakan pada format laporan resmi."
+        ]
+      }
+    ],
+    "asset": {
+      "title": "Kalender program kerja P2K3",
+      "columns": [
+        "Komponen Pasal 10",
+        "Kegiatan",
+        "Contoh jadwal",
+        "PIC",
+        "Ukuran atau keluaran",
+        "Bukti",
+        "Status"
+      ],
+      "examples": [
+        [
+          "Inventarisasi masalah",
+          "Rekap laporan akses gudang",
+          "Januari",
+          "Sekretaris",
+          "Daftar isu per area",
+          "Register isu",
+          "Rencana"
+        ],
+        [
+          "Identifikasi bahaya",
+          "Tinjau akses saat bongkar muat",
+          "Februari",
+          "Tim gudang",
+          "Peta titik persinggungan",
+          "Catatan penilaian",
+          "Rencana"
+        ],
+        [
+          "Pemeriksaan penerapan",
+          "Periksa perubahan akses saat operasi",
+          "Maret–Juni",
+          "Supervisor",
+          "Hasil observasi dan tindakan",
+          "Checklist dan foto bila diizinkan",
+          "Rencana"
+        ],
+        [
+          "Statistik",
+          "Telaah kecelakaan dan PAK",
+          "Akhir periode",
+          "HSE",
+          "Rekap dan definisi data",
+          "Register sumber",
+          "Rencana"
+        ],
+        [
+          "Saran perbaikan",
+          "Ajukan keputusan penataan jalur",
+          "Setelah tinjauan",
+          "Ketua",
+          "Tanggapan manajemen dan PIC",
+          "Notulen",
+          "Rencana"
+        ]
+      ]
+    },
+    "faqItems": [
+      {
+        "question": "Apakah program harus menggunakan format tahunan ini?",
+        "answer": "Kalender ini adalah alat perencanaan. Sesuaikan dengan kondisi perusahaan dan pastikan lima komponen Pasal 10 tercakup."
+      },
+      {
+        "question": "Kapan kegiatan dilaporkan?",
+        "answer": "Ketua menyampaikan laporan setiap enam bulan atau sewaktu-waktu bila diperlukan sesuai Pasal 11. Gunakan format lampiran peraturan."
+      }
+    ],
+    "source": "p2k3",
+    "parents": [
+      "/membentuk-p2k3/",
+      "/laporan-p2k3-disnaker/"
+    ],
+    "related": [
+      "checklist-inspeksi-k3",
+      "tindak-lanjut-temuan-audit-smk3"
+    ],
+    "cta": "Bahas program dan rencana kegiatan P2K3",
+    "lastUpdated": "2026-11-21"
+  },
+  {
+    "slug": "materi-safety-induction",
+    "title": "Materi Safety Induction untuk Pekerja dan Tamu",
+    "description": "Susun materi safety induction sesuai akses pekerja, kontraktor, dan tamu. Unduh checklist induksi dan contoh pertanyaan pemahaman.",
+    "intro": "Safety induction memperkenalkan kondisi lokasi, batas akses, cara melapor, peran kontak, dan langkah saat keadaan darurat sebelum seseorang memasuki area kerja. Susun materi berdasarkan siapa yang datang dan apa yang akan mereka lakukan.",
+    "sections": [
+      {
+        "heading": "Bedakan kebutuhan pekerja, kontraktor, dan pengunjung",
+        "paragraphs": [
+          "Pekerja baru perlu mengenal area penempatan, risiko utama, pelaporan bahaya, jalur evakuasi, dan cara meminta klarifikasi pekerjaan. Kontraktor juga perlu memahami batas pekerjaan, siapa yang mendampingi, dan bagaimana pengendalian antarpekerjaan dikoordinasikan. Pengunjung biasanya perlu mengetahui rute, pendamping, pembatasan area, dan tindakan ketika alarm berbunyi.",
+          "Mulai dari denah terkini. Tandai titik penerimaan, jalur yang boleh dipakai, area dengan akses terbatas, titik kumpul, serta cara menghubungi kontak lokasi. Periksa informasi tersebut dengan penanggung jawab di lapangan sebelum materi dipakai. Untuk pengunjung yang hanya berada di ruang rapat, pilih informasi yang relevan dengan akses tersebut."
+        ]
+      },
+      {
+        "heading": "Contoh susunan materi untuk lokasi renovasi aktif",
+        "paragraphs": [
+          "Pada awal sesi, jelaskan pekerjaan yang sedang berlangsung dan siapa yang dapat masuk ke area renovasi. Gunakan denah untuk memperlihatkan titik pemisahan penghuni dan tim proyek. Bahas cara melaporkan jalur terhalang, siapa yang bisa menghentikan aktivitas, dan bagaimana pekerja menerima perubahan rute.",
+          "Pada bagian keadaan darurat, jelaskan cara mengenali tanda, rute keluar yang berlaku, titik kumpul, dan bagaimana melapor kepada pendamping atau petugas. Gunakan satu skenario singkat: seorang tamu melihat jalur keluar yang biasanya dipakai terhalang. Minta ia menunjukkan rute yang berlaku dan menyebutkan siapa yang harus diberi tahu."
+        ]
+      },
+      {
+        "heading": "Periksa pemahaman dan dokumentasikan akses",
+        "paragraphs": [
+          "Akhiri dengan pertanyaan yang bisa dijawab lewat penjelasan ulang atau menunjuk denah. Tanyakan siapa yang dihubungi saat pengendalian belum tersedia dan di mana pengunjung menunggu instruksi. Jika peserta belum dapat menjelaskan kembali, ulangi bagian tersebut dengan bahasa yang dipahami dan cek ulang sebelum memberikan akses yang direncanakan.",
+          "Catat nama atau ID sesuai prosedur, peran, tanggal, lokasi, fasilitator, versi materi, hasil cek pemahaman, dan kebutuhan tindak lanjut. Bila peserta bekerja di lokasi berbeda pada hari berikutnya, periksa apakah materi yang diterima sudah mencakup area baru. Gunakan akses terbatas untuk data kehadiran sesuai kebutuhan."
+        ]
+      },
+      {
+        "heading": "Perbarui induksi ketika kondisi lokasi berubah",
+        "paragraphs": [
+          "Jika pintu masuk atau titik kumpul berpindah, perbarui denah dan materi, lalu beri tahu peserta yang sudah mendapat induksi melalui mekanisme komunikasi proyek. Simpan tanggal perubahan serta cara penyampaiannya. Untuk instruksi pekerjaan hari itu, gunakan pengarahan tugas dan rujuk JSA yang berlaku."
+        ]
+      }
+    ],
+    "asset": {
+      "title": "Checklist penyampaian safety induction",
+      "columns": [
+        "Peserta atau peran",
+        "Topik",
+        "Contoh cek pemahaman",
+        "Hasil",
+        "Tindakan atau PIC"
+      ],
+      "examples": [
+        [
+          "Pengunjung",
+          "Akses dan pendamping",
+          "Tunjukkan jalur dari titik penerimaan",
+          "",
+          ""
+        ],
+        [
+          "Kontraktor",
+          "Koordinasi area kerja",
+          "Siapa kontak jika batas akses berubah?",
+          "",
+          ""
+        ],
+        [
+          "Seluruh peserta",
+          "Keadaan darurat",
+          "Tunjukkan titik kumpul dan cara melapor",
+          "",
+          ""
+        ],
+        [
+          "Pekerja",
+          "Pelaporan bahaya",
+          "Jelaskan cara melapor bila pengendalian belum tersedia",
+          "",
+          ""
+        ]
+      ]
+    },
+    "faqItems": [
+      {
+        "question": "Kapan induksi perlu diulang?",
+        "answer": "Tinjau ulang ketika akses, kondisi lokasi, prosedur, atau lingkup pekerjaan berubah. Ikuti ketentuan induksi lokasi."
+      },
+      {
+        "question": "Apa beda safety induction dan toolbox meeting?",
+        "answer": "Induksi memberi orientasi awal terhadap lokasi dan aturan yang relevan. Toolbox meeting membahas kondisi dan pengendalian pekerjaan yang akan dilakukan."
+      }
+    ],
+    "source": "bina",
+    "parents": [
+      "/smkk-konstruksi/"
+    ],
+    "related": [
+      "contoh-toolbox-meeting",
+      "contoh-jsa"
+    ],
+    "cta": "Bahas materi induksi untuk proyek Anda",
+    "lastUpdated": "2026-11-21"
+  },
+  {
+    "slug": "contoh-toolbox-meeting",
+    "title": "Contoh Toolbox Meeting: Tiga Briefing sebelum Kerja",
+    "description": "Lihat tiga contoh toolbox meeting singkat untuk penerimaan material, perubahan akses proyek, dan pergantian giliran kerja. Unduh format catatan.",
+    "intro": "Toolbox meeting adalah pengarahan singkat sebelum tugas untuk membahas pekerjaan, perubahan kondisi, pengendalian yang harus tersedia, dan hal yang perlu diselesaikan sebelum aktivitas mulai. Mulailah dari pekerjaan dan kondisi yang benar-benar dihadapi tim hari itu.",
+    "sections": [
+      {
+        "heading": "Contoh 1. Penerimaan material di gudang",
+        "paragraphs": [
+          "Pembuka: “Pagi ini material datang lewat pintu penerimaan timur. Jalur di sebelahnya juga dipakai pejalan kaki.” Tunjukkan denah dan minta penerima material menjelaskan siapa yang memeriksa jalur sebelum kendaraan bergerak. Sepakati bagaimana tim menyampaikan bahwa jalur belum siap serta siapa yang menghubungi supervisor.",
+          "Pertanyaan untuk tim: “Apa yang dilakukan jika area transit penuh ketika kendaraan tiba?” Gunakan jawaban untuk menguji rencana. Bila tempat penempatan belum diputuskan dan jalur akan terganggu, catat tindakan dan tunda langkah terkait sampai supervisor memverifikasi pengaturan."
+        ]
+      },
+      {
+        "heading": "Contoh 2. Perubahan akses di proyek renovasi",
+        "paragraphs": [
+          "Pembuka: “Akses biasa ditutup hari ini. Jalur pengganti berbagi titik persinggungan dengan penghuni gedung.” Perlihatkan titik perubahan, peran pendamping, dan batas area kerja. Minta satu pekerja menunjukkan rute pengganti dan menyebut kondisi yang harus dilaporkan sebelum membawa material.",
+          "Pertanyaan untuk tim: “Siapa yang perlu diberi tahu jika jalur baru kembali terhalang?” Cocokkan jawaban dengan kontak pengelola gedung dan prosedur proyek. Jika perubahan memengaruhi penilaian risiko, minta pemilik metode meninjau JSA dan dokumen terkait sebelum mengandalkan pengendalian lama."
+        ]
+      },
+      {
+        "heading": "Contoh 3. Serah terima pada pergantian giliran",
+        "paragraphs": [
+          "Pembuka: “Giliran sebelumnya menunda satu pengiriman. Dua barang masih berada di area yang akan dipakai tim berikutnya.” Minta penerima giliran menunjukkan lokasi barang, status pekerjaan, serta apa yang perlu diverifikasi sebelum transfer dilanjutkan. Pastikan informasi yang dipakai sesuai kondisi, terutama jika catatan dan situasi di lantai kerja berbeda.",
+          "Pertanyaan untuk tim: “Apa yang masih terbuka, siapa pemiliknya, dan kapan akan diperiksa?” Catat jawaban dalam serah terima. Jika ada pembatasan akses yang masih berlaku, konfirmasi kepada tim baru bagaimana pembatasan dipertahankan hingga dinyatakan selesai."
+        ]
+      },
+      {
+        "heading": "Gunakan catatan yang bisa ditindaklanjuti",
+        "paragraphs": [
+          "Simpan tanggal, lokasi, kegiatan, fasilitator, peserta, rujukan JSA bila berlaku, serta perubahan yang dibahas. Untuk setiap aksi, catat pemilik, tenggat atau kondisi sebelum mulai, dan siapa yang memeriksa. Tambahkan hasil cek pemahaman singkat, misalnya pekerja dapat menunjukkan akses yang diizinkan pada denah.",
+          "Tinjau ulang pengarahan bila kondisi berubah selama giliran. Beri kesempatan pekerja mengangkat masalah yang belum tercakup. Jika muncul hambatan yang membutuhkan keputusan, masukkan ke register tindakan dan sampaikan kepada pihak yang berwenang. Bahas statusnya pada serah terima atau pengarahan berikutnya."
+        ]
+      }
+    ],
+    "asset": {
+      "title": "Log toolbox meeting",
+      "columns": [
+        "Lokasi atau tugas",
+        "Perubahan atau topik",
+        "Pertanyaan cek",
+        "Tindakan",
+        "PIC",
+        "Syarat verifikasi",
+        "Status"
+      ],
+      "examples": [
+        [
+          "Penerimaan material",
+          "Jalur dipakai bersama",
+          "Apa tindakan jika area transit penuh?",
+          "Periksa jalur sebelum mulai",
+          "Supervisor",
+          "Konfirmasi akses dan tempat transit",
+          "Terbuka"
+        ],
+        [
+          "Renovasi",
+          "Akses berpindah",
+          "Siapa kontak bila jalur terhalang?",
+          "Tinjau rute dan komunikasi penghuni",
+          "Koordinator",
+          "Cocokkan denah dengan lokasi",
+          "Terbuka"
+        ],
+        [
+          "Pergantian giliran",
+          "Pekerjaan sebelumnya tertunda",
+          "Apa yang masih terbuka?",
+          "Konfirmasi kondisi dengan tim penerima",
+          "Pemimpin giliran",
+          "Catat hasil serah terima",
+          "Terbuka"
+        ]
+      ]
+    },
+    "faqItems": [
+      {
+        "question": "Berapa lama toolbox meeting berlangsung?",
+        "answer": "Gunakan waktu yang cukup untuk menjelaskan perubahan, menjawab pertanyaan, dan menentukan tindakan. Ikuti ketentuan proyek dan tingkat kompleksitas tugas."
+      },
+      {
+        "question": "Siapa yang sebaiknya memimpin?",
+        "answer": "Pilih pemimpin tugas atau pihak yang memahami kondisi dan dapat mengoordinasikan tindakan sesuai prosedur lokasi."
+      }
+    ],
+    "source": "bina",
+    "parents": [
+      "/smkk-konstruksi/"
+    ],
+    "related": [
+      "contoh-jsa",
+      "materi-safety-induction"
+    ],
+    "cta": "Bahas pengarahan K3 untuk tim lapangan",
+    "lastUpdated": "2026-11-21"
+  }
 ];

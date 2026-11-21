@@ -3,51 +3,47 @@ import Layout from '../../layouts/Layout.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import FaqSection from '../../components/FaqSection.astro';
 
-const title = 'Laporan Triwulan P2K3 ke Disnaker: Format & Cara Pengisian';
-const description = 'Panduan penyusunan laporan triwulan P2K3 ke Disnaker sesuai Permenaker 04/1987. Format baku 5 bagian laporan, rekapitulasi rapat, dan perhitungan FR/SR.';
+const title = 'Laporan P2K3 ke Disnaker: Format dan Cara Pengisian';
+const description = 'Panduan laporan P2K3 setiap enam bulan sesuai Permenaker 13/2025. Lihat format lampiran, contoh isian, dan cara menyampaikan laporan.';
 const canonicalPath = '/laporan-p2k3-disnaker/';
 
 const breadcrumbs = [
   { name: 'Beranda', url: '/' },
-  { name: 'Laporan Triwulan P2K3', url: '/laporan-p2k3-disnaker/' }
+  { name: 'Laporan P2K3', url: '/laporan-p2k3-disnaker/' }
 ];
 
 const tocItems = [
-  { id: 'dasar-hukum-kewajiban-lapor', title: 'Dasar Hukum Kewajiban Pelaporan P2K3 Setiap 3 Bulan (Permenaker 04/1987)' },
-  { id: 'jadwal-dan-batas-waktu-triwulan', title: 'Tabel Periode Kalender dan Batas Waktu Penyerahan Laporan Triwulan I – IV' },
-  { id: 'bedah-format-lima-bagian', title: 'Bedah Lengkap 5 Bagian Format Baku Laporan Triwulan P2K3 Beserta Contoh Isi' },
-  { id: 'lampiran-wajib-bukti-pendukung', title: 'Daftar Lampiran Bukti Pendukung yang Wajib Disertakan dalam Berkas Laporan' },
-  { id: 'prosedur-pengiriman-disnaker-temank3', title: 'Alur Pengiriman Laporan: Tatap Muka Disnaker Provinsi vs Portal Online' },
-  { id: 'alasan-laporan-ditolak-pengawas', title: '6 Kesalahan Fatal yang Menyebabkan Laporan P2K3 Ditolak Pengawas Ketenagakerjaan' },
-  { id: 'peran-laporan-dalam-audit-dan-zero-accident', title: 'Manfaat Tanda Terima Laporan P2K3 untuk Audit SMK3 dan Penghargaan Zero Accident' },
-  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Laporan Triwulan P2K3 ke Disnaker' }
+  { id: 'dasar-hukum-kewajiban-lapor', title: 'Dasar Hukum Pelaporan P2K3 Setiap Enam Bulan' },
+  { id: 'jadwal-dan-batas-waktu-triwulan', title: 'Contoh Kalender Persiapan Laporan P2K3' },
+  { id: 'bedah-format-lima-bagian', title: 'Lima Bagian Format Laporan P2K3 dan Contoh Isi' },
+  { id: 'lampiran-wajib-bukti-pendukung', title: 'Bukti Pendukung yang Perlu Disiapkan' },
+  { id: 'prosedur-pengiriman-disnaker-temank3', title: 'Cara Mengirim Laporan Elektronik atau Manual' },
+  { id: 'alasan-laporan-ditolak-pengawas', title: 'Enam Pemeriksaan Sebelum Mengirim Laporan' },
+  { id: 'peran-laporan-dalam-audit-dan-zero-accident', title: 'Simpan Tanda Terima untuk Arsip dan Audit SMK3' },
+  { id: 'faq-section', title: 'Pertanyaan Umum Seputar Laporan P2K3 ke Disnaker' }
 ];
 
 const faqItems = [
   {
-    question: 'Bagaimana jika selama 3 bulan terakhir tidak ada kecelakaan kerja sama sekali, apakah tetap wajib lapor P2K3?',
-    answer: 'Ya, tetap wajib melapor. Laporan triwulan P2K3 bukan hanya melaporkan kecelakaan kerja, melainkan melaporkan seluruh kegiatan pencegahan K3, rapat bulanan komite, jumlah jam kerja orang tanpa kecelakaan (safe man-hours), pelaksanaan inspeksi, dan pelatihan. Jika tidak ada kecelakaan, kolom angka kecelakaan diisi dengan angka 0 (Nihil) yang justru menjadi bukti rekam jejak positif bagi perusahaan.'
+    question: 'Apakah laporan triwulan P2K3 masih berlaku?',
+    answer: 'Pasal 11 Permenaker 13/2025 mengatur pelaporan rutin setiap enam bulan atau sewaktu-waktu apabila diperlukan. Pasal 16 mencabut PER.04/MEN/1987 yang mendasari periode triwulanan.'
   },
   {
-    question: 'Siapa yang wajib menandatangani surat pengantar dan lembar pengesahan Laporan Triwulan P2K3?',
-    answer: 'Laporan Triwulan P2K3 wajib ditandatangani oleh Ketua P2K3 (yang dijabat oleh Pimpinan Puncak Perusahaan / Direktur / General Manager) dan Sekretaris P2K3 (yang wajib dijabat oleh personel bersertifikat Ahli K3 Umum Kemnaker aktif), serta dibubuhi stempel basah perusahaan.'
+    question: 'Apakah tetap melapor jika tidak ada kecelakaan kerja?',
+    answer: 'Ya. Laporan mencakup kegiatan P2K3 selama periode tersebut. Isi data insiden dan penyakit akibat kerja sesuai rekaman perusahaan, termasuk nihil jika memang tidak ada.'
   },
   {
-    question: 'Ke instansi mana laporan P2K3 dikirimkan: Disnaker Kabupaten/Kota atau Disnaker Provinsi?',
-    answer: 'Sejak berlakunya Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah, kewenangan pengawasan ketenagakerjaan ditarik ke tingkat Pemerintah Provinsi. Oleh karena itu, laporan triwulan P2K3 ditujukan kepada Kepala Dinas Tenaga Kerja dan Transmigrasi Provinsi (atau melalui Unit Pelaksana Teknis Daerah / UPTD Pengawasan Ketenagakerjaan wilayah setempat).'
+    question: 'Siapa yang menyampaikan laporan P2K3 dan kepada siapa?',
+    answer: 'Ketua P2K3 menyampaikan laporan kepada Kepala Dinas Daerah Provinsi dengan tembusan kepada Menteri. Format lampiran mencantumkan ketua sebagai penandatangan.'
   },
   {
-    question: 'Apa konsekuensinya jika perusahaan sudah punya SK P2K3 tetapi tidak pernah mengirim laporan triwulan?',
-    answer: 'Apabila perusahaan tidak pernah menyerahkan laporan triwulan, Pengawas Ketenagakerjaan akan menerbitkan Nota Pemeriksaan saat kunjungan pengawasan. Selain itu, pada saat audit sertifikasi SMK3 PP 50/2012 (Kriteria 1.4.6 dan 1.4.9) maupun verifikasi CSMS tender, ketiadaan bukti tanda terima laporan P2K3 akan dinilai sebagai bukti bahwa organisasi P2K3 hanya aktif di atas kertas (non-aktif).'
-  },
-  {
-    question: 'Berapa rangkap berkas fisik Laporan Triwulan P2K3 yang harus dicetak saat diserahkan ke Disnaker?',
-    answer: 'Untuk pengiriman berkas fisik (hardcopy), cetaklah minimal dalam 2 (dua) atau 3 (tiga) rangkap: 1 berkas asli diserahkan sebagai arsip Dinas Ketenagakerjaan Provinsi/UPTD Pengawasan, dan 1 berkas salinan dibawa kembali oleh perusahaan setelah dibubuhi stempel tanda terima basah dan tanggal penerimaan oleh petugas Disnaker sebagai bukti sah saat audit.'
+    question: 'Bagaimana jika belum dapat melapor secara elektronik?',
+    answer: 'Pasal 11 mengizinkan pelaporan manual jika pengiriman melalui sistem informasi Kemnaker belum dapat dilakukan. Konfirmasi tata cara penerimaan kepada dinas provinsi dan simpan bukti penyampaian.'
   }
 ];
 
-const lastUpdated = '2026-11-14';
-const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tata Cara Pengisian';
+const lastUpdated = '2026-11-21';
+const headline = 'Laporan P2K3 ke Disnaker: Format dan Cara Pengisian';
 ---
 
 <Layout
@@ -64,110 +60,42 @@ const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tat
       <h1>{headline}</h1>
       <div class="article-meta">
         <span>Kategori: Kepatuhan Disnaker & Kelembagaan K3</span>
-        <span>Diperbarui: 14 November 2026</span>
-        <span>Waktu Baca: 17 Menit</span>
+        <span>Diperbarui: 21 November 2026</span>
+        <span>Waktu Baca: 9 Menit</span>
       </div>
     </header>
 
     <p class="lead-paragraph">
-      Banyak perusahaan merasa tugas kepatuhan mereka sudah tuntas begitu mengantongi Surat Keputusan (SK) Pengesahan Panitia Pembina Keselamatan dan Kesehatan Kerja dari Dinas Ketenagakerjaan. Padahal, penerbitan SK tersebut justru merupakan titik awal dari kewajiban pelaporan berkala yang dipantau ketat oleh pegawai pengawas. Menyusun dan menyerahkan <strong>laporan triwulan p2k3</strong> secara tertib setiap tiga bulan sekali adalah bukti hukum bahwa komite keselamatan di tempat kerja Anda benar-benar hidup, rapat secara rutin, dan aktif mengendalikan potensi bahaya operasional.
+      <strong>Laporan P2K3 ke Disnaker disampaikan setiap enam bulan</strong> atau sewaktu-waktu apabila diperlukan menurut Pasal 11 Permenaker 13/2025. Gunakan format resmi pada lampiran aturan tersebut untuk mencatat data perusahaan, kegiatan K3, hambatan, dan rekomendasi.
     </p>
 
     <TableOfContents items={tocItems} />
 
     <section id="dasar-hukum-kewajiban-lapor">
-      <h2>Dasar Hukum Kewajiban Pelaporan P2K3 Setiap 3 Bulan (Permenaker 04/1987)</h2>
-      <p>
-        Kewajiban membentuk lembaga kerja sama bipartit di bidang keselamatan dan kesehatan kerja diatur dalam Pasal 10 Undang-Undang Nomor 1 Tahun 1970 tentang Keselamatan Kerja. Bagi Anda yang baru memulai proses pembentukan komite, silakan pelajari terlebih dahulu <a href="/membentuk-p2k3/">panduan cara membentuk P2K3 dan syarat pengesahan Disnaker</a>. Setelah lembaga P2K3 disahkan, aturan teknis operasional dan pelaporannya tunduk pada <strong>Peraturan Menteri Tenaga Kerja Nomor PER.04/MEN/1987 tentang Panitia Pembina Keselamatan dan Kesehatan Kerja serta Tata Cara Penunjukan Ahli Keselamatan Kerja</strong>.
-      </p>
-      <p>
-        Di dalam <strong>Pasal 12 Permenaker Nomor PER.04/MEN/1987</strong> ditegaskan secara eksplisit bahwa:
-      </p>
-      <blockquote>
-        <em>"Sekurang-kurangnya 3 (tiga) bulan sekali pengurus wajib menyampaikan laporan tentang kegiatan P2K3 kepada Menteri Tenaga Kerja melalui Kantor Departemen/Dinas Tenaga Kerja setempat."</em>
-      </blockquote>
-      <p>
-        Kewajiban pelaporan triwulanan ini juga dikunci kembali di dalam Peraturan Pemerintah Nomor 50 Tahun 2012 tentang Penerapan SMK3, khususnya pada <strong>Elemen 1 Sub-elemen 1.4 (Kriteria 1.4.3 hingga 1.4.9)</strong> serta <strong>Elemen 10 tentang Pengumpulan dan Penggunaan Data K3</strong>. Dalam penilaian <a href="/kriteria-audit-smk3/">166 kriteria audit SMK3 PP 50/2012</a>, auditor eksternal tidak hanya meminta diperlihatkan lembar SK Pengesahan P2K3, melainkan akan menagih bukti tanda terima penyerahan laporan triwulan P2K3 selama empat kuartal terakhir secara berkesinambungan.
-      </p>
+      <h2>Dasar Hukum Pelaporan P2K3 Setiap Enam Bulan</h2>
+      <p>Permenaker 13/2025 berlaku sejak diundangkan pada 19 November 2025. Pasal 16 mencabut PER.04/MEN/1987. Istilah laporan triwulan P2K3 masih dapat ditemukan pada arsip lama. Untuk pelaporan berjalan, gunakan ketentuan dan format baru.</p>
+      <p>Ketua P2K3 menyampaikan laporan kepada Kepala Dinas Daerah Provinsi dengan tembusan kepada Menteri. Bila susunan P2K3 berubah, lihat <a href="/membentuk-p2k3/">panduan penetapan dan pembaruan P2K3</a> sebelum mengisi identitas panitia pada laporan.</p>
+      <p>Rujukan: <cite>Permenaker Nomor 13 Tahun 2025</cite>, Pasal 11, Pasal 16, dan lampiran. Naskah resmi tersedia di JDIH Kemnaker.</p>
     </section>
 
     <section id="jadwal-dan-batas-waktu-triwulan">
-      <h2>Tabel Periode Kalender dan Batas Waktu Penyerahan Laporan Triwulan I – IV</h2>
-      <p>
-        Dalam satu tahun takwim (Januari hingga Desember), siklus pelaporan kegiatan P2K3 dibagi menjadi 4 (empat) triwulan/kuartal. Sekretaris P2K3 (Ahli K3 Umum) wajib menyusun rekapitulasi data segera setelah bulan ketiga pada tiap kuartal berakhir dan menyerahkannya paling lambat pada pertengahan bulan berikutnya:
-      </p>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Kode Periode</th>
-              <th>Cakupan Bulan Operasional yang Dilaporkan</th>
-              <th>Jadwal Rapat Bulanan P2K3 yang Direkap</th>
-              <th>Batas Waktu Ideal Penyerahan ke Disnaker</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Triwulan I (Q1)</strong></td>
-              <td>Januari, Februari, dan Maret</td>
-              <td>Rapat P2K3 Bulan Januari, Februari, &amp; Maret (3 Notulen)</td>
-              <td>Tanggal <strong>1 s.d. 15 April</strong> tahun berjalan</td>
-            </tr>
-            <tr>
-              <td><strong>Triwulan II (Q2)</strong></td>
-              <td>April, Mei, dan Juni</td>
-              <td>Rapat P2K3 Bulan April, Mei, &amp; Juni (3 Notulen)</td>
-              <td>Tanggal <strong>1 s.d. 15 Juli</strong> tahun berjalan</td>
-            </tr>
-            <tr>
-              <td><strong>Triwulan III (Q3)</strong></td>
-              <td>Juli, Agustus, dan September</td>
-              <td>Rapat P2K3 Bulan Juli, Agustus, &amp; September (3 Notulen)</td>
-              <td>Tanggal <strong>1 s.d. 15 Oktober</strong> tahun berjalan</td>
-            </tr>
-            <tr>
-              <td><strong>Triwulan IV (Q4)</strong></td>
-              <td>Oktober, November, dan Desember</td>
-              <td>Rapat P2K3 Bulan Oktober, November, &amp; Desember (3 Notulen)</td>
-              <td>Tanggal <strong>1 s.d. 15 Januari</strong> tahun berikutnya</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <h2>Contoh Kalender Persiapan Laporan P2K3</h2>
+      <p>Contoh kalender internal menggunakan periode Januari–Juni dan Juli–Desember. Pasal 11 menetapkan frekuensi enam bulan tanpa menetapkan tanggal kalender khusus pada pasal tersebut. Sesuaikan periode dan konfirmasi tata cara penyampaian yang berlaku untuk perusahaan Anda.</p>
+      <ol>
+        <li><strong>Selama periode berjalan:</strong> Catat kegiatan, rapat, hasil inspeksi, dan tindakan perbaikan saat berlangsung.</li>
+        <li><strong>Menjelang akhir periode:</strong> Cocokkan data HR, HSE, dan operasional. Tandai kegiatan tertunda beserta penyebab dan rencana lanjutannya.</li>
+        <li><strong>Saat pengiriman:</strong> Periksa isian bersama ketua, simpan versi yang disampaikan, dan catat tanggal serta referensi penerimaan.</li>
+      </ol>
     </section>
 
     <section id="bedah-format-lima-bagian">
-      <h2>Bedah Lengkap 5 Bagian Format Baku Laporan Triwulan P2K3 Beserta Contoh Isi</h2>
-      <p>
-        Bagaimana struktur dokumen Laporan Triwulan P2K3 yang standar dan diterima oleh Dinas Ketenagakerjaan Provinsi di seluruh Indonesia? Agar laporan Anda rapi, komprehensif, dan bernilai tinggi saat diperiksa pengawas maupun auditor, susunlah berkas laporan ke dalam <strong>5 (lima) bab/bagian baku</strong> berikut:
-      </p>
-
-      <h3>Bagian I: Data Umum dan Identitas Administrasi Perusahaan</h3>
-      <p>
-        Bagian pembuka ini memuat profil legalitas dan demografi ketenagakerjaan perusahaan pada kuartal yang dilaporkan:
-      </p>
-      <ul>
-        <li>Nama Badan Hukum Perusahaan (PT/CV/Yayasan) dan Bidang Usaha / Kode KBLI.</li>
-        <li>Alamat Lengkap Lokasi Tempat Kerja (Pabrik / Proyek / Kantor Pusat) beserta nomor telepon.</li>
-        <li>Nomor dan Tanggal Surat Keputusan (SK) Pengesahan P2K3 dari Disnaker Provinsi.</li>
-        <li>Nama Sekretaris P2K3 beserta Nomor Registrasi SKP dan Masa Berlaku Kartu Lisensi Ahli K3 Umum Kemnaker.</li>
-        <li>Jumlah Total Tenaga Kerja aktif pada triwulan tersebut (dirinci menjadi jumlah pekerja Laki-laki, pekerja Perempuan, serta pekerja Kontraktor/Outsourcing yang berada di lokasi).</li>
-        <li>Jumlah Jam Kerja Efektif per hari/minggu dan jumlah shift kerja operasional.</li>
-      </ul>
-
-      <h3>Bagian II: Struktur Kepengurusan dan Rekapitulasi Rapat Bulanan P2K3</h3>
-      <p>
-        Bagian kedua membuktikan bahwa komite P2K3 benar-benar menjalankan fungsi komunikasi dua arah secara rutin setiap bulan:
-      </p>
-      <ul>
-        <li>Tabel susunan pengurus P2K3 terkini (Ketua, Wakil Ketua, Sekretaris, dan Anggota dari unsur manajemen maupun wakil pekerja). Apabila ada pengurus yang mengundurkan diri atau mutasi, wajib dicatat untuk pengajuan pembaruan SK.</li>
-        <li>Tabel Rekapitulasi Rapat Bulanan P2K3 selama 3 bulan terakhir yang memuat: Tanggal Rapat, Lokasi Rapat, Jumlah Anggota yang Hadir (kuorum), Topik Bahasan Utama, Keputusan Hasil Rapat, Penanggung Jawab Tindak Lanjut (PIC), dan Status Penyelesaian (<em>Open / Closed</em>).</li>
-      </ul>
-
-      <h3>Bagian III: Statistik Kinerja Keselamatan Kerja dan Rekapitulasi Insiden (FR & SR)</h3>
-      <p>
-        Bagian ketiga merupakan jantung data kuantitatif laporan P2K3. Di sini Sekretaris P2K3 menyajikan tabel statistik per bulan (Bulan ke-1, Bulan ke-2, Bulan ke-3, dan Total Triwulan) yang mencakup:
-      </p>
+      <h2>Lima Bagian Format Laporan P2K3 dan Contoh Isi</h2>
+      <p>Lampiran Permenaker 13/2025 menyediakan format laporan dengan kop perusahaan, periode, alamat tujuan, penandatangan, dan tembusan. Gunakan urutan A–E berikut saat menyiapkan informasi untuk format resmi.</p>
+      <h3>A. Data umum perusahaan</h3>
+      <p>Cocokkan nama, NIB, KBLI, alamat, saluran kontak, jumlah tenaga kerja, bukti kepesertaan BPJS Ketenagakerjaan dan BPJS Kesehatan, serta SK penetapan P2K3. Untuk perusahaan dengan beberapa lokasi, cek apakah angka tenaga kerja dan bukti yang dipakai sesuai lingkup laporan. Catat tanggal sumber data dan versi SK yang dirujuk.</p>
+      <h3>B. Data K3</h3>
+      <p>Rekap personel K3, kelembagaan K3 selain P2K3, sarana dan prasarana, serta kecelakaan kerja dan penyakit akibat kerja. Tunjuk pemilik setiap sumber data. Cocokkan rekap kasus dengan register insiden dan data kesehatan yang berwenang. Gunakan rujukan dokumen internal dan kelola akses atas informasi pribadi sesuai kebutuhan.</p>
+      <p>Tabel berikut memperlihatkan <strong>contoh rekap internal tiga bulan</strong> sebagai bahan pengisian. Untuk menyusun laporan enam bulanan, gabungkan data seluruh periode dengan dasar penghitungan yang konsisten. Data near miss, catatan P3K, dan FR/SR dapat membantu analisis internal. Lihat <a href="/investigasi-kecelakaan-kerja/">panduan investigasi dan rumus FR/SR</a> untuk metode hitungnya.</p>
       <div class="table-wrapper">
         <table>
           <thead>
@@ -176,7 +104,7 @@ const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tat
               <th>Bulan I</th>
               <th>Bulan II</th>
               <th>Bulan III</th>
-              <th>Total / Akumulasi Triwulan</th>
+              <th>Subtotal contoh tiga bulan</th>
             </tr>
           </thead>
           <tbody>
@@ -185,7 +113,7 @@ const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tat
               <td>250</td>
               <td>250</td>
               <td>252</td>
-              <td>Rata-rata: 251 Orang</td>
+              <td>Rata-rata dibulatkan: 251</td>
             </tr>
             <tr>
               <td>Jumlah Jam Kerja Orang (<em>Man-Hours</em>)</td>
@@ -220,7 +148,7 @@ const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tat
               <td>0</td>
               <td>0</td>
               <td>0</td>
-              <td><strong>0 (Nihil / Zero Accident)</strong></td>
+              <td><strong>0 LTI</strong></td>
             </tr>
             <tr>
               <td>Kasus Kematian (<em>Fatality</em>) &amp; Penyakit Akibat Kerja (PAK)</td>
@@ -246,93 +174,43 @@ const headline = 'Panduan Laporan Triwulan P2K3 ke Disnaker: Format Baku dan Tat
           </tbody>
         </table>
       </div>
-      <p>
-        Untuk mempelajari rumus matematis cara menghitung nilai <em>Frequency Rate</em> (FR) dan <em>Severity Rate</em> (SR) apabila terdapat kasus kehilangan hari kerja, silakan rujuk langsung ke halaman <a href="/investigasi-kecelakaan-kerja/">metodologi investigasi kecelakaan kerja dan rumus FR/SR</a>.
-      </p>
-
-      <h3>Bagian IV: Laporan Pelaksanaan Program Kerja K3, Inspeksi, dan Pengujian Teknis</h3>
-      <p>
-        Bagian keempat menjabarkan seluruh aktivitas preventif dan pemenuhan regulasi yang telah direalisasikan oleh perusahaan selama periode triwulan tersebut, meliputi:
-      </p>
-      <ol>
-        <li>
-          <strong>Pelaksanaan Inspeksi K3 Rutin:</strong> Hasil pemeriksaan kesiapan APAR, hidran, pengecekan kelengkapan <a href="/isi-kotak-p3k-permenaker/">daftar isi kotak P3K sesuai Permenaker 15/2008</a>, inspeksi pemakaian <a href="/jenis-apd-k3/">8 jenis APD K3</a> di area produksi, serta pemeliharaan rambu keselamatan.
-        </li>
-        <li>
-          <strong>Daftar Peralatan Wajib Riksa Uji (SIA) &amp; Lisensi Operator (SIO):</strong> Tabel daftar inventaris pesawat angkat-angkut (forklift/crane), bejana tekan, boiler, genset, instalasi listrik, dan penyalur petir lengkap dengan nomor Suket Layak K3 Disnaker dan tanggal masa berlakunya sesuai panduan <a href="/sio-dan-sia-k3/">kepatuhan SIO dan SIA K3</a>.
-        </li>
-        <li>
-          <strong>Pengukuran Lingkungan Kerja &amp; Pemeriksaan Kesehatan (MCU):</strong> Laporan hasil pengujian faktor fisika/kimia lingkungan kerja (Permenaker 05/2018) dan pelaksanaan pemeriksaan kesehatan berkala tenaga kerja.
-        </li>
-        <li>
-          <strong>Pelatihan, Sosialisasi, &amp; Simulasi Darurat:</strong> Kegiatan <em>safety induction</em> karyawan baru, pelaksanaan <em>toolbox meeting</em>, pelatihan internal, maupun pelaksanaan simulasi evakuasi kebakaran (<em>fire drill</em>).
-        </li>
-        <li>
-          <strong>Pemutakhiran Manajemen Risiko:</strong> Kajian ulang terhadap tabel <a href="/contoh-hiradc/">identifikasi bahaya matriks contoh HIRADC</a> apabila terdapat mesin atau proses baru pada kuartal tersebut.
-        </li>
-      </ol>
-
-      <h3>Bagian V: Evaluasi Kendala, Saran, dan Rekomendasi P2K3 kepada Pengusaha</h3>
-      <p>
-        Sesuai Pasal 4 Permenaker No. 04/1987, fungsi utama P2K3 adalah memberikan saran dan pertimbangan di bidang K3 kepada pengusaha. Oleh sebab itu, bagian penutup laporan wajib mencantumkan:
-      </p>
-      <ul>
-        <li>Kendala teknis atau perilaku yang dihadapi selama triwulan berjalan (misalnya: masih ditemukannya pekerja subkontraktor yang melepas kacamata safety, atau adanya 2 unit forklift yang masa berlaku riksa ujinya akan habis bulan depan).</li>
-        <li>Rekomendasi resmi P2K3 untuk Triwulan Berikutnya (misalnya: mengusulkan anggaran perpanjangan riksa uji 2 unit forklift, mengadakan pelatihan penyegaran LOTO bagi teknisi, dan menambah lampu penerangan di lorong gudang B).</li>
-      </ul>
+      <h3>C. Kegiatan K3</h3>
+      <p>Rangkum rapat, kebijakan, rencana dan pelaksanaan program, hasil pemeriksaan atau pengujian, pembinaan, identifikasi bahaya dan pengendalian risiko, serta pelayanan kesehatan kerja. Sebagai contoh, tulis “inspeksi gudang dilakukan pada April, dua temuan ditindaklanjuti dan satu menunggu verifikasi”. Cantumkan rujukan ke catatan inspeksi dan register tindakan.</p>
+      <p>Jika program mencakup pemeriksaan peralatan, cocokkan identitas unit dan tanggal pemeriksaan dengan inventaris. Gunakan <a href="/sio-dan-sia-k3/">panduan lisensi operator dan riksa uji alat</a> untuk menelusuri dokumen pendukung. Hubungkan kegiatan dengan target pada <a href="/contoh-program-kerja-p2k3/">program kerja P2K3</a>.</p>
+      <h3>D. Hambatan</h3>
+      <p>Jelaskan kegiatan yang belum tercapai dan penyebab yang teramati. Sebagai contoh, satu inspeksi terjadwal tertunda karena perubahan jadwal produksi. Catat area terdampak, apa yang telah dilakukan untuk menjaga pengendalian, dan kapan pemeriksaan dijadwalkan ulang. Pisahkan kejadian yang sudah selesai dari pekerjaan yang masih terbuka.</p>
+      <h3>E. Rekomendasi</h3>
+      <p>Buat usulan yang dapat diputuskan manajemen. Contohnya, minta persetujuan untuk menyediakan satu jendela inspeksi tetap pada akhir pergantian giliran kerja. Tambahkan penanggung jawab, waktu yang diajukan, serta bukti untuk memeriksa tindak lanjut. Untuk usulan yang sudah disetujui, masukkan tindakan ke program periode berikutnya.</p>
     </section>
 
     <section id="lampiran-wajib-bukti-pendukung">
-      <h2>Daftar Lampiran Bukti Pendukung yang Wajib Disertakan dalam Berkas Laporan</h2>
-      <p>
-        Agar laporan triwulan Anda tidak dianggap sekadar tabel karangan, sertakan lampiran bukti rekaman (<em>attachment</em>) berikut di bagian belakang bundel laporan:
-      </p>
-      <ul>
-        <li>Fotokopi SK Pengesahan P2K3 dari Disnaker Provinsi dan Fotokopi SKP/Lisensi Ahli K3 Umum milik Sekretaris P2K3.</li>
-        <li>Salinan Notulen Rapat Bulanan P2K3 (3 bulan terakhir) beserta fotokopi Daftar Hadir bertanda tangan asli dan foto dokumentasi jalannya rapat.</li>
-        <li>Rekapitulasi Checklist Inspeksi K3 (inspeksi APAR, kotak P3K, dan housekeeping) beserta foto perbaikan temuan (<em>before-after</em>).</li>
-        <li>Salinan Formulir Laporan Kecelakaan Kerja Bentuk 3 KK2 A (khusus apabila terjadi kecelakaan kerja pada triwulan tersebut).</li>
-      </ul>
+      <h2>Bukti Pendukung yang Perlu Disiapkan</h2>
+      <p>Gunakan daftar data pada lampiran aturan dan instruksi kanal pengiriman untuk menentukan dokumen yang perlu disertakan. Siapkan notulen, daftar kegiatan, catatan inspeksi, dan rekap insiden sebagai sumber yang dapat ditelusuri. Simpan versi yang dipakai untuk angka atau pernyataan penting.</p>
+      <p>Contohnya, buat indeks dengan kolom bagian laporan, judul rekaman, tanggal, lokasi simpan, dan pemilik. Untuk angka jumlah tenaga kerja, rujuk rekap HR yang dipakai. Untuk tindakan yang dinyatakan selesai, tautkan bukti pemeriksaan ulang. Rekaman yang memuat data sensitif dapat disimpan dengan akses terbatas sesuai ketentuan perusahaan dan kebutuhan pelaporan.</p>
     </section>
 
     <section id="prosedur-pengiriman-disnaker-temank3">
-      <h2>Alur Pengiriman Laporan: Tatap Muka Disnaker Provinsi vs Portal Online</h2>
-      <p>
-        Saat ini, mekanisme penyampaian laporan triwulan P2K3 di Indonesia dilakukan melalui dua jalur yang saling melengkapi tergantung kebijakan Dinas Tenaga Kerja dan Transmigrasi Provinsi di wilayah domisili pabrik/kantor Anda:
-      </p>
-      <ol>
-        <li>
-          <strong>Penyerahan Berkas Fisik / Elektronik ke Disnaker Provinsi (atau UPTD Pengawasan Wilayah):</strong> Perusahaan mencetak bundel laporan rangkap 2 disertai Surat Pengantar Resmi berkop perusahaan. Petugas tata usaha bidang Pengawasan Ketenagakerjaan akan memeriksa kelengkapan tanda tangan Ketua dan Sekretaris P2K3, mengambil 1 bundel untuk arsip pengawas, dan membubuhkan <strong>Stempel Tanda Terima Basah beserta Tanggal Penerimaan</strong> pada lembar Surat Pengantar milik perusahaan. Beberapa provinsi (seperti DKI Jakarta, Jawa Barat, Jawa Timur, dan Banten) juga menyediakan portal pelaporan daerah daring (<em>e-Pelaporan Disnaker</em>) di mana tanda terima diterbitkan dalam bentuk QR-Code elektronik.
-        </li>
-        <li>
-          <strong>Pelaporan Melalui Portal TemanK3 Kemnaker RI:</strong> Selain ke Disnaker Provinsi, Sekretaris P2K3 (Ahli K3 Umum) juga disarankan mengunggah ringkasan aktivitas melalui akun perusahaan/personel pada portal <em>temank3.kemnaker.go.id</em> sebagai bagian dari rekam jejak aktif pemegang lisensi AK3U yang sangat berguna saat mengajukan perpanjangan SKP Ahli K3 Umum setiap 3 tahun sekali.
-        </li>
-      </ol>
+      <h2>Cara Mengirim Laporan Elektronik atau Manual</h2>
+      <p>Pasal 11 menetapkan penyampaian elektronik melalui sistem informasi yang dikelola Kementerian Ketenagakerjaan. Jika pelaporan belum dapat dilakukan melalui sistem itu, gunakan jalur manual dan konfirmasi cara penerimaan kepada dinas provinsi. Simpan bukti kirim atau tanda terima, bersama versi laporan yang disampaikan.</p>
+      <p>Sebelum mengirim, periksa tujuan, tembusan, periode, dan nama ketua. Setelah pengiriman, catat nomor referensi serta petugas internal yang memantau klarifikasi. Jika diminta memperbaiki laporan, simpan versi sebelumnya dan catat bagian serta alasan perubahan pada versi pengganti.</p>
     </section>
 
     <section id="alasan-laporan-ditolak-pengawas">
-      <h2>6 Kesalahan Fatal yang Menyebabkan Laporan P2K3 Ditolak Pengawas Ketenagakerjaan</h2>
-      <p>
-        Pastikan Anda memeriksa daftar periksa terakhir ini sebelum mengirim kurir atau staf HSE ke kantor Disnaker agar berkas tidak dikembalikan:
-      </p>
-      <ul>
-        <li><strong>1. Sekretaris P2K3 Belum Bersertifikat Ahli K3 Umum atau SKP-nya Mati:</strong> Berdasarkan Pasal 3 ayat (2) Permenaker 04/1987, Sekretaris P2K3 wajib seorang Ahli K3 Umum. Jika SKP AK3U sudah kedaluwarsa atau Sekretaris dijabat oleh staf HRD biasa yang belum pernah ikut pelatihan AK3U, laporan akan langsung ditolak dan perusahaan diberi nota teguran.</li>
-        <li><strong>2. Hanya Melampirkan 1 Kali Rapat dalam 3 Bulan:</strong> Rapat P2K3 wajib diadakan minimal 1 (satu) bulan sekali. Laporan triwulan harus merangkum 3 (tiga) kali rapat bulanan (misal: Januari, Februari, Maret), bukan rapat yang baru diadakan 3 bulan sekali.</li>
-        <li><strong>3. Perhitungan Jam Kerja Orang (Man-Hours) Tidak Logis:</strong> Menuliskan jumlah jam kerja yang sama persis setiap bulan padahal jumlah hari kerja kalender dan jam lembur berbeda-beda, atau salah memasukkan rumus pembagi 1.000.000 pada perhitungan FR dan SR.</li>
-        <li><strong>4. Tidak Ditandatangani oleh Ketua P2K3 (Pimpinan Perusahaan):</strong> Laporan yang hanya ditandatangani oleh Sekretaris P2K3 (HSE Officer) tanpa tanda tangan Ketua P2K3 (Direktur/GM) dianggap tidak sah karena tidak diketahui oleh pimpinan puncak.</li>
-        <li><strong>5. Menyalin Mentah-Mentah Isi Notulen Triwulan Lalu (Copy-Paste):</strong> Pengawas dan auditor selalu membandingkan laporan Triwulan I, II, dan III. Jika isi bahasan rapat dan foto dokumentasinya identik dari kuartal ke kuartal, hal tersebut langsung dicatat sebagai manipulasi dokumen.</li>
-        <li><strong>6. Menumpuk Pengiriman 4 Triwulan Sekaligus di Akhir Tahun:</strong> Menyerahkan laporan Q1, Q2, Q3, dan Q4 secara borongan pada bulan Desember menjelang audit SMK3 akan terlihat jelas dari tanggal stempel tanda terima Disnaker yang semuanya bertanggal bulan Desember.</li>
-      </ul>
+      <h2>Enam Pemeriksaan Sebelum Mengirim Laporan</h2>
+      <ol>
+        <li>Periode pada pengantar, data, dan rekap kegiatan konsisten.</li>
+        <li>Identitas perusahaan dan SK penetapan cocok dengan lingkup laporan.</li>
+        <li>Data kecelakaan dan penyakit akibat kerja dapat direkonsiliasi dengan register sumber.</li>
+        <li>Realisasi kegiatan dapat ditelusuri hingga tanggal, area, dan bukti pendukung.</li>
+        <li>Hambatan punya konteks yang cukup dan rekomendasi bisa ditindaklanjuti.</li>
+        <li>Ketua meninjau laporan, penerima serta tembusan sesuai, dan bukti pengiriman dapat diarsipkan.</li>
+      </ol>
     </section>
 
     <section id="peran-laporan-dalam-audit-dan-zero-accident">
-      <h2>Manfaat Tanda Terima Laporan P2K3 untuk Audit SMK3 dan Penghargaan Zero Accident</h2>
-      <p>
-        Menjaga kedisiplinan pengiriman laporan triwulan P2K3 tepat waktu memberikan tiga keuntungan strategis bagi perusahaan:
-      </p>
-      <p>
-        Pertama, seluruh bundel laporan triwulan beserta tanda terima Disnaker menjadi bukti pemenuhan langsung atas <a href="/dokumen-smk3/">dokumen SMK3 wajib perusahaan</a> saat menghadapi <a href="/audit-smk3/">persiapan audit SMK3</a>. Kedua, tanda terima laporan P2K3 adalah syarat mutlak yang diminta oleh Kementerian Ketenagakerjaan apabila perusahaan Anda mengajukan permohonan audit penilaian <strong>Penghargaan Kecelakaan Nihil (<em>Zero Accident Award</em>)</strong> tingkat nasional. Ketiga, dokumen ini membentengi direksi dari risiko <a href="/sanksi-tidak-menerapkan-k3/">sanksi hukum perusahaan tidak menerapkan K3</a> saat terjadi pemeriksaan ketenagakerjaan rutin.
-      </p>
+      <h2>Simpan Tanda Terima untuk Arsip dan Audit SMK3</h2>
+      <p>Arsipkan laporan, bukti pengiriman, dan sumber data dalam satu folder per periode. Rekaman tersebut membantu tim menjelaskan kegiatan P2K3 dan tindak lanjut rekomendasi saat <a href="/audit-smk3/">mempersiapkan audit SMK3</a>. Pasangkan dengan <a href="/dokumen-smk3/">dokumen penerapan SMK3</a> yang terkait. Gunakan <a href="/kriteria-audit-smk3/">kriteria audit yang berlaku</a> untuk menentukan tambahan sampel bukti yang dibutuhkan.</p>
+      <p>Kriteria 1.4.8 Lampiran II PP 50/2012 membahas pertemuan teratur dan penyebarluasan hasil. Kriteria 1.4.9 membahas pelaporan kegiatan sesuai peraturan. Simpan notulen dan bukti penyampaian hasil untuk kriteria pertemuan, lalu simpan laporan bertanggal dan bukti kirim untuk kriteria pelaporan. Kedua jenis bukti dapat dihubungkan dengan nomor periode dan ID tindakan.</p>
     </section>
 
     <FaqSection items={faqItems} />
